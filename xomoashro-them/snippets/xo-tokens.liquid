@@ -1,0 +1,107 @@
+{% doc %}
+  Xomoashro design tokens. Outputs the CSS custom properties every `xo-` file reads.
+  Colours and radius come from theme settings so the Theme Editor controls them.
+
+  Overlay layering contract (used by the header, sticky add-to-cart bar, WhatsApp
+  button, cookie banner, drawers and the promotional popup):
+
+  1. Layers, lowest to highest: `--xo-layer-sticky-bar` (bottom bars),
+     `--xo-layer-floating` (WhatsApp button), `--xo-layer-consent` (cookie banner),
+     then Horizon's drawers (`--layer-menu-drawer`), then `--xo-layer-modal` (popup).
+  2. Every bar fixed to the bottom of the screen carries `data-xo-bottom-bar`.
+     `assets/xo-overlays.js` adds up the heights of the visible ones and writes the
+     total to `--xo-bottom-offset` on the root element.
+  3. Anything that floats above the bottom edge is positioned with
+     `bottom: calc(var(--xo-floating-gap) + var(--xo-bottom-offset) + env(safe-area-inset-bottom))`
+     so it never covers a bar.
+  4. A modal never opens while another dialog is open or a consent choice is
+     pending. Ask `isOverlayBlocked()` from `@theme/xo-overlays` first.
+
+  @example
+  {% render 'xo-tokens' %}
+{% enddoc %}
+
+{% liquid
+  assign xo_accent = settings.palette_primary_button_background
+  assign xo_on_accent = settings.palette_primary_button_text
+  assign xo_bg = settings.color_palette.background
+  assign xo_fg = settings.color_palette.foreground
+%}
+
+{% style %}
+  :root {
+    --xo-accent: {{ xo_accent }};
+    --xo-on-accent: {{ xo_on_accent }};
+    --xo-accent-deep: {{ settings.xo_color_accent_deep }};
+    --xo-muted-base: {{ settings.xo_color_muted }};
+    --xo-surface-base: {{ settings.xo_color_surface }};
+    --xo-success: {{ settings.xo_color_success }};
+    --xo-ink: {{ settings.xo_color_ink }};
+    --xo-on-ink: {{ settings.xo_color_on_ink }};
+    --xo-page-bg: {{ xo_bg }};
+    --xo-page-fg: {{ xo_fg }};
+
+    --xo-bg: var(--xo-page-bg);
+    --xo-fg: var(--xo-page-fg);
+    --xo-muted: var(--xo-muted-base);
+    --xo-surface: var(--xo-surface-base);
+    --xo-line: rgb({{ xo_fg.red }} {{ xo_fg.green }} {{ xo_fg.blue }} / 0.12);
+    --xo-line-strong: rgb({{ xo_fg.red }} {{ xo_fg.green }} {{ xo_fg.blue }} / 0.28);
+    --xo-link: var(--xo-accent-deep);
+    --xo-highlight: var(--xo-accent-deep);
+    --xo-control-border: var(--xo-muted-base);
+    --xo-error: #A3211A;
+
+    --xo-font-display: var(--font-heading--family);
+    --xo-font-display-weight: var(--font-heading--weight);
+    --xo-font-body: var(--font-body--family);
+
+    --xo-text-xs: 0.75rem;
+    --xo-text-sm: 0.875rem;
+    --xo-text-base: 1rem;
+    --xo-text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+    --xo-text-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+    --xo-text-h3: clamp(1.375rem, 1.15rem + 1vw, 2rem);
+    --xo-text-h2: clamp(1.75rem, 1.3rem + 2vw, 3rem);
+    --xo-text-h1: clamp(2.25rem, 1.55rem + 3.2vw, 4.5rem);
+    --xo-text-stat: clamp(2.5rem, 1.6rem + 4vw, 4.75rem);
+
+    --xo-space-1: 0.25rem;
+    --xo-space-2: 0.5rem;
+    --xo-space-3: 0.75rem;
+    --xo-space-4: 1rem;
+    --xo-space-5: 1.5rem;
+    --xo-space-6: 2rem;
+    --xo-space-7: 3rem;
+    --xo-space-8: 4rem;
+    --xo-space-9: 6rem;
+    --xo-section-space: clamp(3.5rem, 2rem + 6vw, 7.5rem);
+    --xo-gutter: 1.25rem;
+    --xo-max-width: 75rem;
+    --xo-measure: 68ch;
+
+    --xo-radius-card: {{ settings.xo_radius_card }}px;
+    --xo-radius-sm: 8px;
+    --xo-radius-pill: 999px;
+    --xo-control-height: 3rem;
+    --xo-tap-target: 2.75rem;
+
+    --xo-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --xo-duration: 240ms;
+    --xo-duration-slow: 600ms;
+
+    --xo-layer-sticky-bar: 9;
+    --xo-layer-floating: 10;
+    --xo-layer-consent: 11;
+    --xo-layer-modal: 30;
+    --xo-floating-gap: 1rem;
+    --xo-bottom-offset: 0px;
+  }
+
+  @media (min-width: 750px) {
+    :root {
+      --xo-gutter: 2.5rem;
+      --xo-floating-gap: 1.5rem;
+    }
+  }
+{% endstyle %}

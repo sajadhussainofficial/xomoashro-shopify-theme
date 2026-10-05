@@ -1,0 +1,570 @@
+/*
+ * Xomoashro base styles. Loaded after base.css.
+ * Tokens come from snippets/xo-tokens.liquid. Section-specific styles live in
+ * each section's own {% stylesheet %} block, not here.
+ *
+ * Contrast (WCAG AA) for the default palette:
+ *   ink #0E0D0B on bone #F5F1EA      17.25:1
+ *   ink on accent #FF6B31             6.84:1  (button text)
+ *   accent-deep #C2410C on bone       4.60:1  (links, small accents)
+ *   muted #6B655C on bone             5.12:1
+ *   bone on ink                      17.25:1
+ *   accent #FF6B31 on ink             6.84:1
+ *   muted on ink (#ABA8A3)            8.20:1
+ *   muted on accent (#391E12)         5.41:1
+ *   error #A3211A on bone             6.69:1   error #FFA39A on ink 10.14:1
+ *   field border: muted on card colour 5.48:1, on ink 5.65:1, on accent 4.29:1
+ * White text on the accent is 2.84:1 and must not be used.
+ */
+
+/* Tones: each section sets one of these on its wrapper. */
+
+.xo-tone-bone,
+.xo-tone-ink,
+.xo-tone-accent,
+.xo-tone-surface {
+  background-color: var(--xo-bg);
+  color: var(--xo-fg);
+  --color-background: var(--xo-bg);
+  --color-foreground: var(--xo-fg);
+  --color: var(--xo-fg);
+}
+
+.xo-tone-bone {
+  --xo-bg: var(--xo-page-bg);
+  --xo-fg: var(--xo-page-fg);
+}
+
+.xo-tone-surface {
+  --xo-bg: var(--xo-surface-base);
+  --xo-fg: var(--xo-page-fg);
+  --xo-surface: var(--xo-page-bg);
+}
+
+.xo-tone-ink {
+  --xo-bg: var(--xo-ink);
+  --xo-fg: var(--xo-on-ink);
+  --xo-muted: color-mix(in srgb, var(--xo-on-ink) 68%, var(--xo-ink));
+  --xo-surface: color-mix(in srgb, var(--xo-on-ink) 7%, var(--xo-ink));
+  --xo-line: color-mix(in srgb, var(--xo-on-ink) 16%, transparent);
+  --xo-line-strong: color-mix(in srgb, var(--xo-on-ink) 34%, transparent);
+  --xo-link: var(--xo-accent);
+  --xo-highlight: var(--xo-accent);
+  --xo-control-border: color-mix(in srgb, var(--xo-on-ink) 55%, var(--xo-ink));
+  --xo-error: #FFA39A;
+}
+
+.xo-tone-accent {
+  --xo-bg: var(--xo-accent);
+  --xo-fg: var(--xo-on-accent);
+  --xo-muted: color-mix(in srgb, var(--xo-on-accent) 82%, var(--xo-accent));
+  --xo-surface: color-mix(in srgb, #fff 18%, var(--xo-accent));
+  --xo-line: color-mix(in srgb, var(--xo-on-accent) 22%, transparent);
+  --xo-line-strong: color-mix(in srgb, var(--xo-on-accent) 45%, transparent);
+  --xo-link: var(--xo-on-accent);
+  --xo-highlight: var(--xo-on-accent);
+  --xo-control-border: color-mix(in srgb, var(--xo-on-accent) 70%, var(--xo-accent));
+  --xo-error: var(--xo-on-accent);
+}
+
+/* Layout */
+
+.xo-section {
+  padding-block: var(--xo-section-space);
+}
+
+.xo-section--tight {
+  padding-block: calc(var(--xo-section-space) * 0.5);
+}
+
+.xo-section--flush-top {
+  padding-block-start: 0;
+}
+
+.xo-container {
+  width: min(100% - (var(--xo-gutter) * 2), var(--xo-max-width));
+  margin-inline: auto;
+}
+
+.xo-container--narrow {
+  --xo-max-width: 48rem;
+}
+
+.xo-stack > * + * {
+  margin-block-start: var(--xo-stack-gap, var(--xo-space-4));
+}
+
+.xo-grid {
+  display: grid;
+  gap: var(--xo-grid-gap, var(--xo-space-5));
+  grid-template-columns: repeat(var(--xo-cols, 1), minmax(0, 1fr));
+}
+
+@media (min-width: 750px) {
+  .xo-grid {
+    --xo-cols: var(--xo-cols-md, 2);
+  }
+}
+
+@media (min-width: 990px) {
+  .xo-grid {
+    --xo-cols: var(--xo-cols-lg, var(--xo-cols-md, 3));
+  }
+}
+
+/* Type */
+
+.xo-h1,
+.xo-h2,
+.xo-h3,
+.xo-h4,
+.xo-stat {
+  font-family: var(--xo-font-display);
+  font-weight: var(--xo-font-display-weight);
+  font-style: normal;
+  color: var(--xo-fg);
+  margin: 0;
+  text-wrap: balance;
+  text-transform: none;
+}
+
+.xo-h1 {
+  font-size: var(--xo-text-h1);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.xo-h2 {
+  font-size: var(--xo-text-h2);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.xo-h3 {
+  font-size: var(--xo-text-h3);
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+}
+
+.xo-h4 {
+  font-size: var(--xo-text-h4);
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+}
+
+.xo-stat {
+  font-size: var(--xo-text-stat);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.xo-h1 em,
+.xo-h2 em,
+.xo-h3 em,
+.xo-h4 em {
+  font-style: normal;
+  color: var(--xo-highlight);
+}
+
+.xo-text,
+.xo-lead,
+.xo-small {
+  font-family: var(--xo-font-body);
+  color: var(--xo-fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.xo-text {
+  font-size: var(--xo-text-base);
+  line-height: 1.65;
+}
+
+.xo-lead {
+  font-size: var(--xo-text-lead);
+  line-height: 1.55;
+}
+
+.xo-small {
+  font-size: var(--xo-text-sm);
+  line-height: 1.5;
+}
+
+.xo-muted {
+  color: var(--xo-muted);
+}
+
+.xo-measure {
+  max-inline-size: var(--xo-measure);
+}
+
+.xo-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--xo-space-2);
+  margin: 0;
+  font-family: var(--xo-font-body);
+  font-size: var(--xo-text-xs);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--xo-highlight);
+}
+
+.xo-eyebrow--pill {
+  padding: var(--xo-space-2) var(--xo-space-3);
+  border: 1px solid var(--xo-line-strong);
+  border-radius: var(--xo-radius-pill);
+  color: var(--xo-fg);
+  letter-spacing: 0.1em;
+}
+
+.xo-rule {
+  display: block;
+  inline-size: 3rem;
+  block-size: 2px;
+  margin: 0;
+  border: 0;
+  background: var(--xo-accent);
+}
+
+.xo-rte > * + * {
+  margin-block-start: 1em;
+}
+
+.xo-rte a,
+.xo-link {
+  color: var(--xo-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+@media (hover: hover) {
+  .xo-rte a:hover,
+  .xo-link:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Section heading (snippets/xo-section-heading.liquid) */
+
+.xo-heading {
+  display: grid;
+  gap: var(--xo-space-4);
+  justify-items: start;
+  margin-block-end: var(--xo-space-7);
+  max-inline-size: 46rem;
+}
+
+.xo-heading--center {
+  justify-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* Buttons */
+
+.xo-btn {
+  --xo-btn-bg: var(--color-primary-button-background, var(--xo-accent));
+  --xo-btn-fg: var(--color-primary-button-text, var(--xo-on-accent));
+  --xo-btn-border: var(--xo-btn-bg);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--xo-space-2);
+  min-block-size: var(--xo-control-height);
+  padding: 0.75rem 1.625rem;
+  border: 1.5px solid var(--xo-btn-border);
+  border-radius: var(--style-border-radius-buttons-primary, var(--xo-radius-pill));
+  background: var(--xo-btn-bg);
+  color: var(--xo-btn-fg);
+  font-family: var(--xo-font-body);
+  font-size: var(--xo-text-base);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color var(--xo-duration) var(--xo-ease), color var(--xo-duration) var(--xo-ease),
+    border-color var(--xo-duration) var(--xo-ease), transform var(--xo-duration) var(--xo-ease);
+}
+
+.xo-btn--secondary {
+  --xo-btn-bg: transparent;
+  --xo-btn-fg: var(--xo-fg);
+  --xo-btn-border: var(--xo-fg);
+  border-radius: var(--style-border-radius-buttons-secondary, var(--xo-radius-pill));
+}
+
+.xo-btn--quiet {
+  --xo-btn-bg: transparent;
+  --xo-btn-fg: var(--xo-fg);
+  --xo-btn-border: transparent;
+  padding-inline: var(--xo-space-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.xo-tone-accent .xo-btn:not(.xo-btn--secondary, .xo-btn--quiet) {
+  --xo-btn-bg: var(--xo-ink);
+  --xo-btn-fg: var(--xo-on-ink);
+}
+
+.xo-btn--block {
+  inline-size: 100%;
+}
+
+.xo-btn .xo-icon {
+  flex: none;
+}
+
+.xo-btn[disabled],
+.xo-btn[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .xo-btn:not([disabled], [aria-disabled='true'], .xo-btn--secondary, .xo-btn--quiet):hover {
+    --xo-btn-bg: color-mix(in srgb, var(--color-primary-button-background, var(--xo-accent)) 88%, #000);
+  }
+
+  .xo-tone-accent .xo-btn:not([disabled], [aria-disabled='true'], .xo-btn--secondary, .xo-btn--quiet):hover {
+    --xo-btn-bg: color-mix(in srgb, var(--xo-ink) 84%, #fff);
+  }
+
+  .xo-btn--secondary:not([disabled], [aria-disabled='true']):hover {
+    --xo-btn-bg: var(--xo-fg);
+    --xo-btn-fg: var(--xo-bg);
+  }
+
+  .xo-btn--quiet:not([disabled], [aria-disabled='true']):hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.xo-btn:active:not([disabled], [aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+::selection {
+  background: var(--xo-accent);
+  color: var(--xo-on-accent);
+}
+
+/* Focus */
+
+:where(.xo-btn, .xo-link, .xo-field__control, .xo-card--link, [class^='xo-'] a, [class^='xo-'] button, [class^='xo-'] summary):focus-visible {
+  outline: 2px solid var(--xo-fg);
+  outline-offset: 3px;
+}
+
+/* Form fields */
+
+.xo-field {
+  display: grid;
+  gap: var(--xo-space-2);
+  align-content: start;
+}
+
+.xo-field__label {
+  font-family: var(--xo-font-body);
+  font-size: var(--xo-text-sm);
+  font-weight: 600;
+  color: var(--xo-fg);
+}
+
+/* Element names are included so these rules outrank Horizon's `input:not(...)` defaults in base.css. */
+:is(input, textarea, select).xo-field__control {
+  inline-size: 100%;
+  min-block-size: var(--xo-control-height);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--xo-control-border);
+  border-radius: var(--style-border-radius-inputs, 10px);
+  background: var(--xo-surface);
+  color: var(--xo-fg);
+  font-family: var(--xo-font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  appearance: none;
+}
+
+textarea.xo-field__control {
+  min-block-size: 7.5rem;
+  resize: vertical;
+}
+
+:is(input, textarea).xo-field__control::placeholder {
+  color: var(--xo-muted);
+  opacity: 1;
+}
+
+:is(input, textarea, select).xo-field__control:focus-visible {
+  border-color: var(--xo-fg);
+  outline-offset: 1px;
+}
+
+.xo-field__control[aria-invalid='true'] {
+  border-color: var(--xo-error);
+}
+
+.xo-field__hint,
+.xo-field__error {
+  font-size: var(--xo-text-sm);
+  line-height: 1.4;
+  color: var(--xo-muted);
+}
+
+.xo-field__error {
+  color: var(--xo-error);
+  font-weight: 600;
+}
+
+/* Cards, chips, icons */
+
+.xo-card {
+  display: grid;
+  gap: var(--xo-space-3);
+  align-content: start;
+  padding: var(--xo-space-5);
+  border: 1px solid var(--xo-line);
+  border-radius: var(--xo-radius-card);
+  background: var(--xo-surface);
+  color: var(--xo-fg);
+}
+
+@media (min-width: 750px) {
+  .xo-card {
+    padding: var(--xo-space-6);
+  }
+}
+
+.xo-card--plain {
+  background: transparent;
+}
+
+.xo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--xo-space-2);
+  min-block-size: 2rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--xo-line-strong);
+  border-radius: var(--xo-radius-pill);
+  font-family: var(--xo-font-body);
+  font-size: var(--xo-text-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--xo-fg);
+}
+
+.xo-chip .xo-icon {
+  color: var(--xo-highlight);
+}
+
+.xo-icon {
+  display: inline-flex;
+  flex: none;
+  inline-size: var(--xo-icon-size, 1.25rem);
+  block-size: var(--xo-icon-size, 1.25rem);
+}
+
+.xo-icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.xo-icon--badge {
+  --xo-icon-size: 1.375rem;
+  box-sizing: content-box;
+  padding: 0.75rem;
+  border: 1px solid var(--xo-line-strong);
+  border-radius: 50%;
+  color: var(--xo-highlight);
+}
+
+/* Media */
+
+.xo-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--xo-radius-card);
+  background: var(--xo-surface);
+}
+
+.xo-media img,
+.xo-media svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.xo-img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Shopify's placeholder drawing, shown until an image is chosen. */
+svg.xo-img {
+  fill: currentcolor;
+  opacity: 0.45;
+}
+
+/* Utilities */
+
+.xo-visually-hidden {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.xo-floating {
+  position: fixed;
+  inset-block-end: calc(var(--xo-floating-gap) + var(--xo-bottom-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--xo-layer-floating);
+  transition: inset-block-end var(--xo-duration) var(--xo-ease);
+}
+
+/*
+ * Reveal on scroll for elements marked `data-xo-reveal`.
+ *
+ * The hidden state exists only inside the animation, so content is visible by
+ * default: with JavaScript off, in browsers without scroll-driven animations, in
+ * print, in the Theme Editor, and for visitors who ask for reduced motion.
+ * `xo-reveal-on` is set on <body> by the theme setting. `--xo-reveal-order`
+ * (0, 1, 2 …) staggers items in a row.
+ */
+
+@keyframes xo-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .xo-reveal-on [data-xo-reveal] {
+      animation: xo-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--xo-reveal-order, 0) * 6%) entry calc(50% + (var(--xo-reveal-order, 0) * 6%));
+    }
+  }
+}
