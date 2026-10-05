@@ -40,7 +40,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 
 Expand these into `tasks/P04-tasks.md` at phase start (one task per file or per coherent unit, each with its own check).
 
-1. Section settings: tone (amber by default), autoplay on or off, seconds per message (4 to 10), show arrows, dismissible on or off, text size.
+1. Section settings: tone (accent by default), autoplay on or off, seconds per message (4 to 10), show arrows, dismissible on or off, text size.
 2. Block "message": text (inline rich text), optional link, optional icon, and a "dynamic value" choice that inserts the free-shipping threshold or guarantee days from shop facts.
 3. Default blocks: free delivery over the threshold, "Cash on delivery across Pakistan", "Questions? Chat on WhatsApp". A block whose dynamic value is empty is not rendered.
 4. Rotation: fade between messages; pause on hover and on keyboard focus; arrows are real buttons; under `prefers-reduced-motion` show the first message only.

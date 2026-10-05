@@ -10,7 +10,7 @@ One row per question for the store owner. The runner reads this file before ever
 | B4 | Guarantee length (7 or 30 days), and the one correct phone number and WhatsApp number. | Guarantee line omitted; WhatsApp button and widget hidden. | P01, P04, P05, P07, P08, P10, P14, P24 | open | | |
 | B5 | Logo colour: keep orange `#FF6B31`, or render the logo in the new ink and amber palette. | Logo shape kept, rendered in ink with an amber mark. | P02, P03 | answered | Keep the logo in orange `#FF6B31`. | 2026-10-06 |
 | B6 | Affiliate programme: which app (Shopify Collabs, UpPromote or other), or drop it. | Affiliate page becomes an application form. | P10 | open | | |
-| B7 | Shopify store domain (`*.myshopify.com`) and Shopify CLI login on this machine. | None: without this nothing can be previewed or pushed. | P01, P06, P08, P12, P15, P16, P20, P21, P24 | open | | |
+| B7 | Shopify store domain (`*.myshopify.com`) and Shopify CLI login on this machine. | None: without this nothing can be previewed or pushed. | P01, P06, P08, P12, P15, P16, P20, P21, P24 | answered | Store `https-xomoashro-com-fcrv98st.myshopify.com`. CLI logged in. Owner runs `shopify theme dev` locally: preview `http://127.0.0.1:9292/`, working theme ID `158613045420`. | 2026-10-06 |
 | B8 | Keep the "5,000+ customers" claim? Is "Asad" the person in `Khalid-Kurt.png`? Real social profile URLs? | Claim removed, that testimonial shown without photo, social icons hidden. | P05, P07 | open | | |
 | B9 | Shipping facts: delivery time in days, shipping fee, free-delivery threshold, return terms. | Progress bar and delivery estimate hidden; policies keep marked placeholders (blocks launch). | P01, P04, P06, P12, P24 | open | | |
 | B10 | New photography (see `reference/photo-shoot-list.md`). | Launch with the cut-out jar on designed backgrounds. | P07 | open | | |
@@ -22,7 +22,8 @@ One row per question for the store owner. The runner reads this file before ever
 | B16 | Tracking route: GA4 through Google Tag Manager (recommended since GTM is wanted), or through Shopify's Google and YouTube app. One only. | GA4 through GTM in a custom pixel; Meta through Shopify's Facebook and Instagram app. | P16, P17 | open | | |
 | B17 | Commit the raw screenshots (about 240 MB) to git, or ignore them? | Ignore the PNG folders, commit text and data files. | P00 | default taken | Ignore the PNG/JPG screenshot folders; commit text and data files. Owner can reverse this. | 2026-10-06 |
 | B18 | Which jar is the current packaging: black lid with copper logo (shown on the old site), gold lid, or the green jar? All three are in the media library. | Black-lid jar, because it is the one on the old live site. | P07, P08, P12 | open | | |
-| B19 | With the logo staying orange, which accent colour for buttons and highlights: (a) the brand orange `#FF6B31` with dark text, so logo and buttons match; (b) keep amber `#B8742A` as planned, beside the orange logo. | (a): one accent family. Orange `#FF6B31` for buttons with ink text (6.84:1), deep orange `#C2410C` for links and small accents (4.6:1 on bone). | P02 | open | | |
+| B19 | With the logo staying orange, which accent colour for buttons and highlights: (a) the brand orange `#FF6B31` with dark text, so logo and buttons match; (b) keep amber `#B8742A` as planned, beside the orange logo. | (a): one accent family. Orange `#FF6B31` for buttons with ink text (6.84:1), deep orange `#C2410C` for links and small accents (4.6:1 on bone). | P02 | answered | (a) Orange accent: `#FF6B31` buttons with ink text, `#C2410C` for links. Confirmed by the owner ("go with your recommendation on all 3 points"). | 2026-10-06 |
+| B20 | The starter ships 55 locale files besides English and Urdu. New `xo` strings exist only in English, so Theme Check's translation-matching rule is switched off in `.theme-check.yml`. Delete the unused locale files (keep English and Urdu)? | Files stay and the rule stays off until launch. | P24 | open | | |
 
 ## Decisions already made
 
@@ -34,6 +35,9 @@ One row per question for the store owner. The runner reads this file before ever
 | 2026-10-06 | Competitor patterns are adapted in our own colour scheme; nothing is copied. |
 | 2026-10-06 | A promotional popup, announcement bar, WhatsApp widget and cookie consent are in scope, each as its own phase. |
 | 2026-10-06 | Google Tag Manager, Google Analytics, Search Console, Bing, technical SEO, speed, accessibility and responsiveness each get their own phase. |
+| 2026-10-06 | The logo stays orange `#FF6B31`; the accent colour follows it (buttons orange with dark text, links `#C2410C`). The earlier amber accent is dropped. |
+| 2026-10-06 | Typeface is Manrope for headings and body (owner's request during P02), replacing Fraunces and Inter. |
+| 2026-10-06 | For P02 the owner asked for commit, push, pull request and merge into `main` on completion, without a separate approval stop. |
 
 ## New questions
 

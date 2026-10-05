@@ -1,0 +1,59 @@
+{% doc %}
+  Outputs one store fact from shop metafields (namespace `custom`), as plain text.
+  Outputs nothing when the fact is not set, so callers can hide the line:
+
+  {% capture guarantee_days %}{% render 'xo-shop-facts', fact: 'guarantee_days' %}{% endcapture %}
+  {% if guarantee_days != blank %} ... {% endif %}
+
+  @param {string} fact - One of: `guarantee_days`, `support_email`, `whatsapp_number` (digits only, for wa.me), `whatsapp_url`, `free_shipping_threshold` (number in the store currency), `delivery_range` (for example `3–5`), `delivery_days_min`, `delivery_days_max`
+  @param {string} [override] - Value from a section setting that replaces the shop metafield when filled in
+  @param {string} [message] - Prefilled message for `whatsapp_url`
+
+  @example
+  {% render 'xo-shop-facts', fact: 'whatsapp_url', message: 'Hello, I have a question about my order.' %}
+{% enddoc %}
+
+{%- liquid
+  assign xo_facts = shop.metafields.custom
+  assign xo_fact_value = ''
+
+  case fact
+    when 'guarantee_days'
+      assign xo_fact_value = override | default: xo_facts.guarantee_days.value
+    when 'support_email'
+      assign xo_fact_value = override | default: xo_facts.support_email.value
+    when 'free_shipping_threshold'
+      assign xo_fact_value = override | default: xo_facts.free_shipping_threshold.value
+    when 'delivery_days_min'
+      assign xo_fact_value = override | default: xo_facts.delivery_days_min.value
+    when 'delivery_days_max'
+      assign xo_fact_value = override | default: xo_facts.delivery_days_max.value
+    when 'delivery_range'
+      assign xo_delivery_min = xo_facts.delivery_days_min.value
+      assign xo_delivery_max = xo_facts.delivery_days_max.value
+      if override != blank
+        assign xo_fact_value = override
+      elsif xo_delivery_min != blank and xo_delivery_max != blank and xo_delivery_min != xo_delivery_max
+        assign xo_fact_value = xo_delivery_min | append: '–' | append: xo_delivery_max
+      elsif xo_delivery_max != blank
+        assign xo_fact_value = xo_delivery_max
+      elsif xo_delivery_min != blank
+        assign xo_fact_value = xo_delivery_min
+      endif
+    when 'whatsapp_number', 'whatsapp_url'
+      assign xo_whatsapp_raw = override | default: xo_facts.whatsapp_number.value | append: ''
+      assign xo_whatsapp_digits = xo_whatsapp_raw | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | strip
+      if xo_whatsapp_digits != blank
+        if fact == 'whatsapp_number'
+          assign xo_fact_value = xo_whatsapp_digits
+        else
+          assign xo_fact_value = 'https://wa.me/' | append: xo_whatsapp_digits
+          if message != blank
+            assign xo_whatsapp_text = message | url_encode
+            assign xo_fact_value = xo_fact_value | append: '?text=' | append: xo_whatsapp_text
+          endif
+        endif
+      endif
+  endcase
+-%}
+{{- xo_fact_value | strip -}}

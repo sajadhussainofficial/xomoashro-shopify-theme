@@ -23,6 +23,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | B3 | Lab report file, lab name, test date, batch number, measured fulvic percentage and heavy-metal values. | soft | All lab claims and lab sections stay hidden. |
 | B4 | Guarantee length (7 or 30 days), and the one correct phone number and WhatsApp number. | hard | Phase waits. |
 | B9 | Shipping facts: delivery time in days, shipping fee, free-delivery threshold, return terms. | hard | Phase waits. |
+| B20 | Delete the 55 unused locale files (keep English and Urdu)? | soft | Files stay; the translation-matching check stays off. |
 
 ## Read first
 

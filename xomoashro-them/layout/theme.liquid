@@ -19,11 +19,13 @@
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
+    {{ 'xo-base.css' | asset_url | stylesheet_tag }}
     {%- render 'card-hover-effect-styles' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
+    {%- render 'xo-tokens' -%}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
@@ -32,7 +34,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}{% if settings.xo_reveal and request.design_mode != true %} xo-reveal-on{% endif %}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
     {% render 'chat-drawer' %}
@@ -173,5 +175,7 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    {% sections 'overlay-group' %}
   </body>
 </html>

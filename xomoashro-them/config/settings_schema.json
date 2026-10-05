@@ -1,11 +1,87 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Horizon",
-    "theme_version": "4.2.0",
-    "theme_author": "Shopify",
+    "theme_name": "Xomoashro",
+    "theme_version": "1.0.0",
+    "theme_author": "Xomoashro",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "t:xo.settings.group",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:xo.settings.intro"
+      },
+      {
+        "type": "header",
+        "content": "t:xo.settings.colors_header"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_accent_deep",
+        "label": "t:xo.settings.accent_deep",
+        "info": "t:xo.settings.accent_deep_info",
+        "default": "#C2410C"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_muted",
+        "label": "t:xo.settings.muted",
+        "default": "#6B655C"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_surface",
+        "label": "t:xo.settings.surface",
+        "info": "t:xo.settings.surface_info",
+        "default": "#FBF9F5"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_success",
+        "label": "t:xo.settings.success",
+        "default": "#2F6B3E"
+      },
+      {
+        "type": "header",
+        "content": "t:xo.settings.dark_header"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_ink",
+        "label": "t:xo.settings.ink",
+        "default": "#0E0D0B"
+      },
+      {
+        "type": "color",
+        "id": "xo_color_on_ink",
+        "label": "t:xo.settings.on_ink",
+        "default": "#F5F1EA"
+      },
+      {
+        "type": "header",
+        "content": "t:xo.settings.shape_header"
+      },
+      {
+        "type": "range",
+        "id": "xo_radius_card",
+        "label": "t:xo.settings.radius_card",
+        "min": 0,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 14
+      },
+      {
+        "type": "checkbox",
+        "id": "xo_reveal",
+        "label": "t:xo.settings.reveal",
+        "info": "t:xo.settings.reveal_info",
+        "default": true
+      }
+    ]
   },
   {
     "name": "t:names.logo_and_favicon",

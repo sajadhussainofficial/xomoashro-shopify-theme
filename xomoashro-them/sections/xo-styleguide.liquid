@@ -1,0 +1,269 @@
+{%- liquid
+  assign tones = section.settings.tone | split: ','
+  if section.settings.show_tones
+    assign tones = 'bone,surface,ink,accent' | split: ','
+  endif
+  assign icon_names = 'check,check-circle,arrow-right,plus,minus,close,mountain,leaf,flask,truck,cash,shield,jar,drop,sun,clock,phone,mail,pin,star,quote,whatsapp' | split: ','
+-%}
+
+{%- for tone in tones -%}
+  <div class="xo-styleguide xo-section xo-tone-{{ tone }}">
+    <div class="xo-container xo-styleguide__layout">
+      {%- render 'xo-section-heading',
+        eyebrow: section.settings.eyebrow,
+        heading: section.settings.heading,
+        lead: section.settings.lead,
+        level: 'h2',
+        size: 'h1'
+      -%}
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.type' | t }}</p>
+        <p class="xo-h1">{{ section.settings.heading }}</p>
+        <p class="xo-h2">{{ section.settings.heading }}</p>
+        <p class="xo-h3">{{ section.settings.heading }}</p>
+        <p class="xo-h4">{{ section.settings.heading }}</p>
+        <div class="xo-lead xo-measure">{{ section.settings.lead }}</div>
+        <div class="xo-text xo-measure xo-rte">{{ section.settings.body }}</div>
+        <p class="xo-small xo-muted">{{ 'xo.styleguide.hint' | t }}</p>
+        <p>
+          <span class="xo-stat">16,000</span>
+          <span class="xo-small xo-muted">{{ 'xo.styleguide.stat_label' | t }}</span>
+        </p>
+      </div>
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.buttons' | t }}</p>
+        <div class="xo-styleguide__row">
+          {%- assign label_primary = 'xo.styleguide.primary' | t -%}
+          {%- assign label_secondary = 'xo.styleguide.secondary' | t -%}
+          {%- assign label_quiet = 'xo.styleguide.quiet' | t -%}
+          {%- assign label_disabled = 'xo.styleguide.disabled' | t -%}
+          {%- render 'xo-button', label: label_primary, url: '#', icon: 'arrow-right' -%}
+          {%- render 'xo-button', label: label_secondary, url: '#', style: 'secondary' -%}
+          {%- render 'xo-button', label: label_quiet, url: '#', style: 'quiet' -%}
+          {%- render 'xo-button', label: label_disabled, attributes: 'disabled' -%}
+        </div>
+      </div>
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.forms' | t }}</p>
+        <div class="xo-grid xo-styleguide__form">
+          <div class="xo-field">
+            <label
+              class="xo-field__label"
+              for="Styleguide-Name-{{ section.id }}-{{ tone }}"
+            >
+              {{- 'xo.styleguide.name_label' | t -}}
+            </label>
+            <input
+              class="xo-field__control"
+              id="Styleguide-Name-{{ section.id }}-{{ tone }}"
+              type="text"
+              autocomplete="name"
+              placeholder="{{ 'xo.styleguide.name_placeholder' | t }}"
+            >
+            <p class="xo-field__hint">{{ 'xo.styleguide.hint' | t }}</p>
+          </div>
+          <div class="xo-field">
+            <label
+              class="xo-field__label"
+              for="Styleguide-Message-{{ section.id }}-{{ tone }}"
+            >
+              {{- 'xo.styleguide.message_label' | t -}}
+            </label>
+            <textarea
+              class="xo-field__control"
+              id="Styleguide-Message-{{ section.id }}-{{ tone }}"
+            ></textarea>
+            <p class="xo-field__error">{{ 'xo.styleguide.error' | t }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.cards' | t }}</p>
+        <div class="xo-styleguide__row">
+          <span class="xo-chip">
+            {%- render 'xo-icon', name: 'cash', size: 16 -%}
+            {{- 'xo.styleguide.chip' | t -}}
+          </span>
+          <span class="xo-eyebrow xo-eyebrow--pill">{{ section.settings.eyebrow }}</span>
+        </div>
+        <div
+          class="xo-grid"
+          style="--xo-cols-md: 2; --xo-cols-lg: 3;"
+        >
+          {%- for i in (1..3) -%}
+            <div
+              class="xo-card"
+              data-xo-reveal
+              style="--xo-reveal-order: {{ forloop.index0 }};"
+            >
+              {%- render 'xo-icon', name: icon_names[forloop.index], class: 'xo-icon--badge' -%}
+              <p class="xo-h4">{{ 'xo.styleguide.card_title' | t }}</p>
+              <div class="xo-text xo-muted">{{ section.settings.body }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.media' | t }}</p>
+        <div class="xo-media xo-styleguide__media">
+          {%- render 'xo-image', image: section.settings.image, sizes: '(min-width: 750px) 480px, 100vw', max_width: 960 -%}
+        </div>
+        {%- capture guarantee_days -%}
+          {%- render 'xo-shop-facts', fact: 'guarantee_days' -%}
+        {%- endcapture -%}
+        {%- capture whatsapp_url -%}
+          {%- render 'xo-shop-facts', fact: 'whatsapp_url' -%}
+        {%- endcapture -%}
+        <p class="xo-small xo-muted">
+          {%- if guarantee_days != blank -%}
+            {{ 'xo.styleguide.fact_guarantee' | t: days: guarantee_days }}
+          {%- else -%}
+            {{ 'xo.styleguide.fact_guarantee_empty' | t }}
+          {%- endif -%}
+          {%- if whatsapp_url != blank %}
+            · <a class="xo-link" href="{{ whatsapp_url }}">WhatsApp</a>
+          {%- endif -%}
+        </p>
+      </div>
+
+      <div class="xo-styleguide__group">
+        <p class="xo-eyebrow">{{ 'xo.styleguide.icons' | t }}</p>
+        <ul class="xo-styleguide__icons">
+          {%- for icon_name in icon_names -%}
+            <li>
+              {%- render 'xo-icon', name: icon_name, size: 24 -%}
+              <span class="xo-small xo-muted">{{ icon_name }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
+
+{% stylesheet %}
+  .xo-styleguide__layout {
+    display: grid;
+    gap: var(--xo-space-7);
+  }
+
+  .xo-styleguide__group {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+    padding-block-start: var(--xo-space-6);
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-styleguide__group > .xo-grid {
+    inline-size: 100%;
+  }
+
+  .xo-styleguide__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-styleguide__form {
+    --xo-cols-md: 2;
+    --xo-cols-lg: 2;
+  }
+
+  .xo-styleguide__media {
+    inline-size: min(100%, 30rem);
+    aspect-ratio: 4 / 3;
+  }
+
+  .xo-styleguide__icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+    gap: var(--xo-space-4);
+    inline-size: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-styleguide__icons li {
+    display: grid;
+    gap: var(--xo-space-2);
+    justify-items: center;
+    text-align: center;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.styleguide",
+  "tag": "section",
+  "class": "xo-styleguide-section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:xo.info.styleguide"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tones",
+      "label": "t:xo.labels.show_tones",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:xo.labels.image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:xo.labels.eyebrow",
+      "default": "Himalayan Aftabi Shilajit"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "default": "Elevate your life with <em>pure</em> Himalayan shilajit"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Natural resin sourced from the mountains of Chitral and Gilgit-Baltistan, delivered across Pakistan.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "t:xo.labels.body",
+      "default": "<p>Directly sourced from trusted Himalayan collectors and carefully processed for natural purity.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.styleguide"
+    }
+  ]
+}
+{% endschema %}

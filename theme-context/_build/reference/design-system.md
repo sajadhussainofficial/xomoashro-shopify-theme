@@ -4,22 +4,28 @@ Reference for every phase that produces UI. Full competitor notes are in `../com
 
 ---
 
-## Design system: "Mountain Apothecary", corrected
+## Design system: "Mountain Apothecary", as built in P02
+
+Decided with the owner on 2026-10-06: the logo stays orange, the accent follows the logo, and the typeface is Manrope throughout. The earlier amber accent and the Fraunces and Inter pairing are replaced.
 
 | Token | Value | Use | Contrast check |
 |---|---|---|---|
 | ink | `#0E0D0B` | Text, secondary button outline, dark sections | 17.25:1 on bone |
 | bone | `#F5F1EA` | Page background | |
-| amber | `#B8742A` | Primary button fill, icons, large display accents | Ink text on amber 5.15:1 (pass). White text on amber 3.77:1 (fail), so buttons use ink text |
-| amber-deep | `#9A5E1F` | Text links and small accent text on bone, hover state | White on amber-deep 5.26:1 |
-| stone | `#6B655C` | Secondary text | 5.12:1 on bone |
-| success | `#2F6B3E` | In-stock, verified, savings | White on success 6.38:1 |
-| line | `rgba(14,13,11,.12)` | Hairlines, card borders | |
+| accent | `#FF6B31` (brand orange, same as the logo) | Primary button fill, rules, icons on dark | Ink text on accent 6.84:1 (pass). White text on accent 2.84:1 (fail), so buttons use ink text |
+| accent-deep | `#C2410C` | Links, eyebrows and small accents on light backgrounds | 4.60:1 on bone, 4.92:1 on card colour |
+| muted | `#6B655C` | Secondary text, field borders | 5.12:1 on bone, 5.48:1 on card colour |
+| card (surface) | `#FBF9F5` | Cards and fields on the page background | Ink on card 18.47:1 |
+| success | `#2F6B3E` | In-stock, verified, savings | 5.66:1 on bone |
+| error | `#A3211A` on light, `#FFA39A` on dark | Form errors | 6.69:1 on bone, 10.14:1 on ink |
+| line | ink at 12% | Hairlines, card borders | Decorative |
 
-- **Type:** Fraunces for H1–H3, Inter for body and UI (Inter is already the theme default). Both are requested through Horizon's `font_picker`; if Fraunces is not in Shopify's font library it is self-hosted as two WOFF2 files with `font-display: swap`.
-- **Scale:** fluid with `clamp()`, H1 from 36px at 360px wide to 72px at 1280px. 8px spacing scale. 14px card radius, 999px pills. Buttons at least 48px tall.
-- **Premium without photography:** generous whitespace, serif display type at large sizes, hairline rules, a subtle paper-grain background on bone, amber used sparingly, one dark ink section per page for rhythm, numerals set large for the proof points (16,000 ft, 85+ minerals). Motion is limited to fade-and-rise on scroll and respects `prefers-reduced-motion`.
-- **Three section tones**, chosen per section with one setting: Bone (default), Ink (dark sections, footer), Amber (announcement bar, one CTA band). Horizon 4.2 has a single colour palette, not colour schemes, so the tones are implemented in `xo-tokens`.
+- **Type:** Manrope for everything, chosen through Horizon's `font_picker` settings (headings 600, body 400, labels 600 and 700). Manrope has no italic, so a highlighted word inside a heading (`<em>`) is shown in the accent colour, not in italics.
+- **Scale:** fluid with `clamp()`: H1 36px at 360px wide to 66px at 1280px (72px maximum), H2 28 to 46px, H3 22 to 31px, body 16px. Spacing in 4 and 8px steps. 14px card radius, pill buttons, controls at least 48px tall.
+- **Premium without photography:** generous whitespace, large tightly tracked headings, hairline rules, the accent used sparingly, one dark ink section per page for rhythm, numerals set large for the proof points (16,000 ft, 85+ minerals).
+- **Motion:** content fades and rises as it scrolls into view, done with a CSS scroll-driven animation and no script. It is off for reduced-motion visitors, in the Theme Editor, and in browsers that do not support it (content is simply visible).
+- **Four section tones**, chosen per section with one setting: Bone (page colour, default), Surface (card colour), Ink (dark sections, footer), Accent (announcement bar, one call-to-action band). Horizon 4.2 has a single colour palette, not colour schemes, so the tones are classes in `assets/xo-base.css`.
+- **Where it lives:** tokens in `snippets/xo-tokens.liquid`, components in `assets/xo-base.css`, live reference at `/pages/contact?view=styleguide` on the preview.
 - **RTL:** logical properties only (`margin-inline`, `inset-inline`), no left/right, so the existing `ur.json` locale can be switched on later.
 
 ---
@@ -33,7 +39,7 @@ Full notes: `theme-context/_build/competitor-notes.md`. Nine sites were reviewed
 | New section | What it is | Used on |
 |---|---|---|
 | `xo-problem` | One large statement that most shilajit on the market is fake or diluted (from our own About copy), then our answer | Homepage, after the trust strip |
-| `xo-stats-band` | Ink band with three or four large amber numerals (16,000 ft, 85+ minerals, jar size); confirmed numbers only | Homepage, product page |
+| `xo-stats-band` | Ink band with three or four large accent-coloured numerals (16,000 ft, 85+ minerals, jar size); confirmed numbers only | Homepage, product page |
 | `xo-spec-grid` | Two-column specification cards (net weight, form, origin, purity, lab testing, packaging, shelf life), filled from metafields, each hidden when empty | Product page |
 | `xo-precautions` | Clearly labelled precautions block: not a medicine, pregnancy, medication, consult a doctor | Product page, end of health articles |
 | `xo-pdp-anchor-nav` | Sticky chip row that jumps to Benefits, How to use, Lab, Reviews, FAQ | Product page |
@@ -49,7 +55,7 @@ Full notes: `theme-context/_build/competitor-notes.md`. Nine sites were reviewed
   - three reassurance rows;
   - one testimonial line under the button;
   - "Order on WhatsApp" as a secondary outline button.
-- **Section headings:** small-caps eyebrow, serif heading, short amber rule, used everywhere through `xo-section-heading`.
+- **Section headings:** small-caps eyebrow, heading, short accent rule, used everywhere through `xo-section-heading`.
 - **FAQ:** practical questions added (how long a jar lasts, how to get the resin out, daily use, with medication), marked for your confirmation.
 - **Source story:** first-person founder voice with a signed line and two region cards (Chitral, Gilgit-Baltistan).
 

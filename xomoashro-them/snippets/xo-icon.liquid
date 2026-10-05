@@ -1,0 +1,24 @@
+{% doc %}
+  Renders one icon from the Xomoashro icon set (`assets/xo-icon-<name>.svg`), inline,
+  coloured by the surrounding text colour. Icons are decorative: give the parent an
+  accessible name when the icon stands alone.
+
+  @param {string} name - Icon name: check, check-circle, arrow-right, plus, minus, close, mountain, leaf, flask, truck, cash, shield, jar, drop, sun, clock, phone, mail, pin, star, quote, whatsapp
+  @param {string} [class] - Extra class names, for example `xo-icon--badge`
+  @param {number} [size] - Size in pixels. Defaults to 20
+
+  @example
+  {% render 'xo-icon', name: 'truck', size: 24 %}
+{% enddoc %}
+
+{%- liquid
+  assign xo_icon_file = 'xo-icon-' | append: name | append: '.svg'
+-%}
+<span
+  class="xo-icon{% if class != blank %} {{ class }}{% endif %}"
+  {% if size != blank %}
+    style="--xo-icon-size: {{ size | divided_by: 16.0 }}rem"
+  {% endif %}
+>
+  {{- xo_icon_file | inline_asset_content -}}
+</span>
