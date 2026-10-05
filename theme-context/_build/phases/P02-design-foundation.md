@@ -43,7 +43,8 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 - Create `snippets/xo-image.liquid`
 - Create `snippets/xo-section-heading.liquid`
 - Create `snippets/xo-button.liquid`
-- Create `assets/xo-reveal.js`
+- Create `assets/xo-overlays.js` (bottom-stack and overlay coordination)
+- Create `.theme-check.yml`
 - Create `sections/overlay-group.json` (section group type `custom.overlay`)
 - Create `sections/xo-styleguide.liquid` and `templates/page.styleguide.json`
 - Modify `layout/theme.liquid`
@@ -53,14 +54,14 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 
 Expand these into `tasks/P02-tasks.md` at phase start (one task per file or per coherent unit, each with its own check).
 
-1. Set palette and button colours in theme settings: ink `#0E0D0B`, bone `#F5F1EA`, amber `#B8742A` with ink text, amber-deep `#9A5E1F` for links. Record contrast ratios next to each pair in a comment.
-2. Set fonts: Fraunces for headings, Inter for body. Check through the toolkit whether Fraunces is in Shopify's font library; if not, self-host two WOFF2 weights in `assets/` with `font-display: swap`.
+1. Set palette and button colours in theme settings: ink `#0E0D0B`, bone `#F5F1EA`, accent `#FF6B31` (the logo orange, decision B19) with ink text, accent-deep `#C2410C` for links. Record contrast ratios next to each pair in a comment.
+2. Set fonts: Manrope for headings and body (owner's choice, 2026-10-06), through the `font_picker` settings.
 3. `xo-tokens.liquid`: spacing scale (8px steps), radius (14px cards, 999px pills), fluid type scale with `clamp()`, three section tones (bone, ink, amber) as custom properties, z-index scale, and the bottom-stack variables described below.
 4. `xo-base.css`: headings, body, links, buttons (48px minimum height), form fields, focus ring, selection colour, section tone classes, a `.xo-container` and section spacing utilities. Loaded after `base.css`.
 5. Overlay layering contract: one z-index scale (header, sticky bars, WhatsApp button, cookie banner, drawers, popup) and a `--xo-bottom-offset` variable that each bottom-fixed element adds to, so the sticky add-to-cart bar, WhatsApp button and cookie banner never overlap. Document it at the top of `xo-tokens.liquid`.
-6. Shared snippets: `xo-section-heading` (eyebrow, serif heading, amber rule, optional lead), `xo-button`, `xo-image` (srcset, sizes, lazy or eager, width and height always set), `xo-icon` (inline SVG by name).
+6. Shared snippets: `xo-section-heading` (eyebrow, heading, accent rule, optional lead), `xo-button`, `xo-image` (srcset, sizes, lazy or eager, width and height always set), `xo-icon` (inline SVG by name).
 7. `xo-shop-facts.liquid`: reads shop metafields and returns guarantee days, WhatsApp link, support email, free-shipping threshold, delivery range; returns blank for anything unset.
-8. `xo-reveal.js`: one IntersectionObserver for fade-and-rise, disabled under `prefers-reduced-motion` and in the theme editor.
+8. Reveal on scroll for `data-xo-reveal` elements as a CSS scroll-driven animation in `xo-base.css` (no script), off under `prefers-reduced-motion` and in the theme editor. Changed from the first plan (an IntersectionObserver script): Horizon re-renders sections by morphing the DOM, which would strip a script-added class and hide content.
 9. Create the empty `overlay-group` section group and render it in `theme.liquid` before `</body>`; P13, P14 and P15 add their sections to it.
 10. Build `xo-styleguide` (headings, text, buttons, form fields, cards, icons, tones) on a hidden page template for visual QA. Screenshot at 360, 768 and 1280px.
 

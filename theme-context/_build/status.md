@@ -5,7 +5,7 @@ The single record of progress. The runner updates this file at the start and end
 | Order | Phase | Title | Needs | Hard decisions | Status | Started | Finished | Report |
 |---|---|---|---|---|---|---|---|---|
 | 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
-| 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | not started | | | |
+| 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P02-report.md) |
 | 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | not started | | | |
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | not started | | | |
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | not started | | | |
@@ -42,3 +42,5 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 P00 started on branch `phase/P00-inventory-and-audit`. B17 not asked separately; default taken (screenshots ignored in git).
 - 2026-10-06 P00 finished, all five checks pass; awaiting owner approval. New question B18 (jar design) added.
 - 2026-10-06 P00 approved by the owner with no changes; merged to `main`. B5 answered (keep orange logo). New question B19 (accent colour beside the orange logo) added.
+- 2026-10-06 B7 answered (store connected, local preview running). P02 started on branch `phase/P02-design-foundation`.
+- 2026-10-06 P02 finished; all checks pass (editor click-through and keyboard pass not run, see report). Owner asked for commit, push, pull request and merge on completion. Fonts changed to Manrope and accent to the logo orange during the phase. New question B20 added.

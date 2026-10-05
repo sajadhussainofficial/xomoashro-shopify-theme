@@ -180,7 +180,7 @@ Recommended order top to bottom. Each row links to the phase file.
 | 20 | [P21](phases/P21-speed-optimization.md) | Speed optimization | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | B7 | - |
 | 21 | [P22](phases/P22-accessibility.md) | Accessibility | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | - | - |
 | 22 | [P23](phases/P23-responsiveness.md) | Responsiveness | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | - | - |
-| 23 | [P24](phases/P24-launch.md) | Final QA and launch | Launch | P12, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | B3 |
+| 23 | [P24](phases/P24-launch.md) | Final QA and launch | Launch | P12, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | B3, B20 |
 | 24 | [P18](phases/P18-google-search-console.md) | Google Search Console | Marketing and measurement | P20 | B13 | - |
 | 25 | [P19](phases/P19-bing-webmaster-tools.md) | Bing Webmaster Tools | Marketing and measurement | P18 | B13 | - |
 
@@ -231,7 +231,7 @@ Shopify CLI commands used (CLI 4.8.4 is installed):
 | Command | Use |
 |---|---|
 | `shopify theme check` | After every task. Zero errors required |
-| `shopify theme dev --store <domain>` | Local preview with hot reload while building |
+| `shopify theme dev --store <domain>` | Local preview with hot reload while building. The owner keeps this running: preview at `http://127.0.0.1:9292/`, development theme `158613045420`. Any page with `?view=styleguide` (for example `/pages/contact?view=styleguide`) shows the style guide |
 | `shopify theme push --unpublished` | Create the working theme on the store (once, in P01) |
 | `shopify theme push --theme <id>` | Update the working theme. Never the live theme without approval |
 | `shopify theme pull --theme <id> --only config/settings_data.json --only "templates/*.json"` | Before each phase, bring back edits the owner made in the Theme Editor so they are not overwritten |
@@ -265,6 +265,9 @@ Not used: Hydrogen (this is a Liquid theme), checkout and customer-account exten
 - Keep Horizon's event classes and custom element names when reusing cart, variant, gallery, dialog and search logic.
 - Styles live with their file in `{% stylesheet %}`; scripts in `{% javascript %}` or a module in `assets/`.
 - Use Horizon's breakpoints, 750px and 990px.
+- From 990px up Horizon scrolls `.page-wrapper`, not the window. Use `position: sticky` and viewport-based observers accordingly. For full-page or element screenshots on desktop, first inject `html,body,.page-wrapper{height:auto!important;overflow:visible!important}`.
+- Horizon's `base.css` styles `input` by element name. Field styles must include the element (`:is(input, textarea, select).xo-field__control`) to take effect.
+- Create a section file before the template that uses it; the live preview uploads files as they are saved and rejects a template that names a missing section.
 
 ### Liquid
 
@@ -288,7 +291,8 @@ Not used: Hydrogen (this is a Liquid theme), checkout and customer-account exten
 - Vanilla ES modules and web components. No jQuery, no UI libraries.
 - Every script deferred; loaded only when its section is on the page.
 - Progressive enhancement: links, forms, accordions (`<details>`) and add to cart work without JavaScript where possible.
-- One `IntersectionObserver` shared for reveal effects; passive scroll and touch listeners.
+- Reveal-on-scroll is CSS only (`data-xo-reveal`, scroll-driven animation). Do not hide content with a script-added class: Horizon morphs re-rendered sections and would strip it.
+- Passive scroll and touch listeners.
 - State kept in the DOM or `localStorage` with an `xo:` prefix; no global variables.
 - Analytics: the theme only publishes events with `Shopify.analytics.publish`; all tags live in Customer Events.
 

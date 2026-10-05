@@ -17,7 +17,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 
 | ID | Question | Type | If unanswered |
 |---|---|---|---|
-| B5 | Logo colour: keep orange `#FF6B31`, or render the logo in the new ink and amber palette. | soft | Logo shape kept, rendered in ink with an amber mark. |
+| B5 | Logo colour. Answered 2026-10-06: keep the orange `#FF6B31` logo. | answered | Orange logo. |
 
 ## Read first
 
