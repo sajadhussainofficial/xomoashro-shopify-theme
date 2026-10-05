@@ -8,6 +8,31 @@
  * ------------------------------------------------------------
  */
 {
+  "xo": {
+    "styleguide": {
+      "media": "Media",
+      "fact_guarantee": "Guarantee from store data: {{ days }} days",
+      "fact_guarantee_empty": "Guarantee days are not set in store data yet, so guarantee lines stay hidden.",
+      "type": "Type",
+      "buttons": "Buttons",
+      "forms": "Form fields",
+      "cards": "Cards and chips",
+      "icons": "Icons",
+      "tones": "Tones",
+      "primary": "Primary button",
+      "secondary": "Secondary button",
+      "quiet": "Text link button",
+      "disabled": "Disabled",
+      "name_label": "Full name",
+      "name_placeholder": "Your name",
+      "message_label": "Message",
+      "hint": "Helper text sits under the field.",
+      "error": "Error text looks like this.",
+      "chip": "Cash on delivery",
+      "card_title": "Card heading",
+      "stat_label": "Harvest altitude, feet"
+    }
+  },
   "accessibility": {
     "account": "Account",
     "active_filters": "Active filters:",

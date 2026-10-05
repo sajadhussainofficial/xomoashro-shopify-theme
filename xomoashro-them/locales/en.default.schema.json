@@ -8,6 +8,50 @@
  * ------------------------------------------------------------
  */
 {
+  "xo": {
+    "settings": {
+      "group": "Xomoashro",
+      "intro": "Brand colours and shapes used by every Xomoashro section. The main accent colour is the primary button colour under Buttons.",
+      "colors_header": "Colours",
+      "accent_deep": "Link and small accent colour",
+      "accent_deep_info": "A darker shade of the accent, readable as text on the page background.",
+      "muted": "Secondary text colour",
+      "surface": "Card colour",
+      "surface_info": "Background of cards on the page background.",
+      "success": "Success colour",
+      "dark_header": "Dark sections",
+      "ink": "Dark section background",
+      "on_ink": "Dark section text",
+      "shape_header": "Shape and motion",
+      "radius_card": "Card corner radius",
+      "reveal": "Reveal sections on scroll",
+      "reveal_info": "Content fades in as it scrolls into view, in browsers that support it. Always off for visitors who ask for reduced motion."
+    },
+    "groups": {
+      "overlay": "Overlays"
+    },
+    "names": {
+      "styleguide": "Style guide"
+    },
+    "labels": {
+      "image": "Image",
+      "tone": "Colour tone",
+      "eyebrow": "Eyebrow",
+      "heading": "Heading",
+      "lead": "Lead text",
+      "body": "Body text",
+      "show_tones": "Show all tones"
+    },
+    "options": {
+      "bone": "Light (page colour)",
+      "surface": "Light (card colour)",
+      "ink": "Dark",
+      "accent": "Accent"
+    },
+    "info": {
+      "styleguide": "Internal page for checking colours, type and components. Not linked from the store."
+    }
+  },
   "categories": {
     "banners": "Banners",
     // Category for fundamental content blocks (text, images, buttons)
