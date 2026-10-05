@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "styleguide": {
+      "type": "xo-styleguide",
+      "settings": {}
+    }
+  },
+  "order": ["styleguide"]
+}
