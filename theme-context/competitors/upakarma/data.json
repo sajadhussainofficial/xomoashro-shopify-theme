@@ -1,0 +1,698 @@
+{
+ "name": "upakarma",
+ "url": "https://upakarma.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://upakarma.com/",
+  "title": "Upakarma Ayurveda",
+  "desc": "Upakarma Ayurveda is leading brand of top ayurvedic products in India. We deal in pure Shilajit resin, shilajit effervescent tablets etc.",
+  "theme": "12/08/26 11:45 AM | Sanket | Copy of 06/08/26 / Eurus",
+  "shopify": true,
+  "height": 6739,
+  "styles": [
+   "body: \"DM Sans\" 15.4px/400 color rgb(69, 70, 69) bg rgb(255, 255, 255)",
+   "h1: \"DM Sans\" 36px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "h2: \"DM Sans\" 36px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "p: \"DM Sans\" 13.86px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: \"DM Sans\" 15.4px/400 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"DM Sans\" 14px/400 color rgb(255, 255, 255) bg rgb(103, 74, 56)"
+  ],
+  "nav": [
+   "0",
+   "Upakarma Ayurveda",
+   "NO.1 PRESCRIBED",
+   "No.1 Prescribed",
+   "Mankind Lactare Granules - 250g",
+   "Upakarma Pure Shilajit Resin",
+   "SHOP BY CONCERN",
+   "SHOP BY PRODUCTS",
+   "STEAL DEALS",
+   "Mankind Products",
+   "Baby Care by Daffy"
+  ],
+  "btns": [
+   "Skip to content",
+   "Buy 1 Shilajit Get 2 FREE!",
+   "Choose options",
+   "Mankind Products",
+   "Baby Care by Daffy",
+   "Add to cart Sold out",
+   "Add to cart",
+   "View full details",
+   "Submit"
+  ],
+  "heads": [
+   "63 H1 Upakarma Ayurveda",
+   "359 H3 Mankind Lactare Granules - 250g",
+   "359 H3 Mankind Intiwash Intimate Hygiene Wash For Women",
+   "359 H3 Manforce Upakarma Shilajit Resin With Gold Dust 10g",
+   "359 H3 Upakarma Pure Shilajit Resin",
+   "653 H3 Most Loved Products",
+   "1108 H3 Upakarma Shilajit Resin with Safed Musli 10g",
+   "1108 H3 Upakarma Safed Musli Capsules - 500mg (90 Capsules)",
+   "1108 H3 Upakarma Shilajit Resin with Safed Musli 20g",
+   "1108 H3 Upakarma Premium Shilajit Power Duo Combo",
+   "1356 H2 Shop While Watching",
+   "1906 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "2055 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "1801 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "1950 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "1906 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "2055 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "1836 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "1985 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "2117 H2 Featured Product",
+   "2661 H3 Upakarma Pure Shilajit Resin 30g",
+   "3157 H2 Real People, Real Stories",
+   "4698 H2 Media & Awards",
+   "5105 H2 Health Insights",
+   "6091 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 51,
+    "id": "shopify-section-sections--21446197412026__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group section-announcement",
+    "first": ""
+   },
+   {
+    "y": 51,
+    "h": 100,
+    "id": "shopify-section-sections--21446197412026__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 151,
+    "h": 450,
+    "id": "shopify-section-template--21446206193850__slideshow_secondary_3mMYpM",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 601,
+    "h": 723,
+    "id": "shopify-section-template--21446206193850__e32885d8-0a8f-4c4f-8801-377d",
+    "cls": "shopify-section section section-featured-collection x-section",
+    "first": "Most Loved Products"
+   },
+   {
+    "y": 1332,
+    "h": 725,
+    "id": "shopify-section-template--21446206193850__video_looping_ijQzex",
+    "cls": "shopify-section section section-video-looping x-section",
+    "first": "Shop While Watching"
+   },
+   {
+    "y": 2057,
+    "h": 1039,
+    "id": "shopify-section-template--21446206193850__product_highlight_HiMF3x",
+    "cls": "shopify-section section-product-highlight x-section",
+    "first": "Featured Product"
+   },
+   {
+    "y": 3097,
+    "h": 742,
+    "id": "shopify-section-template--21446206193850__testimonials_with_card_ErTtk",
+    "cls": "shopify-section section section-testimonial x-section",
+    "first": "Real People, Real Stories"
+   },
+   {
+    "y": 3838,
+    "h": 810,
+    "id": "shopify-section-template--21446206193850__video_with_text_gHrFbF",
+    "cls": "shopify-section section section-video-hero x-section",
+    "first": ""
+   },
+   {
+    "y": 4648,
+    "h": 405,
+    "id": "shopify-section-template--21446206193850__social_feeds_39n9Ne",
+    "cls": "shopify-section section-social-feeds x-section",
+    "first": "Media & Awards"
+   },
+   {
+    "y": 5053,
+    "h": 651,
+    "id": "shopify-section-template--21446206193850__featured_blog_6XYJpj",
+    "cls": "shopify-section section section-featured-blog x-section",
+    "first": "Health Insights"
+   },
+   {
+    "y": 5704,
+    "h": 339,
+    "id": "shopify-section-template--21446206193850__multicolumn_rxMYDJ",
+    "cls": "shopify-section section section-multicolumn x-section",
+    "first": "Loved by million of happy customers nationwide."
+   },
+   {
+    "y": 6043,
+    "h": 180,
+    "id": "shopify-section-template--21446206193850__newsletter_Rwk93n",
+    "cls": "shopify-section section section-newsletter x-section",
+    "first": "Subscribe to our emails"
+   },
+   {
+    "y": 6223,
+    "h": 516,
+    "id": "shopify-section-sections--21446197182650__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "MANKIND GROUP COMPANY"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/products/lactare-granules-premium-chocolate-flavor-250g",
+   "https://upakarma.com/products/mankind-intiwash-new-feminine-hygiene-wash",
+   "https://upakarma.com/products/manforce-upakarma-shilajit-10g-pack-of-1",
+   "https://upakarma.com/products/upakarma-ayurveda-pure-shilajit-resin",
+   "https://upakarma.com/products/shilajit-gold-dust-20g?variant=45186437415098",
+   "https://upakarma.com/collections/boost-performance/products/pure-shilajit-with-safed-musli",
+   "https://upakarma.com/collections/boost-performance/products/safed-musli-capsules",
+   "https://upakarma.com/collections/boost-performance/products/pure-shilajit-resin-form-with-safed-musli-20g",
+   "https://upakarma.com/collections/boost-performance/products/shilajit-gold-safed-musli-combo",
+   "https://upakarma.com/collections/build-strength/products/ashwagandha-capsules",
+   "https://upakarma.com/collections/build-strength/products/pure-shilajit-resin-form-with-ashwagandha-20g",
+   "https://upakarma.com/collections/build-strength/products/pure-shilajit-resin-form-with-ashwagandha-10-g",
+   "https://upakarma.com/collections/self-care-essentials/products/combo-badam-rogan-oil-kesar-1g",
+   "https://upakarma.com/collections/self-care-essentials/products/badam-rogan-rose-water-combo-pack",
+   "https://upakarma.com/collections/mankind-consumer-products/products/lactare-granules-premium-chocolate-flavor-250g",
+   "https://upakarma.com/collections/mankind-consumer-products/products/manforce-upakarma-shilajit-10g-pack-of-1",
+   "https://upakarma.com/collections/mankind-consumer-products/products/gas-o-fast-jeera-antacid-active-jeera-pack-of-6-sachet",
+   "https://upakarma.com/collections/mankind-consumer-products/products/mankind-kabz-end-granules",
+   "https://upakarma.com/products/badam-rogan-oil-100-ml",
+   "https://upakarma.com/products/stevia-tablets",
+   "https://upakarma.com/products/natural-shilajit-resin-30g",
+   "https://upakarma.com/products/shilajit-gold-dust-20g",
+   "https://upakarma.com/products/upakarma-sugahope-juice",
+   "https://upakarma.com/products/upakarma-pure-shilajit-resin-with-gold-dust",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-ashwagandha",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-safed-musli",
+   "https://upakarma.com/products/ashwagandha-capsules"
+  ],
+  "text": "Skip to content Buy 1 Shilajit Get 2 FREE! 0 NO.1 PRESCRIBED NO.1 PRESCRIBED SHOP BY CONCERN SHOP BY CONCERN SHOP BY PRODUCTS SHOP BY PRODUCTS STEAL DEALS STEAL DEALS Expires soon Mankind Products Baby Care by Daffy Most Loved Products Boost Performance Build Strength Self Care Essentials Mankind Products Collection Upakarma Shilajit Resin with Safed Musli 10g ₹936 ₹599 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Safed Musli Capsules - 500mg (90 Capsules) ₹608 ₹399 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Shilajit Resin with Safed Musli 20g ₹1,592 ₹999 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Premium Shilajit Power Duo Combo ₹3,560 ₹1,299 Add to cart Shop While Watching Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Featured Product of the day Upakarma Pure Shilajit Resin 30g 4.8 | 4909 ₹2,625 ₹1,149 Pack of 1 Pack of 2 Pack of 3 Add to cart Scientifically proven Pure Shilajit resin is supported by scientific research to ensure effective and reliable results. Boosts strength & stamina Experience a natural enhancement in physical power and endurance for better daily performance. Increases energy levels Revitalize your body with a significant boost in energy to tackle your busy schedule. Tested in nabl-accredited labs Every batch undergoes rigorous testing in accredited laboratories to guarantee the highest quality levels. Real People, Real Stories 1 5 Shivanshu IT Manager Upakarma Shilajit Gold has helped improve my endurance and confidence. I feel more active, focused, and energized throughout the day. It’s a premium supplement that truly supports performance and overall wellness. Upakarma Pure Shilajit Resin with Gold Dust 20g ₹1,968 ₹999 Tejas HR Manager I’ve experienced a noticeable boost in energy and stamina with Pure Shilajit Resin from Upakarma Ayurveda. It feels authentic and powerful, and just a small amount daily has improved my strength and overall vitality. Upakarma Pure Shilajit Resin 30g ₹2,625 ₹1,149 Sarthak Account Manager I’ve been using Upakarma Shilajit Gummies from and noticed better energy, stamina, and focus. They’re tasty, convenient, and easy to take daily. A great natural supplement for improving overall performance and staying active throughout the day. Sarthak Account Manager Upakarma Stevia Tablets are a great sugar alternative. They dissolve quickly, taste natural, and help me cut down on sugar without compromising sweetness in my tea or coffee. Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Sarika (IT Professional) SugaHope Juice fits perfectly into my daily routine. It helps me feel balanced and healthier overall. The taste is pleasant, and I appreciate having a natural option to support my wellness goals. Upakarma SugaHope Juice 1L – Helps Maintain Blood Sugar Levels ₹599 ₹499 Shivanshu IT Manager Upakarma Shilajit Gold has helped improve my endurance and confidence. I feel more active, focused, and energized throughout the day. It’s a premium supplement that truly supports performance and overall wellness. Upakarma Pure Shilajit Resin with Gold Dust 20g ₹1,968 ₹999 Tejas HR Manager I’ve experienced a noticeable boost in energy and stamina with Pure Shilajit Resin from Upakarma Ayurveda. It feels authentic and powerful, and just a small amount daily has improved my strength and overall vitality. Upakarma Pure Shilajit Resin 30g ₹2,625 ₹1,149 Sarthak Account Manager I’ve been using Upakarma Shilajit Gummies from and noticed better energy, stamina, and focus. They’re tasty, convenient, and easy to take daily. A great natural supplement for improving overall performance and staying active throughout the day. Sarthak Account Manager Upakarma Stevia Tablets are a great sugar alternative. They dissolve quickly, taste natural, and help me cut down on sugar without compromising sweetness in my tea or coffee. Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Sarika (IT Professional) SugaHope Juice fits perfectly into my daily routine. It helps me feel balanced and healthier overall. The taste is pleasant, and I appreciate having a natural option to support my wellness goals. Upakarma SugaHope Juice 1L – Helps Maintain Blood Sugar Levels ₹599 ₹499 Shivanshu IT Manager Upakarma Shilajit Gold has helped improve my endurance and confidence. I feel more active, focused, and energized throughout the day. It’s a premium supplement that truly supports performance and overall wellness. Upakarma Pure Shilajit Resin with Gold Dust 20g ₹1,968 ₹999 Tejas HR Manager I’ve experienced a noticeable boost in energy and stamina with Pure Shilajit Resin from Upakarma Ayurveda. It feels authentic and powerful, and just a small amount daily has improved my strength and overall vitality. Upakarma Pure Shilajit Resin 30g ₹2,625 ₹1,149 Sarthak Account Manager I’ve been using Upakarma Shilajit Gummies from and noticed better energy, stamina, and focus. They’re tasty, convenient, and easy to take daily. A great natural supplement for improving overall performance and staying active throughout the day. Media & Awards Health Insights by Dr. Ved on Aug 07 2026 Shilajit Benefits, Dosage & How to Use It: A Complete Guide A complete guide to Shilajit — covering its key benefits, how to use the resin and capsules, correct dosage, safety considerations, a"
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://upakarma.com/",
+  "title": "Upakarma Ayurveda",
+  "desc": "Upakarma Ayurveda is leading brand of top ayurvedic products in India. We deal in pure Shilajit resin, shilajit effervescent tablets etc.",
+  "theme": "12/08/26 11:45 AM | Sanket | Copy of 06/08/26 / Eurus",
+  "shopify": true,
+  "height": 6388,
+  "styles": [
+   "body: \"DM Sans\" 13.86px/400 color rgb(69, 70, 69) bg rgb(255, 255, 255)",
+   "h1: \"DM Sans\" 18px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "h2: \"DM Sans\" 21.6px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "p: \"DM Sans\" 12.474px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: \"DM Sans\" 13.86px/400 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"DM Sans\" 12px/400 color rgb(255, 255, 255) bg rgb(103, 74, 56)"
+  ],
+  "nav": [
+   "0",
+   "Upakarma Ayurveda",
+   "NO.1 PRESCRIBED",
+   "No.1 Prescribed",
+   "Mankind Lactare Granules - 250g",
+   "Upakarma Pure Shilajit Resin",
+   "SHOP BY CONCERN",
+   "SHOP BY PRODUCTS",
+   "STEAL DEALS",
+   "Mankind Products",
+   "Baby Care by Daffy"
+  ],
+  "btns": [
+   "Buy 1 Shilajit Get 2 FREE!",
+   "Add to cart Sold out",
+   "Add to cart",
+   "View full details",
+   "Submit"
+  ],
+  "heads": [
+   "57 H1 Upakarma Ayurveda",
+   "559 H3 Most Loved Products",
+   "851 H3 Upakarma Shilajit Resin with Safed Musli 10g",
+   "851 H3 Upakarma Safed Musli Capsules - 500mg (90 Capsules)",
+   "851 H3 Upakarma Shilajit Resin with Safed Musli 20g",
+   "851 H3 Upakarma Premium Shilajit Power Duo Combo",
+   "1174 H2 Shop While Watching",
+   "1857 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "1857 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "1994 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "1787 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "1924 H3 Upakarma Ayurveda Stevia Sugar-Free Tablets",
+   "2028 H2 Featured Product",
+   "3361 H2 Real People, Real Stories",
+   "4701 H2 Media & Awards",
+   "4975 H2 Health Insights",
+   "5795 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 49,
+    "id": "shopify-section-sections--21446197412026__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group section-announcement",
+    "first": ""
+   },
+   {
+    "y": 49,
+    "h": 84,
+    "id": "shopify-section-sections--21446197412026__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 133,
+    "h": 390,
+    "id": "shopify-section-template--21446206193850__slideshow_secondary_3mMYpM",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 523,
+    "h": 619,
+    "id": "shopify-section-template--21446206193850__e32885d8-0a8f-4c4f-8801-377d",
+    "cls": "shopify-section section section-featured-collection x-section",
+    "first": "Most Loved Products"
+   },
+   {
+    "y": 1158,
+    "h": 838,
+    "id": "shopify-section-template--21446206193850__video_looping_ijQzex",
+    "cls": "shopify-section section section-video-looping x-section",
+    "first": "Shop While Watching"
+   },
+   {
+    "y": 1996,
+    "h": 1321,
+    "id": "shopify-section-template--21446206193850__product_highlight_HiMF3x",
+    "cls": "shopify-section section-product-highlight x-section",
+    "first": "Featured Product"
+   },
+   {
+    "y": 3317,
+    "h": 1135,
+    "id": "shopify-section-template--21446206193850__testimonials_with_card_ErTtk",
+    "cls": "shopify-section section section-testimonial x-section",
+    "first": "Real People, Real Stories"
+   },
+   {
+    "y": 4451,
+    "h": 219,
+    "id": "shopify-section-template--21446206193850__video_with_text_gHrFbF",
+    "cls": "shopify-section section section-video-hero x-section",
+    "first": ""
+   },
+   {
+    "y": 4671,
+    "h": 277,
+    "id": "shopify-section-template--21446206193850__social_feeds_39n9Ne",
+    "cls": "shopify-section section-social-feeds x-section",
+    "first": "Media & Awards"
+   },
+   {
+    "y": 4947,
+    "h": 502,
+    "id": "shopify-section-template--21446206193850__featured_blog_6XYJpj",
+    "cls": "shopify-section section section-featured-blog x-section",
+    "first": "Health Insights"
+   },
+   {
+    "y": 5449,
+    "h": 298,
+    "id": "shopify-section-template--21446206193850__multicolumn_rxMYDJ",
+    "cls": "shopify-section section section-multicolumn x-section",
+    "first": "Loved by million of happy customers nationwide."
+   },
+   {
+    "y": 5747,
+    "h": 250,
+    "id": "shopify-section-template--21446206193850__newsletter_Rwk93n",
+    "cls": "shopify-section section section-newsletter x-section",
+    "first": "Subscribe to our emails"
+   },
+   {
+    "y": 5997,
+    "h": 391,
+    "id": "shopify-section-sections--21446197182650__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "MANKIND GROUP COMPANY"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/products/lactare-granules-premium-chocolate-flavor-250g",
+   "https://upakarma.com/products/mankind-intiwash-new-feminine-hygiene-wash",
+   "https://upakarma.com/products/manforce-upakarma-shilajit-10g-pack-of-1",
+   "https://upakarma.com/products/upakarma-ayurveda-pure-shilajit-resin",
+   "https://upakarma.com/products/shilajit-gold-dust-20g?variant=45186437415098",
+   "https://upakarma.com/collections/boost-performance/products/pure-shilajit-with-safed-musli",
+   "https://upakarma.com/collections/boost-performance/products/safed-musli-capsules",
+   "https://upakarma.com/collections/boost-performance/products/pure-shilajit-resin-form-with-safed-musli-20g",
+   "https://upakarma.com/collections/boost-performance/products/shilajit-gold-safed-musli-combo",
+   "https://upakarma.com/collections/build-strength/products/ashwagandha-capsules",
+   "https://upakarma.com/collections/build-strength/products/pure-shilajit-resin-form-with-ashwagandha-20g",
+   "https://upakarma.com/collections/build-strength/products/pure-shilajit-resin-form-with-ashwagandha-10-g",
+   "https://upakarma.com/collections/self-care-essentials/products/combo-badam-rogan-oil-kesar-1g",
+   "https://upakarma.com/collections/self-care-essentials/products/badam-rogan-rose-water-combo-pack",
+   "https://upakarma.com/products/badam-rogan-oil-100-ml",
+   "https://upakarma.com/products/stevia-tablets",
+   "https://upakarma.com/products/natural-shilajit-resin-30g",
+   "https://upakarma.com/products/upakarma-sugahope-juice",
+   "https://upakarma.com/products/shilajit-gold-dust-20g",
+   "https://upakarma.com/products/upakarma-pure-shilajit-resin-with-gold-dust",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-ashwagandha",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-safed-musli",
+   "https://upakarma.com/products/ashwagandha-capsules"
+  ],
+  "text": "Buy 1 Shilajit Get 2 FREE! Most Loved Products Boost Performance Build Strength Self Care Essentials Mankind Products Collection Upakarma Shilajit Resin with Safed Musli 10g ₹936 ₹599 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Safed Musli Capsules - 500mg (90 Capsules) ₹608 ₹399 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Shilajit Resin with Safed Musli 20g ₹1,592 ₹999 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Premium Shilajit Power Duo Combo ₹3,560 ₹1,299 Add to cart Shop While Watching Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML ₹561 ₹499 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Pack Pack of 1 Pack of 2 Pack of 3 Add to cart View full details Featured Product of the day (4909) Upakarma Pure Shilajit Resin 30g ₹2,625 ₹1,149 Scientifically proven Pure Shilajit resin is supported by scientific research to ensure effective and reliable results. Boosts strength & stamina Experience a natural enhancement in physical power and endurance for better daily performance. Increases energy levels Revitalize your body with a significant boost in energy to tackle your busy schedule. Tested in nabl-accredited labs Every batch undergoes rigorous testing in accredited laboratories to guarantee the highest quality levels. Real People, Real Stories Sarthak Account Manager I’ve been using Upakarma Shilajit Gummies from and noticed better energy, stamina, and focus. They’re tasty, convenient, and easy to take daily. A great natural supplement for improving overall performance and staying active throughout the day. Sarthak Account Manager Upakarma Stevia Tablets are a great sugar alternative. They dissolve quickly, taste natural, and help me cut down on sugar without compromising sweetness in my tea or coffee. Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Sarika (IT Professional) SugaHope Juice fits perfectly into my daily routine. It helps me feel balanced and healthier overall. The taste is pleasant, and I appreciate having a natural option to support my wellness goals. Upakarma SugaHope Juice 1L – Helps Maintain Blood Sugar Levels ₹599 ₹499 Shivanshu IT Manager Upakarma Shilajit Gold has helped improve my endurance and confidence. I feel more active, focused, and energized throughout the day. It’s a premium supplement that truly supports performance and overall wellness. Upakarma Pure Shilajit Resin with Gold Dust 20g ₹1,968 ₹999 Tejas HR Manager I’ve experienced a noticeable boost in energy and stamina with Pure Shilajit Resin from Upakarma Ayurveda. It feels authentic and powerful, and just a small amount daily has improved my strength and overall vitality. Upakarma Pure Shilajit Resin 30g ₹2,625 ₹1,149 Sarthak Account Manager I’ve been using Upakarma Shilajit Gummies from and noticed better energy, stamina, and focus. They’re tasty, convenient, and easy to take daily. A great natural supplement for improving overall performance and staying active throughout the day. Sarthak Account Manager Upakarma Stevia Tablets are a great sugar alternative. They dissolve quickly, taste natural, and help me cut down on sugar without compromising sweetness in my tea or coffee. Upakarma Ayurveda Stevia Sugar-Free Tablets ₹449 ₹399 Sarika (IT Professional) SugaHope Juice fits perfectly into my daily routine. It helps me feel balanced and healthier overall. The taste is pleasant, and I appreciate having a natural option to support my wellness goals. Upakarma SugaHope Juice 1L – Helps Maintain Blood Sugar Levels ₹599 ₹499 Shivanshu IT Manager Upakarma Shilajit Gold has helped improve my endurance and confidence. I feel more active, focused, and energized throughout the day. It’s a premium supplement that truly supports performance and overall wellness. Upakarma Pure Shilajit Resin with Gold Dust 20g ₹1,968 ₹999 Media & Awards Health Insights by Dr. Ved on Aug 07 2026 Shilajit Benefits, Dosage & How to Use It: A Complete Guide A complete guide to Shilajit — covering its key benefits, how to use the resin and capsules, correct dosage, safety considerations, and how to identify a pure product. #Fitness & Nutrition #Men's Health #Shilajit by Dr. Ved on Feb 05 2026 The Science of Shilajit: How Fulvic Acid and Minerals Work in Harmony Fulvic acid is a naturally occurring organic substance found in Shilajit, soil, and various humic substances. It is formed over thousands of years as part of the decomposition of organic matter. In Shilajit, fulvic acid is present in a highly concentrated and bioavailable form. #Fitness & Nutrition #Shilajit by Upakarma Ayurveda on Jan 03 2025 Shilajit vs. Winter Fatigue: How to Stay Energetic During the Chilly Season Winter is here, and while the cold weather brings cozy moments and steaming cups of hot beverages, it also brings a not-so-welcome guest: winter fatigue. This season often leaves many of us feeling tired, sluggish, and drained. But what if there was a natural remedy to keep your energy levels high? Enter Shilajit, a time-tested […] View all posts Loved by million of happy customers nationwide. Quick and reliable shipping to your doorstep. Your data is protected with advanced encryption. Premium quality products with 100% satisfaction guarantee. Safe and trusted payment process every time. Subscribe to our emails Be the first to know about new collections and exclusive offers. Email Submit MANKIND GROUP COMPANY OUR BEST SELLERS CUSTOMER SERVICES QUICK LINKS LET'S CONNECT © 2026, Upakarma Ayurveda. Copyright All rights reserved"
+ },
+ "pdpUrl": "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+  "title": "Upakarma Pure Shilajit Resin 15g - Upakarma Ayurveda",
+  "desc": "Buy Pure Shilajit Resin 15g Online. Upakarma Ayurveda Pure Shilajit Resin helps to boost stamina and immunity, improve physical power.",
+  "theme": "12/08/26 11:45 AM | Sanket | Copy of 06/08/26 / Eurus",
+  "shopify": true,
+  "height": 4455,
+  "styles": [
+   "body: \"DM Sans\" 15.4px/400 color rgb(69, 70, 69) bg rgb(255, 255, 255)",
+   "h1: \"DM Sans\" 24px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "h2: \"DM Sans\" 36px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "p: \"DM Sans\" 13.86px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: \"DM Sans\" 15.4px/400 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"DM Sans\" 14px/400 color rgb(255, 255, 255) bg rgb(103, 74, 56)"
+  ],
+  "nav": [
+   "0",
+   "Upakarma Ayurveda",
+   "NO.1 PRESCRIBED",
+   "No.1 Prescribed",
+   "Mankind Lactare Granules - 250g",
+   "Upakarma Pure Shilajit Resin",
+   "SHOP BY CONCERN",
+   "SHOP BY PRODUCTS",
+   "STEAL DEALS",
+   "Mankind Products",
+   "Baby Care by Daffy"
+  ],
+  "btns": [
+   "Skip to content",
+   "Buy 1 Shilajit Get 2 FREE!",
+   "Choose options",
+   "Mankind Products",
+   "Baby Care by Daffy",
+   "Skip to product information",
+   "Description",
+   "How to use",
+   "Additional Information",
+   "Add to cart",
+   "Add to cart Sold out",
+   "Q. Is Upakarma Shilajit Vegetarian?",
+   "Q. How to use this product?"
+  ],
+  "heads": [
+   "359 H3 Mankind Lactare Granules - 250g",
+   "359 H3 Mankind Intiwash Intimate Hygiene Wash For Women",
+   "359 H3 Manforce Upakarma Shilajit Resin With Gold Dust 10g",
+   "359 H3 Upakarma Pure Shilajit Resin",
+   "216 H1 Upakarma Pure Shilajit Resin 15g",
+   "1017 H2 PRODUCT BENEFITS",
+   "1786 H2 Rooted in Ayurveda",
+   "2304 H2 Revered in Ayurveda as Yogavahi",
+   "2643 H2 You May Also Like...",
+   "2978 H3 Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML",
+   "2978 H3 Mankind Nobel Cold Rub Ointment - 20g",
+   "2978 H3 Upakarma Pure Shilajit Capsules",
+   "2978 H3 Upakarma Pure Shilajit Resin 20g",
+   "2978 H3 Upakarma Shilajit Resin with Ashwagandha",
+   "3268 H2 FAQs",
+   "3726 H2 Customer Reviews"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 51,
+    "id": "shopify-section-sections--21446197412026__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group section-announcement",
+    "first": ""
+   },
+   {
+    "y": 51,
+    "h": 100,
+    "id": "shopify-section-sections--21446197412026__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 151,
+    "h": 866,
+    "id": "shopify-section-template--21446206718138__main",
+    "cls": "shopify-section x-section section-product-info",
+    "first": "Home"
+   },
+   {
+    "y": 1017,
+    "h": 485,
+    "id": "shopify-section-template--21446206718138__text_column_with_image_sec_4",
+    "cls": "shopify-section section section-text-columns-with-image x-section",
+    "first": "PRODUCT BENEFITS"
+   },
+   {
+    "y": 1503,
+    "h": 685,
+    "id": "shopify-section-template--21446206718138__image_with_text_RBtGLj",
+    "cls": "shopify-section section section-image-with-text x-section",
+    "first": "Rooted in Ayurveda"
+   },
+   {
+    "y": 2188,
+    "h": 447,
+    "id": "shopify-section-template--21446206718138__image_with_text_ehEUt4",
+    "cls": "shopify-section section section-image-with-text x-section",
+    "first": "Revered in Ayurveda as Yogavahi"
+   },
+   {
+    "y": 2643,
+    "h": 573,
+    "id": "shopify-section-template--21446206718138__product-recommendations",
+    "cls": "shopify-section section section-product-recommendations x-section",
+    "first": "You May Also Like..."
+   },
+   {
+    "y": 3216,
+    "h": 462,
+    "id": "shopify-section-template--21446206718138__faq_Gh67ai",
+    "cls": "shopify-section section section-faq x-section",
+    "first": "FAQs"
+   },
+   {
+    "y": 3678,
+    "h": 260,
+    "id": "shopify-section-template--21446206718138__1781325252bd7bca3e",
+    "cls": "shopify-section section x-section section-apps",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 3938,
+    "h": 516,
+    "id": "shopify-section-sections--21446197182650__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "MANKIND GROUP COMPANY"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#MainContent",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#",
+   "https://upakarma.com/products/lactare-granules-premium-chocolate-flavor-250g",
+   "https://upakarma.com/products/mankind-intiwash-new-feminine-hygiene-wash",
+   "https://upakarma.com/products/manforce-upakarma-shilajit-10g-pack-of-1",
+   "https://upakarma.com/products/upakarma-ayurveda-pure-shilajit-resin",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#packs-shilajit-warpper",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#shopify-section-template--21120428507322__power_shilajit_jjqWtF",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#shopify-section-template--21120428507322__testimonials_shilajit_gqe8UJ",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#ProductInfo-template--21446206718138__main",
+   "https://upakarma.com/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/products/badam-rogan-oil-100-ml?pr_prod_strat=jac&pr_rec_id=2cdb47aae&pr_rec_pid=8216656085178&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/nobel-cold-rub-ointment?pr_prod_strat=jac&pr_rec_id=2cdb47aae&pr_rec_pid=8427547099322&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/shilajit-capsule?pr_prod_strat=jac&pr_rec_id=2cdb47aae&pr_rec_pid=8216656019642&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/upakarma-pure-shilajit-resin-20g-copy?pr_prod_strat=jac&pr_rec_id=2cdb47aae&pr_rec_pid=8386721874106&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-ashwagandha?pr_prod_strat=jac&pr_rec_id=2cdb47aae&pr_rec_pid=8450922643642&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#judgeme_product_reviews",
+   "https://upakarma.com/products/upakarma-pure-shilajit-resin-with-gold-dust",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-ashwagandha",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-safed-musli",
+   "https://upakarma.com/products/ashwagandha-capsules",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#ProductInfo-sections--21446196035770__quick-view"
+  ],
+  "text": "Skip to content Buy 1 Shilajit Get 2 FREE! 0 NO.1 PRESCRIBED NO.1 PRESCRIBED SHOP BY CONCERN SHOP BY CONCERN SHOP BY PRODUCTS SHOP BY PRODUCTS STEAL DEALS STEAL DEALS Expires soon Mankind Products Baby Care by Daffy Home > B1G2 > Upakarma Pure Shilajit Resin 15g Skip to product information Upakarma Pure Shilajit Resin 15g Supports Strength, Stamina, & Daily Vitality, Naturally BUY 1 GET 2 FREE APPLICABLE T&C PURE HIMALYAN SHILAJIT 85+ TRACE MINERALS ₹1,359 ₹999 26% OFF (inclusive of all taxes) Quantity Add to cart - ₹999 Available Offers 1 OFFERS Description How to use Additional Information Upakarma Pure Shilajit Resin 15g ₹1,359 ₹999 Add to cart PRODUCT BENEFITS Peak Muscle Strength Helps boost physical power & muscle recovery with nutrient-rich Shilajit for a stronger, leaner you. Enhanced Endurance Elevate your stamina and lift heavier with natural energy that supports intense workout sessions. Stamina & Agility Fuel your speed and performance. Stay active and energized throughout the day with natural vitality. Immunity & Metabolism Shilajit helps regulate metabolism and boosts immune response, ensuring you stay resilient and healthy year-round. Rooted in Ayurveda Backed by modern research and Ayurvedic wisdom, this formulation delivers 85+ trace minerals and high fulvic acid content with an alkaline profile- designed for optimal absorption, strength, and sustained performance. Revered in Ayurveda as Yogavahi Revered in Ayurveda as Yogavahi, Shilajit has been trusted for centuries to help enhance nutrient absorption and support strength, stamina and overall vitality - helping you perform at your peak, naturally. You May Also Like... Upakarma Badam Rogan / Sweet Almond Oil For Hair & Skin 100 ML 4.8 | 1742 ₹561 ₹499 Pack of 1 Pack of 2 Pack of 3 Add to cart Mankind Nobel Cold Rub Ointment - 20g ₹93 ₹89 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Pure Shilajit Capsules 4.6 | 1003 ₹889 ₹399 Pack of 1 Pack of 2 Pack of 3 Add to cart Upakarma Pure Shilajit Resin 20g 4.8 | 2897 ₹1,781 ₹999 Add to cart Upakarma Shilajit Resin with Ashwagandha ₹936 ₹599 10g 20g Pack of 1 Pack of 2 Pack of 3 Add to cart FAQs How long one shall consume Pure Shilajit for better results? What is the expiry date of Pure Shilajit Resin? Q. Is Upakarma Shilajit Vegetarian? Q. How to use this product? Customer Reviews Be the first to write a review Write a review MANKIND GROUP COMPANY OUR BEST SELLERS Pure Shilajit Resin Shilajit Gold Dust Shilajit with Ashwagandha Shilajit with Safed Musli Ashwagandha Capsules CUSTOMER SERVICES Contact Us Return & Exchange Policy Delivery and Returns Privacy Policy Terms of Service QUICK LINKS Home About Us FAQs Blog Check Lab Report LET'S CONNECT Twitter Facebook Instagram Youtube Linkedin © 2026, Upakarma Ayurveda. Copyright All rights reserved"
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+  "title": "Upakarma Pure Shilajit Resin 15g - Upakarma Ayurveda",
+  "desc": "Buy Pure Shilajit Resin 15g Online. Upakarma Ayurveda Pure Shilajit Resin helps to boost stamina and immunity, improve physical power.",
+  "theme": "12/08/26 11:45 AM | Sanket | Copy of 06/08/26 / Eurus",
+  "shopify": true,
+  "height": 4212,
+  "styles": [
+   "body: \"DM Sans\" 13.86px/400 color rgb(69, 70, 69) bg rgb(255, 255, 255)",
+   "h1: \"DM Sans\" 16px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "h2: \"DM Sans\" 21.6px/500 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "p: \"DM Sans\" 12.474px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: \"DM Sans\" 13.86px/400 color rgb(40, 41, 40) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"DM Sans\" 12px/400 color rgb(255, 255, 255) bg rgb(103, 74, 56)"
+  ],
+  "nav": [
+   "0",
+   "Upakarma Ayurveda",
+   "NO.1 PRESCRIBED",
+   "No.1 Prescribed",
+   "Mankind Lactare Granules - 250g",
+   "Upakarma Pure Shilajit Resin",
+   "SHOP BY CONCERN",
+   "SHOP BY PRODUCTS",
+   "STEAL DEALS",
+   "Mankind Products",
+   "Baby Care by Daffy"
+  ],
+  "btns": [
+   "Buy 1 Shilajit Get 2 FREE!",
+   "Description",
+   "How to use",
+   "Additional Information",
+   "Add to cart",
+   "Add to cart Sold out",
+   "Q. Is Upakarma Shilajit Vegetarian?",
+   "Q. How to use this product?"
+  ],
+  "heads": [
+   "678 H1 Upakarma Pure Shilajit Resin 15g",
+   "1245 H2 PRODUCT BENEFITS",
+   "2078 H2 Rooted in Ayurveda",
+   "2503 H2 Revered in Ayurveda as Yogavahi",
+   "2745 H2 You May Also Like...",
+   "2959 H3 Upakarma Pure Shilajit Resin",
+   "2959 H3 Pure Shilajit Resin with Safed Musli 20g - Performance Enhancer",
+   "2959 H3 Upakarma Pure Shilajit Capsules",
+   "2959 H3 Pure Shilajit Resin with Gold Dust 20g - Strength & Stamina Booster",
+   "2959 H3 Upakarma Safed Musli Capsules - 500mg (90 Capsules)",
+   "3294 H2 FAQs",
+   "3618 H2 Customer Reviews"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 49,
+    "id": "shopify-section-sections--21446197412026__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group section-announcement",
+    "first": ""
+   },
+   {
+    "y": 49,
+    "h": 84,
+    "id": "shopify-section-sections--21446197412026__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 133,
+    "h": 1112,
+    "id": "shopify-section-template--21446206718138__main",
+    "cls": "shopify-section x-section section-product-info",
+    "first": "Home"
+   },
+   {
+    "y": 1245,
+    "h": 514,
+    "id": "shopify-section-template--21446206718138__text_column_with_image_sec_4",
+    "cls": "shopify-section section section-text-columns-with-image x-section",
+    "first": "PRODUCT BENEFITS"
+   },
+   {
+    "y": 1759,
+    "h": 518,
+    "id": "shopify-section-template--21446206718138__image_with_text_RBtGLj",
+    "cls": "shopify-section section section-image-with-text x-section",
+    "first": "Rooted in Ayurveda"
+   },
+   {
+    "y": 2277,
+    "h": 460,
+    "id": "shopify-section-template--21446206718138__image_with_text_ehEUt4",
+    "cls": "shopify-section section section-image-with-text x-section",
+    "first": "Revered in Ayurveda as Yogavahi"
+   },
+   {
+    "y": 2745,
+    "h": 521,
+    "id": "shopify-section-template--21446206718138__product-recommendations",
+    "cls": "shopify-section section section-product-recommendations x-section",
+    "first": "You May Also Like..."
+   },
+   {
+    "y": 3266,
+    "h": 320,
+    "id": "shopify-section-template--21446206718138__faq_Gh67ai",
+    "cls": "shopify-section section section-faq x-section",
+    "first": "FAQs"
+   },
+   {
+    "y": 3586,
+    "h": 235,
+    "id": "shopify-section-template--21446206718138__1781325252bd7bca3e",
+    "cls": "shopify-section section x-section section-apps",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 3821,
+    "h": 391,
+    "id": "shopify-section-sections--21446197182650__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "MANKIND GROUP COMPANY"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#MainContent",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#",
+   "https://upakarma.com/products/lactare-granules-premium-chocolate-flavor-250g",
+   "https://upakarma.com/products/mankind-intiwash-new-feminine-hygiene-wash",
+   "https://upakarma.com/products/manforce-upakarma-shilajit-10g-pack-of-1",
+   "https://upakarma.com/products/upakarma-ayurveda-pure-shilajit-resin",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#packs-shilajit-warpper",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#shopify-section-template--21120428507322__power_shilajit_jjqWtF",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#shopify-section-template--21120428507322__testimonials_shilajit_gqe8UJ",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#ProductInfo-template--21446206718138__main",
+   "https://upakarma.com/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1",
+   "https://upakarma.com/products/upakarma-ayurveda-pure-shilajit-resin?pr_prod_strat=similar&pr_rec_id=2cdb47aae&pr_rec_pid=8450662924474&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/pure-shilajit-resin-form-with-safed-musli-20-g-pack-1?pr_prod_strat=similar&pr_rec_id=2cdb47aae&pr_rec_pid=8216664375482&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/shilajit-capsule?pr_prod_strat=similar&pr_rec_id=2cdb47aae&pr_rec_pid=8216656019642&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/upakarma-ayurveda-shilajit-gold-dust-20g-boost-strength-stamina-overall-health-pack-1?pr_prod_strat=similar&pr_rec_id=2cdb47aae&pr_rec_pid=8216663261370&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/products/safed-musli-capsules?pr_prod_strat=similar&pr_rec_id=2cdb47aae&pr_rec_pid=8216658510010&pr_ref_pid=8429857439930&pr_seq=uniform",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#judgeme_product_reviews",
+   "https://upakarma.com/products/upakarma-pure-shilajit-resin-with-gold-dust",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-ashwagandha",
+   "https://upakarma.com/products/upakarma-shilajit-resin-with-safed-musli",
+   "https://upakarma.com/products/ashwagandha-capsules",
+   "https://upakarma.com/collections/b1g2/products/upakarma-pure-shilajeet-shilajit-resin-15g-strength-and-stamina-booster-pack-1#ProductInfo-sections--21446196035770__quick-view"
+  ],
+  "text": "Buy 1 Shilajit Get 2 FREE! Home > B1G2 > Upakarma Pure Shilajit Resin 15g B1G2 FREE Upakarma Pure Shilajit Resin 15g Supports Strength, Stamina, & Daily Vitality, Naturally BUY 1 GET 2 FREE APPLICABLE T&C PURE HIMALYAN SHILAJIT 85+ TRACE MINERALS ₹1,359 ₹999 26% OFF (inclusive of all taxes) Quantity Add to cart - ₹999 Available Offers 1 OFFERS Description How to use Additional Information Add to cart PRODUCT BENEFITS Peak Muscle Strength Helps boost physical power & muscle recovery with nutrient-rich Shilajit for a stronger, leaner you. Enhanced Endurance Elevate your stamina and lift heavier with natural energy that supports intense workout sessions. Stamina & Agility Fuel your speed and performance. Stay active and energized throughout the day with natural vitality. Immunity & Metabolism Shilajit helps regulate metabolism and boosts immune response, ensuring you stay resilient and healthy year-round. Rooted in Ayurveda Backed by modern research and Ayurvedic wisdom, this formulation delivers 85+ trace minerals and high fulvic acid content with an alkaline profile- designed for optimal absorption, strength, and sustained performance. Revered in Ayurveda as Yogavahi Revered in Ayurveda as Yogavahi, Shilajit has been trusted for centuries to help enhance nutrient absorption and support strength, stamina and overall vitality - helping you perform at your peak, naturally. You May Also Like... Upakarma Pure Shilajit Resin 4.8 | 14399 ₹936 ₹599 10g 15g 20g 30g Pack of 1 Pack of 2 Pack of 3 Add to cart Pure Shilajit Resin with Safed Musli 20g - Performance Enhancer 4.9 | 813 ₹1,592 ₹999 Add to cart Upakarma Pure Shilajit Capsules 4.6 | 1003 ₹889 ₹399 Pack of 1 Pack of 2 Pack of 3 Add to cart Pure Shilajit Resin with Gold Dust 20g - Strength & Stamina Booster 4.9 | 1043 ₹1,968 ₹999 Add to cart Upakarma Safed Musli Capsules - 500mg (90 Capsules) 4.8 | 341 ₹608 ₹399 Pack of 1 Pack of 2 Pack of 3 Add to cart FAQs How long one shall consume Pure Shilajit for better results? What is the expiry date of Pure Shilajit Resin? Q. Is Upakarma Shilajit Vegetarian? Q. How to use this product? Customer Reviews Be the first to write a review Write a review MANKIND GROUP COMPANY OUR BEST SELLERS CUSTOMER SERVICES QUICK LINKS LET'S CONNECT © 2026, Upakarma Ayurveda. Copyright All rights reserved"
+ }
+}

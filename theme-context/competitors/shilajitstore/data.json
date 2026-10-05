@@ -1,0 +1,341 @@
+{
+ "name": "shilajitstore",
+ "url": "https://shilajitstore.life/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://shilajitstore.life/",
+  "title": "SHILAJIT STORE",
+  "theme": "Dawn / Dawn",
+  "shopify": true,
+  "height": 1615,
+  "styles": [
+   "body: Assistant 16px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Assistant 40px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Assistant 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Assistant 13px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Assistant 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Arial 13.3333px/400 color rgba(255, 255, 255, 0.75) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Shop",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping"
+  ],
+  "heads": [
+   "59 H1 ",
+   "-54 H2 Item added to your cart",
+   "729 H2 Featured products",
+   "1076 H3 Premium Shilajit Resin 10 grams",
+   "1076 H3 Premium Shilajit Resin 20 grams",
+   "1076 H3 Premium Shilajit Resin 30 grams",
+   "1213 H2 Quick links",
+   "1357 H2 Get In Touch"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 39,
+    "id": "shopify-section-sections--22069790933186__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "NATIONWIDE DELIVERY ACROSS PAKISTAN"
+   },
+   {
+    "y": 39,
+    "h": 106,
+    "id": "shopify-section-sections--22069790933186__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Home"
+   },
+   {
+    "y": 145,
+    "h": 540,
+    "id": "shopify-section-template--22069790703810__image_banner_RA4pHD",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 685,
+    "h": 492,
+    "id": "shopify-section-template--22069790703810__featured_collection",
+    "cls": "shopify-section section",
+    "first": "Featured products"
+   },
+   {
+    "y": 1177,
+    "h": 438,
+    "id": "shopify-section-sections--22069790900418__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "bold"
+  ],
+  "plinks": [
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+   "https://shilajitstore.life/products/premium-shilajit-resin",
+   "https://shilajitstore.life/products/premium-shilajit-resin-20g-copy"
+  ],
+  "text": "Skip to content NATIONWIDE DELIVERY ACROSS PAKISTAN · CASH ON DELIVERY AVAILABLE · PCSIR LAB TESTED Home Shop Log in Cart Featured products Sale Premium Shilajit Resin 10 grams Regular price Rs.1,799.00 PKR Sale price Rs.1,399.00 PKR Sale Premium Shilajit Resin 20 grams Regular price Rs.2,999.00 PKR Sale price Rs.2,399.00 PKR Sale Premium Shilajit Resin 30 grams Regular price Rs.4,199.00 PKR Sale price Rs.3,399.00 PKR Quick links About Us Why Choose Us FAQs Contact Us Shipping & Delivery Return & Refund Policy Terms & Conditions Privacy Policy Get In Touch Email Payment methods © 2026, SHILAJIT STORE Powered by Shopify Privacy policy"
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://shilajitstore.life/",
+  "title": "SHILAJIT STORE",
+  "theme": "Dawn / Dawn",
+  "shopify": true,
+  "height": 1617,
+  "styles": [
+   "body: Assistant 15px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Assistant 30px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Assistant 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Assistant 12px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Assistant 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Arial 13.3333px/400 color rgba(255, 255, 255, 0.75) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Shop",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping"
+  ],
+  "heads": [
+   "55 H1 ",
+   "-66 H2 Item added to your cart",
+   "310 H2 Featured products",
+   "552 H3 Premium Shilajit Resin 10 grams",
+   "552 H3 Premium Shilajit Resin 20 grams",
+   "831 H3 Premium Shilajit Resin 30 grams",
+   "968 H2 Quick links",
+   "1411 H2 Get In Touch"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 45,
+    "id": "shopify-section-sections--22069790933186__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "NATIONWIDE DELIVERY ACROSS PAKISTAN"
+   },
+   {
+    "y": 45,
+    "h": 86,
+    "id": "shopify-section-sections--22069790933186__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Home"
+   },
+   {
+    "y": 131,
+    "h": 146,
+    "id": "shopify-section-template--22069790703810__image_banner_RA4pHD",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 277,
+    "h": 664,
+    "id": "shopify-section-template--22069790703810__featured_collection",
+    "cls": "shopify-section section",
+    "first": "Featured products"
+   },
+   {
+    "y": 941,
+    "h": 676,
+    "id": "shopify-section-sections--22069790900418__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "bold"
+  ],
+  "plinks": [
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+   "https://shilajitstore.life/products/premium-shilajit-resin",
+   "https://shilajitstore.life/products/premium-shilajit-resin-20g-copy"
+  ],
+  "text": "Skip to content NATIONWIDE DELIVERY ACROSS PAKISTAN · CASH ON DELIVERY AVAILABLE · PCSIR LAB TESTED Log in Cart Featured products Sale Premium Shilajit Resin 10 grams Regular price Rs.1,799.00 PKR Sale price Rs.1,399.00 PKR Sale Premium Shilajit Resin 20 grams Regular price Rs.2,999.00 PKR Sale price Rs.2,399.00 PKR Sale Premium Shilajit Resin 30 grams Regular price Rs.4,199.00 PKR Sale price Rs.3,399.00 PKR Quick links About Us Why Choose Us FAQs Contact Us Shipping & Delivery Return & Refund Policy Terms & Conditions Privacy Policy Get In Touch Email Payment methods © 2026, SHILAJIT STORE Powered by Shopify Privacy policy"
+ },
+ "pdpUrl": "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+  "title": "Premium Shilajit Resin 30 grams – SHILAJIT STORE",
+  "desc": "  Shilajit Store is a resin-form shilajit sourced from Pakistan's Gilgit-Baltistan region, kept close to its natural form. Cash on Delivery available nationwide. Above-Fold Trust Line 🧪 Lab Tested | 🏔️ Gilgit-Baltistan Sourced | 🚚 COD Available | 📦 Nationwide Delivery   What Is Shilajit Store? Shilajit is a natural res",
+  "theme": "Dawn / Dawn",
+  "shopify": true,
+  "height": 2234,
+  "styles": [
+   "body: Assistant 16px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Assistant 40px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Assistant 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Assistant 13px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Assistant 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Assistant 15px/400 color rgb(18, 18, 18) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "Home",
+   "Shop",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping",
+   "Skip to product information",
+   "Add to cart",
+   "Buy it now",
+   "Copy link"
+  ],
+  "heads": [
+   "-54 H2 Item added to your cart",
+   "193 H1 Premium Shilajit Resin 30 grams",
+   "763 H3 Above-Fold Trust Line",
+   "1833 H2 Quick links",
+   "1977 H2 Get In Touch"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 39,
+    "id": "shopify-section-sections--22069790933186__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "NATIONWIDE DELIVERY ACROSS PAKISTAN"
+   },
+   {
+    "y": 39,
+    "h": 106,
+    "id": "shopify-section-sections--22069790933186__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Home"
+   },
+   {
+    "y": 145,
+    "h": 1588,
+    "id": "shopify-section-template--22069790769346__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 1733,
+    "h": 64,
+    "id": "shopify-section-template--22069790769346__related-products",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 1797,
+    "h": 438,
+    "id": "shopify-section-sections--22069790900418__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "bold"
+  ],
+  "plinks": [
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g#MainContent",
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g#ProductInfo-template--22069790769346__main"
+  ],
+  "text": "Skip to content NATIONWIDE DELIVERY ACROSS PAKISTAN · CASH ON DELIVERY AVAILABLE · PCSIR LAB TESTED Home Shop Log in Cart Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal MY STORE Premium Shilajit Resin 30 grams Regular price Rs.4,199.00 PKR Sale price Rs.3,399.00 PKRSale Quantity Quantity Decrease quantity for Premium Shilajit Resin 30 grams Increase quantity for Premium Shilajit Resin 30 grams Add to cart Buy it now Shilajit Store is a resin-form shilajit sourced from Pakistan's Gilgit-Baltistan region, kept close to its natural form. Cash on Delivery available nationwide. Above-Fold Trust Line 🧪 Lab Tested | 🏔️ Gilgit-Baltistan Sourced | 🚚 COD Available | 📦 Nationwide Delivery What Is Shilajit Store? Shilajit is a natural resin that forms over long periods in high-altitude mountain regions. Shilajit Store sources its resin from the Gilgit-Baltistan region of Pakistan — one of the same mountain systems known worldwide for producing this resin — and has it tested before it reaches you. What's In the box Himalayan/Gilgit-Baltistan shilajit resin Naturally occurring minerals, as found in raw shilajit No unnecessary additives How to Use Take a small, pea-sized amount (approx. 300–500mg) and dissolve it in warm water, milk, or tea. Typically taken once daily, generally in the morning. A Note on Claims We don't make specific health promises about what this product will do for you — everyone's body is different. What we can tell you clearly is where it's sourced from, what's in the jar, and that it's tested. Share Quick links About Us Why Choose Us FAQs Contact Us Shipping & Delivery Return & Refund Policy Terms & Conditions Privacy Policy Get In Touch Email Payment methods © 2026, SHILAJIT STORE Powered by Shopify Privacy policy"
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+  "title": "Premium Shilajit Resin 30 grams – SHILAJIT STORE",
+  "desc": "  Shilajit Store is a resin-form shilajit sourced from Pakistan's Gilgit-Baltistan region, kept close to its natural form. Cash on Delivery available nationwide. Above-Fold Trust Line 🧪 Lab Tested | 🏔️ Gilgit-Baltistan Sourced | 🚚 COD Available | 📦 Nationwide Delivery   What Is Shilajit Store? Shilajit is a natural res",
+  "theme": "Dawn / Dawn",
+  "shopify": true,
+  "height": 2713,
+  "styles": [
+   "body: Assistant 15px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Assistant 30px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Assistant 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Assistant 12px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Assistant 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Assistant 15px/400 color rgb(18, 18, 18) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "Home",
+   "Shop",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping",
+   "Skip to product information",
+   "Add to cart",
+   "Buy it now",
+   "Copy link"
+  ],
+  "heads": [
+   "-66 H2 Item added to your cart",
+   "600 H1 Premium Shilajit Resin 30 grams",
+   "1105 H3 Above-Fold Trust Line",
+   "2065 H2 Quick links",
+   "2507 H2 Get In Touch"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 45,
+    "id": "shopify-section-sections--22069790933186__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "NATIONWIDE DELIVERY ACROSS PAKISTAN"
+   },
+   {
+    "y": 45,
+    "h": 86,
+    "id": "shopify-section-sections--22069790933186__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Home"
+   },
+   {
+    "y": 131,
+    "h": 1859,
+    "id": "shopify-section-template--22069790769346__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 1990,
+    "h": 48,
+    "id": "shopify-section-template--22069790769346__related-products",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 2038,
+    "h": 676,
+    "id": "shopify-section-sections--22069790900418__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "bold"
+  ],
+  "plinks": [
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g#MainContent",
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g",
+   "https://shilajitstore.life/products/premium-shilajit-resin-30g#ProductInfo-template--22069790769346__main"
+  ],
+  "text": "Skip to content NATIONWIDE DELIVERY ACROSS PAKISTAN · CASH ON DELIVERY AVAILABLE · PCSIR LAB TESTED Log in Cart Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal 1 / of 3 MY STORE Premium Shilajit Resin 30 grams Regular price Rs.4,199.00 PKR Sale price Rs.3,399.00 PKRSale Quantity Quantity Decrease quantity for Premium Shilajit Resin 30 grams Increase quantity for Premium Shilajit Resin 30 grams Add to cart Buy it now Shilajit Store is a resin-form shilajit sourced from Pakistan's Gilgit-Baltistan region, kept close to its natural form. Cash on Delivery available nationwide. Above-Fold Trust Line 🧪 Lab Tested | 🏔️ Gilgit-Baltistan Sourced | 🚚 COD Available | 📦 Nationwide Delivery What Is Shilajit Store? Shilajit is a natural resin that forms over long periods in high-altitude mountain regions. Shilajit Store sources its resin from the Gilgit-Baltistan region of Pakistan — one of the same mountain systems known worldwide for producing this resin — and has it tested before it reaches you. What's In the box Himalayan/Gilgit-Baltistan shilajit resin Naturally occurring minerals, as found in raw shilajit No unnecessary additives How to Use Take a small, pea-sized amount (approx. 300–500mg) and dissolve it in warm water, milk, or tea. Typically taken once daily, generally in the morning. A Note on Claims We don't make specific health promises about what this product will do for you — everyone's body is different. What we can tell you clearly is where it's sourced from, what's in the jar, and that it's tested. Share Quick links About Us Why Choose Us FAQs Contact Us Shipping & Delivery Return & Refund Policy Terms & Conditions Privacy Policy Get In Touch Email Payment methods © 2026, SHILAJIT STORE Powered by Shopify Privacy policy"
+ }
+}

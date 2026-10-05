@@ -1,0 +1,545 @@
+{
+ "name": "lotusbloomingherbs",
+ "url": "https://lotusbloomingherbs.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://lotusbloomingherbs.com/",
+  "title": "Lotus Blooming Herbs | Buy Pure Shilajit – Ayurvedic Supplements",
+  "desc": "Visit Lotus Blooming Herbs to buy pure shilajit and learn more about its health benefits! Our shilajit is regarded in Ayurveda as the highest grade available.",
+  "theme": "Symmetry - MF - Live / Symmetry",
+  "shopify": true,
+  "height": 5489,
+  "styles": [
+   "body: Figtree 16px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: \"Young Serif\" 13px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: \"Young Serif\" 58px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "p: Figtree 16px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Figtree 16px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Figtree 14px/400 color rgb(255, 255, 255) bg rgb(87, 126, 37)"
+  ],
+  "nav": [],
+  "btns": [
+   "Shop SHILAJIT",
+   "Shop All Herbs",
+   "WHY CHOOSE US?",
+   "THE FULL STORY",
+   "❮",
+   "SHOP NOW",
+   "❯",
+   "Subscribe",
+   "Close",
+   "Start shopping"
+  ],
+  "heads": [
+   "71 H1 ",
+   "517 H2 Authentic Shilajit",
+   "813 H2 Our Promise",
+   "1135 H2 Our Family of Herbs",
+   "1702 H2 Featured In...",
+   "2044 H2 My Discovery of Pure Shilajit",
+   "2524 H2 The Promise of Liposomal Delivery",
+   "3055 H2 Fair Trade + Respect for the Environment",
+   "3544 H2 Shop By Concern",
+   "3941 H3 Inflammation",
+   "3941 H3 Sleep",
+   "3941 H3 Immunity",
+   "3941 H3 Cognitive Health",
+   "3941 H3 Energy",
+   "3941 H3 Digestion",
+   "3941 H3 Stress",
+   "3941 H3 Inflammation",
+   "3941 H3 Sleep",
+   "3941 H3 Immunity",
+   "3941 H3 Cognitive Health",
+   "3941 H3 Energy",
+   "3941 H3 Digestion",
+   "3941 H3 Stress",
+   "3941 H3 Inflammation",
+   "4346 H2 Ancient Wisdom + Modern Science"
+  ],
+  "secs": [
+   {
+    "y": 51,
+    "h": 112,
+    "id": "shopify-section-sections--18248159920226__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 163,
+    "h": 4609,
+    "id": "",
+    "cls": "container cf",
+    "first": "Authentic Shilajit"
+   },
+   {
+    "y": 163,
+    "h": 600,
+    "id": "shopify-section-template--18248159461474__16359276425da8ce46",
+    "cls": "shopify-section section-slideshow",
+    "first": "Authentic Shilajit"
+   },
+   {
+    "y": 763,
+    "h": 322,
+    "id": "shopify-section-template--18248159461474__1635927863703110df",
+    "cls": "shopify-section section-rich-text",
+    "first": "Our Promise"
+   },
+   {
+    "y": 1135,
+    "h": 543,
+    "id": "shopify-section-template--18248159461474__16359278676808bea5",
+    "cls": "shopify-section section-featured-collection",
+    "first": "Our Family of Herbs"
+   },
+   {
+    "y": 1677,
+    "h": 283,
+    "id": "shopify-section-template--18248159461474__logo_list_gpNYHA",
+    "cls": "shopify-section section-logo-list",
+    "first": "Featured In..."
+   },
+   {
+    "y": 1960,
+    "h": 413,
+    "id": "shopify-section-template--18248159461474__custom_content_qMngEE",
+    "cls": "shopify-section section-custom-content",
+    "first": "My Discovery of Pure Shilajit"
+   },
+   {
+    "y": 2374,
+    "h": 490,
+    "id": "shopify-section-template--18248159461474__custom_content_Aqki7L",
+    "cls": "shopify-section section-custom-content",
+    "first": "The Promise of Liposomal Delivery"
+   },
+   {
+    "y": 2864,
+    "h": 600,
+    "id": "shopify-section-template--18248159461474__image_with_text_overlay_GfhX",
+    "cls": "shopify-section section-image-with-text-overlay",
+    "first": "Fair Trade + Respect for the Environment"
+   },
+   {
+    "y": 3544,
+    "h": 548,
+    "id": "shopify-section-template--18248159461474__multi_column_rzWaD9",
+    "cls": "shopify-section",
+    "first": "Shop By Concern"
+   },
+   {
+    "y": 4172,
+    "h": 600,
+    "id": "shopify-section-template--18248159461474__image_with_text_overlay_gMCK",
+    "cls": "shopify-section section-image-with-text-overlay",
+    "first": "Ancient Wisdom + Modern Science"
+   },
+   {
+    "y": 4772,
+    "h": 178,
+    "id": "shopify-section-sections--18248159887458__logo_list_N3DNha",
+    "cls": "shopify-section shopify-section-group-footer-group section-logo-list",
+    "first": ""
+   },
+   {
+    "y": 4951,
+    "h": 538,
+    "id": "shopify-section-sections--18248159887458__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "Shop"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://lotusbloomingherbs.com/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha",
+   "https://lotusbloomingherbs.com/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/collections/all-products/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/collections/all-products/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/collections/all-products/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/collections/all-products/products/liposomal-ashwagandha"
+  ],
+  "text": "International orders may be subject to customs taxes or duties imposed by your local government. Read More Skip to content Home About Shop Blog FAQ Contact Us Account Cart INCREASED ENERGY + NUTRIENT ABSORPTION Authentic Shilajit Personally Sourced - Naturally Purified - 100% Gold Grade Himalayan Shilajit SHOP SHILAJITSHOP ALL HERBS Our Promise Lotus Blooming Herbs™ provides the most pure and potent herbs from around the world. We spare no expense and meticulously source ingredients that are formulated with care and expertise. Our products are 100% safe and natural. We never add any artificial ingredients or preservatives. WHY CHOOSE US? Our Family of Herbs Authentic Shilajit™ (10g) Genuine Himalayan Shilajit Regular price $ 59.99 342 reviews Authentic Chyawanprash™ (12.3oz) Rejuvenating Multi-Herbal Jam Regular price $ 29.99 Sold out 129 reviews Sacred Haridra™ | Supercritical Extract of Turmeric, Kashmiri Saffron and Black Pepper in Liposomal Form (60 vegan capsules) Regular price $ 39.99 45 reviews LipoAshwagandha™ | Supercritical Extract of Ashwagandha in Liposomal Form (60 vegan capsules) Regular price $ 39.99 11 reviews Featured In... My Discovery of Pure Shilajit I first discovered Shilajit in 2000 while studying meditation and Tibetan Medicine in India. A Yogi, living in the mountains of Himachal Pradesh, gave me a sample of Himalayan Shilajit. He expounded on the wonders of this strange, black, gooey substance... THE FULL STORY The Promise of Liposomal Delivery Our latest line of herbal supplements harnesses the power of supercritical extracts and liposomal encapsulation for a more potent and effective experience. Liposomes act as protective, nutrient-rich carriers, shielding sensitive compounds and guiding them directly to your cells for maximum absorption and bioavailability. Experience the pinnacle of herbal potency, designed to work where it matters most. Fair Trade + Respect for the Environment Our philosophy is to deal directly with, and learn from, the indigenous peoples and traditional healers who grow, collect and understand these herbs. Cutting out the middleman enables us to ensure that farmers are fairly compensated and no harm is done to Mother Earth. Our ingredients are chosen from farmers who respect the environment and employ fair labor practices. Shop By Concern ❮ Inflammation Soothe discomfort and support mobility SHOP NOW Sleep Cultivate deeper rest SHOP NOW Immunity Strengthen your body's natural defenses SHOP NOW Cognitive Health Support focus and mental clarity SHOP NOW Energy Find natural, lasting vitality SHOP NOW Digestion Promote balance and ease SHOP NOW Stress Nurture calm and build resilience SHOP NOW Inflammation Soothe discomfort and support mobility SHOP NOW Sleep Cultivate deeper rest SHOP NOW Immunity Strengthen your body's natural defenses SHOP NOW Cognitive Health Support focus and mental clarity SHOP NOW Energy Find natural, lasting vitality SHOP NOW Digestion Promote balance and ease SHOP NOW Stress Nurture calm and build resilience SHOP NOW Inflammation Soothe discomfort and support mobility SHOP NOW ❯ Ancient Wisdom + Modern Science We adhere to Ayurvedic principles when formulating our products. Our obsession with ancestral knowledge and dedication to traditional methods combine to achieve the most genuine and effective formulas available. In addition, we utilize modern extraction techniques, such as Supercritical CO2 extraction, to boost bio-availability and enhance efficacy. Menu Shop About Us Blog Affiliate Area Write For Us Support Privacy Policy Shipping and Returns Contact Us FAQ Disclaimer These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, or cure any disease. All material provided is meant for educational purposes only and should not substitute for a medical consultation. All readers are strongly encouraged to consult and work with an experienced health-care practitioner. Individual results may vary. Newsletter Sign up for exclusive offers, original stories, events and more. SUBSCRIBE © 2026 Lotus Blooming Herbs."
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://lotusbloomingherbs.com/",
+  "title": "Lotus Blooming Herbs | Buy Pure Shilajit – Ayurvedic Supplements",
+  "desc": "Visit Lotus Blooming Herbs to buy pure shilajit and learn more about its health benefits! Our shilajit is regarded in Ayurveda as the highest grade available.",
+  "theme": "Symmetry - MF - Live / Symmetry",
+  "shopify": true,
+  "height": 6387,
+  "styles": [
+   "body: Figtree 16px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: \"Young Serif\" 13px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: \"Young Serif\" 46px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "p: Figtree 16px/400 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Figtree 16px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Figtree 14px/400 color rgb(255, 255, 255) bg rgb(87, 126, 37)"
+  ],
+  "nav": [],
+  "btns": [
+   "Shop SHILAJIT",
+   "Shop All Herbs",
+   "WHY CHOOSE US?",
+   "Previous",
+   "Next",
+   "THE FULL STORY",
+   "❮",
+   "SHOP NOW",
+   "❯",
+   "Subscribe",
+   "Close",
+   "Start shopping"
+  ],
+  "heads": [
+   "66 H1 ",
+   "219 H2 Authentic Shilajit",
+   "634 H2 Our Promise",
+   "1050 H2 Our Family of Herbs",
+   "1576 H2 Featured In...",
+   "2179 H2 My Discovery of Pure Shilajit",
+   "2596 H2 The Promise of Liposomal Delivery",
+   "3251 H2 Fair Trade + Respect for the Environment",
+   "3733 H2 Shop By Concern",
+   "4205 H3 Inflammation",
+   "4205 H3 Sleep",
+   "4205 H3 Immunity",
+   "4205 H3 Cognitive Health",
+   "4205 H3 Energy",
+   "4205 H3 Digestion",
+   "4205 H3 Stress",
+   "4205 H3 Inflammation",
+   "4205 H3 Sleep",
+   "4205 H3 Immunity",
+   "4205 H3 Cognitive Health",
+   "4205 H3 Energy",
+   "4205 H3 Digestion",
+   "4205 H3 Stress",
+   "4205 H3 Inflammation",
+   "4459 H2 Ancient Wisdom + Modern Science"
+  ],
+  "secs": [
+   {
+    "y": 56,
+    "h": 68,
+    "id": "shopify-section-sections--18248159920226__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 124,
+    "h": 4747,
+    "id": "",
+    "cls": "container cf",
+    "first": "Authentic Shilajit"
+   },
+   {
+    "y": 124,
+    "h": 460,
+    "id": "shopify-section-template--18248159461474__16359276425da8ce46",
+    "cls": "shopify-section section-slideshow",
+    "first": "Authentic Shilajit"
+   },
+   {
+    "y": 584,
+    "h": 416,
+    "id": "shopify-section-template--18248159461474__1635927863703110df",
+    "cls": "shopify-section section-rich-text",
+    "first": "Our Promise"
+   },
+   {
+    "y": 1050,
+    "h": 502,
+    "id": "shopify-section-template--18248159461474__16359278676808bea5",
+    "cls": "shopify-section section-featured-collection",
+    "first": "Our Family of Herbs"
+   },
+   {
+    "y": 1551,
+    "h": 392,
+    "id": "shopify-section-template--18248159461474__logo_list_gpNYHA",
+    "cls": "shopify-section section-logo-list",
+    "first": "Featured In..."
+   },
+   {
+    "y": 1943,
+    "h": 603,
+    "id": "shopify-section-template--18248159461474__custom_content_qMngEE",
+    "cls": "shopify-section section-custom-content",
+    "first": "My Discovery of Pure Shilajit"
+   },
+   {
+    "y": 2596,
+    "h": 618,
+    "id": "shopify-section-template--18248159461474__custom_content_Aqki7L",
+    "cls": "shopify-section section-custom-content",
+    "first": "The Promise of Liposomal Delivery"
+   },
+   {
+    "y": 3213,
+    "h": 460,
+    "id": "shopify-section-template--18248159461474__image_with_text_overlay_GfhX",
+    "cls": "shopify-section section-image-with-text-overlay",
+    "first": "Fair Trade + Respect for the Environment"
+   },
+   {
+    "y": 3733,
+    "h": 618,
+    "id": "shopify-section-template--18248159461474__multi_column_rzWaD9",
+    "cls": "shopify-section",
+    "first": "Shop By Concern"
+   },
+   {
+    "y": 4411,
+    "h": 460,
+    "id": "shopify-section-template--18248159461474__image_with_text_overlay_gMCK",
+    "cls": "shopify-section section-image-with-text-overlay",
+    "first": "Ancient Wisdom + Modern Science"
+   },
+   {
+    "y": 4871,
+    "h": 303,
+    "id": "shopify-section-sections--18248159887458__logo_list_N3DNha",
+    "cls": "shopify-section shopify-section-group-footer-group section-logo-list",
+    "first": ""
+   },
+   {
+    "y": 5174,
+    "h": 1213,
+    "id": "shopify-section-sections--18248159887458__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "Shop"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://lotusbloomingherbs.com/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha",
+   "https://lotusbloomingherbs.com/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/collections/all-products/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/collections/all-products/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/collections/all-products/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/collections/all-products/products/liposomal-ashwagandha"
+  ],
+  "text": "International orders may be subject to customs taxes or duties imposed by your local government. Read More Skip to content Account Cart INCREASED ENERGY + NUTRIENT ABSORPTION Authentic Shilajit Personally Sourced - Naturally Purified - 100% Gold Grade Himalayan Shilajit SHOP SHILAJITSHOP ALL HERBS Our Promise Lotus Blooming Herbs™ provides the most pure and potent herbs from around the world. We spare no expense and meticulously source ingredients that are formulated with care and expertise. Our products are 100% safe and natural. We never add any artificial ingredients or preservatives. WHY CHOOSE US? Previous Our Family of Herbs Next Authentic Shilajit™ (10g) Genuine Himalayan Shilajit Regular price $ 59.99 342 reviews Authentic Chyawanprash™ (12.3oz) Rejuvenating Multi-Herbal Jam Regular price $ 29.99 Sold out 129 reviews Sacred Haridra™ | Supercritical Extract of Turmeric, Kashmiri Saffron and Black Pepper in Liposomal Form (60 vegan capsules) Regular price $ 39.99 45 reviews LipoAshwagandha™ | Supercritical Extract of Ashwagandha in Liposomal Form (60 vegan capsules) Regular price $ 39.99 11 reviews Featured In... My Discovery of Pure Shilajit I first discovered Shilajit in 2000 while studying meditation and Tibetan Medicine in India. A Yogi, living in the mountains of Himachal Pradesh, gave me a sample of Himalayan Shilajit. He expounded on the wonders of this strange, black, gooey substance... THE FULL STORY The Promise of Liposomal Delivery Our latest line of herbal supplements harnesses the power of supercritical extracts and liposomal encapsulation for a more potent and effective experience. Liposomes act as protective, nutrient-rich carriers, shielding sensitive compounds and guiding them directly to your cells for maximum absorption and bioavailability. Experience the pinnacle of herbal potency, designed to work where it matters most. Fair Trade + Respect for the Environment Our philosophy is to deal directly with, and learn from, the indigenous peoples and traditional healers who grow, collect and understand these herbs. Cutting out the middleman enables us to ensure that farmers are fairly compensated and no harm is done to Mother Earth. Our ingredients are chosen from farmers who respect the environment and employ fair labor practices. Shop By Concern ❮ Inflammation Soothe discomfort and support mobility SHOP NOW Sleep Cultivate deeper rest SHOP NOW Immunity Strengthen your body's natural defenses SHOP NOW Cognitive Health Support focus and mental clarity SHOP NOW Energy Find natural, lasting vitality SHOP NOW Digestion Promote balance and ease SHOP NOW Stress Nurture calm and build resilience SHOP NOW Inflammation Soothe discomfort and support mobility SHOP NOW Sleep Cultivate deeper rest SHOP NOW Immunity Strengthen your body's natural defenses SHOP NOW Cognitive Health Support focus and mental clarity SHOP NOW Energy Find natural, lasting vitality SHOP NOW Digestion Promote balance and ease SHOP NOW Stress Nurture calm and build resilience SHOP NOW Inflammation Soothe discomfort and support mobility SHOP NOW ❯ Ancient Wisdom + Modern Science We adhere to Ayurvedic principles when formulating our products. Our obsession with ancestral knowledge and dedication to traditional methods combine to achieve the most genuine and effective formulas available. In addition, we utilize modern extraction techniques, such as Supercritical CO2 extraction, to boost bio-availability and enhance efficacy. Menu Shop About Us Blog Affiliate Area Write For Us Support Privacy Policy Shipping and Returns Contact Us FAQ Disclaimer These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, or cure any disease. All material provided is meant for educational purposes only and should not substitute for a medical consultation. All readers are strongly encouraged to consult and work with an experienced health-care practitioner. Individual results may vary. Newsletter Sign up for exclusive offers, original stories, events and more. SUBSCRIBE © 2026 Lotus Blooming Herbs."
+ },
+ "pdpUrl": "https://lotusbloomingherbs.com/products/authentic-shilajit",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987",
+  "title": "Authentic Shilajit™ | Genuine Himalayan Shilajit Resin – Lotus Blooming Herbs",
+  "desc": "Our genuine Himalayan shilajit comes in resin form and is 100% pure for better results. Order this natural mineral supplement today to improve your health!",
+  "theme": "Symmetry - MF - Live / Symmetry",
+  "shopify": true,
+  "height": 4883,
+  "styles": [
+   "body: Figtree 16px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: \"Young Serif\" 36px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: \"Young Serif\" 25.6px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: Figtree 16px/400 color rgba(35, 35, 35, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Figtree 16px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Figtree 16px/400 color rgb(255, 255, 255) bg rgb(87, 126, 37)"
+  ],
+  "nav": [
+   "Home"
+  ],
+  "btns": [
+   "Previous",
+   "Next",
+   "Add to cart",
+   "Close",
+   "Subscribe",
+   "Start shopping"
+  ],
+  "heads": [
+   "228 H1 Authentic Shilajit™ (10g) Genuine Himalayan Shilajit",
+   "1608 H3 Our Tests",
+   "20 H2 Authentic Shilajit™ (10g) Genuine Himalayan Shilajit",
+   "1728 H2 Customer Reviews"
+  ],
+  "secs": [
+   {
+    "y": 51,
+    "h": 112,
+    "id": "shopify-section-sections--18248159920226__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 163,
+    "h": 4003,
+    "id": "",
+    "cls": "container cf",
+    "first": "Home"
+   },
+   {
+    "y": 190,
+    "h": 1434,
+    "id": "shopify-section-template--18248160313442__main",
+    "cls": "shopify-section section-main-product page-section-spacing page-section-spacing--no-top-mob",
+    "first": "Home"
+   },
+   {
+    "y": 1704,
+    "h": 1807,
+    "id": "shopify-section-template--18248160313442__17624986573e97aa09",
+    "cls": "shopify-section section-apps",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 3591,
+    "h": 525,
+    "id": "shopify-section-template--18248160313442__related-products",
+    "cls": "shopify-section section-related-products",
+    "first": ""
+   },
+   {
+    "y": 4166,
+    "h": 178,
+    "id": "shopify-section-sections--18248159887458__logo_list_N3DNha",
+    "cls": "shopify-section shopify-section-group-footer-group section-logo-list",
+    "first": ""
+   },
+   {
+    "y": 4345,
+    "h": 538,
+    "id": "shopify-section-sections--18248159887458__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "Shop"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#content",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha",
+   "https://lotusbloomingherbs.com/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#ProductInfo-template--18248160313442__main",
+   "https://lotusbloomingherbs.com/cdn/shop/products/FrontLabel.jpg?v=1570651471&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/TinContainerSpoon.jpg?v=1758563896&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/ShilajitWater2.jpg?v=1758563896&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/OpenwithSpoon.jpg?v=1758563797&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/BackLabel.jpg?v=1758563797&width=5000",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#judgeme_product_reviews",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha?pr_prod_strat=similar&pr_rec_id=33c5af674&pr_rec_pid=7343936897122&pr_ref_pid=288196575&pr_seq=uniform",
+   "https://lotusbloomingherbs.com/products/sacred-haridra?pr_prod_strat=similar&pr_rec_id=33c5af674&pr_rec_pid=7156647854178&pr_ref_pid=288196575&pr_seq=uniform"
+  ],
+  "text": "International orders may be subject to customs taxes or duties imposed by your local government. Read More Skip to content Home About Shop Blog FAQ Contact Us Account Cart Home Authentic Shilajit™ (10g) Genuine Himalayan Shilajit Skip to product information Previous Next Authentic Shilajit™ (10g) Genuine Himalayan Shilajit 342 reviews Regular price $ 59.99 Quantity ADD TO CART FAQs USAGE INGREDIENTS SUPPLEMENT FACTS SAFETY & PURITY: LAB TESTS We offer the only genuine, Gold Grade Himalayan Shilajit in its 100% pure and most potent form – a black gummy mineral resin. Our Founder, Johann Helf, personally sources, selects and imports the fulvic acid-rich mineral resin from a remote, high altitude region of the Himalayan mountains along the Tibetan border with India. 10g genuine Gold Grade Himalayan Shilajit per container Naturally purified with filtered spring water before being laboratory tested for safety. See our latest lab tests here . Contains a wide spectrum of micro minerals and trace elements and naturally occurring Fulvic Acid, which facilitates absorption of these minerals at the cellular level. We package our Shilajit in a CGMP Certified and FDA Registered facility. Your product will arrive in a sealed, food grade, BPA Free, non-reactive container. Supports metabolism, immunity, reproductive health, muscle recovery, energy and nutrient absorption.* VEGAN • GLUTEN FREE • DAIRY FREE • SOY FREE Free, first class, domestic shipping for orders of Authentic Shilajit™. Additional shipping information Customer Reviews 4.88 out of 5 Based on 342 reviews 317 16 5 1 3 Write a review Customer photos & videos 96.1 91.3 Verified Sort by Most Recent Highest Rating Lowest Rating Only Pictures Pictures First Videos First Most Helpful 10/01/2026 Aaron Overstreet Best of the best. I've tried a lot of different brands of shilajit. Both here in the US and in India. This is my favorite. 09/27/2026 Raamon Newman Excellent potency Very dense quality nutrition that is very strengthening, service on point! 09/24/2026 Rick Shields I can't give a title... I Really believe after taking shilajit,after months of not having any,That It truely makes a difference. (Over all) I think it is very HIGH quality,I bought some a year ago,from another company,and it smelled like a dead dog. LOL I like what I get here very much,thank you,Rick 08/25/2026 Nathan Pizzardi Stop taking that store bought quality Shilajit! This Shilajit is legit . I take it to help my energy level throughout the day . This is the best Shilajit on the market . Worth every penny . I opted to subscribe and save . Now I never have to run out 💪🏼🙏♥️ 08/23/2026 Tenzin Jigme Quality Shilajit For years, I've purchased organic Shilajit through an online merchant in Nepal. However, that shop no longer stocks Shilajit, so I began a search for authentic Shilajit and landed on Lotus Blooming Herbs's website. Their Shilajit is of high quality and potency. Thanks to my previous experience with authentic Shilajit, I can attest that LBH's Authentic Shilajit is very good quality. I mixed it in my morning tea (black tea with milk) and it's wonderful. I used to take it directly under the tongue, but mixing it in with the tea adds a nice touch. I use Shilajit to aid in meditation, mental focus and overall health and well-being. It's working for me. Thank you vert much. >> Lotus Blooming Herbs replied: Hi Tenzin, we're thrilled to hear you're enjoying our Authentic Shilajit and that it's supporting your meditation and health goals! It is especially valuable to hear your feedback as someone connected to the sacred Himalayas where our Shilajit is sourced. Thuk-je-che 🙏🏻 Thank you for sharing your experience and for trusting Lotus Blooming Herbs. May you be happy, peaceful and free. 123 You may also like LipoAshwagandha™ | Supercritical Extract of Ashwagandha in Liposomal Form (60 vegan capsules) Regular price $ 39.99 11 reviews Sacred Haridra™ | Supercritical Extract of Turmeric, Kashmiri Saffron and Black Pepper in Liposomal Form (60 vegan capsules) Regular price $ 39.99 45 reviews Menu Shop About Us Blog Affiliate Area Write For Us Support Privacy Policy Shipping and Returns Contact Us FAQ Disclaimer These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, or cure any disease. All material provided is meant for educational purposes only and should not substitute for a medical consultation. All readers are strongly encouraged to consult and work with an experienced health-care practitioner. Individual results may vary. Newsletter Sign up for exclusive offers, original stories, events and more. SUBSCRIBE © 2026 Lotus Blooming Herbs."
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987",
+  "title": "Authentic Shilajit™ | Genuine Himalayan Shilajit Resin – Lotus Blooming Herbs",
+  "desc": "Our genuine Himalayan shilajit comes in resin form and is 100% pure for better results. Order this natural mineral supplement today to improve your health!",
+  "theme": "Symmetry - MF - Live / Symmetry",
+  "shopify": true,
+  "height": 6993,
+  "styles": [
+   "body: Figtree 16px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: \"Young Serif\" 29px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: \"Young Serif\" 22.24px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: Figtree 16px/400 color rgba(35, 35, 35, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Figtree 16px/400 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Figtree 16px/400 color rgb(255, 255, 255) bg rgb(87, 126, 37)"
+  ],
+  "nav": [
+   "Home"
+  ],
+  "btns": [
+   "Add to cart",
+   "Close",
+   "Subscribe",
+   "Start shopping"
+  ],
+  "heads": [
+   "604 H1 Authentic Shilajit™ (10g) Genuine Himalayan Shilajit",
+   "2170 H3 Our Tests",
+   "20 H2 Authentic Shilajit™ (10g) Genuine Himalayan Shilajit",
+   "2468 H2 Customer Reviews"
+  ],
+  "secs": [
+   {
+    "y": 56,
+    "h": 68,
+    "id": "shopify-section-sections--18248159920226__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": ""
+   },
+   {
+    "y": 124,
+    "h": 5612,
+    "id": "",
+    "cls": "container cf",
+    "first": "Home"
+   },
+   {
+    "y": 124,
+    "h": 2267,
+    "id": "shopify-section-template--18248160313442__main",
+    "cls": "shopify-section section-main-product page-section-spacing page-section-spacing--no-top-mob",
+    "first": "Home"
+   },
+   {
+    "y": 2452,
+    "h": 2737,
+    "id": "shopify-section-template--18248160313442__17624986573e97aa09",
+    "cls": "shopify-section section-apps",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 5249,
+    "h": 437,
+    "id": "shopify-section-template--18248160313442__related-products",
+    "cls": "shopify-section section-related-products",
+    "first": ""
+   },
+   {
+    "y": 5736,
+    "h": 303,
+    "id": "shopify-section-sections--18248159887458__logo_list_N3DNha",
+    "cls": "shopify-section shopify-section-group-footer-group section-logo-list",
+    "first": ""
+   },
+   {
+    "y": 6039,
+    "h": 953,
+    "id": "shopify-section-sections--18248159887458__footer",
+    "cls": "shopify-section shopify-section-group-footer-group section-footer",
+    "first": "Shop"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#content",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha",
+   "https://lotusbloomingherbs.com/products/sacred-haridra",
+   "https://lotusbloomingherbs.com/products/authentic-chyawanprash-12-3-oz-ethically-wildcrafted-and-organic",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#ProductInfo-template--18248160313442__main",
+   "https://lotusbloomingherbs.com/cdn/shop/products/FrontLabel.jpg?v=1570651471&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/TinContainerSpoon.jpg?v=1758563896&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/ShilajitWater2.jpg?v=1758563896&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/OpenwithSpoon.jpg?v=1758563797&width=5000",
+   "https://lotusbloomingherbs.com/cdn/shop/products/BackLabel.jpg?v=1758563797&width=5000",
+   "https://lotusbloomingherbs.com/products/authentic-shilajit?variant=1734489987#judgeme_product_reviews",
+   "https://lotusbloomingherbs.com/products/sacred-haridra?pr_prod_strat=jac&pr_rec_id=33c5af674&pr_rec_pid=7156647854178&pr_ref_pid=288196575&pr_seq=uniform",
+   "https://lotusbloomingherbs.com/products/liposomal-ashwagandha?pr_prod_strat=jac&pr_rec_id=33c5af674&pr_rec_pid=7343936897122&pr_ref_pid=288196575&pr_seq=uniform"
+  ],
+  "text": "International orders may be subject to customs taxes or duties imposed by your local government. Read More Skip to content Account Cart Skip to product information Authentic Shilajit™ (10g) Genuine Himalayan Shilajit 342 reviews Regular price $ 59.99 Quantity ADD TO CART FAQs USAGE INGREDIENTS SUPPLEMENT FACTS SAFETY & PURITY: LAB TESTS We offer the only genuine, Gold Grade Himalayan Shilajit in its 100% pure and most potent form – a black gummy mineral resin. Our Founder, Johann Helf, personally sources, selects and imports the fulvic acid-rich mineral resin from a remote, high altitude region of the Himalayan mountains along the Tibetan border with India. 10g genuine Gold Grade Himalayan Shilajit per container Naturally purified with filtered spring water before being laboratory tested for safety. See our latest lab tests here . Contains a wide spectrum of micro minerals and trace elements and naturally occurring Fulvic Acid, which facilitates absorption of these minerals at the cellular level. We package our Shilajit in a CGMP Certified and FDA Registered facility. Your product will arrive in a sealed, food grade, BPA Free, non-reactive container. Supports metabolism, immunity, reproductive health, muscle recovery, energy and nutrient absorption.* VEGAN • GLUTEN FREE • DAIRY FREE • SOY FREE Free, first class, domestic shipping for orders of Authentic Shilajit™. Additional shipping information Customer Reviews 4.88 out of 5 Based on 342 reviews 317 16 5 1 3 Write a review Customer photos & videos 96.1 91.3 Verified Sort by Most Recent Highest Rating Lowest Rating Only Pictures Pictures First Videos First Most Helpful 10/01/2026 Aaron Overstreet Best of the best. I've tried a lot of different brands of shilajit. Both here in the US and in India. This is my favorite. 09/27/2026 Raamon Newman Excellent potency Very dense quality nutrition that is very strengthening, service on point! 09/24/2026 Rick Shields I can't give a title... I Really believe after taking shilajit,after months of not having any,That It truely makes a difference. (Over all) I think it is very HIGH quality,I bought some a year ago,from another company,and it smelled like a dead dog. LOL I like what I get here very much,thank you,Rick 08/25/2026 Nathan Pizzardi Stop taking that store bought quality Shilajit! This Shilajit is legit . I take it to help my energy level throughout the day . This is the best Shilajit on the market . Worth every penny . I opted to subscribe and save . Now I never have to run out 💪🏼🙏♥️ 08/23/2026 Tenzin Jigme Quality Shilajit For years, I've purchased organic Shilajit through an online merchant in Nepal. However, that shop no longer stocks Shilajit, so I began a search for authentic Shilajit and landed on Lotus Blooming Herbs's website. Their Shilajit is of high quality and potency. Thanks to my previous experience with authentic Shilajit, I can attest that LBH's Authentic Shilajit is very good quality. I mixed it in my morning tea (black tea with milk) and it's wonderful. I used to take it directly under the tongue, but mixing it in with the tea adds a nice touch. I use Shilajit to aid in meditation, mental focus and overall health and well-being. It's working for me. Thank you vert much. >> Lotus Blooming Herbs replied: Hi Tenzin, we're thrilled to hear you're enjoying our Authentic Shilajit and that it's supporting your meditation and health goals! It is especially valuable to hear your feedback as someone connected to the sacred Himalayas where our Shilajit is sourced. Thuk-je-che 🙏🏻 Thank you for sharing your experience and for trusting Lotus Blooming Herbs. May you be happy, peaceful and free. 123 You may also like Sacred Haridra™ | Supercritical Extract of Turmeric, Kashmiri Saffron and Black Pepper in Liposomal Form (60 vegan capsules) Regular price $ 39.99 45 reviews LipoAshwagandha™ | Supercritical Extract of Ashwagandha in Liposomal Form (60 vegan capsules) Regular price $ 39.99 11 reviews Menu Support Disclaimer These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, or cure any disease. All material provided is meant for educational purposes only and should not substitute for a medical consultation. All readers are strongly encouraged to consult and work with an experienced health-care practitioner. Individual results may vary. Newsletter Sign up for exclusive offers, original stories, events and more. SUBSCRIBE © 2026 Lotus Blooming Herbs."
+ }
+}

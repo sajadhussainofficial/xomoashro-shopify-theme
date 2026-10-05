@@ -1,0 +1,906 @@
+{
+ "name": "penguinshilajit",
+ "url": "https://penguinshilajit.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://penguinshilajit.com/",
+  "title": "#1 Quality Shilajit Directly From The Himalayas – Penguin Shilajit",
+  "desc": "Penguin Shilajit is #1 Pure Himalayan Shilajit. Lab-tested, 17,000+ ft sourced, 85+ minerals. Resin & Drops. 30% OFF + Shipping in USA, UK, Canada, Australia, Italy, France, Mexico, Spain, Pakistan & across the globe. 30-day guarantee. Order now!",
+  "theme": "penguin shilajit / Shrine⁺",
+  "shopify": true,
+  "height": 13424,
+  "styles": [
+   "body: system_ui 16px/400 color rgba(18, 18, 18, 0.9) bg rgb(255, 255, 255)",
+   "h1: \"Open Sans\" 32.5px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: \"Open Sans\" 24px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: \"Open Sans\" 18px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "header: system_ui 16px/400 color rgba(18, 18, 18, 0.9) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: system_ui 16px/700 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shilajit Pakistan",
+   "Shilajit Worldwide",
+   "Lab Reports",
+   "Wellness Blog",
+   "Affiliate Program",
+   "Log in",
+   "Twitter",
+   "Facebook",
+   "Instagram",
+   "TikTok",
+   "YouTube",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Continue shopping",
+   "Shop Now",
+   "View all",
+   "Choose options",
+   "Claim 30% Discount",
+   "Sign up"
+  ],
+  "heads": [
+   "127 H2 Your cart is empty",
+   "810 H3 Himalayan Shilajit Resin & Drops",
+   "46 H1 ",
+   "890 H2 Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above 17,000 ft. Eurofins-certified. 73% fulv",
+   "1212 H1 Why Penguin Shilajit is #1 Choice",
+   "2226 H2 Premium Shilajit (International)",
+   "2610 H3 Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+   "2610 H3 Himalayan Shilajit Resin - 1 Month Supply",
+   "2610 H3 Himalayan Shilajit Resin - 2 Months",
+   "2610 H3 Himalayan Shilajit Resin - 3 Months",
+   "2831 H2 Premium Shilajit (for Pakistan)",
+   "3248 H3 خالص ہمالیائی سلاجیت (لیب ٹیسٹ شدہ) – پاکستان کیلئے اصل شلاجیت",
+   "3248 H3 Gold-Grade Pure Shilajit | Eurofins Lab Tested | For Pakistan Only",
+   "3469 H2 Users say it better",
+   "3927 H2 Pure Energy. Deep Focus. Real Results.",
+   "4649 H2 What to expect?",
+   "5568 H2 How to use?",
+   "6321 H2 Proven Benefits of Shilajit",
+   "6752 H2 Why choose Penguin?",
+   "6641 H3 Self-sourced from Himalayan peaks above 16,000 ft.",
+   "6711 H3 Free from heavy metals",
+   "6760 H3 3rd party Lab Tested",
+   "6806 H3 Naturally sun-dried to preserve bioactive compounds",
+   "6873 H3 Certified for safety & authenticity",
+   "6942 H3 30-days satisfaction guarantee",
+   "7074 H1 How do I know if shilajit is 100% pure?",
+   "7784 H2 Tested in International Labs",
+   "8637 H2 People often ask these",
+   "8713 H3 How much Shilajit Resin should I take?",
+   "8776 H3 Can I take Shilajit with other supplements?",
+   "8839 H3 Can shilajit be taken every day?",
+   "8902 H3 How long should Shilajit be taken to achieve optimal results?",
+   "8966 H3 What is the recommended way to take shilajit?",
+   "9029 H3 Is it safe to consume Shilajit during the summer months?",
+   "9092 H3 Does Shilajit have a strong taste?",
+   "9155 H3 How should I store shilajit for maximum freshness?",
+   "9218 H3 Can I take shilajit if I'm on medication?",
+   "9282 H3 Is Shilajit suitable for both men and women?",
+   "9345 H3 Is shilajit safe for seniors?",
+   "9408 H3 Can I take shilajit if I have digestive issues?",
+   "9532 H2 Shilajit Backed By Scientific Studies",
+   "11113 H2 Penguin Wellness Blog",
+   "11581 H3 Meilleur Shilajit France 2026 — Le Comparatif H...",
+   "11581 H3 Shilajit for Athletes and High-Intensity Traini...",
+   "12286 H3 Shilajit for Menopause and Perimenopause: What ...",
+   "12286 H3 Bestes Shilajit Deutschland 2026 — Der ehrliche...",
+   "12712 H2 Quick links",
+   "12712 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 38,
+    "id": "shopify-section-sections--18005258141738__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "For International Customers"
+   },
+   {
+    "y": 38,
+    "h": 154,
+    "id": "shopify-section-sections--18005258141738__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Menu"
+   },
+   {
+    "y": 192,
+    "h": 961,
+    "id": "shopify-section-template--18005257584682__image_banner_kLYJjD",
+    "cls": "shopify-section section",
+    "first": "Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above"
+   },
+   {
+    "y": 1152,
+    "h": 1038,
+    "id": "shopify-section-template--18005257584682__rich_text_KEhy9m",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 2190,
+    "h": 604,
+    "id": "shopify-section-template--18005257584682__featured_collection_FFN97A",
+    "cls": "shopify-section section",
+    "first": "Premium Shilajit (International)"
+   },
+   {
+    "y": 2795,
+    "h": 638,
+    "id": "shopify-section-template--18005257584682__featured_collection_pjFihX",
+    "cls": "shopify-section section",
+    "first": "Premium Shilajit (for Pakistan)"
+   },
+   {
+    "y": 3433,
+    "h": 398,
+    "id": "shopify-section-template--18005257584682__c65117da-b894-43a0-8d4d-7bd2",
+    "cls": "shopify-section section",
+    "first": "Users say it better"
+   },
+   {
+    "y": 3831,
+    "h": 722,
+    "id": "shopify-section-template--18005257584682__image_with_text_qdARdX",
+    "cls": "shopify-section section",
+    "first": "Pure Energy. Deep Focus. Real Results."
+   },
+   {
+    "y": 4553,
+    "h": 919,
+    "id": "shopify-section-template--18005257584682__image_with_text_4biyGb",
+    "cls": "shopify-section section",
+    "first": "What to expect?"
+   },
+   {
+    "y": 5472,
+    "h": 722,
+    "id": "shopify-section-template--18005257584682__image_with_text_LxV6eK",
+    "cls": "shopify-section section",
+    "first": "How to use?"
+   },
+   {
+    "y": 6194,
+    "h": 368,
+    "id": "shopify-section-template--18005257584682__bc1e4135-d444-4f02-9a44-f122",
+    "cls": "shopify-section",
+    "first": "Proven Benefits of Shilajit"
+   },
+   {
+    "y": 6562,
+    "h": 452,
+    "id": "shopify-section-template--18005257584682__comparison_table_JWMwWW",
+    "cls": "shopify-section",
+    "first": "Why choose Penguin?"
+   },
+   {
+    "y": 7014,
+    "h": 673,
+    "id": "shopify-section-template--18005257584682__rich_text_VaiKq7",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 7688,
+    "h": 913,
+    "id": "shopify-section-template--18005257584682__image_with_text_KQ8Btx",
+    "cls": "shopify-section section",
+    "first": "Tested in International Labs"
+   },
+   {
+    "y": 8601,
+    "h": 891,
+    "id": "shopify-section-template--18005257584682__collapsible_content_iQzd8B",
+    "cls": "shopify-section section",
+    "first": "People often ask these"
+   },
+   {
+    "y": 9492,
+    "h": 1535,
+    "id": "shopify-section-template--18005257584682__rich_text_4K3YYD",
+    "cls": "shopify-section section",
+    "first": "Shilajit Backed By Scientific Studies"
+   },
+   {
+    "y": 11027,
+    "h": 1652,
+    "id": "shopify-section-template--18005257584682__featured_blog_cAGXWg",
+    "cls": "shopify-section",
+    "first": "Penguin Wellness Blog"
+   },
+   {
+    "y": 12680,
+    "h": 744,
+    "id": "shopify-section-sections--18005258108970__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "judge.me",
+   "bold",
+   "whatsapp"
+  ],
+  "plinks": [
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-1-month-dose",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-2-months-dose",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-3-months-dose",
+   "https://penguinshilajit.com/products/shilajit-pakistan-urdu",
+   "https://penguinshilajit.com/products/shilajit-pakistan"
+  ],
+  "text": "Skip to content For International Customers Shilajit Pakistan Shilajit Worldwide Lab Reports Wellness Blog Affiliate Program Log in Cart Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above 17,000 ft. Eurofins-certified. 73% fulvic acid. Shop Now Why Penguin Shilajit is #1 Choice Penguin Shilajit offers 100% pure Himalayan Shilajit sourced directly from the pristine peaks above 17,000+ feet. We're the most trusted shilajit brand, serving over 150,000 satisfied customers with lab-certified, heavy metal-free products. What Makes Penguin Shilajit Different Self-Sourced Excellence: Unlike resellers, we control the entire process from Himalayan extraction to your doorstep. Our shilajit comes from high-altitude rocks in the Himalayas, where centuries of geological processes create the most potent mineral resin nature offers. 3rd Party Lab Tested: Every batch undergoes rigorous testing by PCSIR (Pakistan Council of Scientific & Industrial Research) and international laboratories like Eurofins. We verify fulvic acid content (70%+), screen for heavy metals (lead, mercury, arsenic), and test for microbial contamination. Your safety is our priority. Export Quality for Pakistan: The same premium-grade shilajit we supply internationally is available to Pakistani customers at affordable prices. You don't need to import expensive foreign brands—authentic Himalayan shilajit is right here, and Penguin delivers it to your door. Two Convenient Forms: Choose Shilajit Resin for maximum potency and traditional experience, or Shilajit Drops for ultimate convenience and fast absorption. Both deliver 85+ essential minerals, high fulvic acid, and the ancient energy that supports testosterone, immunity, energy, and vitality. 30-Day Satisfaction Guarantee: We're so confident in our quality that we offer a full refund if you're not completely satisfied. No questions asked. Try Penguin Shilajit risk-free and experience the difference that pure, properly processed Himalayan shilajit makes. Join 150,000+ customers across Pakistan, USA, UK, Canada, Australia, Spain, Italy, France, Mexico who trust Penguin Shilajit for their daily wellness routine. Premium Shilajit (International) Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Regular price From Rs.9,900.00 Limited Time OFF Himalayan Shilajit Resin - 1 Month Supply Sale price Rs.9,900.00 Regular price Rs.12,700.00 Limited Time OFF Himalayan Shilajit Resin - 2 Months Sale price Rs.13,800.00 Regular price Rs.18,300.00 Limited Time OFF Himalayan Shilajit Resin - 3 Months Sale price Rs.21,100.00 Regular price Rs.31,000.00 View all Premium Shilajit (for Pakistan) For customers in Pakistan. Shop this. خالص ہمالیائی سلاجیت (لیب ٹیسٹ شدہ) – پاکستان کیلئے اصل شلاجیت Regular price From Rs.2,700.00 Choose options Gold-Grade Pure Shilajit | Eurofins Lab Tested | For Pakistan Only Regular price From Rs.2,700.00 Choose options Users say it better Pure Energy. Deep Focus. Real Results. Penguin Shilajit is nature’s most powerful mineral resin, formed over centuries in the high-altitude rocks of the Himalayas. It’s packed with 85+ trace minerals, fulvic acid, and ancient energy that fuels your body and mind. Beneficial for both men and women: Boost testosterone & stamina Sharpen mental focus Improve sleep, mood & muscle recovery Shop Now What to expect? 0-1 Week You may experience the following effects, but if you don't, stay patient. Benefits are on the way! Gentle boost in energy Vivid mental clarity Hints of improved stamina 2-4 Week By now, minerals and fulvic acid are in full effect. You start lifting heavier You experience faster recovery Drastically less brain fog 5-8 Week You unlocked your potential, but don't stop now. Sustained, long-lasting energy Peak physical performance Greater stress resilience Shop Now How to use? Shilajit Resin: Mix pea-sized amount (250mg-500mg) in water, milk, tea or any drink. Shilajit Drops: Mix 8-10 drops in water, milk, tea, coffee or any drink. Use 1-2 times a day, for maximum benefits. Shop Now Proven Benefits of Shilajit Claim 30% Discount Healthy Immune System Reduces Stress & Anxiety Enhanced Energy Levels Stamina & Athletic Performance Mental Clarity & Cognitive Support Clear Skin, Better Hair Anti-aging Benefits Improved Testosterone Level Peak Performance Healthy Immune System Reduces Stress & Anxiety Enhanced Energy Levels Stamina & Athletic Performance Mental Clarity & Cognitive Support Clear Skin, Better Hair Anti-aging Benefits Improved Testosterone Level Peak Performance Why choose Penguin? Penguin Others Self-sourced from Himalayan peaks above 16,000 ft. Free from heavy metals 3rd party Lab Tested Naturally sun-dried to preserve bioactive compounds Certified for safety & authenticity 30-days satisfaction guarantee How do I know if shilajit is 100% pure? 🔥 Melts at body temperature → Real Shilajit softens quickly in your hand or warm water 💧 Fully dissolves in warm liquid → Should dissolve in warm water, tea, or milk without residue ⚡ Strong, earthy smell and bitter taste → Pure Shilajit has a sharp, mineral-rich scent and a slightly bitter taste 🧲 Sticky, tar-like texture at room temperature → Should not be rock-hard or completely dry — that’s often fake or over-processed 🧪 Lab-tested for heavy metals & purity → Always ask for 3rd-party test results (PCSIR, Eurofins, etc.) 🧬 Rich in fulvic acid → Fulvic acid is the main active — low content means poor quality ❌ No fillers or additives → Shouldn’t contain sugars, binders, flavors, or bulking agents Tested in International Labs Tested for purity and heavy metals for maximum benefits. People often ask these How much Shilajit Resin should I take? Can I take Shilajit with other supplements? Can shilajit be taken every day? How long should Shilajit be taken to achieve optimal results? What is the recommended way to take shilajit? Is it safe to consume Shilajit during the summer months? Does Shilajit have a strong taste? How should I store shilajit for "
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://penguinshilajit.com/",
+  "title": "#1 Quality Shilajit Directly From The Himalayas – Penguin Shilajit",
+  "desc": "Penguin Shilajit is #1 Pure Himalayan Shilajit. Lab-tested, 17,000+ ft sourced, 85+ minerals. Resin & Drops. 30% OFF + Shipping in USA, UK, Canada, Australia, Italy, France, Mexico, Spain, Pakistan & across the globe. 30-day guarantee. Order now!",
+  "theme": "penguin shilajit / Shrine⁺",
+  "shopify": true,
+  "height": 15345,
+  "styles": [
+   "body: system_ui 15px/400 color rgba(18, 18, 18, 0.9) bg rgb(255, 255, 255)",
+   "h1: \"Open Sans\" 25px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: \"Open Sans\" 20px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: \"Open Sans\" 17px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "header: system_ui 15px/400 color rgba(18, 18, 18, 0.9) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: system_ui 16px/700 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shilajit Pakistan",
+   "Shilajit Worldwide",
+   "Lab Reports",
+   "Wellness Blog",
+   "Affiliate Program",
+   "Log in",
+   "Twitter",
+   "Facebook",
+   "Instagram",
+   "TikTok",
+   "YouTube",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Continue shopping",
+   "Shop Now",
+   "View all",
+   "Choose options",
+   "Claim 30% Discount",
+   "Sign up"
+  ],
+  "heads": [
+   "141 H2 Your cart is empty",
+   "762 H3 Himalayan Shilajit Resin & Drops",
+   "82 H3 Menu",
+   "41 H1 ",
+   "430 H2 Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above 17,000 ft. Eurofins-certified. 73% fulv",
+   "729 H1 Why Penguin Shilajit is #1 Choice",
+   "2527 H2 Premium Shilajit (International)",
+   "2771 H3 Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+   "2771 H3 Himalayan Shilajit Resin - 1 Month Supply",
+   "3126 H3 Himalayan Shilajit Resin - 2 Months",
+   "3126 H3 Himalayan Shilajit Resin - 3 Months",
+   "3350 H2 Premium Shilajit (for Pakistan)",
+   "3631 H3 خالص ہمالیائی سلاجیت (لیب ٹیسٹ شدہ) – پاکستان کیلئے اصل شلاجیت",
+   "3631 H3 Gold-Grade Pure Shilajit | Eurofins Lab Tested | For Pakistan Only",
+   "3891 H2 Users say it better",
+   "4765 H2 Pure Energy. Deep Focus. Real Results.",
+   "5693 H2 What to expect?",
+   "6915 H2 How to use?",
+   "7279 H2 Proven Benefits of Shilajit",
+   "7668 H2 Why choose Penguin?",
+   "7762 H3 Self-sourced from Himalayan peaks above 16,000 ft.",
+   "7844 H3 Free from heavy metals",
+   "7905 H3 3rd party Lab Tested",
+   "7967 H3 Naturally sun-dried to preserve bioactive compounds",
+   "8070 H3 Certified for safety & authenticity",
+   "8132 H3 30-days satisfaction guarantee",
+   "8281 H1 How do I know if shilajit is 100% pure?",
+   "9680 H2 Tested in International Labs",
+   "9864 H2 People often ask these",
+   "9950 H3 How much Shilajit Resin should I take?",
+   "10032 H3 Can I take Shilajit with other supplements?",
+   "10113 H3 Can shilajit be taken every day?",
+   "10176 H3 How long should Shilajit be taken to achieve optimal results?",
+   "10258 H3 What is the recommended way to take shilajit?",
+   "10339 H3 Is it safe to consume Shilajit during the summer months?",
+   "10420 H3 Does Shilajit have a strong taste?",
+   "10483 H3 How should I store shilajit for maximum freshness?",
+   "10565 H3 Can I take shilajit if I'm on medication?",
+   "10646 H3 Is Shilajit suitable for both men and women?",
+   "10728 H3 Is shilajit safe for seniors?",
+   "10791 H3 Can I take shilajit if I have digestive issues?",
+   "10914 H2 Shilajit Backed By Scientific Studies",
+   "13383 H2 Penguin Wellness Blog",
+   "13739 H3 Meilleur Shilajit France 2026 — Le Comparatif H...",
+   "13739 H3 Shilajit for Athletes and High-Intensity Traini...",
+   "13739 H3 Shilajit for Menopause and Perimenopause: What ...",
+   "13739 H3 Bestes Shilajit Deutschland 2026 — Der ehrliche...",
+   "14234 H2 Quick links",
+   "14822 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 37,
+    "id": "shopify-section-sections--18005258141738__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "For International Customers"
+   },
+   {
+    "y": 37,
+    "h": 93,
+    "id": "shopify-section-sections--18005258141738__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Menu"
+   },
+   {
+    "y": 130,
+    "h": 549,
+    "id": "shopify-section-template--18005257584682__image_banner_kLYJjD",
+    "cls": "shopify-section section",
+    "first": "Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above"
+   },
+   {
+    "y": 679,
+    "h": 1821,
+    "id": "shopify-section-template--18005257584682__rich_text_KEhy9m",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 2500,
+    "h": 823,
+    "id": "shopify-section-template--18005257584682__featured_collection_FFN97A",
+    "cls": "shopify-section section",
+    "first": "Premium Shilajit (International)"
+   },
+   {
+    "y": 3323,
+    "h": 542,
+    "id": "shopify-section-template--18005257584682__featured_collection_pjFihX",
+    "cls": "shopify-section section",
+    "first": "Premium Shilajit (for Pakistan)"
+   },
+   {
+    "y": 3864,
+    "h": 494,
+    "id": "shopify-section-template--18005257584682__c65117da-b894-43a0-8d4d-7bd2",
+    "cls": "shopify-section section",
+    "first": "Users say it better"
+   },
+   {
+    "y": 4358,
+    "h": 928,
+    "id": "shopify-section-template--18005257584682__image_with_text_qdARdX",
+    "cls": "shopify-section section",
+    "first": "Pure Energy. Deep Focus. Real Results."
+   },
+   {
+    "y": 5286,
+    "h": 1222,
+    "id": "shopify-section-template--18005257584682__image_with_text_4biyGb",
+    "cls": "shopify-section section",
+    "first": "What to expect?"
+   },
+   {
+    "y": 6508,
+    "h": 744,
+    "id": "shopify-section-template--18005257584682__image_with_text_LxV6eK",
+    "cls": "shopify-section section",
+    "first": "How to use?"
+   },
+   {
+    "y": 7252,
+    "h": 389,
+    "id": "shopify-section-template--18005257584682__bc1e4135-d444-4f02-9a44-f122",
+    "cls": "shopify-section",
+    "first": "Proven Benefits of Shilajit"
+   },
+   {
+    "y": 7641,
+    "h": 590,
+    "id": "shopify-section-template--18005257584682__comparison_table_JWMwWW",
+    "cls": "shopify-section",
+    "first": "Why choose Penguin?"
+   },
+   {
+    "y": 8231,
+    "h": 939,
+    "id": "shopify-section-template--18005257584682__rich_text_VaiKq7",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 9170,
+    "h": 667,
+    "id": "shopify-section-template--18005257584682__image_with_text_KQ8Btx",
+    "cls": "shopify-section section",
+    "first": "Tested in International Labs"
+   },
+   {
+    "y": 9837,
+    "h": 1047,
+    "id": "shopify-section-template--18005257584682__collapsible_content_iQzd8B",
+    "cls": "shopify-section section",
+    "first": "People often ask these"
+   },
+   {
+    "y": 10884,
+    "h": 2472,
+    "id": "shopify-section-template--18005257584682__rich_text_4K3YYD",
+    "cls": "shopify-section section",
+    "first": "Shilajit Backed By Scientific Studies"
+   },
+   {
+    "y": 13356,
+    "h": 854,
+    "id": "shopify-section-template--18005257584682__featured_blog_cAGXWg",
+    "cls": "shopify-section",
+    "first": "Penguin Wellness Blog"
+   },
+   {
+    "y": 14210,
+    "h": 1135,
+    "id": "shopify-section-sections--18005258108970__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "judge.me",
+   "bold",
+   "whatsapp"
+  ],
+  "plinks": [
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-1-month-dose",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-2-months-dose",
+   "https://penguinshilajit.com/products/himalayan-shilajit-resin-3-months-dose",
+   "https://penguinshilajit.com/products/shilajit-pakistan-urdu",
+   "https://penguinshilajit.com/products/shilajit-pakistan"
+  ],
+  "text": "Skip to content For International Customers Cart Pure Shilajit Resin, Directly from Gilgit-Baltistan.Self-sourced above 17,000 ft. Eurofins-certified. 73% fulvic acid. Shop Now Why Penguin Shilajit is #1 Choice Penguin Shilajit offers 100% pure Himalayan Shilajit sourced directly from the pristine peaks above 17,000+ feet. We're the most trusted shilajit brand, serving over 150,000 satisfied customers with lab-certified, heavy metal-free products. What Makes Penguin Shilajit Different Self-Sourced Excellence: Unlike resellers, we control the entire process from Himalayan extraction to your doorstep. Our shilajit comes from high-altitude rocks in the Himalayas, where centuries of geological processes create the most potent mineral resin nature offers. 3rd Party Lab Tested: Every batch undergoes rigorous testing by PCSIR (Pakistan Council of Scientific & Industrial Research) and international laboratories like Eurofins. We verify fulvic acid content (70%+), screen for heavy metals (lead, mercury, arsenic), and test for microbial contamination. Your safety is our priority. Export Quality for Pakistan: The same premium-grade shilajit we supply internationally is available to Pakistani customers at affordable prices. You don't need to import expensive foreign brands—authentic Himalayan shilajit is right here, and Penguin delivers it to your door. Two Convenient Forms: Choose Shilajit Resin for maximum potency and traditional experience, or Shilajit Drops for ultimate convenience and fast absorption. Both deliver 85+ essential minerals, high fulvic acid, and the ancient energy that supports testosterone, immunity, energy, and vitality. 30-Day Satisfaction Guarantee: We're so confident in our quality that we offer a full refund if you're not completely satisfied. No questions asked. Try Penguin Shilajit risk-free and experience the difference that pure, properly processed Himalayan shilajit makes. Join 150,000+ customers across Pakistan, USA, UK, Canada, Australia, Spain, Italy, France, Mexico who trust Penguin Shilajit for their daily wellness routine. Premium Shilajit (International) Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Regular price From Rs.9,900.00 Limited Time OFF Himalayan Shilajit Resin - 1 Month Supply Sale price Rs.9,900.00 Regular price Rs.12,700.00 Limited Time OFF Himalayan Shilajit Resin - 2 Months Sale price Rs.13,800.00 Regular price Rs.18,300.00 Limited Time OFF Himalayan Shilajit Resin - 3 Months Sale price Rs.21,100.00 Regular price Rs.31,000.00 View all Premium Shilajit (for Pakistan) For customers in Pakistan. Shop this. خالص ہمالیائی سلاجیت (لیب ٹیسٹ شدہ) – پاکستان کیلئے اصل شلاجیت Regular price From Rs.2,700.00 Choose options Gold-Grade Pure Shilajit | Eurofins Lab Tested | For Pakistan Only Regular price From Rs.2,700.00 Choose options Users say it better 1 / of 4 Pure Energy. Deep Focus. Real Results. Penguin Shilajit is nature’s most powerful mineral resin, formed over centuries in the high-altitude rocks of the Himalayas. It’s packed with 85+ trace minerals, fulvic acid, and ancient energy that fuels your body and mind. Beneficial for both men and women: Boost testosterone & stamina Sharpen mental focus Improve sleep, mood & muscle recovery Shop Now What to expect? 0-1 Week You may experience the following effects, but if you don't, stay patient. Benefits are on the way! Gentle boost in energy Vivid mental clarity Hints of improved stamina 2-4 Week By now, minerals and fulvic acid are in full effect. You start lifting heavier You experience faster recovery Drastically less brain fog 5-8 Week You unlocked your potential, but don't stop now. Sustained, long-lasting energy Peak physical performance Greater stress resilience Shop Now How to use? Shilajit Resin: Mix pea-sized amount (250mg-500mg) in water, milk, tea or any drink. Shilajit Drops: Mix 8-10 drops in water, milk, tea, coffee or any drink. Use 1-2 times a day, for maximum benefits. Shop Now Proven Benefits of Shilajit Claim 30% Discount Healthy Immune System Reduces Stress & Anxiety Enhanced Energy Levels Stamina & Athletic Performance Mental Clarity & Cognitive Support Clear Skin, Better Hair Anti-aging Benefits Improved Testosterone Level Peak Performance Healthy Immune System Reduces Stress & Anxiety Enhanced Energy Levels Stamina & Athletic Performance Mental Clarity & Cognitive Support Clear Skin, Better Hair Anti-aging Benefits Improved Testosterone Level Peak Performance Why choose Penguin? Penguin Others Self-sourced from Himalayan peaks above 16,000 ft. Free from heavy metals 3rd party Lab Tested Naturally sun-dried to preserve bioactive compounds Certified for safety & authenticity 30-days satisfaction guarantee How do I know if shilajit is 100% pure? 🔥 Melts at body temperature → Real Shilajit softens quickly in your hand or warm water 💧 Fully dissolves in warm liquid → Should dissolve in warm water, tea, or milk without residue ⚡ Strong, earthy smell and bitter taste → Pure Shilajit has a sharp, mineral-rich scent and a slightly bitter taste 🧲 Sticky, tar-like texture at room temperature → Should not be rock-hard or completely dry — that’s often fake or over-processed 🧪 Lab-tested for heavy metals & purity → Always ask for 3rd-party test results (PCSIR, Eurofins, etc.) 🧬 Rich in fulvic acid → Fulvic acid is the main active — low content means poor quality ❌ No fillers or additives → Shouldn’t contain sugars, binders, flavors, or bulking agents Tested in International Labs Tested for purity and heavy metals for maximum benefits. People often ask these How much Shilajit Resin should I take? Can I take Shilajit with other supplements? Can shilajit be taken every day? How long should Shilajit be taken to achieve optimal results? What is the recommended way to take shilajit? Is it safe to consume Shilajit during the summer months? Does Shilajit have a strong taste? How should I store shilajit for maximum freshness? Can I take shilajit if I'm on medication? Is Shilajit suitab"
+ },
+ "pdpUrl": "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+  "title": "Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+  "desc": "Verified 70%+ Fulvic Acid. Wild-harvested at 17,000ft+ and sun-dried for 60 days. Experience the gold standard of pure Himalayan Shilajit resin. 3rd-party lab tested.",
+  "theme": "penguin shilajit / Shrine⁺",
+  "shopify": true,
+  "height": 14422,
+  "styles": [
+   "body: system_ui 16px/400 color rgba(18, 18, 18, 0.9) bg rgb(255, 255, 255)",
+   "h1: \"Open Sans\" 32.5px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: \"Open Sans\" 24px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: \"Open Sans\" 18px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "header: system_ui 16px/400 color rgba(18, 18, 18, 0.9) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: system_ui 16px/700 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shilajit Pakistan",
+   "Shilajit Worldwide",
+   "Lab Reports",
+   "Wellness Blog",
+   "Affiliate Program",
+   "Log in",
+   "Twitter",
+   "Facebook",
+   "Instagram",
+   "TikTok",
+   "YouTube",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Continue shopping",
+   "Skip to product information",
+   "Add to cart",
+   "More payment options",
+   "Shop Now",
+   "Order Now",
+   "View all",
+   "Sign up"
+  ],
+  "heads": [
+   "127 H2 Your cart is empty",
+   "810 H3 Himalayan Shilajit Resin & Drops",
+   "291 H1 Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+   "1278 H1 Penguin Shilajit: The 2026 Gold Grade Purity Standard",
+   "1698 H3 1. Why Penguin Shilajit is the Global Benchmark",
+   "2341 H3 2. Purity vs. Mass Market: The 2026 Comparison",
+   "2667 H3 3. Core Benefits for Performance & Vitality",
+   "3166 H3 4. How to Use & Verify Authenticity",
+   "3726 H3 5. Frequently Asked Questions",
+   "4229 H3 Technical Specifications",
+   "4536 H2 Nature’s most potent supplement",
+   "4613 H3 Supports energy levels",
+   "4678 H3 Helps increase vitality & strength",
+   "4743 H3 Promotes mental clarity",
+   "4808 H3 Aids hormonal balance",
+   "4873 H3 Joints & bones health",
+   "4938 H3 Promotes overall wellness",
+   "5059 H2 Trusted By Thousands of People Around The World",
+   "5557 H2 Penguin Shilajit – Pure Himalayan Resin for Mind & Body Vitality",
+   "5744 H3 Why Choose Penguin Shilajit?",
+   "6120 H3 Ingredients",
+   "6237 H3 Who Can Use It?",
+   "6383 H3 Why Penguin Shilajit is Different",
+   "6830 H2 What to expect?",
+   "7749 H2 How to use?",
+   "8228 H2 Tested Quality in International Laboratories (Eurofins)",
+   "9105 H1 How do I know if shilajit is 100% pure?",
+   "9920 H2 Why choose Penguin Shilajit?",
+   "9801 H3 85+ minerals & vitamins",
+   "9849 H3 Self-sourced from Himalayas",
+   "9898 H3 3rd Party Tested",
+   "9947 H3 Extracted from 16,000+ ft altitude",
+   "9996 H3 Approved by experts",
+   "10042 H3 Sun Dried - Completely Natural Purification",
+   "10111 H3 Anti-Inflammatory",
+   "10219 H2 People often ask these",
+   "10296 H3 How much Shilajit Resin should I take?",
+   "10359 H3 Can I take Shilajit with other supplements?",
+   "10422 H3 Can shilajit be taken every day?",
+   "10485 H3 How long should Shilajit be taken to achieve optimal results?",
+   "10548 H3 What is the recommended way to take shilajit?",
+   "10611 H3 Is it safe to consume Shilajit during the summer months?",
+   "10675 H3 Does Shilajit have a strong taste?",
+   "10738 H3 How should I store shilajit for maximum freshness?",
+   "10801 H3 Can I take shilajit if I'm on medication?",
+   "10864 H3 Is Shilajit suitable for both men and women?",
+   "10927 H3 Is shilajit safe for seniors?",
+   "10991 H3 Can I take shilajit if I have digestive issues?",
+   "11115 H2 Shilajit Backed By Scientific Studies",
+   "12765 H2 Penguin Wellness Blog",
+   "13098 H3 Meilleur Shilajit France 2026 — Le Comparatif H...",
+   "13098 H3 Shilajit for Athletes and High-Intensity Traini...",
+   "13098 H3 Shilajit for Menopause and Perimenopause: What ...",
+   "13635 H2 Quick links",
+   "13635 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 38,
+    "id": "shopify-section-sections--18005258141738__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "For International Customers"
+   },
+   {
+    "y": 38,
+    "h": 154,
+    "id": "shopify-section-sections--18005258141738__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Menu"
+   },
+   {
+    "y": 192,
+    "h": 4308,
+    "id": "shopify-section-template--18005258043434__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 4500,
+    "h": 523,
+    "id": "shopify-section-template--18005258043434__collapsible_content_39KUY8",
+    "cls": "shopify-section section",
+    "first": "Nature’s most potent supplement"
+   },
+   {
+    "y": 5023,
+    "h": 398,
+    "id": "shopify-section-template--18005258043434__testimonials_7yrt9h",
+    "cls": "shopify-section section",
+    "first": "Trusted By Thousands of People Around The World"
+   },
+   {
+    "y": 5421,
+    "h": 1313,
+    "id": "shopify-section-template--18005258043434__image_with_text_pcW3r4",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 6734,
+    "h": 919,
+    "id": "shopify-section-template--18005258043434__image_with_text_6jNDhF",
+    "cls": "shopify-section section",
+    "first": "What to expect?"
+   },
+   {
+    "y": 7653,
+    "h": 479,
+    "id": "shopify-section-template--18005258043434__image_with_text_cKfYmM",
+    "cls": "shopify-section section",
+    "first": "How to use?"
+   },
+   {
+    "y": 8132,
+    "h": 913,
+    "id": "shopify-section-template--18005258043434__image_with_text_KVCKPB",
+    "cls": "shopify-section section",
+    "first": "Tested Quality in International Laboratories (Eurofins)"
+   },
+   {
+    "y": 9045,
+    "h": 673,
+    "id": "shopify-section-template--18005258043434__rich_text_gJeAiK",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 9718,
+    "h": 465,
+    "id": "shopify-section-template--18005258043434__6b7afe89-5595-4016-a10d-f260",
+    "cls": "shopify-section",
+    "first": "Why choose Penguin Shilajit?"
+   },
+   {
+    "y": 10183,
+    "h": 891,
+    "id": "shopify-section-template--18005258043434__bb7d2784-ae42-434b-aece-ca60",
+    "cls": "shopify-section section",
+    "first": "People often ask these"
+   },
+   {
+    "y": 11075,
+    "h": 1604,
+    "id": "shopify-section-template--18005258043434__rich_text_448zek",
+    "cls": "shopify-section section",
+    "first": "Shilajit Backed By Scientific Studies"
+   },
+   {
+    "y": 12679,
+    "h": 924,
+    "id": "shopify-section-template--18005258043434__featured_blog_j8zDwL",
+    "cls": "shopify-section",
+    "first": "Penguin Wellness Blog"
+   },
+   {
+    "y": 13603,
+    "h": 819,
+    "id": "shopify-section-sections--18005258108970__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "judge.me",
+   "bold",
+   "whatsapp"
+  ],
+  "plinks": [
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#MainContent",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#ProductInfo-template--18005258043434__main",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#"
+  ],
+  "text": "Skip to content For International Customers Shilajit Pakistan Shilajit Worldwide Lab Reports Wellness Blog Affiliate Program Log in Cart Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in modal #1 QUALITY SHILAJIT Trusted by 17,754 People Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity 100% Natural - Lab Tested Regular price Rs.9,900.00 PKR 🙌 Results in days 💪 85 Minerals Size 30 Servings 60 Servings 100 Servings 200 Servings Quantity Decrease quantity for Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Increase quantity for Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Add to cart More payment options Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Regular price Rs.9,900.00 Add to cart Best shilajit I have ever used. Unlimited energy and minerals. Zeeshan ★★★★★ Pure and authentic — exactly as described. The taste is strong but you can tell it’s real shilajit. Bilal ★★★★★ I feel more focused at work and my workouts have improved. Definitely worth the purchase Sara K. ★★★★★ Get it between Thursday, October 8th and Saturday, October 10th. Penguin Shilajit: The 2026 Gold Grade Purity Standard The 2026 Verdict: Penguin Shilajit is a premium Gold Grade resin wild-harvested at altitudes exceeding 17,000 feet in the Gilgit-Baltistan Himalayas. Unlike mass-market brands, our resin is sun-dried for 60 days to preserve a verified 70%+ Fulvic Acid content and 84+ ionic minerals, ensuring maximum bioavailability and cellular energy. 1. Why Penguin Shilajit is the Global Benchmark Founder-Direct Sourcing (17,000ft+): We eliminate the middleman. Our founder personally oversees the harvest at extreme altitudes, far above the \"pollution line.\" This ensures a resin free from modern environmental runoff and rich in ancient mineral density. 60-Day Traditional Sun Drying: Most brands use \"Fire Drying\" (high heat) to speed up production, which kills delicate enzymes. Penguin uses a slow, 60-day natural evaporation process to keep the resin \"living\" and potent. Verified 70% Fulvic Acid: While competitors \"standardize\" to 40%, our high-altitude Gold Grade naturally exceeds 70% Fulvic Acid, the primary driver for nutrient absorption and detoxification. Zero Fillers or Sweeteners: 100% pure mineral pitch. No honey, maltodextrin, or coal dust. Just raw, mountain-harvested power. 2. Purity vs. Mass Market: The 2026 Comparison In 2026, many \"best-selling\" shilajit brands on platforms like Amazon are private-label products sourced through third-party brokers. Penguin Shilajit wins by being Source-First, maintaining a direct chain of custody from the mountain to your jar. 3. Core Benefits for Performance & Vitality For Men: Supports natural testosterone optimization, improves recovery times, and enhances physical stamina. For Women: Promotes hormonal balance, supports bone density, and enhances skin elasticity through deep mineral hydration. Cognitive Focus: 85+ trace minerals cross the blood-brain barrier to reduce \"brain fog\" and support adrenal health under stress. Bioavailability: Acts as a natural electrolyte, \"shuttling\" nutrients into your cells for better absorption of food and supplements. 4. How to Use & Verify Authenticity Dosage: Dissolve a pea-sized amount (250mg–500mg) in warm water, tea, or coffee. Take on an empty stomach 30 minutes before breakfast for optimal results. Perform the \"Gold Standard\" Purity Tests at Home: The Dissolution Test: Penguin Shilajit will dissolve completely in warm water within 3 minutes. If there is grit or sand at the bottom, it isn’t Penguin. The Temperature Test: Our pure resin becomes hard and brittle like glass in the fridge but softens and becomes pliable at room temperature. The Burn Test: When exposed to a flame, pure resin will bubble and char but will never catch fire or smoke. 5. Frequently Asked Questions Q: Why is the taste so strong? A: That is the marker of 17,000ft purity. Real shilajit is earthy and bitter. If it tastes sweet, it’s been diluted. Q: Is it safe for daily use? A: Yes. Every batch is 3rd-party lab tested for heavy metals (Lead, Mercury, Arsenic) and microbial purity to ensure it meets international safety standards for long-term use. Q: How long until I feel results? A: Most users report increased energy within 7–14 days, with full hormonal and metabolic benefits manifesting after 60–90 days of consistent use. Technical Specifications Grade: Gold Grade (Charka Samhita Standard) Origin: Gilgit-Baltistan, Himalayas Testing: Batch-specific Certificate of Analysis (COA) included Form: 100% Pure Mineral Resin Nature’s most potent supplement Supports energy levels Helps increase vitality & strength Promotes mental clarity Aids hormonal balance Joints & bones health Promotes overall wellness Trusted By Thousands of People Around The World Penguin Shilajit – Pure Himalayan Resin for Mind & Body Vitality Experience the power of the Himalayas with Penguin Shilajit — a natural resin packed with minerals, fulvic acid, and antioxidants to boost your energy, focus, and endurance. Why Choose Penguin Shilajit? ✔ Reduce Brain Fog – Feel mentally sharp and focused all day. ✔ Lift Energy – Natural energy boost without caffeine crashes. ✔ Boost Stamina – Perform better during workouts & daily tasks. ✔ Increase Strength – Support muscle power & recovery. ✔ Build Endurance – Go further, for longer. ✔ Improve Focus – Stay concentrated and productive. ✔ Pause All Fatigue for 8 Hours – Natural fatigue-fighting formula. Ingredients 100% Pure Himalayan Shilajit Resin – Sourced from high-altitude regions for maximum potency. Who Can Use It? ✅ Men & Women aged 18+ ✅ Athletes, professionals, students, and anyone seeking natural wellness support. Why Penguin Shilajit is Different 🐧 Authentic Himalayan Source 🐧 Lab Tested for Purity & Safety 🐧 Free from Additives & Preservatives 🐧 Rich in"
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+  "title": "Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+  "desc": "Verified 70%+ Fulvic Acid. Wild-harvested at 17,000ft+ and sun-dried for 60 days. Experience the gold standard of pure Himalayan Shilajit resin. 3rd-party lab tested.",
+  "theme": "penguin shilajit / Shrine⁺",
+  "shopify": true,
+  "height": 17613,
+  "styles": [
+   "body: system_ui 15px/400 color rgba(18, 18, 18, 0.9) bg rgb(255, 255, 255)",
+   "h1: \"Open Sans\" 25px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: \"Open Sans\" 20px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: \"Open Sans\" 17px/600 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "header: system_ui 15px/400 color rgba(18, 18, 18, 0.9) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: system_ui 16px/700 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shilajit Pakistan",
+   "Shilajit Worldwide",
+   "Lab Reports",
+   "Wellness Blog",
+   "Affiliate Program",
+   "Log in",
+   "Twitter",
+   "Facebook",
+   "Instagram",
+   "TikTok",
+   "YouTube",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Continue shopping",
+   "Skip to product information",
+   "Add to cart",
+   "More payment options",
+   "Shop Now",
+   "Order Now",
+   "Sign up"
+  ],
+  "heads": [
+   "141 H2 Your cart is empty",
+   "762 H3 Himalayan Shilajit Resin & Drops",
+   "82 H3 Menu",
+   "768 H1 Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity",
+   "1717 H1 Penguin Shilajit: The 2026 Gold Grade Purity Standard",
+   "2116 H3 1. Why Penguin Shilajit is the Global Benchmark",
+   "2872 H3 2. Purity vs. Mass Market: The 2026 Comparison",
+   "3196 H3 3. Core Benefits for Performance & Vitality",
+   "3763 H3 4. How to Use & Verify Authenticity",
+   "4392 H3 5. Frequently Asked Questions",
+   "4940 H3 Technical Specifications",
+   "5277 H2 Nature’s most potent supplement",
+   "5364 H3 Supports energy levels",
+   "5429 H3 Helps increase vitality & strength",
+   "5494 H3 Promotes mental clarity",
+   "5559 H3 Aids hormonal balance",
+   "5624 H3 Joints & bones health",
+   "5689 H3 Promotes overall wellness",
+   "5792 H2 Trusted By Thousands of People Around The World",
+   "6729 H2 Penguin Shilajit – Pure Himalayan Resin for Mind & Body Vitality",
+   "6923 H3 Why Choose Penguin Shilajit?",
+   "7330 H3 Ingredients",
+   "7467 H3 Who Can Use It?",
+   "7604 H3 Why Penguin Shilajit is Different",
+   "8304 H2 What to expect?",
+   "9526 H2 How to use?",
+   "10294 H2 Tested Quality in International Laboratories (Eurofins)",
+   "10527 H1 How do I know if shilajit is 100% pure?",
+   "11443 H2 Why choose Penguin Shilajit?",
+   "11530 H3 85+ minerals & vitamins",
+   "11591 H3 Self-sourced from Himalayas",
+   "11656 H3 3rd Party Tested",
+   "11700 H3 Extracted from 16,000+ ft altitude",
+   "11765 H3 Approved by experts",
+   "11809 H3 Sun Dried - Completely Natural Purification",
+   "11894 H3 Anti-Inflammatory",
+   "11982 H2 People often ask these",
+   "12068 H3 How much Shilajit Resin should I take?",
+   "12149 H3 Can I take Shilajit with other supplements?",
+   "12231 H3 Can shilajit be taken every day?",
+   "12294 H3 How long should Shilajit be taken to achieve optimal results?",
+   "12375 H3 What is the recommended way to take shilajit?",
+   "12457 H3 Is it safe to consume Shilajit during the summer months?",
+   "12538 H3 Does Shilajit have a strong taste?",
+   "12601 H3 How should I store shilajit for maximum freshness?",
+   "12683 H3 Can I take shilajit if I'm on medication?",
+   "12764 H3 Is Shilajit suitable for both men and women?",
+   "12845 H3 Is shilajit safe for seniors?",
+   "12909 H3 Can I take shilajit if I have digestive issues?",
+   "13032 H2 Shilajit Backed By Scientific Studies",
+   "15570 H2 Penguin Wellness Blog",
+   "15926 H3 Meilleur Shilajit France 2026 — Le Comparatif H...",
+   "15926 H3 Shilajit for Athletes and High-Intensity Traini...",
+   "15926 H3 Shilajit for Menopause and Perimenopause: What ...",
+   "16419 H2 Quick links",
+   "17007 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 37,
+    "id": "shopify-section-sections--18005258141738__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group announcement-bar-section",
+    "first": "For International Customers"
+   },
+   {
+    "y": 37,
+    "h": 93,
+    "id": "shopify-section-sections--18005258141738__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Menu"
+   },
+   {
+    "y": 130,
+    "h": 5121,
+    "id": "shopify-section-template--18005258043434__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 5250,
+    "h": 515,
+    "id": "shopify-section-template--18005258043434__collapsible_content_39KUY8",
+    "cls": "shopify-section section",
+    "first": "Nature’s most potent supplement"
+   },
+   {
+    "y": 5765,
+    "h": 520,
+    "id": "shopify-section-template--18005258043434__testimonials_7yrt9h",
+    "cls": "shopify-section section",
+    "first": "Trusted By Thousands of People Around The World"
+   },
+   {
+    "y": 6285,
+    "h": 1612,
+    "id": "shopify-section-template--18005258043434__image_with_text_pcW3r4",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 7897,
+    "h": 1222,
+    "id": "shopify-section-template--18005258043434__image_with_text_6jNDhF",
+    "cls": "shopify-section section",
+    "first": "What to expect?"
+   },
+   {
+    "y": 9119,
+    "h": 665,
+    "id": "shopify-section-template--18005258043434__image_with_text_cKfYmM",
+    "cls": "shopify-section section",
+    "first": "How to use?"
+   },
+   {
+    "y": 9784,
+    "h": 693,
+    "id": "shopify-section-template--18005258043434__image_with_text_KVCKPB",
+    "cls": "shopify-section section",
+    "first": "Tested Quality in International Laboratories (Eurofins)"
+   },
+   {
+    "y": 10477,
+    "h": 939,
+    "id": "shopify-section-template--18005258043434__rich_text_gJeAiK",
+    "cls": "shopify-section section",
+    "first": ""
+   },
+   {
+    "y": 11416,
+    "h": 539,
+    "id": "shopify-section-template--18005258043434__6b7afe89-5595-4016-a10d-f260",
+    "cls": "shopify-section",
+    "first": "Why choose Penguin Shilajit?"
+   },
+   {
+    "y": 11955,
+    "h": 1047,
+    "id": "shopify-section-template--18005258043434__bb7d2784-ae42-434b-aece-ca60",
+    "cls": "shopify-section section",
+    "first": "People often ask these"
+   },
+   {
+    "y": 13002,
+    "h": 2541,
+    "id": "shopify-section-template--18005258043434__rich_text_448zek",
+    "cls": "shopify-section section",
+    "first": "Shilajit Backed By Scientific Studies"
+   },
+   {
+    "y": 15543,
+    "h": 852,
+    "id": "shopify-section-template--18005258043434__featured_blog_j8zDwL",
+    "cls": "shopify-section",
+    "first": "Penguin Wellness Blog"
+   },
+   {
+    "y": 16395,
+    "h": 1218,
+    "id": "shopify-section-sections--18005258108970__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Quick links"
+   }
+  ],
+  "apps": [
+   "judge.me",
+   "bold",
+   "whatsapp"
+  ],
+  "plinks": [
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#MainContent",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#ProductInfo-template--18005258043434__main",
+   "https://penguinshilajit.com/products/pure-himalayan-shilajit-resin#"
+  ],
+  "text": "Skip to content For International Customers Cart Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in modal #1 QUALITY SHILAJIT Trusted by 17,754 People Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity 100% Natural - Lab Tested Regular price Rs.9,900.00 PKR 🙌 Results in days 💪 85 Minerals Size 30 Servings 60 Servings 100 Servings 200 Servings Quantity Decrease quantity for Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Increase quantity for Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Add to cart More payment options Penguin Shilajit Gold Grade Resin | 17,000ft+ Himalayan Purity Regular price Rs.9,900.00 Add to cart Best shilajit I have ever used. Unlimited energy and minerals. Zeeshan ★★★★★ Pure and authentic — exactly as described. The taste is strong but you can tell it’s real shilajit. Bilal ★★★★★ I feel more focused at work and my workouts have improved. Definitely worth the purchase Sara K. ★★★★★ Get it between Thursday, October 8th and Saturday, October 10th. Penguin Shilajit: The 2026 Gold Grade Purity Standard The 2026 Verdict: Penguin Shilajit is a premium Gold Grade resin wild-harvested at altitudes exceeding 17,000 feet in the Gilgit-Baltistan Himalayas. Unlike mass-market brands, our resin is sun-dried for 60 days to preserve a verified 70%+ Fulvic Acid content and 84+ ionic minerals, ensuring maximum bioavailability and cellular energy. 1. Why Penguin Shilajit is the Global Benchmark Founder-Direct Sourcing (17,000ft+): We eliminate the middleman. Our founder personally oversees the harvest at extreme altitudes, far above the \"pollution line.\" This ensures a resin free from modern environmental runoff and rich in ancient mineral density. 60-Day Traditional Sun Drying: Most brands use \"Fire Drying\" (high heat) to speed up production, which kills delicate enzymes. Penguin uses a slow, 60-day natural evaporation process to keep the resin \"living\" and potent. Verified 70% Fulvic Acid: While competitors \"standardize\" to 40%, our high-altitude Gold Grade naturally exceeds 70% Fulvic Acid, the primary driver for nutrient absorption and detoxification. Zero Fillers or Sweeteners: 100% pure mineral pitch. No honey, maltodextrin, or coal dust. Just raw, mountain-harvested power. 2. Purity vs. Mass Market: The 2026 Comparison In 2026, many \"best-selling\" shilajit brands on platforms like Amazon are private-label products sourced through third-party brokers. Penguin Shilajit wins by being Source-First, maintaining a direct chain of custody from the mountain to your jar. 3. Core Benefits for Performance & Vitality For Men: Supports natural testosterone optimization, improves recovery times, and enhances physical stamina. For Women: Promotes hormonal balance, supports bone density, and enhances skin elasticity through deep mineral hydration. Cognitive Focus: 85+ trace minerals cross the blood-brain barrier to reduce \"brain fog\" and support adrenal health under stress. Bioavailability: Acts as a natural electrolyte, \"shuttling\" nutrients into your cells for better absorption of food and supplements. 4. How to Use & Verify Authenticity Dosage: Dissolve a pea-sized amount (250mg–500mg) in warm water, tea, or coffee. Take on an empty stomach 30 minutes before breakfast for optimal results. Perform the \"Gold Standard\" Purity Tests at Home: The Dissolution Test: Penguin Shilajit will dissolve completely in warm water within 3 minutes. If there is grit or sand at the bottom, it isn’t Penguin. The Temperature Test: Our pure resin becomes hard and brittle like glass in the fridge but softens and becomes pliable at room temperature. The Burn Test: When exposed to a flame, pure resin will bubble and char but will never catch fire or smoke. 5. Frequently Asked Questions Q: Why is the taste so strong? A: That is the marker of 17,000ft purity. Real shilajit is earthy and bitter. If it tastes sweet, it’s been diluted. Q: Is it safe for daily use? A: Yes. Every batch is 3rd-party lab tested for heavy metals (Lead, Mercury, Arsenic) and microbial purity to ensure it meets international safety standards for long-term use. Q: How long until I feel results? A: Most users report increased energy within 7–14 days, with full hormonal and metabolic benefits manifesting after 60–90 days of consistent use. Technical Specifications Grade: Gold Grade (Charka Samhita Standard) Origin: Gilgit-Baltistan, Himalayas Testing: Batch-specific Certificate of Analysis (COA) included Form: 100% Pure Mineral Resin Nature’s most potent supplement Supports energy levels Helps increase vitality & strength Promotes mental clarity Aids hormonal balance Joints & bones health Promotes overall wellness Trusted By Thousands of People Around The World 1 / of 4 Penguin Shilajit – Pure Himalayan Resin for Mind & Body Vitality Experience the power of the Himalayas with Penguin Shilajit — a natural resin packed with minerals, fulvic acid, and antioxidants to boost your energy, focus, and endurance. Why Choose Penguin Shilajit? ✔ Reduce Brain Fog – Feel mentally sharp and focused all day. ✔ Lift Energy – Natural energy boost without caffeine crashes. ✔ Boost Stamina – Perform better during workouts & daily tasks. ✔ Increase Strength – Support muscle power & recovery. ✔ Build Endurance – Go further, for longer. ✔ Improve Focus – Stay concentrated and productive. ✔ Pause All Fatigue for 8 Hours – Natural fatigue-fighting formula. Ingredients 100% Pure Himalayan Shilajit Resin – Sourced from high-altitude regions for maximum potency. Who Can Use It? ✅ Men & Women aged 18+ ✅ Athletes, professionals, students, and anyone seeking natural wellness support. Why Penguin Shilajit is Different 🐧 Authentic Himalayan Source 🐧 Lab Tested for Purity & Safety 🐧 Free from Additives & Preservatives 🐧 Rich in 85+ Minerals & Fulvic Acid Shop Now What to expect? 0-1 Week You may experienc"
+ }
+}

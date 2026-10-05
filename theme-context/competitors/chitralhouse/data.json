@@ -1,0 +1,1095 @@
+{
+ "name": "chitralhouse",
+ "url": "https://chitralhouse.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://chitralhouse.com/",
+  "title": "Chitral House #1 Shilajit Brand in Pakistan - Best Shilajit Supplier",
+  "desc": "Discover Pakistan's best shilajit brand and most trusted source for 100% Pure Himalayan Shilajit. Sourced from Chitral & Gilgit. Lab-tested resin for energy, stamina & wellness. Shop now.",
+  "theme": "ella-6-5-3-theme-source / Ella",
+  "shopify": true,
+  "height": 12261,
+  "styles": [
+   "body: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: Poppins 40px/700 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: Poppins 24px/700 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: -apple-system 19px/800 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "button[name=add], .product-form__submit, button[type=submit]: Poppins 14px/700 color rgb(35, 35, 35) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "PKR",
+   "Shilajit 60g",
+   "Shilajit 10g",
+   "Shilajit",
+   "Shopping Cart 00 items",
+   "My Wish List",
+   "Sign In",
+   "Home",
+   "Products",
+   "Go to Products",
+   "Shilajit Resin",
+   "Shilajit Drops",
+   "Shilajit Gummies",
+   "Honey Shilajit",
+   "Deals and Bundles",
+   "New Products",
+   "Summer Sale",
+   "Lab Reports",
+   "Certificates",
+   "Blog"
+  ],
+  "btns": [
+   "Skip to content",
+   "en",
+   "Submit",
+   "Close",
+   "Subscribe",
+   "Log in",
+   "Create account"
+  ],
+  "heads": [
+   "1415 H2 PREMIUM SHILAJIT BRAND",
+   "2211 H3 Our Products",
+   "2882 H3 Shilajit Resin",
+   "2882 H3 Shilajit Drops",
+   "3533 H3 Honey Shilajit",
+   "3533 H3 Shilajit Gummies",
+   "4184 H3 Shilajit Bundles",
+   "4309 H3 Chitral House: #1 Authentic Himalayan Shilajit Brand in Pakistan",
+   "4442 H1 Chitral House: Your Trusted Source for Authentic Himalayan Shilajit in Pakistan",
+   "4588 H2 🏔️ Our Story & Authentic Sourcing",
+   "4796 H2 🧪 Our Pledge of Purity & Transparency",
+   "4966 H2 ✨ The Chitral House Difference",
+   "5152 H2 📦 Explore Our Shilajit Range",
+   "5338 H2 💬 What Our Customers Say",
+   "5633 H2 ❓ Frequently Asked Questions",
+   "6108 H2 ⚡ Key Benefits of Authentic Himalayan Shilajit",
+   "6610 H2 Ready to experience the power of authentic Himalayan Shilajit?",
+   "7059 H2 FROM PAIN… TO POWERFUL ENERGY!",
+   "7782 H2 GLOW FROM THE INSIDE WITH REAL SHILAJIT",
+   "8496 H2 KEY BENEFITS OF SHILAJIT",
+   "12002 H2 Newsletter Sign Up",
+   "12002 H2 Quick links"
+  ],
+  "secs": [
+   {
+    "y": 75,
+    "h": 36,
+    "id": "shopify-section-sections--22094402322716__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "30-Day Money Back Guarantee"
+   },
+   {
+    "y": 111,
+    "h": 142,
+    "id": "shopify-section-sections--22094402322716__header-classic",
+    "cls": "shopify-section shopify-section-group-header-group section-header-classic",
+    "first": ""
+   },
+   {
+    "y": 253,
+    "h": 45,
+    "id": "shopify-section-sections--22094402322716__9c03747e-b054-4db8-8194-5a35",
+    "cls": "shopify-section shopify-section-group-header-group section-header-navigation",
+    "first": "Chitral House"
+   },
+   {
+    "y": 298,
+    "h": 618,
+    "id": "shopify-section-template--22094400618780__slide_show_NJcEPm",
+    "cls": "shopify-section sections-slide-show",
+    "first": ""
+   },
+   {
+    "y": 916,
+    "h": 479,
+    "id": "shopify-section-template--22094400618780__image_banner_8ffHzW",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 1395,
+    "h": 142,
+    "id": "shopify-section-template--22094400618780__custom_liquid_MwXUgx",
+    "cls": "shopify-section spaced-section",
+    "first": "PREMIUM SHILAJIT BRAND"
+   },
+   {
+    "y": 1537,
+    "h": 652,
+    "id": "shopify-section-template--22094400618780__video_block_7bXKVM",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 2189,
+    "h": 1393,
+    "id": "shopify-section-template--22094400618780__spotlight_block_btgKqj",
+    "cls": "shopify-section sections-spotlight-block",
+    "first": "Our Products"
+   },
+   {
+    "y": 3582,
+    "h": 676,
+    "id": "shopify-section-template--22094400618780__spotlight_block_qaHFqU",
+    "cls": "shopify-section sections-spotlight-block",
+    "first": ""
+   },
+   {
+    "y": 4258,
+    "h": 2781,
+    "id": "shopify-section-template--22094400618780__custom_text_block_CNXbiF",
+    "cls": "shopify-section sections-custom-text-block",
+    "first": "Chitral House: #1 Authentic Himalayan Shilajit Brand in Pakistan"
+   },
+   {
+    "y": 7039,
+    "h": 142,
+    "id": "shopify-section-template--22094400618780__custom_liquid_kC6QJf",
+    "cls": "shopify-section spaced-section",
+    "first": "FROM PAIN… TO POWERFUL ENERGY!"
+   },
+   {
+    "y": 7181,
+    "h": 581,
+    "id": "shopify-section-template--22094400618780__image_banner_EdjbRz",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 7762,
+    "h": 142,
+    "id": "shopify-section-template--22094400618780__custom_liquid_HV8gxe",
+    "cls": "shopify-section spaced-section",
+    "first": "GLOW FROM THE INSIDE WITH REAL SHILAJIT"
+   },
+   {
+    "y": 7904,
+    "h": 571,
+    "id": "shopify-section-template--22094400618780__image_banner_Jq4YXn",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8476,
+    "h": 142,
+    "id": "shopify-section-template--22094400618780__custom_liquid_FtKj64",
+    "cls": "shopify-section spaced-section",
+    "first": "KEY BENEFITS OF SHILAJIT"
+   },
+   {
+    "y": 8618,
+    "h": 601,
+    "id": "shopify-section-template--22094400618780__image_banner_xKUhF7",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 9220,
+    "h": 551,
+    "id": "shopify-section-template--22094400618780__image_banner_KYjfXf",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 9771,
+    "h": 551,
+    "id": "shopify-section-template--22094400618780__image_banner_n3edW4",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 10322,
+    "h": 551,
+    "id": "shopify-section-template--22094400618780__image_banner_YUfdjd",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 10874,
+    "h": 551,
+    "id": "shopify-section-template--22094400618780__image_banner_9aKFHR",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 11425,
+    "h": 551,
+    "id": "shopify-section-template--22094400618780__image_banner_JRJkG9",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 11977,
+    "h": 284,
+    "id": "shopify-section-sections--22094402257180__footer-1",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Newsletter Sign Up"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free",
+   "https://chitralhouse.com/products/shilajit-10g",
+   "https://chitralhouse.com/products/shilajit-20g",
+   "https://chitralhouse.com/products/summer-bundle",
+   "https://chitralhouse.com/products/shilajit-30g",
+   "https://chitralhouse.com/products/shilajit-60g-3-months-course"
+  ],
+  "text": "​🔥 Pre Winter Sale! 🔥 Get 10g Free With 60g Shilajit Sale Ends In: 25 Days 22 Hours 15 Minutes 55 Seconds Get Now SKIP TO CONTENT 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee EN PKR PKR FREE SHIPPING ON ALL ORDERS ABOVE 2700 Shopping Cart 0 0 items My Wish ListSign In HOME PRODUCTS DEALS AND BUNDLES NEW PRODUCTS SUMMER SALE LAB REPORTS CERTIFICATES BLOG PREMIUM SHILAJIT BRAND OUR PRODUCTS Shilajit Resin Shilajit Drops Honey Shilajit Shilajit Gummies Shilajit Bundles CHITRAL HOUSE: #1 AUTHENTIC HIMALAYAN SHILAJIT BRAND IN PAKISTAN Chitral House: Your Trusted Source for Authentic Himalayan Shilajit in Pakistan Welcome to Chitral House — we are not just a store, we are a brand built on a promise to deliver the purest, most potent Shilajit directly from the Himalayan mountains of northern Pakistan to your doorstep. Unlike generic suppliers, we are deeply connected to the source—Chitral and Gilgit-Baltistan. 🏔️ Our Story & Authentic Sourcing For generations, local high‑altitude collectors in the remote valleys of Chitral and Gilgit-Baltistan have harvested Shilajit using traditional methods that respect both the earth and the ancient substance. We work directly with these communities, ensuring fair trade and sustainable harvest. Every gram of our Himalayan Shilajit carries the legacy of these mountains. From the rugged Hindu Kush to the Karakoram ranges, our resin seeps naturally from rocks, aged over centuries. This is the original Chitral Shilajit and Gilgit Shilajit — wild, raw, and full of fulvic power. → Explore the complete collection 🧪 Our Pledge of Purity & Transparency ✓ Lab tested & certified: We send every batch to an independent laboratory. You deserve to know that your pure Shilajit is free from adulterants, with optimal bioactive fulvic acid. Our products are lab tested certified and authentic. ✓ 100% pure Himalayan resin: No additives, no fillers — just the original salajeet from the mountains. ✓ 400+ real customer reviews: Join hundreds of Pakistanis who have made the switch to authentic, lab‑tested Himalayan resin. Our reviews speak louder than any label. ✨ The Chitral House Difference How can you be sure you’re getting the real thing? Our pure Himalayan Shilajit has unmistakable markers of authenticity: Appearance: dark, jet‑black with a shiny, sticky texture when warm. Not powdery or artificially uniform. Aroma: earthy, reminiscent of mountain soil and bitumen. No chemical or perfumed smell. Solubility: dissolves completely in warm water, turning a deep amber. No gritty residue. Purity: zero fillers, no herbs mixed in. Just 100% pure ancient resin — lab tested certified and authentic. 📦 Explore Our Shilajit Range Whether you are a beginner or a long‑time enthusiast, we have the perfect pack for your lifestyle: 10g starter pack – ideal for first‑time users and travellers. Lab tested Himalayan resin in a compact size. 20g daily wellness – our most popular size for regular use. Premium quality for daily vitality. 30g best value – lowest price per gram for long‑term commitment. Authentic Shilajit for sustained wellness. View all products → 💬 What Our Customers Say “Best quality of shilajit. Mein ye shilajit 13 dinon se use kr rha hun, mujhe pehly se ziyada energetic feel hota hai.” — Anonymous (20g buyer) “Packing is astonishing. Quality is rare. Suggest you guys to buy it.” — Irfan Rath (20g buyer) “Real shilajit. Buht he zabardast experienced raha, buht awlla aur original cheez Hai.” — Muhammad Umer Sheikh (30g buyer) “I am extremely impressed with the quality. The consistency, effectiveness reflect premium quality.” — Mushahid Ahmed Khan (10g buyer) ❓ Frequently Asked Questions Why choose a Pakistani brand for Shilajit? Because Pakistan's northern areas (Chitral, Gilgit, Hunza) lie in the heart of the Himalayan range, where some of the world's finest Shilajit is formed. We bring it directly from those mountains to you, with no middlemen. How does Chitral House ensure quality? We combine traditional purification (time‑honoured methods passed down by mountain communities) with modern lab testing. Each batch is lab tested certified and authentic, verified for purity and mineral content. Is your Shilajit really 100% pure? Absolutely. We never add herbs, powders, or any synthetic binders. What you get is the pure resin, exactly as it seeps from the rocks — filtered and sun‑dried using traditional methods. All our products are lab tested certified and authentic. Where can I buy authentic Shilajit in Pakistan? You can purchase directly from our website. We offer various pack sizes sourced from the Himalayan mountains of northern Pakistan. ⚡ Key Benefits of Authentic Himalayan Shilajit Supports natural energy — helps the body produce ATP at the cellular level. Sharpens mental focus — traditionally used to improve concentration and clarity. Strengthens immunity — rich in trace minerals and antioxidants. Promotes healthy aging — combats oxidative stress with fulvic acid. Enhances stamina & vitality — favourite among athletes and active individuals. 🌱 FROM PAIN… TO POWERFUL ENERGY! GLOW FROM THE INSIDE WITH REAL SHILAJIT — traditional wellness, modern trust — Ready to experience the power of authentic Himalayan Shilajit? Join thousands of customers across Pakistan who have made Chitral House their source for pure Shilajit. Whether you're looking for a small trial pack or the best‑value long‑term supply, we have the lab tested certified and authentic resin you need. 🛒 Shop the collection Or explore individual packs: 10g · 20g · 30g Chitral House — Himalayan Shilajit, directly from the mountains of Chitral & Gilgit-Baltistan, Pakistan. ✓ Lab tested certified · ✓ 100% authentic · ✓ Premium quali"
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://chitralhouse.com/",
+  "title": "Chitral House #1 Shilajit Brand in Pakistan - Best Shilajit Supplier",
+  "desc": "Discover Pakistan's best shilajit brand and most trusted source for 100% Pure Himalayan Shilajit. Sourced from Chitral & Gilgit. Lab-tested resin for energy, stamina & wellness. Shop now.",
+  "theme": "ella-6-5-3-theme-source / Ella",
+  "shopify": true,
+  "height": 11399,
+  "styles": [
+   "body: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: Poppins 30px/700 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: Poppins 20px/700 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: -apple-system 19px/800 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "button[name=add], .product-form__submit, button[type=submit]: Poppins 14px/700 color rgb(35, 35, 35) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "PKR",
+   "Shilajit 60g",
+   "Shilajit 10g",
+   "Shilajit",
+   "Shopping Cart 00 items",
+   "My Wish List",
+   "Sign In",
+   "Home",
+   "Products",
+   "Go to Products",
+   "Shilajit Resin",
+   "Shilajit Drops",
+   "Shilajit Gummies",
+   "Honey Shilajit",
+   "Deals and Bundles",
+   "New Products",
+   "Summer Sale",
+   "Lab Reports",
+   "Certificates",
+   "Blog"
+  ],
+  "btns": [
+   "Skip to content",
+   "Submit",
+   "Close",
+   "Subscribe",
+   "Log in",
+   "Create account"
+  ],
+  "heads": [
+   "1302 H2 PREMIUM SHILAJIT BRAND",
+   "1611 H3 Our Products",
+   "1887 H3 Shilajit Resin",
+   "1887 H3 Shilajit Drops",
+   "2163 H3 Honey Shilajit",
+   "2163 H3 Shilajit Gummies",
+   "2460 H3 Shilajit Bundles",
+   "2596 H3 Chitral House: #1 Authentic Himalayan Shilajit Brand in Pakistan",
+   "2697 H1 Chitral House: Your Trusted Source for Authentic Himalayan Shilajit in Pakistan",
+   "2979 H2 🏔️ Our Story & Authentic Sourcing",
+   "3413 H2 🧪 Our Pledge of Purity & Transparency",
+   "3809 H2 ✨ The Chitral House Difference",
+   "4215 H2 📦 Explore Our Shilajit Range",
+   "4577 H2 💬 What Our Customers Say",
+   "5052 H2 ❓ Frequently Asked Questions",
+   "5817 H2 ⚡ Key Benefits of Authentic Himalayan Shilajit",
+   "6399 H2 Ready to experience the power of authentic Himalayan Shilajit?",
+   "7004 H2 FROM PAIN… TO POWERFUL ENERGY!",
+   "7636 H2 GLOW FROM THE INSIDE WITH REAL SHILAJIT",
+   "8288 H2 KEY BENEFITS OF SHILAJIT",
+   "10755 H2 Newsletter Sign Up",
+   "10984 H2 Quick links",
+   "844 H2 Shop the look",
+   "865 H2 Choose Options",
+   "118 H3 Trending Now",
+   "259 H3 Popular Products",
+   "533 H3 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "533 H3 Special Offer – Buy 60g Shilajit & Get 10g Free! 🎁",
+   "533 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice"
+  ],
+  "secs": [
+   {
+    "y": 160,
+    "h": 36,
+    "id": "shopify-section-sections--22094402322716__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "30-Day Money Back Guarantee"
+   },
+   {
+    "y": 196,
+    "h": 70,
+    "id": "shopify-section-sections--22094402322716__header-mobile",
+    "cls": "shopify-section shopify-section-group-header-group section-header-mobile",
+    "first": ""
+   },
+   {
+    "y": 266,
+    "h": 531,
+    "id": "shopify-section-template--22094400618780__slide_show_NJcEPm",
+    "cls": "shopify-section sections-slide-show",
+    "first": ""
+   },
+   {
+    "y": 797,
+    "h": 493,
+    "id": "shopify-section-template--22094400618780__image_banner_8ffHzW",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 1290,
+    "h": 80,
+    "id": "shopify-section-template--22094400618780__custom_liquid_MwXUgx",
+    "cls": "shopify-section spaced-section",
+    "first": "PREMIUM SHILAJIT BRAND"
+   },
+   {
+    "y": 1369,
+    "h": 220,
+    "id": "shopify-section-template--22094400618780__video_block_7bXKVM",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 1589,
+    "h": 649,
+    "id": "shopify-section-template--22094400618780__spotlight_block_btgKqj",
+    "cls": "shopify-section sections-spotlight-block",
+    "first": "Our Products"
+   },
+   {
+    "y": 2238,
+    "h": 307,
+    "id": "shopify-section-template--22094400618780__spotlight_block_qaHFqU",
+    "cls": "shopify-section sections-spotlight-block",
+    "first": ""
+   },
+   {
+    "y": 2545,
+    "h": 4447,
+    "id": "shopify-section-template--22094400618780__custom_text_block_CNXbiF",
+    "cls": "shopify-section sections-custom-text-block",
+    "first": "Chitral House: #1 Authentic Himalayan Shilajit Brand in Pakistan"
+   },
+   {
+    "y": 6992,
+    "h": 80,
+    "id": "shopify-section-template--22094400618780__custom_liquid_kC6QJf",
+    "cls": "shopify-section spaced-section",
+    "first": "FROM PAIN… TO POWERFUL ENERGY!"
+   },
+   {
+    "y": 7072,
+    "h": 552,
+    "id": "shopify-section-template--22094400618780__image_banner_EdjbRz",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 7624,
+    "h": 80,
+    "id": "shopify-section-template--22094400618780__custom_liquid_HV8gxe",
+    "cls": "shopify-section spaced-section",
+    "first": "GLOW FROM THE INSIDE WITH REAL SHILAJIT"
+   },
+   {
+    "y": 7704,
+    "h": 572,
+    "id": "shopify-section-template--22094400618780__image_banner_Jq4YXn",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8276,
+    "h": 80,
+    "id": "shopify-section-template--22094400618780__custom_liquid_FtKj64",
+    "cls": "shopify-section spaced-section",
+    "first": "KEY BENEFITS OF SHILAJIT"
+   },
+   {
+    "y": 8355,
+    "h": 405,
+    "id": "shopify-section-template--22094400618780__image_banner_xKUhF7",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8760,
+    "h": 390,
+    "id": "shopify-section-template--22094400618780__image_banner_KYjfXf",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 9150,
+    "h": 390,
+    "id": "shopify-section-template--22094400618780__image_banner_n3edW4",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 9540,
+    "h": 390,
+    "id": "shopify-section-template--22094400618780__image_banner_YUfdjd",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 9930,
+    "h": 390,
+    "id": "shopify-section-template--22094400618780__image_banner_9aKFHR",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 10320,
+    "h": 390,
+    "id": "shopify-section-template--22094400618780__image_banner_JRJkG9",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 10710,
+    "h": 689,
+    "id": "shopify-section-sections--22094402257180__footer-1",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Newsletter Sign Up"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free",
+   "https://chitralhouse.com/products/shilajit-10g",
+   "https://chitralhouse.com/products/shilajit-20g",
+   "https://chitralhouse.com/products/summer-bundle",
+   "https://chitralhouse.com/products/shilajit-30g",
+   "https://chitralhouse.com/products/shilajit-60g-3-months-course"
+  ],
+  "text": "​🔥 Pre Winter Sale! 🔥 Get 10g Free With 60g Shilajit Sale Ends In: 25 Days 22 Hours 14 Minutes 56 Seconds Get Now SKIP TO CONTENT 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee Log in Cart 0 0 items PREMIUM SHILAJIT BRAND OUR PRODUCTS Shilajit Resin Shilajit Drops Honey Shilajit Shilajit Gummies Shilajit Bundles CHITRAL HOUSE: #1 AUTHENTIC HIMALAYAN SHILAJIT BRAND IN PAKISTAN Chitral House: Your Trusted Source for Authentic Himalayan Shilajit in Pakistan Welcome to Chitral House — we are not just a store, we are a brand built on a promise to deliver the purest, most potent Shilajit directly from the Himalayan mountains of northern Pakistan to your doorstep. Unlike generic suppliers, we are deeply connected to the source—Chitral and Gilgit-Baltistan. 🏔️ Our Story & Authentic Sourcing For generations, local high‑altitude collectors in the remote valleys of Chitral and Gilgit-Baltistan have harvested Shilajit using traditional methods that respect both the earth and the ancient substance. We work directly with these communities, ensuring fair trade and sustainable harvest. Every gram of our Himalayan Shilajit carries the legacy of these mountains. From the rugged Hindu Kush to the Karakoram ranges, our resin seeps naturally from rocks, aged over centuries. This is the original Chitral Shilajit and Gilgit Shilajit — wild, raw, and full of fulvic power. → Explore the complete collection 🧪 Our Pledge of Purity & Transparency ✓ Lab tested & certified: We send every batch to an independent laboratory. You deserve to know that your pure Shilajit is free from adulterants, with optimal bioactive fulvic acid. Our products are lab tested certified and authentic. ✓ 100% pure Himalayan resin: No additives, no fillers — just the original salajeet from the mountains. ✓ 400+ real customer reviews: Join hundreds of Pakistanis who have made the switch to authentic, lab‑tested Himalayan resin. Our reviews speak louder than any label. ✨ The Chitral House Difference How can you be sure you’re getting the real thing? Our pure Himalayan Shilajit has unmistakable markers of authenticity: Appearance: dark, jet‑black with a shiny, sticky texture when warm. Not powdery or artificially uniform. Aroma: earthy, reminiscent of mountain soil and bitumen. No chemical or perfumed smell. Solubility: dissolves completely in warm water, turning a deep amber. No gritty residue. Purity: zero fillers, no herbs mixed in. Just 100% pure ancient resin — lab tested certified and authentic. 📦 Explore Our Shilajit Range Whether you are a beginner or a long‑time enthusiast, we have the perfect pack for your lifestyle: 10g starter pack – ideal for first‑time users and travellers. Lab tested Himalayan resin in a compact size. 20g daily wellness – our most popular size for regular use. Premium quality for daily vitality. 30g best value – lowest price per gram for long‑term commitment. Authentic Shilajit for sustained wellness. View all products → 💬 What Our Customers Say “Best quality of shilajit. Mein ye shilajit 13 dinon se use kr rha hun, mujhe pehly se ziyada energetic feel hota hai.” — Anonymous (20g buyer) “Packing is astonishing. Quality is rare. Suggest you guys to buy it.” — Irfan Rath (20g buyer) “Real shilajit. Buht he zabardast experienced raha, buht awlla aur original cheez Hai.” — Muhammad Umer Sheikh (30g buyer) “I am extremely impressed with the quality. The consistency, effectiveness reflect premium quality.” — Mushahid Ahmed Khan (10g buyer) ❓ Frequently Asked Questions Why choose a Pakistani brand for Shilajit? Because Pakistan's northern areas (Chitral, Gilgit, Hunza) lie in the heart of the Himalayan range, where some of the world's finest Shilajit is formed. We bring it directly from those mountains to you, with no middlemen. How does Chitral House ensure quality? We combine traditional purification (time‑honoured methods passed down by mountain communities) with modern lab testing. Each batch is lab tested certified and authentic, verified for purity and mineral content. Is your Shilajit really 100% pure? Absolutely. We never add herbs, powders, or any synthetic binders. What you get is the pure resin, exactly as it seeps from the rocks — filtered and sun‑dried using traditional methods. All our products are lab tested certified and authentic. Where can I buy authentic Shilajit in Pakistan? You can purchase directly from our website. We offer various pack sizes sourced from the Himalayan mountains of northern Pakistan. ⚡ Key Benefits of Authentic Himalayan Shilajit Supports natural energy — helps the body produce ATP at the cellular level. Sharpens mental focus — traditionally used to improve concentration and clarity. Strengthens immunity — rich in trace minerals and antioxidants. Promotes healthy aging — combats oxidative stress with fulvic acid. Enhances stamina & vitality — favourite among athletes and active individuals. 🌱 FROM PAIN… TO POWERFUL ENERGY! GLOW FROM THE INSIDE WITH REAL SHILAJIT — traditional wellness, modern trust — Ready to experience the power of authentic Himalayan Shilajit? Join thousands of customers across Pakistan who have made Chitral House their source for pure Shilajit. Whether you're looking for a small trial pack or the best‑value long‑term supply, we have the lab tested certified and authentic resin you need. 🛒 Shop the collection Or explore individual packs: 10g · 20g · 30g Chitral House — Himalayan Shilajit, directly from the mountains of Chitral & Gilgit-Baltistan, Pakistan. ✓ Lab tested certified · ✓ 100% authentic · ✓ Premium quality FROM PAIN… TO POWERFUL ENERGY! GLOW FROM THE INSIDE WITH REAL SHILAJIT KEY BENEFITS OF SHILAJIT NEWSLETTER SIGN UP Sign up for exclusive updates, new arriva"
+ },
+ "pdpUrl": "https://chitralhouse.com/products/shilajit-10g",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://chitralhouse.com/products/shilajit-10g",
+  "title": "Buy 10g Pure Shilajit Resin Pakistan | Starter Pack | Chitral House",
+  "desc": "Buy 10g pure Shilajit resin in Pakistan. Lab tested & certified Himalayan original salajeet. Perfect starter pack for beginners. 100% authentic from Chitral. Order now",
+  "theme": "ella-6-5-3-theme-source / Ella",
+  "shopify": true,
+  "height": 17700,
+  "styles": [
+   "body: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: Poppins 20px/600 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: Poppins 24px/700 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: -apple-system 19px/800 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "button[name=add], .product-form__submit, button[type=submit]: Poppins 14px/700 color rgb(35, 35, 35) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "PKR",
+   "Shilajit 60g",
+   "Shilajit 10g",
+   "Shilajit",
+   "Shopping Cart 00 items",
+   "My Wish List",
+   "Sign In",
+   "Home",
+   "Products",
+   "Go to Products",
+   "Shilajit Resin",
+   "Shilajit Drops",
+   "Shilajit Gummies",
+   "Honey Shilajit",
+   "Deals and Bundles",
+   "New Products",
+   "Summer Sale",
+   "Lab Reports",
+   "Certificates",
+   "Blog"
+  ],
+  "btns": [
+   "Skip to content",
+   "en",
+   "Order on WhatsApp",
+   "Add to cart",
+   "Share",
+   "Close",
+   "Copy link",
+   "Buy it now",
+   "Add to wishlist",
+   "Quick View",
+   "Submit",
+   "Subscribe",
+   "Compare ()",
+   "Log in",
+   "Create account"
+  ],
+  "heads": [
+   "440 H1 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "2072 H2 Why Choose Our 10g Shilajit Resin?",
+   "2499 H2 What Makes Our 10g Shilajit Resin Special?",
+   "2586 H3 Authentic Himalayan Source",
+   "2691 H3 Traditional Purification",
+   "2796 H3 Lab Tested Certified",
+   "2901 H3 100% Resin Form",
+   "3100 H2 Who Is the 10g Shilajit Resin Pack For?",
+   "3187 H3 First-Time Users",
+   "3292 H3 Frequent Travelers",
+   "3397 H3 Those Testing Multiple Brands",
+   "3502 H3 Occasional Users",
+   "3723 H2 Product Specifications: 10g Pure Shilajit Resin",
+   "4199 H2 Benefits of Our 10g Shilajit Resin",
+   "4286 H3 Supports Natural Energy",
+   "4391 H3 Enhances Mental Focus",
+   "4496 H3 Strengthens Immune Function",
+   "4579 H3 Promotes Healthy Aging",
+   "4662 H3 Supports Physical Performance",
+   "4883 H2 How to Use Your 10g Shilajit Resin",
+   "5342 H2 How to Identify Authentic 10g Shilajit Resin",
+   "5735 H2 Comparing Our Shilajit Resin Sizes",
+   "6098 H2 Customer Reviews for 10g Shilajit Resin",
+   "6484 H2 Frequently Asked Questions About 10g Shilajit Resin",
+   "7198 H2 Start Your Shilajit Journey with Our 10g Pure Resin",
+   "7641 H2 PREMIUM SHILAJIT BRAND",
+   "8545 H2 Customer Reviews",
+   "9883 H2 FROM PAIN… TO POWERFUL ENERGY!",
+   "10638 H3 Original Shilajit",
+   "12060 H2 GLOW FROM THE INSIDE WITH REAL SHILAJIT",
+   "12774 H2 KEY BENEFITS OF SHILAJIT",
+   "16273 H3 Related Products",
+   "16611 H3 Buy Shilajit Gummies 60 Count in Pakistan | Monthly Supply | Best Value Himalayan Salajeet Gummies | Chitral H",
+   "16612 H3 Buy Honey Shilajit 15 Sachet Pack in Pakistan | Trial Size | Original Himalayan Salajeet with Honey | Chitral ",
+   "16612 H3 60g Shilajit + 30ml – Drops Resin & Drops for Maximum Strength",
+   "16680 H3 Chitral House Defence Power Bundle – 3-in-1 Shilajit Combo ⭐",
+   "16611 H3 Buy Shilajit Gummies 40 Count in Pakistan | Original Himalayan Salajeet Gummies | Chitral House",
+   "16612 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice",
+   "16612 H3 Buy Honey Shilajit 30 Sachet Pack in Pakistan | Monthly Supply | Best Value Himalayan Salajeet with Honey | Ch",
+   "16611 H3 Buy 30g Pure Shilajit Resin in Pakistan – The Ultimate Value for Long-Term Wellness",
+   "16612 H3 Buy Shilajit Drops 30ml in Pakistan | Pure Himalayan Liquid Shilajit | Maximum Absorption | Chitral House",
+   "16612 H3 Special Offer – Buy 60g Shilajit & Get 10g Free! 🎁",
+   "16611 H3 Buy Shilajit Gummies 60 Count in Pakistan | Monthly Supply | Best Value Himalayan Salajeet Gummies | Chitral H",
+   "16612 H3 Buy Honey Shilajit 15 Sachet Pack in Pakistan | Trial Size | Original Himalayan Salajeet with Honey | Chitral ",
+   "16612 H3 60g Shilajit + 30ml – Drops Resin & Drops for Maximum Strength",
+   "16680 H3 Chitral House Defence Power Bundle – 3-in-1 Shilajit Combo ⭐",
+   "16611 H3 Buy Shilajit Gummies 40 Count in Pakistan | Original Himalayan Salajeet Gummies | Chitral House",
+   "16612 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice",
+   "16612 H3 Buy Honey Shilajit 30 Sachet Pack in Pakistan | Monthly Supply | Best Value Himalayan Salajeet with Honey | Ch",
+   "16611 H3 Buy 30g Pure Shilajit Resin in Pakistan – The Ultimate Value for Long-Term Wellness",
+   "16892 H3 Recently Viewed Products",
+   "17231 H3 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "17441 H2 Newsletter Sign Up",
+   "17441 H2 Quick links"
+  ],
+  "secs": [
+   {
+    "y": 75,
+    "h": 36,
+    "id": "shopify-section-sections--22094402322716__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "30-Day Money Back Guarantee"
+   },
+   {
+    "y": 111,
+    "h": 142,
+    "id": "shopify-section-sections--22094402322716__header-classic",
+    "cls": "shopify-section shopify-section-group-header-group section-header-classic",
+    "first": ""
+   },
+   {
+    "y": 253,
+    "h": 45,
+    "id": "shopify-section-sections--22094402322716__9c03747e-b054-4db8-8194-5a35",
+    "cls": "shopify-section shopify-section-group-header-group section-header-navigation",
+    "first": "Chitral House"
+   },
+   {
+    "y": 298,
+    "h": 7323,
+    "id": "shopify-section-template--22104569348380__main",
+    "cls": "shopify-section",
+    "first": "Home"
+   },
+   {
+    "y": 298,
+    "h": 7323,
+    "id": "ProductSection-template--22104569348380__main",
+    "cls": "product-details product-default",
+    "first": "Home"
+   },
+   {
+    "y": 7621,
+    "h": 142,
+    "id": "shopify-section-template--22104569348380__custom_liquid_UXenWG",
+    "cls": "shopify-section spaced-section",
+    "first": "PREMIUM SHILAJIT BRAND"
+   },
+   {
+    "y": 7763,
+    "h": 758,
+    "id": "shopify-section-template--22104569348380__video_block_bHLpHp",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 8521,
+    "h": 1342,
+    "id": "shopify-section-template--22104569348380__171637639929bc1023",
+    "cls": "shopify-section spaced-section",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 9863,
+    "h": 142,
+    "id": "shopify-section-template--22104569348380__custom_liquid_bJ8Knr",
+    "cls": "shopify-section spaced-section",
+    "first": "FROM PAIN… TO POWERFUL ENERGY!"
+   },
+   {
+    "y": 10005,
+    "h": 581,
+    "id": "shopify-section-template--22104569348380__image_banner_bV7Xjp",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 10587,
+    "h": 813,
+    "id": "shopify-section-template--22104569348380__video_block_tHq3f9",
+    "cls": "shopify-section",
+    "first": "Original Shilajit"
+   },
+   {
+    "y": 11400,
+    "h": 640,
+    "id": "shopify-section-template--22104569348380__image_banner_haYwxP",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 12040,
+    "h": 142,
+    "id": "shopify-section-template--22104569348380__custom_liquid_jkEw68",
+    "cls": "shopify-section spaced-section",
+    "first": "GLOW FROM THE INSIDE WITH REAL SHILAJIT"
+   },
+   {
+    "y": 12182,
+    "h": 571,
+    "id": "shopify-section-template--22104569348380__image_banner_pnCicf",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 12754,
+    "h": 142,
+    "id": "shopify-section-template--22104569348380__custom_liquid_AxmfKa",
+    "cls": "shopify-section spaced-section",
+    "first": "KEY BENEFITS OF SHILAJIT"
+   },
+   {
+    "y": 12896,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_faNwPK",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 13447,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_rfKdnL",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 13999,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_CAL8Ye",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 14550,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_LFfWdY",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 15102,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_iMjLzz",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 15653,
+    "h": 551,
+    "id": "shopify-section-template--22104569348380__image_banner_9n4Dxp",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 16205,
+    "h": 579,
+    "id": "shopify-section-template--22104569348380__product-recommendations",
+    "cls": "shopify-section halo-product-block-sections",
+    "first": "Related Products"
+   },
+   {
+    "y": 16784,
+    "h": 552,
+    "id": "shopify-section-template--22104569348380__product-recently-viewed",
+    "cls": "shopify-section halo-recently-viewed-block-sections",
+    "first": "Recently Viewed Products"
+   },
+   {
+    "y": 17416,
+    "h": 284,
+    "id": "shopify-section-sections--22094402257180__footer-1",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Newsletter Sign Up"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free",
+   "https://chitralhouse.com/products/shilajit-10g#MainContent",
+   "https://chitralhouse.com/products/shilajit-10g#",
+   "https://chitralhouse.com/products/shilajit-10g",
+   "https://chitralhouse.com/products/shilajit-20g",
+   "https://chitralhouse.com/products/shilajit-10g#tab-description",
+   "https://chitralhouse.com/products/shilajit-10g#tab-description-mobile",
+   "https://chitralhouse.com/products/shilajit-30g",
+   "https://chitralhouse.com/products/shilajit-gummies-60-count?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10282273079580&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/honey-shilajit-15-sachet-pack?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10626462679324&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-power-bundle-60g-shilajit-30ml-drops?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=9991578353948&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/summer-bundle?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10774085304604&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-gummies-40-count?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10282237460764&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-20g?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=8536330174748&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/honey-shilajit-30-sachet-pack?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10626462712092&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-30g?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=8536329617692&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-drops-30ml?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=9991578124572&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10131530580252&pr_ref_pid=8536330535196&pr_seq=uniform"
+  ],
+  "text": "​🔥 Pre Winter Sale! 🔥 Get 10g Free With 60g Shilajit Sale Ends In: 25 Days 22 Hours 14 Minutes 56 Seconds Get Now SKIP TO CONTENT 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee EN PKR PKR FREE SHIPPING ON ALL ORDERS ABOVE 2700 Shopping Cart 0 0 items My Wish ListSign In HOME PRODUCTS DEALS AND BUNDLES NEW PRODUCTS SUMMER SALE LAB REPORTS CERTIFICATES BLOG Home Buy 10g Pure Shilajit Resin In Pakistan – The Ideal Starter Pack Sale 22% ✓ 30-Day Money-Back Guarantee ✓ Certified & Lab Tested Buy 10g Pure Shilajit Resin In Pakistan – The Ideal Starter Pack 428 reviews Boosts Energy & Reduces Fatigue Improves Focus & Mental Performance Strengthens Immunity & Overall Wellness Promotes Vitality & Anti-Aging Rs.1,800.00 Rs.1,400.00 Get it between Thursday October 8th - Friday October 9th Quantity: Decrease quantity for Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack Increase quantity for Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack Subtotal: Rs.1,400.00 ORDER ON WHATSAPP ADD TO CART Add to wishlist SHARE Close Copy Link COPY LINK Share Buy it now ❄️ PRE-WINTER SALE ❄️ Get Ready for Winter with Exclusive Discounts + Free Delivery! 🎁 Description Welcome to the 10g pure Shilajit resin product page from Chitral House. This compact yet powerful pack contains our signature lab tested certified and authentic Himalayan original salajeet, specially designed for those who are beginning their journey with this remarkable natural substance. Whether you are trying Shilajit for the first time, need a travel-friendly option, or simply want a smaller quantity, this 10g Shilajit resin pack offers the perfect introduction to the world of authentic Himalayan wellness. Every jar of our 10g pure Shilajit contains resin sourced directly from the high-altitude mountains of northern Pakistan — specifically the remote valleys of Chitral and Gilgit-Baltistan. These regions are renowned among traditional healers and modern wellness enthusiasts for producing some of the world's most potent original salajeet. We bring it directly from these mountains to your doorstep, ensuring you receive the purest form of this remarkable Himalayan resin in a convenient starter size. Why Choose Our 10g Shilajit Resin? Our 10g Shilajit resin pack offers several distinct advantages, particularly for those new to this powerful natural substance: Perfect for beginners: Start your wellness journey with a manageable quantity that allows you to experience the benefits without a large commitment. Travel-friendly size: The compact 10g jar fits easily in any bag, so you never miss a day of your wellness routine while on the go. Risk-free trial: Ideal for those who want to personally verify the quality and effects of authentic original salajeet before investing in larger sizes. Same premium quality: Despite the smaller size, this pack contains the same lab tested certified and authentic Himalayan Shilajit resin as our larger 20g and 30g options. Affordable entry point: The 10g pack makes authentic pure Shilajit accessible at a lower price point for those exploring its benefits. → View our complete Shilajit resin collection What Makes Our 10g Shilajit Resin Special? Every jar of our 10g pure Shilajit resin undergoes the same rigorous quality control as our larger packs. Here is what you can expect when you order from Chitral House: Authentic Himalayan Source Our original salajeet is collected from high-altitude mountain regions in Chitral and Gilgit-Baltistan, where the purest Himalayan Shilajit resin is found. These remote areas have ideal geological conditions that support the natural formation of high-quality Shilajit over centuries. Traditional Purification After collection, our 10g Shilajit resin is processed using time-tested methods passed down through generations of mountain communities. This traditional approach preserves the natural integrity of the resin while ensuring it is clean and ready for consumption. Lab Tested Certified Every batch of our pure Shilajit — including the 10g size — is lab tested certified and authentic. We verify fulvic acid content and ensure the absence of heavy metals, contaminants, or adulterants. You receive only the purest original salajeet. 100% Resin Form What you receive is the actual Shilajit resin — not powder, not capsules, not mixed with herbs. Pure Himalayan resin in its most traditional and effective form, exactly as nature intended. Who Is the 10g Shilajit Resin Pack For? The 10g pure Shilajit resin pack is designed with specific user profiles in mind. Consider whether any of these describe your situation: First-Time Users If you have never tried Shilajit before, the 10g pack is your ideal starting point. It allows you to experience the energy-supporting and focus-enhancing benefits of authentic original salajeet without requiring a large financial commitment. Many of our customers begin with this size, then move to larger packs once they personally verify the quality and effects. Frequent Travelers For those who travel regularly, the compact 10g Shilajit resin jar is perfectly portable. It fits easily in carry-on luggage, gym bags, or even a pocket, ensuring you can maintain your wellness routine no matter where you are. The secure packaging prevents leaks and preserves freshness during travel. Those Testing Multiple Brands Some wellness enthusiasts like to compare different sources of Himalayan Shilajit resin. The 10g pack offers a convenient way to evaluate our quality alongside other options, helping you make an informed decision about which pure Shilajit works best for you. Occasional Users If you plan to use Shilajit periodically rather than daily, the 10g size prevents waste."
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://chitralhouse.com/products/shilajit-10g",
+  "title": "Buy 10g Pure Shilajit Resin Pakistan | Starter Pack | Chitral House",
+  "desc": "Buy 10g pure Shilajit resin in Pakistan. Lab tested & certified Himalayan original salajeet. Perfect starter pack for beginners. 100% authentic from Chitral. Order now",
+  "theme": "ella-6-5-3-theme-source / Ella",
+  "shopify": true,
+  "height": 10501,
+  "styles": [
+   "body: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "h1: Poppins 23px/600 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "h2: Poppins 14px/600 color rgb(35, 35, 35) bg rgba(0, 0, 0, 0)",
+   "p: -apple-system 19px/800 color rgb(255, 255, 255) bg rgba(0, 0, 0, 0)",
+   "header: Poppins 12px/400 color rgb(35, 35, 35) bg rgb(255, 255, 255)",
+   "button[name=add], .product-form__submit, button[type=submit]: Poppins 14px/700 color rgb(35, 35, 35) bg rgb(255, 255, 255)"
+  ],
+  "nav": [
+   "PKR",
+   "Shilajit 60g",
+   "Shilajit 10g",
+   "Shilajit",
+   "Shopping Cart 00 items",
+   "My Wish List",
+   "Sign In",
+   "Home",
+   "Products",
+   "Go to Products",
+   "Shilajit Resin",
+   "Shilajit Drops",
+   "Shilajit Gummies",
+   "Honey Shilajit",
+   "Deals and Bundles",
+   "New Products",
+   "Summer Sale",
+   "Lab Reports",
+   "Certificates",
+   "Blog"
+  ],
+  "btns": [
+   "Skip to content",
+   "Order on WhatsApp",
+   "Add to cart",
+   "Share",
+   "Close",
+   "Copy link",
+   "Buy it now",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "Submit",
+   "Subscribe",
+   "Log in",
+   "Create account"
+  ],
+  "heads": [
+   "933 H1 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "844 H2 Share",
+   "812 H2 Why Choose Our 10g Shilajit Resin?",
+   "1513 H2 What Makes Our 10g Shilajit Resin Special?",
+   "1694 H3 Authentic Himalayan Source",
+   "1887 H3 Traditional Purification",
+   "2058 H3 Lab Tested Certified",
+   "2229 H3 100% Resin Form",
+   "2454 H2 Who Is the 10g Shilajit Resin Pack For?",
+   "2613 H3 First-Time Users",
+   "2828 H3 Frequent Travelers",
+   "3021 H3 Those Testing Multiple Brands",
+   "3192 H3 Occasional Users",
+   "3439 H2 Product Specifications: 10g Pure Shilajit Resin",
+   "4057 H2 Benefits of Our 10g Shilajit Resin",
+   "4216 H3 Supports Natural Energy",
+   "4387 H3 Enhances Mental Focus",
+   "4536 H3 Strengthens Immune Function",
+   "4685 H3 Promotes Healthy Aging",
+   "4812 H3 Supports Physical Performance",
+   "5037 H2 How to Use Your 10g Shilajit Resin",
+   "5814 H2 How to Identify Authentic 10g Shilajit Resin",
+   "6415 H2 Comparing Our Shilajit Resin Sizes",
+   "6986 H2 Customer Reviews for 10g Shilajit Resin",
+   "7558 H2 Frequently Asked Questions About 10g Shilajit Resin",
+   "8752 H2 Start Your Shilajit Journey with Our 10g Pure Resin",
+   "2176 H2 PREMIUM SHILAJIT BRAND",
+   "2568 H2 Customer Reviews",
+   "4308 H2 FROM PAIN… TO POWERFUL ENERGY!",
+   "4948 H3 Original Shilajit",
+   "5760 H2 GLOW FROM THE INSIDE WITH REAL SHILAJIT",
+   "6412 H2 KEY BENEFITS OF SHILAJIT",
+   "8892 H3 Related Products",
+   "9136 H3 60g Shilajit + 30ml – Drops Resin & Drops for Maximum Strength",
+   "9182 H3 Chitral House Defence Power Bundle – 3-in-1 Shilajit Combo ⭐",
+   "9134 H3 Buy Shilajit Gummies 40 Count in Pakistan | Original Himalayan Salajeet Gummies | Chitral House",
+   "9134 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice",
+   "9134 H3 Buy Honey Shilajit 30 Sachet Pack in Pakistan | Monthly Supply | Best Value Himalayan Salajeet with Honey | Ch",
+   "9134 H3 Buy 30g Pure Shilajit Resin in Pakistan – The Ultimate Value for Long-Term Wellness",
+   "9134 H3 Buy Shilajit Drops 30ml in Pakistan | Pure Himalayan Liquid Shilajit | Maximum Absorption | Chitral House",
+   "9134 H3 Special Offer – Buy 60g Shilajit & Get 10g Free! 🎁",
+   "9134 H3 Buy Shilajit Gummies 60 Count in Pakistan | Monthly Supply | Best Value Himalayan Salajeet Gummies | Chitral H",
+   "9134 H3 Buy Honey Shilajit 15 Sachet Pack in Pakistan | Trial Size | Original Himalayan Salajeet with Honey | Chitral ",
+   "9136 H3 60g Shilajit + 30ml – Drops Resin & Drops for Maximum Strength",
+   "9182 H3 Chitral House Defence Power Bundle – 3-in-1 Shilajit Combo ⭐",
+   "9134 H3 Buy Shilajit Gummies 40 Count in Pakistan | Original Himalayan Salajeet Gummies | Chitral House",
+   "9134 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice",
+   "9415 H3 Recently Viewed Products",
+   "9657 H3 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "9857 H2 Newsletter Sign Up",
+   "10086 H2 Quick links",
+   "844 H2 Shop the look",
+   "865 H2 Choose Options",
+   "118 H3 Trending Now",
+   "259 H3 Popular Products",
+   "533 H3 Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack",
+   "533 H3 Special Offer – Buy 60g Shilajit & Get 10g Free! 🎁",
+   "533 H3 Buy 20g Pure Shilajit Resin in Pakistan – The Daily Wellness Choice"
+  ],
+  "secs": [
+   {
+    "y": 160,
+    "h": 36,
+    "id": "shopify-section-sections--22094402322716__announcement-bar",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "30-Day Money Back Guarantee"
+   },
+   {
+    "y": 196,
+    "h": 70,
+    "id": "shopify-section-sections--22094402322716__header-mobile",
+    "cls": "shopify-section shopify-section-group-header-group section-header-mobile",
+    "first": ""
+   },
+   {
+    "y": 266,
+    "h": 1898,
+    "id": "shopify-section-template--22104569348380__main",
+    "cls": "shopify-section",
+    "first": "Home"
+   },
+   {
+    "y": 266,
+    "h": 1898,
+    "id": "ProductSection-template--22104569348380__main",
+    "cls": "product-details product-default",
+    "first": "Home"
+   },
+   {
+    "y": 2164,
+    "h": 80,
+    "id": "shopify-section-template--22104569348380__custom_liquid_UXenWG",
+    "cls": "shopify-section spaced-section",
+    "first": "PREMIUM SHILAJIT BRAND"
+   },
+   {
+    "y": 2244,
+    "h": 308,
+    "id": "shopify-section-template--22104569348380__video_block_bHLpHp",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 2552,
+    "h": 1744,
+    "id": "shopify-section-template--22104569348380__171637639929bc1023",
+    "cls": "shopify-section spaced-section",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 4296,
+    "h": 80,
+    "id": "shopify-section-template--22104569348380__custom_liquid_bJ8Knr",
+    "cls": "shopify-section spaced-section",
+    "first": "FROM PAIN… TO POWERFUL ENERGY!"
+   },
+   {
+    "y": 4375,
+    "h": 552,
+    "id": "shopify-section-template--22104569348380__image_banner_bV7Xjp",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 4927,
+    "h": 303,
+    "id": "shopify-section-template--22104569348380__video_block_tHq3f9",
+    "cls": "shopify-section",
+    "first": "Original Shilajit"
+   },
+   {
+    "y": 5230,
+    "h": 518,
+    "id": "shopify-section-template--22104569348380__image_banner_haYwxP",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 5748,
+    "h": 80,
+    "id": "shopify-section-template--22104569348380__custom_liquid_jkEw68",
+    "cls": "shopify-section spaced-section",
+    "first": "GLOW FROM THE INSIDE WITH REAL SHILAJIT"
+   },
+   {
+    "y": 5828,
+    "h": 572,
+    "id": "shopify-section-template--22104569348380__image_banner_pnCicf",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 6400,
+    "h": 80,
+    "id": "shopify-section-template--22104569348380__custom_liquid_AxmfKa",
+    "cls": "shopify-section spaced-section",
+    "first": "KEY BENEFITS OF SHILAJIT"
+   },
+   {
+    "y": 6479,
+    "h": 400,
+    "id": "shopify-section-template--22104569348380__image_banner_faNwPK",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 6879,
+    "h": 390,
+    "id": "shopify-section-template--22104569348380__image_banner_rfKdnL",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 7269,
+    "h": 390,
+    "id": "shopify-section-template--22104569348380__image_banner_CAL8Ye",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 7659,
+    "h": 390,
+    "id": "shopify-section-template--22104569348380__image_banner_LFfWdY",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8049,
+    "h": 390,
+    "id": "shopify-section-template--22104569348380__image_banner_iMjLzz",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8439,
+    "h": 390,
+    "id": "shopify-section-template--22104569348380__image_banner_9n4Dxp",
+    "cls": "shopify-section sections-image-banner-block",
+    "first": ""
+   },
+   {
+    "y": 8829,
+    "h": 478,
+    "id": "shopify-section-template--22104569348380__product-recommendations",
+    "cls": "shopify-section halo-product-block-sections",
+    "first": "Related Products"
+   },
+   {
+    "y": 9357,
+    "h": 405,
+    "id": "shopify-section-template--22104569348380__product-recently-viewed",
+    "cls": "shopify-section halo-recently-viewed-block-sections",
+    "first": "Recently Viewed Products"
+   },
+   {
+    "y": 9812,
+    "h": 689,
+    "id": "shopify-section-sections--22094402257180__footer-1",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "Newsletter Sign Up"
+   }
+  ],
+  "apps": [
+   "judge.me"
+  ],
+  "plinks": [
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free",
+   "https://chitralhouse.com/products/shilajit-10g#MainContent",
+   "https://chitralhouse.com/products/shilajit-10g#",
+   "https://chitralhouse.com/products/shilajit-10g",
+   "https://chitralhouse.com/products/shilajit-20g",
+   "https://chitralhouse.com/products/shilajit-10g#tab-description",
+   "https://chitralhouse.com/products/shilajit-10g#tab-description-mobile",
+   "https://chitralhouse.com/products/shilajit-30g",
+   "https://chitralhouse.com/products/shilajit-10g#judgeme_product_reviews",
+   "https://chitralhouse.com/products/shilajit-power-bundle-60g-shilajit-30ml-drops?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=9991578353948&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/summer-bundle?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10774085304604&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-gummies-40-count?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10282237460764&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-20g?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=8536330174748&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/honey-shilajit-30-sachet-pack?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10626462712092&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-30g?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=8536329617692&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-drops-30ml?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=9991578124572&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/buy-60g-3-months-course-and-get-10g-free?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10131530580252&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/shilajit-gummies-60-count?pr_prod_strat=jac&pr_rec_id=381196634&pr_rec_pid=10282273079580&pr_ref_pid=8536330535196&pr_seq=uniform",
+   "https://chitralhouse.com/products/honey-shilajit-15-sachet-pack?pr_prod_strat=e5_desc&pr_rec_id=381196634&pr_rec_pid=10626462679324&pr_ref_pid=8536330535196&pr_seq=uniform"
+  ],
+  "text": "​🔥 Pre Winter Sale! 🔥 Get 10g Free With 60g Shilajit Sale Ends In: 25 Days 22 Hours 13 Minutes 55 Seconds Get Now SKIP TO CONTENT 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee 30-Day Money Back Guarantee Log in Cart 0 0 items Home Buy 10g Pure Shilajit Resin In Pakistan – The Ideal Starter Pack Sale 22% 1 / 10 ✓ 30-Day Money-Back Guarantee ✓ Certified & Lab Tested Buy 10g Pure Shilajit Resin In Pakistan – The Ideal Starter Pack 428 reviews Boosts Energy & Reduces Fatigue Improves Focus & Mental Performance Strengthens Immunity & Overall Wellness Promotes Vitality & Anti-Aging Rs.1,800.00 Rs.1,400.00 Get it between Thursday October 8th - Friday October 9th Quantity: Decrease quantity for Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack Increase quantity for Buy 10g Pure Shilajit Resin in Pakistan – The Ideal Starter Pack Subtotal: Rs.1,400.00 ORDER ON WHATSAPP ADD TO CART Add to wishlist SHARE SHARE Close Copy Link COPY LINK Share Buy it now ❄️ PRE-WINTER SALE ❄️ Get Ready for Winter with Exclusive Discounts + Free Delivery! 🎁 Description PREMIUM SHILAJIT BRAND Customer Reviews 4.91 out of 5 Based on 428 reviews 401 17 8 1 1 Write a review Sort By Most Recent Highest Rating Lowest Rating Only Pictures Pictures First Videos First Most Helpful 08/26/2026 Ali Asgher Worth of Worth of Money 08/10/2026 Anonymous I m 68 year old and patient of BP I m 68 year old and patient of BP, Sugar, stomch disturbance, back bone , cycocidian. Can you confirm should i take your shalzgit. Can you also confirm that is it alll impurites free. Can you confirm that its uses can cause blood piles. Please advice. >> Chitral House replied: Sir, thank you for sharing your health details with us. Since you are 68 years old and have blood pressure, diabetes, stomach issues, and back/sciatica problems, we recommend that you consult your doctor before using Shilajit. Our Shilajit is 100% Pure, PCSIR Certified, Lab Tested, and of the Highest Quality. It undergoes various purification processes and is laboratory tested for quality and impurities. Regarding piles (hemorrhoids), Shilajit is not generally considered a direct cause of piles. However, if you experience stomach discomfort, constipation, bleeding, or worsening symptoms after using it, please stop using Shilajit and consult your doctor. For your safety, it is best to show the Shilajit product and its ingredient details to your doctor and use it only if your doctor approves. 08/06/2026 Atiq Ahmad I'm very satisfied with my experience I'm very satisfied with my experience. The product arrived well-packaged and of high quality. It dissolves easily in warm water. I would definitely recommend Chitral House to anyone looking for authentic Shilajit in Pakistan. Thank you for providing a quality product and a smooth purchasing experience! 06/30/2026 Anas Ali Very good quality maina mangwai ha use ki ha bht achi ha Very good quality maina mangwai ha use ki ha bht achi ha. 06/23/2026 Mohsin Hussain Excellent Received on time, seems like pure, and delivered in Good packaging. 123 FROM PAIN… TO POWERFUL ENERGY! ORIGINAL SHILAJIT GLOW FROM THE INSIDE WITH REAL SHILAJIT KEY BENEFITS OF SHILAJIT RELATED PRODUCTS Sale 59% 60g Shilajit + 30ml – Drops Resin & Drops For Maximum Strength 46 reviews Rs.16,000.00 Rs.6,500.00 Sale 55% Chitral House Defence Power Bundle – 3-In-1 Shilajit Combo ⭐ 45 reviews Rs.11,000.00 Rs.5,000.00 Sale 44% Buy Shilajit Gummies 40 Count In Pakistan | Original Himalayan Salajeet Gummies | Chitral House 92 reviews Rs.3,600.00 Rs.2,000.00 Sale 31% Buy 20g Pure Shilajit Resin In Pakistan – The Daily Wellness Choice 430 reviews Rs.3,500.00 Rs.2,400.00 Sale 47% Buy Honey Shilajit 30 Sachet Pack In Pakistan | Monthly Supply | Best Value Himalayan Salajeet With Honey | Chitral House 77 reviews Rs.5,700.00 Rs.3,000.00 Sale 47% Buy 30g Pure Shilajit Resin In Pakistan – The Ultimate Value For Long-Term Wellness 248 reviews Rs.6,000.00 Rs.3,200.00 Sale 53% Buy Shilajit Drops 30ml In Pakistan | Pure Himalayan Liquid Shilajit | Maximum Absorption | Chitral House 74 reviews Rs.6,000.00 Rs.2,800.00 Sale 50% Special Offer – Buy 60g Shilajit & Get 10g Free! 🎁 201 reviews Rs.9,000.00 Rs.4,500.00 Sale 44% Buy Shilajit Gummies 60 Count In Pakistan | Monthly Supply | Best Value Himalayan Salajeet Gummies | Chitral House 98 reviews Rs.5,400.00 Rs.3,000.00 Sale 46% Buy Honey Shilajit 15 Sachet Pack In Pakistan | Trial Size | Original Himalayan Salajeet With Honey | Chitral House 94 reviews Rs.3,700.00 Rs.2,000.00 Sale 59% 60g Shilajit + 30ml – Drops Resin & Drops For Maximum Strength 46 reviews Rs.16,000.00 Rs.6,500.00 Sale 55% Chitral House Defence Power Bundle – 3-In-1 Shilajit Combo ⭐ 45 reviews Rs.11,000.00 Rs.5,000.00 Sale 44% Buy Shilajit Gummies 40 Count In Pakistan | Original Himalayan Salajeet Gummies | Chitral House 92 reviews Rs.3,600.00 Rs.2,000.00 Sale 31% Buy 20g Pure Shilajit Resin In Pakistan – The Daily Wellness Choice 430 reviews Rs.3,500.00 Rs.2,400.00 12345 RECENTLY VIEWED PRODUCTS Sale 22% Buy 10g Pure Shilajit Resin In Pakistan – The Ideal Starter Pack 428 reviews Rs.1,800.00 Rs.1,400.00 NEWSLETTER SIGN UP Sign up for exclusive updates, new arrivals & insider only discounts SUBMIT Facebook Instagram TikTok YouTube QUICK LINKS UNIT #3277 275 NEW NORTH ROAD LONDON UNITED KINGDOM N1 7AA. FLAT 406, BLOCK B, MEHER APARTMENTS, H-13, ISLAMABAD, PAKISTAN +447397267935 +923275851670 Contact@chitralhouse.com All Rights Reserved. Powered By Chitral House. Payment methods Home Search Collection Cart 0 0 items Close"
+ }
+}

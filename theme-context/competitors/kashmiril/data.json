@@ -1,0 +1,663 @@
+{
+ "name": "kashmiril",
+ "url": "https://kashmiril.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://kashmiril.com/",
+  "title": "Kashmiril | Authentic Kashmiri Saffron, Shilajit & Dry Fruits Online",
+  "desc": "Shop 100% authentic Kashmiri saffron, shilajit, dry fruits, kehwa, honey & oils. Ethically sourced from Kashmir’s valleys. Purity, heritage & trust - Kashmiril",
+  "theme": "fv3<>> of Kashmiril / Horizon",
+  "shopify": true,
+  "height": 8049,
+  "styles": [
+   "body: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgb(255, 255, 255)",
+   "h1: \"New York\" 48px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "h2: \"New York\" 20px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "p: \"New York\" 12px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "header: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Collections",
+   "Track Your Order",
+   "Contact Us",
+   "About Us",
+   "Journal",
+   "Recipes",
+   "Log in",
+   "Continue shopping",
+   "Contact Information",
+   "Privacy Policy",
+   "Refund Policy",
+   "Shipping Policy",
+   "Terms of Service",
+   "Saffron",
+   "Shilajit",
+   "Dry Fruits",
+   "Honey",
+   "Kehwa's",
+   "Skin Care",
+   "Oils",
+   "Utilities"
+  ],
+  "btns": [
+   "Search",
+   "Cart Total items in cart: 0 0",
+   "View Collection",
+   "Write a store review",
+   "Explore Collection",
+   "Speak With Our Team",
+   "View more"
+  ],
+  "heads": [
+   "42 H1 Kashmiril",
+   "376 H1 KashmirilWhere Heritage Meets Luxury",
+   "750 H2 Our Best Sellers",
+   "1350 H2 Shop by collection",
+   "4020 H1 Welcome to Kashmiril",
+   "4597 H2 Why Discerning Buyers Choose Us",
+   "5514 H2 The Kashmiril Story",
+   "6289 H3 Begin Your Journey",
+   "6753 H2 Latest from our journal",
+   "7156 H3 Sleep Debt: Can You Ever Actually Catch Up on Sleep",
+   "7156 H3 Kehwa for LDL Cholesterol: The Cardamom Effect",
+   "7156 H3 Breathing Techniques for Anxiety: The Methods That Work Fastest",
+   "7628 H3 Shelled Walnuts vs Pecan vs Hazelnut: Omega-3 and Vitamin E",
+   "7628 H3 How Night Shift Workers Can Protect Their Sleep and Health",
+   "7628 H3 Pine Nuts vs Brazil Nuts vs Pecan: Selenium and Magnesium"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 43,
+    "id": "shopify-section-sections--20660323909823__header_announcements_9jGBFp",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "For International Orders Contact Us On WhatsApp!"
+   },
+   {
+    "y": 43,
+    "h": 66,
+    "id": "shopify-section-sections--20660323909823__header_section",
+    "cls": "shopify-section shopify-section-group-header-group header-section",
+    "first": "Kashmiril"
+   },
+   {
+    "y": 109,
+    "h": 611,
+    "id": "shopify-section-template--20660328956095__hero_jVaWmY",
+    "cls": "shopify-section hero-wrapper section-wrapper",
+    "first": "KashmirilWhere Heritage Meets Luxury"
+   },
+   {
+    "y": 720,
+    "h": 585,
+    "id": "shopify-section-template--20660328956095__product_list_fa6P9H",
+    "cls": "shopify-section ui-test-product-list",
+    "first": "Our Best Sellers"
+   },
+   {
+    "y": 1326,
+    "h": 857,
+    "id": "shopify-section-template--20660328956095__collection_list_DQqDHi",
+    "cls": "shopify-section ui-test-collection-list",
+    "first": "Shop by collection"
+   },
+   {
+    "y": 2183,
+    "h": 288,
+    "id": "shopify-section-template--20660328956095__custom_liquid_qGwwLQ",
+    "cls": "shopify-section",
+    "first": "GoogleNews"
+   },
+   {
+    "y": 2471,
+    "h": 1417,
+    "id": "shopify-section-template--20660328956095__1762630149cdae62cc",
+    "cls": "shopify-section section-wrapper",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 3888,
+    "h": 2825,
+    "id": "shopify-section-template--20660328956095__custom_liquid_pBMDKy",
+    "cls": "shopify-section",
+    "first": "Welcome to Kashmiril"
+   },
+   {
+    "y": 6713,
+    "h": 1187,
+    "id": "shopify-section-template--20660328956095__blocks_GhbR7C",
+    "cls": "shopify-section section-wrapper",
+    "first": "Latest from our journal"
+   },
+   {
+    "y": 7913,
+    "h": 44,
+    "id": "shopify-section-sections--20660323778751__custom_liquid_ekQURc",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": ""
+   },
+   {
+    "y": 7957,
+    "h": 92,
+    "id": "shopify-section-sections--20660323778751__footer_utilities_jLGE8U",
+    "cls": "shopify-section shopify-section-group-footer-group footer-utilities",
+    "first": "Instagram"
+   }
+  ],
+  "apps": [],
+  "plinks": [
+   "https://kashmiril.com/products/kashmiri-saffron-mongra?variant=44653149159615",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free?variant=44698057736383",
+   "https://kashmiril.com/products/kashmiri-saffron-serum?variant=44810639114431",
+   "https://kashmiril.com/products/kashmiri-saffron-serum",
+   "https://kashmiril.com/products/dried-apricots",
+   "https://kashmiril.com/products/kashmiri-saffron-mongra",
+   "https://kashmiril.com/products/kashmiri-walnuts-shelled",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit",
+   "https://kashmiril.com/products/damascena-rose-water",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-instant-mix",
+   "https://kashmiril.com/products/kashmiri-white-acacia-honey",
+   "https://kashmiril.com/products/kashmiri-almond-oil"
+  ],
+  "text": "From Kashmir Directly To Your Doorstep Kashmiril Home Collections Track Your Order Contact Us About Us Journal Recipes Account Cart Total items in cart: 0 Kashmiril Where Heritage Meets Luxury View Collection Our Best Sellers Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged (44) Rs.1,432.22 Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas (35) Rs.3,728.36 Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend (34) Rs.1,145.20 Kashmiri Saffron Face Serum: Brightening & Anti-Aging Face Serum for a Luminous Glow Kashmiri Saffron Face Serum: Brightening & Anti-Aging Face Serum for a Luminous Glow (42) Rs.3,728.36 Shop by collection Saffron Saffron Shilajit Shilajit Dry Fruits Dry Fruits Honey Honey Kehwas Kehwas Oils Oils Skin Care Skin Care AS FEATURED IN Google NEWS yahoo! NEWS Latestly The Tribune ThePrint ANI Dailyhunt IANS View All 238+ Media Features Customer Reviews 4.9 798 reviews 5 Star 686 4 Star 111 3 Star 0 2 Star 0 1 Star 1 Write a store review Reviews (798) Store reviews(20) Highest Ratings 22/08/2026 A Akansha This was gifted to me by my sister and it made my skin soft and glowy Kashmiri Saffron Face Serum: Brightening & Anti-Ag... 17/08/2026 RA Renu A. Bought dried Kubani Very tasty n delicious Will order again Thank you Kashmiri Dried Apricots (Khubani) – Sun-Dried 23/06/2026 F Francesca I ordered saffron and rose water all the way from Europe. Excellent customer service, excellent and authentic quality items, very well packaged. Note the rose water is not quite like the Bulgarian stuff, it is a little muskier. Really recommend this company. Thankyou for being so supportive along the way. Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade,... 18/06/2026 SD Shubham D. Amazing service , tasty and fresh products straight from Kashmir . Kashmiri Walnuts in Shell (Akhrot) – Omega-3 Rich ... 17/06/2026 N Naw. 💯 % pure shilajit Kashmiri Himalayan Shilajit – Pure, Hand-Harvested... 1 2 3 4 5 ESTABLISHED 2025 ANANTNAG, KASHMIR Welcome to Kashmiril WHERE HERITAGE MEETS PURITY Discover India's most trusted source for authentic Kashmiri treasures — from GI-tagged Kashmiri Mongra Saffron hand-harvested in Pampore's ancient fields to pure Himalayan Shilajit collected above 16,000 feet. Our curated collection spans high-altitude dry fruits, cold-pressed oils, raw forest honey, traditional Kehwa blends, and botanical skincare — each product a testament to 900 years of Kashmiri heritage. Lab Certified Purity Direct from Kashmir FSSAI Licensed 4.8★ Trust Pilot THE KASHMIRIL DIFFERENCE Why Discerning Buyers Choose Us Purity you can verify. Quality you can taste. 01 ISO-Certified Lab Verification Every batch undergoes third-party testing at ISO 17025 accredited laboratories. We verify crocin levels in saffron (240+ coloring strength), fulvic acid content in Shilajit, and complete purity profiles for all products. 02 Direct Farmer Partnerships We've built relationships with 50+ farming families across Pampore, Pulwama, Kupwara, and Ladakh. No middlemen. No marketplace dilution. Complete harvest-to-home traceability. 03 A Decade of Himalayan Expertise Our team includes certified food scientists, local agricultural specialists, and quality analysts who understand the nuances that separate authentic Kashmiri products from imitations. 04 Ethical & Sustainable Sourcing Fair-trade compensation for farming communities. Traditional harvesting methods that preserve biodiversity. Packaging designed to minimize environmental impact. 50+ PARTNER FARMS \"I started Kashmiril because I saw the purity of my homeland being diluted by counterfeit products. Kashmir deserves better.\" — Kaunain Kaisar Wani, Founder OUR HERITAGE The Kashmiril Story I witnessed something troubling — the marketplace was flooded with adulterated \"Kashmiri\" products that betrayed centuries of authentic craftsmanship. Growing up in Anantnag, I knew the real thing. I knew what pure Pampore saffron smelled like, how genuine Shilajit dissolved, the taste of walnuts fresh from Kupwara orchards. Kashmiril was born to change that. I built direct relationships with farming families in Pampore — where saffron has been cultivated since the 12th century — and across the high-altitude orchards of Kupwara and Pulwama. Today, our operations span from Kashmir's legendary saffron fields to the pristine reaches of Ladakh. Every product is traceable, every claim verifiable. Our sourcing adheres to FSSAI quality benchmarks, and we maintain complete documentation for supply chain transparency. FSSAI LICENSE 11026999000066 ESTABLISHED 2025 HEADQUARTERS Anantnag, J&K Read Our Full Story Begin Your Journey Experience the difference that authentic sourcing, rigorous testing, and a decade of Himalayan expertise make. Every product tells a story of Kashmir's heritage. Explore Collection Speak With Our Team Our Kashmir-based specialists provide personalized guidance on product selection and authenticity verification. Secure Checkout Multiple Payment Options Easy 31-Day Returns Freshness Guaranteed Latest from our journal Discover stories, insights, and inspiration Sep 26, 2026 Kaunain Kaisar Wani Sleep Debt: Can You Ever Actually Catch Up on Sleep The honest, science-backed answer to the weekend recovery question — what repays, what doesn't, and the plan the evid... Sep 26, 2026 Kaunain Kaisar Wani Kehwa for LDL Cholesterol: The Cardamom Effect What peer-reviewed science reveals about Kashmiri kehwa's ability to lower bad cholesterol — and how to brew it so ev... Sep 26, 2026 Kaunain Kaisar Wani Breathing Techniques for Anxiety: The Methods That Work Fastest *Evidence-backed techniques to calm your nervous system in under two minutes — with step-by-step instructions you can... Sep 26, 2026 Kaunain Kaisar Wani Shelled Walnuts vs "
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://kashmiril.com/",
+  "title": "Kashmiril | Authentic Kashmiri Saffron, Shilajit & Dry Fruits Online",
+  "desc": "Shop 100% authentic Kashmiri saffron, shilajit, dry fruits, kehwa, honey & oils. Ethically sourced from Kashmir’s valleys. Purity, heritage & trust - Kashmiril",
+  "theme": "fv3<>> of Kashmiril / Horizon",
+  "shopify": true,
+  "height": 11867,
+  "styles": [
+   "body: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgb(255, 255, 255)",
+   "h1: \"New York\" 36px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "h2: \"New York\" 20px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "p: \"New York\" 12px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "header: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Collections",
+   "Track Your Order",
+   "Contact Us",
+   "About Us",
+   "Journal",
+   "Recipes",
+   "Log in",
+   "Continue shopping",
+   "Contact Information",
+   "Privacy Policy",
+   "Refund Policy",
+   "Shipping Policy",
+   "Terms of Service",
+   "Saffron",
+   "Shilajit",
+   "Dry Fruits",
+   "Honey",
+   "Kehwa's",
+   "Skin Care",
+   "Oils",
+   "Utilities"
+  ],
+  "btns": [
+   "Search",
+   "Cart Total items in cart: 0 0",
+   "View Collection",
+   "Write a store review",
+   "Explore Collection",
+   "Speak With Our Team",
+   "View more"
+  ],
+  "heads": [
+   "42 H1 Kashmiril",
+   "272 H1 KashmirilWhere Heritage Meets Luxury",
+   "581 H2 Our Best Sellers",
+   "1046 H2 Shop by collection",
+   "4782 H1 Welcome to Kashmiril",
+   "5480 H2 Why Discerning Buyers Choose Us",
+   "7194 H2 The Kashmiril Story",
+   "8167 H3 Begin Your Journey",
+   "8787 H2 Latest from our journal",
+   "9132 H3 Sleep Debt: Can You Ever Actually Catch Up on Sleep",
+   "9569 H3 Kehwa for LDL Cholesterol: The Cardamom Effect",
+   "10006 H3 Breathing Techniques for Anxiety: The Methods That Work Fastest",
+   "10469 H3 Shelled Walnuts vs Pecan vs Hazelnut: Omega-3 and Vitamin E",
+   "10932 H3 How Night Shift Workers Can Protect Their Sleep and Health",
+   "11369 H3 Pine Nuts vs Brazil Nuts vs Pecan: Selenium and Magnesium"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 43,
+    "id": "shopify-section-sections--20660323909823__header_announcements_9jGBFp",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "For International Orders Contact Us On WhatsApp!"
+   },
+   {
+    "y": 43,
+    "h": 60,
+    "id": "shopify-section-sections--20660323909823__header_section",
+    "cls": "shopify-section shopify-section-group-header-group header-section",
+    "first": "Kashmiril"
+   },
+   {
+    "y": 103,
+    "h": 457,
+    "id": "shopify-section-template--20660328956095__hero_jVaWmY",
+    "cls": "shopify-section hero-wrapper section-wrapper",
+    "first": "KashmirilWhere Heritage Meets Luxury"
+   },
+   {
+    "y": 560,
+    "h": 445,
+    "id": "shopify-section-template--20660328956095__product_list_fa6P9H",
+    "cls": "shopify-section ui-test-product-list",
+    "first": "Our Best Sellers"
+   },
+   {
+    "y": 1026,
+    "h": 1515,
+    "id": "shopify-section-template--20660328956095__collection_list_DQqDHi",
+    "cls": "shopify-section ui-test-collection-list",
+    "first": "Shop by collection"
+   },
+   {
+    "y": 2541,
+    "h": 414,
+    "id": "shopify-section-template--20660328956095__custom_liquid_qGwwLQ",
+    "cls": "shopify-section",
+    "first": "GoogleNews"
+   },
+   {
+    "y": 2955,
+    "h": 1716,
+    "id": "shopify-section-template--20660328956095__1762630149cdae62cc",
+    "cls": "shopify-section section-wrapper",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 4670,
+    "h": 4076,
+    "id": "shopify-section-template--20660328956095__custom_liquid_pBMDKy",
+    "cls": "shopify-section",
+    "first": "Welcome to Kashmiril"
+   },
+   {
+    "y": 8747,
+    "h": 2943,
+    "id": "shopify-section-template--20660328956095__blocks_GhbR7C",
+    "cls": "shopify-section section-wrapper",
+    "first": "Latest from our journal"
+   },
+   {
+    "y": 11702,
+    "h": 44,
+    "id": "shopify-section-sections--20660323778751__custom_liquid_ekQURc",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": ""
+   },
+   {
+    "y": 11746,
+    "h": 121,
+    "id": "shopify-section-sections--20660323778751__footer_utilities_jLGE8U",
+    "cls": "shopify-section shopify-section-group-footer-group footer-utilities",
+    "first": "Instagram"
+   }
+  ],
+  "apps": [],
+  "plinks": [
+   "https://kashmiril.com/products/kashmiri-saffron-mongra?variant=44653149159615",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free?variant=44698057736383",
+   "https://kashmiril.com/products/kashmiri-saffron-serum?variant=44810639114431",
+   "https://kashmiril.com/products/kashmiri-saffron-serum",
+   "https://kashmiril.com/products/dried-apricots",
+   "https://kashmiril.com/products/kashmiri-saffron-mongra",
+   "https://kashmiril.com/products/kashmiri-walnuts-shelled",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit",
+   "https://kashmiril.com/products/damascena-rose-water",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-instant-mix",
+   "https://kashmiril.com/products/kashmiri-white-acacia-honey",
+   "https://kashmiril.com/products/kashmiri-almond-oil"
+  ],
+  "text": "Free Shipping Across India! From Kashmir Directly To Your Doorstep Kashmiril Cart Total items in cart: 0 Kashmiril Where Heritage Meets Luxury View Collection Our Best Sellers Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged (44) Rs.1,432.22 Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas (35) Rs.3,728.36 Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend (34) Rs.1,145.20 Kashmiri Saffron Face Serum: Brightening & Anti-Aging Face Serum for a Luminous Glow Kashmiri Saffron Face Serum: Brightening & Anti-Aging Face Serum for a Luminous Glow (42) Rs.3,728.36 Shop by collection Saffron Saffron Shilajit Shilajit Dry Fruits Dry Fruits Honey Honey Kehwas Kehwas Oils Oils Skin Care Skin Care AS FEATURED IN Google NEWS yahoo! NEWS Latestly The Tribune ThePrint ANI Dailyhunt IANS View All 238+ Media Features Customer Reviews 4.9 798 reviews 5 Star 686 4 Star 111 3 Star 0 2 Star 0 1 Star 1 Write a store review Reviews (798) Store reviews(20) Highest Ratings 22/08/2026 A Akansha This was gifted to me by my sister and it made my skin soft and glowy Kashmiri Saffron Face Serum: Brightening & Anti-Ag... 17/08/2026 RA Renu A. Bought dried Kubani Very tasty n delicious Will order again Thank you Kashmiri Dried Apricots (Khubani) – Sun-Dried 23/06/2026 F Francesca I ordered saffron and rose water all the way from Europe. Excellent customer service, excellent and authentic quality items, very well packaged. Note the rose water is not quite like the Bulgarian stuff, it is a little muskier. Really recommend this company. Thankyou for being so...Show full review Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade,... 18/06/2026 SD Shubham D. Amazing service , tasty and fresh products straight from Kashmir . Kashmiri Walnuts in Shell (Akhrot) – Omega-3 Rich ... 17/06/2026 N Naw. 💯 % pure shilajit Kashmiri Himalayan Shilajit – Pure, Hand-Harvested... 1 2 3 4 5 ESTABLISHED 2025 ANANTNAG, KASHMIR Welcome to Kashmiril WHERE HERITAGE MEETS PURITY Discover India's most trusted source for authentic Kashmiri treasures — from GI-tagged Kashmiri Mongra Saffron hand-harvested in Pampore's ancient fields to pure Himalayan Shilajit collected above 16,000 feet. Our curated collection spans high-altitude dry fruits, cold-pressed oils, raw forest honey, traditional Kehwa blends, and botanical skincare — each product a testament to 900 years of Kashmiri heritage. Lab Certified Purity Direct from Kashmir FSSAI Licensed 4.8★ Trust Pilot THE KASHMIRIL DIFFERENCE Why Discerning Buyers Choose Us Purity you can verify. Quality you can taste. 01 ISO-Certified Lab Verification Every batch undergoes third-party testing at ISO 17025 accredited laboratories. We verify crocin levels in saffron (240+ coloring strength), fulvic acid content in Shilajit, and complete purity profiles for all products. 02 Direct Farmer Partnerships We've built relationships with 50+ farming families across Pampore, Pulwama, Kupwara, and Ladakh. No middlemen. No marketplace dilution. Complete harvest-to-home traceability. 03 A Decade of Himalayan Expertise Our team includes certified food scientists, local agricultural specialists, and quality analysts who understand the nuances that separate authentic Kashmiri products from imitations. 04 Ethical & Sustainable Sourcing Fair-trade compensation for farming communities. Traditional harvesting methods that preserve biodiversity. Packaging designed to minimize environmental impact. 50+ PARTNER FARMS \"I started Kashmiril because I saw the purity of my homeland being diluted by counterfeit products. Kashmir deserves better.\" — Kaunain Kaisar Wani, Founder OUR HERITAGE The Kashmiril Story I witnessed something troubling — the marketplace was flooded with adulterated \"Kashmiri\" products that betrayed centuries of authentic craftsmanship. Growing up in Anantnag, I knew the real thing. I knew what pure Pampore saffron smelled like, how genuine Shilajit dissolved, the taste of walnuts fresh from Kupwara orchards. Kashmiril was born to change that. I built direct relationships with farming families in Pampore — where saffron has been cultivated since the 12th century — and across the high-altitude orchards of Kupwara and Pulwama. Today, our operations span from Kashmir's legendary saffron fields to the pristine reaches of Ladakh. Every product is traceable, every claim verifiable. Our sourcing adheres to FSSAI quality benchmarks, and we maintain complete documentation for supply chain transparency. FSSAI LICENSE 11026999000066 ESTABLISHED 2025 HEADQUARTERS Anantnag, J&K Read Our Full Story Begin Your Journey Experience the difference that authentic sourcing, rigorous testing, and a decade of Himalayan expertise make. Every product tells a story of Kashmir's heritage. Explore Collection Speak With Our Team Our Kashmir-based specialists provide personalized guidance on product selection and authenticity verification. Secure Checkout Multiple Payment Options Easy 31-Day Returns Freshness Guaranteed Latest from our journal Discover stories, insights, and inspiration Sep 26, 2026 Kaunain Kaisar Wani Sleep Debt: Can You Ever Actually Catch Up on Sleep The honest, science-backed answer to the weekend recovery question — what repays, what doesn't, and the plan the evid... Sep 26, 2026 Kaunain Kaisar Wani Kehwa for LDL Cholesterol: The Cardamom Effect What peer-reviewed science reveals about Kashmiri kehwa's ability to lower bad cholesterol — and how to brew it so ev... Sep 26, 2026 Kaunain Kaisar Wani Breathing Techniques for Anxiety: The Methods That Work Fastest *Evidence-backed techniques to calm your nervous system in under two minutes — with step-by-step instructions you can... Sep 26, 2026 Kaunain Kaisar Wani Shelled Walnuts vs Pecan vs Hazelnut: Omega-3 and Vitamin E One nut beats th"
+ },
+ "pdpUrl": "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+  "title": "Buy Pure Himalayan Shilajit Resin | 16,000 ft Altitude – Kashmiril",
+  "desc": "Raw Kashmiri Shilajit resin from 16,000+ ft Himalayas. 78%+ fulvic acid. Heavy-metal tested, no fillers. From ₹1299. Free shipping across India.",
+  "theme": "fv3<>> of Kashmiril / Horizon",
+  "shopify": true,
+  "height": 10640,
+  "styles": [
+   "body: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgb(255, 255, 255)",
+   "h2: \"New York\" 20px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "p: \"New York\" 12px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "header: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"New York\" 16px/400 color rgb(255, 255, 255) bg rgb(0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Collections",
+   "Track Your Order",
+   "Contact Us",
+   "About Us",
+   "Journal",
+   "Recipes",
+   "Log in",
+   "Continue shopping",
+   "Contact Information",
+   "Privacy Policy",
+   "Refund Policy",
+   "Shipping Policy",
+   "Terms of Service",
+   "Saffron",
+   "Shilajit",
+   "Dry Fruits",
+   "Honey",
+   "Kehwa's",
+   "Skin Care",
+   "Oils",
+   "Utilities"
+  ],
+  "btns": [
+   "Search",
+   "Cart Total items in cart: 0 0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "Decrease quantity",
+   "Increase quantity",
+   "Add to cart",
+   "Write a review",
+   "Add to Cart"
+  ],
+  "heads": [
+   "1000 H2 People Also Bought",
+   "2863 H2 Kashmiri Himalayan Shilajit – Pure Resin",
+   "3394 H2 Specifications",
+   "4173 H2 What Makes Our Shilajit Different",
+   "4353 H3 Sourced from Real High-Altitude Locations",
+   "4353 H3 Traditional Purification (No Chemicals)",
+   "4353 H3 Every Batch is Lab-Tested",
+   "4942 H3 Resin Form — The Way It Should Be",
+   "5840 H2 What's Inside Your Shilajit",
+   "6792 H2 How to Verify Authenticity",
+   "7389 H2 Choose Your Size",
+   "8027 H2 How to Use",
+   "8567 H2 Frequently Asked Questions",
+   "10214 H2 Experience the Real Thing"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 43,
+    "id": "shopify-section-sections--20660323909823__header_announcements_9jGBFp",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "For International Orders Contact Us On WhatsApp!"
+   },
+   {
+    "y": 43,
+    "h": 66,
+    "id": "shopify-section-sections--20660323909823__header_section",
+    "cls": "shopify-section shopify-section-group-header-group header-section",
+    "first": "Home"
+   },
+   {
+    "y": 109,
+    "h": 834,
+    "id": "shopify-section-template--20660329578687__main",
+    "cls": "shopify-section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 943,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_4QVaQH",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 976,
+    "h": 579,
+    "id": "shopify-section-template--20660329578687__product_list_9GwYik",
+    "cls": "shopify-section ui-test-product-list",
+    "first": "People Also Bought"
+   },
+   {
+    "y": 1555,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_7mHXzi",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 1588,
+    "h": 1052,
+    "id": "shopify-section-template--20660329578687__176322888938bc4566",
+    "cls": "shopify-section section-wrapper",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 2641,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_XWGkMV",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 2674,
+    "h": 7818,
+    "id": "shopify-section-template--20660329578687__section_hpCAq8",
+    "cls": "shopify-section section-wrapper",
+    "first": "Kashmiri Himalayan Shilajit – Pure Resin"
+   },
+   {
+    "y": 10504,
+    "h": 44,
+    "id": "shopify-section-sections--20660323778751__custom_liquid_ekQURc",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": ""
+   },
+   {
+    "y": 10548,
+    "h": 92,
+    "id": "shopify-section-sections--20660323778751__footer_utilities_jLGE8U",
+    "cls": "shopify-section shopify-section-group-footer-group footer-utilities",
+    "first": "Instagram"
+   }
+  ],
+  "apps": [],
+  "plinks": [
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#MainContent",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#ProductInformation-template--20660329578687__main",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+   "https://kashmiril.com/products/kashmiri-saffron-mongra?variant=44653149159615",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free?variant=44698057736383",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free-instant-mix?variant=44698519371967",
+   "https://kashmiril.com/products/raya-kashmiri-saffron-cream?variant=44702174544063",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?_pos=1&_sid=810807c94&_ss=r",
+   "https://kashmiril.com/products/damascena-rose-water",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-instant-mix",
+   "https://kashmiril.com/products/kashmiri-white-acacia-honey",
+   "https://kashmiril.com/products/kashmiri-almond-oil"
+  ],
+  "text": "From Kashmir Directly To Your Doorstep Home Collections Track Your Order Contact Us About Us Journal Recipes Account Cart Total items in cart: 0 1 2 3 4 5 6 Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas 35 Reviews Rs.3,728.36 Size20g Decrease quantity Increase quantity Add to cart 100% Satisfaction Guaranteed! No-questions-asked refunds. Free Air Shipping on All Orders! People Also Bought Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged (44) Rs.1,432.22 Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend (34) Rs.1,145.20 Kashmiri Instant Kehwa – Pure Saffron & Sugar Free Kashmiri Instant Kehwa – Pure Saffron & Sugar Free (33) Rs.1,145.20 Raya Kashmiri Saffron Cream – Anti-Wrinkle Brightening & Fairness Cream Raya Kashmiri Saffron Cream – Anti-Wrinkle Brightening & Fairness Cream (35) Rs.1,145.20 Customer Reviews 4.9 35 reviews 5 Star 31 4 Star 4 3 Star 0 2 Star 0 1 Star 0 Write a review 17/06/2026 N Naw. 💯 % pure shilajit 01/04/2026 FM Farhan M. Tried many shilajit brands - most are diluted or powder form. This resin is clearly genuine. Dissolves properly in warm water with that characteristic smell. Taking for general wellness. Feel more alert throughout the day. 22/03/2026 AR Arjun R. Bodybuilding for 5 years and always looking for natural supplements. This shilajit is legit - recovery is faster, lifts feel easier, energy lasts longer. The earthy taste takes getting used to but results speak for themselves. 15/03/2026 KS Kamala S. Showed this to my vaidya and she confirmed it's pure quality. The lab testing details on website gave me confidence. Taking as rasayana for anti-aging benefits. Sleep has improved and skin looks healthier. 10/03/2026 PD Poornima D. My husband's knee pain was constant complaint. Started him on this shilajit with warm milk. He says mobility has improved after 1 month. The resin form is clearly more potent than those capsules we tried before. 1 2 3 4 5 KASHMIRIL Kashmiri Himalayan Shilajit – Pure Resin 100% Pure • Lab-Tested • Hand-Harvested Nature took millions of years to create this. We simply harvest it with care. Kashmiril's Kashmiri Himalayan Shilajit is pure resin collected from remote cliff faces in the Kashmir Himalayas. No chemicals. No fillers. Just the real thing — packed with 78%+ fulvic acid and 85+ minerals your body can actually absorb. ✓ Third-Party Lab Tested ✓ CGMP-Certified Facility ✓ FSSAI Licensed ✓ Heavy Metal Free PRODUCT DETAILS Specifications BRAND Kashmiril PRODUCT Pure Himalayan Shilajit Resin NET WEIGHT 20g (60-100 servings) FORM Raw resin (dark, sticky tar-like paste) ORIGIN Kashmir Himalayas, India (16,000+ ft altitude) KEY COMPOUNDS Fulvic acid (78%+), 85+ trace minerals, DBPs PURITY 100% Pure — no fillers, binders, or additives LAB TESTING Third-party verified (COA available) PACKAGING BPA-free resealable glass jar SHELF LIFE Approximately 2 years (store cool and dry) INCLUDES Stainless steel measuring scoop WHY CHOOSE KASHMIRIL What Makes Our Shilajit Different 1 Sourced from Real High-Altitude Locations Our harvesters collect Shilajit from cliff faces above 16,000 feet in the Kashmir Himalayas. This is where the best Shilajit forms — in cold, clean, mineral-rich environments far from pollution. Collected from remote, untouched mountain areas Higher altitude means more concentrated minerals Wild-harvested, not commercially farmed 2 Traditional Purification (No Chemicals) We clean our Shilajit using only filtered spring water and gentle heat. Many brands use chemical solvents to speed up the process. We don't. This keeps all the good stuff intact. Only water and low heat used Full spectrum of compounds preserved No chemical solvents ever 3 Every Batch is Lab-Tested We test every single batch before it reaches you. You get a Certificate of Analysis that proves exactly what's inside your jar — and what's not. Fulvic acid content verified at 78%+ Tested for heavy metals (lead, mercury, arsenic, cadmium) Checked for pesticides and harmful bacteria 4 Resin Form — The Way It Should Be Shilajit resin is the most natural and potent form. Powders and capsules often contain fillers or lose potency during processing. Our resin dissolves completely and absorbs better. Most bioactive form available Dissolves fully in warm liquid No fillers or binding agents 78%+ FULVIC ACID CONTENT 85+ TRACE MINERALS 16,000+ ft HARVEST ALTITUDE 60-100 SERVINGS PER JAR NATURAL INGREDIENTS What's Inside Your Shilajit Shilajit contains powerful natural compounds that support your body in multiple ways. Here's what makes it work. Fulvic Acid (78%+) — The Nutrient Carrier Fulvic acid helps your body absorb nutrients better. It can cross cell membranes easily, delivering minerals right where they're needed. It's also a strong antioxidant that fights cell damage. Dibenzo-Alpha-Pyrones (DBPs) — The Energy Booster DBPs support your mitochondria — the tiny power plants inside every cell. When mitochondria work better, you get more natural energy without caffeine or stimulants. 85+ Trace Minerals — The Building Blocks Iron, magnesium, zinc, copper, and dozens more. These minerals come in ionic form, which means your body can actually use them. Many supplements use mineral forms that just pass through your system. Humic Acid — The Detox Helper Humic acid supports your gut health and helps your body remove waste products. It works alongside fulvic acid to keep your system clean and functioning well. QUALITY ASSURANCE How to Verify Authenticity 1 Third-Party Lab Testing Every batch goes to an independent lab for testing. We check fulvic acid levels, heavy metals, pesticides, and bacteria. You can request the Certificate of Analysis anytime. 2 Resin Dissolve Test Real Shilajit dissolves completely in warm water within a few minutes. It leaves no gritty residue at the bottom. If your Shilajit doesn't disso"
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+  "title": "Buy Pure Himalayan Shilajit Resin | 16,000 ft Altitude – Kashmiril",
+  "desc": "Raw Kashmiri Shilajit resin from 16,000+ ft Himalayas. 78%+ fulvic acid. Heavy-metal tested, no fillers. From ₹1299. Free shipping across India.",
+  "theme": "fv3<>> of Kashmiril / Horizon",
+  "shopify": true,
+  "height": 14064,
+  "styles": [
+   "body: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgb(255, 255, 255)",
+   "h2: \"New York\" 20px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "p: \"New York\" 12px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "header: \"New York\" 16px/400 color rgba(0, 0, 0, 0.81) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: \"New York\" 16px/400 color rgb(255, 255, 255) bg rgb(0, 0, 0)"
+  ],
+  "nav": [
+   "Home",
+   "Collections",
+   "Track Your Order",
+   "Contact Us",
+   "About Us",
+   "Journal",
+   "Recipes",
+   "Log in",
+   "Continue shopping",
+   "Contact Information",
+   "Privacy Policy",
+   "Refund Policy",
+   "Shipping Policy",
+   "Terms of Service",
+   "Saffron",
+   "Shilajit",
+   "Dry Fruits",
+   "Honey",
+   "Kehwa's",
+   "Skin Care",
+   "Oils",
+   "Utilities"
+  ],
+  "btns": [
+   "Search",
+   "Cart Total items in cart: 0 0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "Decrease quantity",
+   "Increase quantity",
+   "Add to cart",
+   "Write a review",
+   "Add to Cart"
+  ],
+  "heads": [
+   "1183 H2 People Also Bought",
+   "3560 H2 Kashmiri Himalayan Shilajit – Pure Resin",
+   "4234 H2 Specifications",
+   "5298 H2 What Makes Our Shilajit Different",
+   "5484 H3 Sourced from Real High-Altitude Locations",
+   "6016 H3 Traditional Purification (No Chemicals)",
+   "6476 H3 Every Batch is Lab-Tested",
+   "6934 H3 Resin Form — The Way It Should Be",
+   "8009 H2 What's Inside Your Shilajit",
+   "9251 H2 How to Verify Authenticity",
+   "10236 H2 Choose Your Size",
+   "10716 H2 How to Use",
+   "11507 H2 Frequently Asked Questions",
+   "13640 H2 Experience the Real Thing"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 43,
+    "id": "shopify-section-sections--20660323909823__header_announcements_9jGBFp",
+    "cls": "shopify-section shopify-section-group-header-group",
+    "first": "For International Orders Contact Us On WhatsApp!"
+   },
+   {
+    "y": 43,
+    "h": 60,
+    "id": "shopify-section-sections--20660323909823__header_section",
+    "cls": "shopify-section shopify-section-group-header-group header-section",
+    "first": "Home"
+   },
+   {
+    "y": 103,
+    "h": 1027,
+    "id": "shopify-section-template--20660329578687__main",
+    "cls": "shopify-section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 1130,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_4QVaQH",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 1163,
+    "h": 770,
+    "id": "shopify-section-template--20660329578687__product_list_9GwYik",
+    "cls": "shopify-section ui-test-product-list",
+    "first": "People Also Bought"
+   },
+   {
+    "y": 1933,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_7mHXzi",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 1966,
+    "h": 1417,
+    "id": "shopify-section-template--20660329578687__176322888938bc4566",
+    "cls": "shopify-section section-wrapper",
+    "first": "Customer Reviews"
+   },
+   {
+    "y": 3383,
+    "h": 33,
+    "id": "shopify-section-template--20660329578687__divider_XWGkMV",
+    "cls": "shopify-section",
+    "first": ""
+   },
+   {
+    "y": 3416,
+    "h": 10471,
+    "id": "shopify-section-template--20660329578687__section_hpCAq8",
+    "cls": "shopify-section section-wrapper",
+    "first": "Kashmiri Himalayan Shilajit – Pure Resin"
+   },
+   {
+    "y": 13900,
+    "h": 44,
+    "id": "shopify-section-sections--20660323778751__custom_liquid_ekQURc",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": ""
+   },
+   {
+    "y": 13944,
+    "h": 121,
+    "id": "shopify-section-sections--20660323778751__footer_utilities_jLGE8U",
+    "cls": "shopify-section shopify-section-group-footer-group footer-utilities",
+    "first": "Instagram"
+   }
+  ],
+  "apps": [],
+  "plinks": [
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#MainContent",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#ProductInformation-template--20660329578687__main",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015",
+   "https://kashmiril.com/products/kashmiri-saffron-mongra?variant=44653149159615",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free?variant=44698057736383",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-sugar-free-instant-mix?variant=44698519371967",
+   "https://kashmiril.com/products/raya-kashmiri-saffron-cream?variant=44702174544063",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?variant=44674662990015#",
+   "https://kashmiril.com/products/kashmiri-himalayan-shilajit?_pos=1&_sid=810807c94&_ss=r",
+   "https://kashmiril.com/products/damascena-rose-water",
+   "https://kashmiril.com/products/kashmiri-kesar-kehwa-instant-mix",
+   "https://kashmiril.com/products/kashmiri-white-acacia-honey",
+   "https://kashmiril.com/products/kashmiri-almond-oil"
+  ],
+  "text": "From Kashmir Directly To Your Doorstep Cart Total items in cart: 0 1 2 3 4 5 6 Kashmiri Himalayan Shilajit – Pure, Hand-Harvested Resin from the Himalayas 35 Reviews Rs.3,728.36 Size20g Decrease quantity Increase quantity Add to cart 100% Satisfaction Guaranteed! No-questions-asked refunds. Free Air Shipping on All Orders! People Also Bought Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged Kashmiri Saffron (Kesar) – 100% Pure Mongra Grade, GI-Tagged (44) Rs.1,432.22 Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend Kashmiri Kesar Kehwa - Sugar Free | GI-Tagged Saffron Blend (34) Rs.1,145.20 Kashmiri Instant Kehwa – Pure Saffron & Sugar Free Kashmiri Instant Kehwa – Pure Saffron & Sugar Free (33) Rs.1,145.20 Raya Kashmiri Saffron Cream – Anti-Wrinkle Brightening & Fairness Cream Raya Kashmiri Saffron Cream – Anti-Wrinkle Brightening & Fairness Cream (35) Rs.1,145.20 Customer Reviews 4.9 35 reviews 5 Star 31 4 Star 4 3 Star 0 2 Star 0 1 Star 0 Write a review 17/06/2026 N Naw. 💯 % pure shilajit 01/04/2026 FM Farhan M. Tried many shilajit brands - most are diluted or powder form. This resin is clearly genuine. Dissolves properly in warm water with that characteristic smell. Taking for general wellness. Feel more alert throughout the day. 22/03/2026 AR Arjun R. Bodybuilding for 5 years and always looking for natural supplements. This shilajit is legit - recovery is faster, lifts feel easier, energy lasts longer. The earthy taste takes getting used to but results speak for themselves. 15/03/2026 KS Kamala S. Showed this to my vaidya and she confirmed it's pure quality. The lab testing details on website gave me confidence. Taking as rasayana for anti-aging benefits. Sleep has improved and skin looks healthier. 10/03/2026 PD Poornima D. My husband's knee pain was constant complaint. Started him on this shilajit with warm milk. He says mobility has improved after 1 month. The resin form is clearly more potent than those capsules we tried before. 1 2 3 4 5 KASHMIRIL Kashmiri Himalayan Shilajit – Pure Resin 100% Pure • Lab-Tested • Hand-Harvested Nature took millions of years to create this. We simply harvest it with care. Kashmiril's Kashmiri Himalayan Shilajit is pure resin collected from remote cliff faces in the Kashmir Himalayas. No chemicals. No fillers. Just the real thing — packed with 78%+ fulvic acid and 85+ minerals your body can actually absorb. ✓ Third-Party Lab Tested ✓ CGMP-Certified Facility ✓ FSSAI Licensed ✓ Heavy Metal Free PRODUCT DETAILS Specifications BRAND Kashmiril PRODUCT Pure Himalayan Shilajit Resin NET WEIGHT 20g (60-100 servings) FORM Raw resin (dark, sticky tar-like paste) ORIGIN Kashmir Himalayas, India (16,000+ ft altitude) KEY COMPOUNDS Fulvic acid (78%+), 85+ trace minerals, DBPs PURITY 100% Pure — no fillers, binders, or additives LAB TESTING Third-party verified (COA available) PACKAGING BPA-free resealable glass jar SHELF LIFE Approximately 2 years (store cool and dry) INCLUDES Stainless steel measuring scoop WHY CHOOSE KASHMIRIL What Makes Our Shilajit Different 1 Sourced from Real High-Altitude Locations Our harvesters collect Shilajit from cliff faces above 16,000 feet in the Kashmir Himalayas. This is where the best Shilajit forms — in cold, clean, mineral-rich environments far from pollution. Collected from remote, untouched mountain areas Higher altitude means more concentrated minerals Wild-harvested, not commercially farmed 2 Traditional Purification (No Chemicals) We clean our Shilajit using only filtered spring water and gentle heat. Many brands use chemical solvents to speed up the process. We don't. This keeps all the good stuff intact. Only water and low heat used Full spectrum of compounds preserved No chemical solvents ever 3 Every Batch is Lab-Tested We test every single batch before it reaches you. You get a Certificate of Analysis that proves exactly what's inside your jar — and what's not. Fulvic acid content verified at 78%+ Tested for heavy metals (lead, mercury, arsenic, cadmium) Checked for pesticides and harmful bacteria 4 Resin Form — The Way It Should Be Shilajit resin is the most natural and potent form. Powders and capsules often contain fillers or lose potency during processing. Our resin dissolves completely and absorbs better. Most bioactive form available Dissolves fully in warm liquid No fillers or binding agents 78%+ FULVIC ACID CONTENT 85+ TRACE MINERALS 16,000+ ft HARVEST ALTITUDE 60-100 SERVINGS PER JAR NATURAL INGREDIENTS What's Inside Your Shilajit Shilajit contains powerful natural compounds that support your body in multiple ways. Here's what makes it work. Fulvic Acid (78%+) — The Nutrient Carrier Fulvic acid helps your body absorb nutrients better. It can cross cell membranes easily, delivering minerals right where they're needed. It's also a strong antioxidant that fights cell damage. Dibenzo-Alpha-Pyrones (DBPs) — The Energy Booster DBPs support your mitochondria — the tiny power plants inside every cell. When mitochondria work better, you get more natural energy without caffeine or stimulants. 85+ Trace Minerals — The Building Blocks Iron, magnesium, zinc, copper, and dozens more. These minerals come in ionic form, which means your body can actually use them. Many supplements use mineral forms that just pass through your system. Humic Acid — The Detox Helper Humic acid supports your gut health and helps your body remove waste products. It works alongside fulvic acid to keep your system clean and functioning well. QUALITY ASSURANCE How to Verify Authenticity 1 Third-Party Lab Testing Every batch goes to an independent lab for testing. We check fulvic acid levels, heavy metals, pesticides, and bacteria. You can request the Certificate of Analysis anytime. 2 Resin Dissolve Test Real Shilajit dissolves completely in warm water within a few minutes. It leaves no gritty residue at the bottom. If your Shilajit doesn't dissolve fully, it may contain fillers. 3 Flame Test Pure Shilajit doesn't catch fi"
+ }
+}

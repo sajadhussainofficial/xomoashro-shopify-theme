@@ -1,0 +1,475 @@
+{
+ "name": "purehimalayanshilajit",
+ "url": "https://shop.purehimalayanshilajit.com/",
+ "homeDesktop": {
+  "status": 200,
+  "url": "https://shop.purehimalayanshilajit.com/",
+  "title": "Pure Himalayan Shilajit",
+  "theme": "Dawn (CAPXEL) / Dawn",
+  "shopify": true,
+  "height": 4616,
+  "styles": [
+   "body: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Bayon 40px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Inter 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Arial 13.3333px/400 color rgba(255, 255, 255, 0.75) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Shop",
+   "About",
+   "Contact",
+   "Log in",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping",
+   "Shop Now"
+  ],
+  "heads": [
+   "0 H1 ",
+   "-134 H2 Item added to your cart",
+   "918 H2 What Makes Us Different",
+   "1269 H3 History",
+   "1269 H3 AUTHENTICITY",
+   "1269 H3 TESTING",
+   "1269 H3 PURITY",
+   "1609 H2 Where is our shilajit from?",
+   "1872 H2 Gilgit-Baltistan Region",
+   "2384 H2 Sikkim Region",
+   "2925 H2 Altai Mountains",
+   "3485 H2 Try our products today",
+   "3853 H3 Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each",
+   "3853 H3 Standard Shilajit Resin — 85+ Trace Minerals & Fulvic Acid",
+   "3853 H3 Soft Resin Himalayan Shilajit — 85+ Trace Minerals & Fulvic Acid",
+   "3853 H3 Liquid Himalayan Shilajit Drops — Trace Minerals & Fulvic Acid, 50ml",
+   "4362 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 72,
+    "id": "shopify-section-sections--20133099176076__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Shop"
+   },
+   {
+    "y": 72,
+    "h": 810,
+    "id": "shopify-section-template--20133103370380__image_banner",
+    "cls": "shopify-section section",
+    "first": "Shop Now"
+   },
+   {
+    "y": 882,
+    "h": 687,
+    "id": "shopify-section-template--20133103370380__multicolumn_xQYixG",
+    "cls": "shopify-section section",
+    "first": "What Makes Us Different"
+   },
+   {
+    "y": 1569,
+    "h": 193,
+    "id": "shopify-section-template--20133103370380__rich_text_3JYddm",
+    "cls": "shopify-section section",
+    "first": "Where is our shilajit from?"
+   },
+   {
+    "y": 1761,
+    "h": 1687,
+    "id": "shopify-section-template--20133103370380__multirow_XjTEQY",
+    "cls": "shopify-section section",
+    "first": "16,000 ft"
+   },
+   {
+    "y": 3449,
+    "h": 522,
+    "id": "shopify-section-template--20133103370380__featured_collection_wDHtYg",
+    "cls": "shopify-section section",
+    "first": "Try our products today"
+   },
+   {
+    "y": 3971,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_nriacQ",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 4063,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_4YViyz",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 4155,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_hiHY4M",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 4247,
+    "h": 369,
+    "id": "shopify-section-sections--20133098684556__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "*These statements have not been evaluated by the Food and Drug Adminis"
+   }
+  ],
+  "apps": [
+   "klaviyo"
+  ],
+  "plinks": [
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-resin-altai",
+   "https://shop.purehimalayanshilajit.com/products/soft-resin-himalayan-shilajit",
+   "https://shop.purehimalayanshilajit.com/products/liquid-shilajit-drops"
+  ],
+  "text": "Skip to content Shop About Contact Log in Cart Shop Now What Makes Us Different History Founded over 10 years ago, we have the best relationships with the best harvesters in the world and have 100,000+ reviews from happy customers. AUTHENTICITY Harvested high in the Himalayas and the Altai Mountains of Siberia. Processed in accordance with the centuries-old tradition. TESTING Our products are tested by 3rd party ISO/IEC 17025 accredited laboratories for safety and efficacy. PURITY One of the highest purity standards in the market. No artificial additives or fillers. Up to 99.9% pure shilajit. Where is our shilajit from? We source our shilajit from diverse regions of the Himalayan and Altai mountains. 16,000 FT Gilgit-Baltistan Region Our shilajit is sourced from the pristine region of Gilgit-Baltistan in Pakistan, an area renowned for its pure and potent natural resources. Nestled within the Himalayan Mountain Range, Gilgit-Baltistan provides an ideal environment for harvesting shilajit of exceptional quality. The high altitudes and untouched landscapes contribute to the unique mineral composition and bioactive properties of our shilajit. By choosing shilajit from this region, you are experiencing a product that embodies the ancient wisdom and natural purity of the Himalayas. 16,000 FT Sikkim Region We also obtain shilajit from the Sikkim region of the Himalayas, known for its rich and diverse mineral deposits. The Sikkim Himalayas offer a unique environment where shilajit forms over centuries, absorbing essential nutrients from the surrounding rocks and vegetation. This region’s shilajit is celebrated for its high potency and purity, reflecting the deep connection between the land and its traditional use in Ayurvedic medicine. By incorporating shilajit from the Sikkim Himalayas, we ensure a product that harnesses the best of both worlds, providing you with a powerful and authentic natural supplement. 14,000 FT Altai Mountains Our shilajit collection extends to the rugged Altai Mountains of Siberia, a region known for its untouched wilderness and ancient geological formations. The Altai Mountains produce shilajit that is distinct in its composition, enriched by the unique flora and mineral-rich soil of this remote area. This Siberian shilajit undergoes minimal processing to preserve its natural integrity and bioactive properties, ensuring a potent supplement that stands out for its exceptional quality. By including shilajit from the Altai Mountains, we bring you a diverse and robust product that captures the essence of Siberia’s pristine environment. Try our products today Sale Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each Regular price $35.00 USD Sale price From $24.99 USD Sale Standard Shilajit Resin — 85+ Trace Minerals & Fulvic Acid Regular price $50.00 USD Sale price From $39.99 USD Sale Soft Resin Himalayan Shilajit — 85+ Trace Minerals & Fulvic Acid Regular price $75.00 USD Sale price From $69.99 USD Sold out Liquid Himalayan Shilajit Drops — Trace Minerals & Fulvic Acid, 50ml Regular price $114.99 USD Sale price $99.99 USD *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Subscribe to our emails Email Payment methods © 2026, Pure Himalayan Shilajit Powered by Shopify Refund policy Privacy policy Terms of service Shipping policy"
+ },
+ "homeMobile": {
+  "status": 200,
+  "url": "https://shop.purehimalayanshilajit.com/",
+  "title": "Pure Himalayan Shilajit",
+  "theme": "Dawn (CAPXEL) / Dawn",
+  "shopify": true,
+  "height": 6798,
+  "styles": [
+   "body: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Bayon 30px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Inter 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Arial 13.3333px/400 color rgba(255, 255, 255, 0.75) bg rgba(0, 0, 0, 0)"
+  ],
+  "nav": [
+   "Shop",
+   "About",
+   "Contact",
+   "Log in",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Shop Now"
+  ],
+  "heads": [
+   "0 H1 ",
+   "318 H2 What Makes Us Different",
+   "747 H3 History",
+   "1307 H3 AUTHENTICITY",
+   "1839 H3 TESTING",
+   "2345 H3 PURITY",
+   "2543 H2 Where is our shilajit from?",
+   "3139 H2 Gilgit-Baltistan Region",
+   "3953 H2 Sikkim Region",
+   "4822 H2 Altai Mountains",
+   "5390 H2 Try our products today",
+   "5645 H3 Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each",
+   "5645 H3 Standard Shilajit Resin — 85+ Trace Minerals & Fulvic Acid",
+   "5954 H3 Soft Resin Himalayan Shilajit — 85+ Trace Minerals & Fulvic Acid",
+   "5954 H3 Liquid Himalayan Shilajit Drops — Trace Minerals & Fulvic Acid, 50ml",
+   "6529 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 72,
+    "id": "shopify-section-sections--20133099176076__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Shop"
+   },
+   {
+    "y": 72,
+    "h": 219,
+    "id": "shopify-section-template--20133103370380__image_banner",
+    "cls": "shopify-section section",
+    "first": "Shop Now"
+   },
+   {
+    "y": 291,
+    "h": 2222,
+    "id": "shopify-section-template--20133103370380__multicolumn_xQYixG",
+    "cls": "shopify-section section",
+    "first": "What Makes Us Different"
+   },
+   {
+    "y": 2513,
+    "h": 248,
+    "id": "shopify-section-template--20133103370380__rich_text_3JYddm",
+    "cls": "shopify-section section",
+    "first": "Where is our shilajit from?"
+   },
+   {
+    "y": 2761,
+    "h": 2601,
+    "id": "shopify-section-template--20133103370380__multirow_XjTEQY",
+    "cls": "shopify-section section",
+    "first": "16,000 ft"
+   },
+   {
+    "y": 5363,
+    "h": 734,
+    "id": "shopify-section-template--20133103370380__featured_collection_wDHtYg",
+    "cls": "shopify-section section",
+    "first": "Try our products today"
+   },
+   {
+    "y": 6096,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_nriacQ",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 6165,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_4YViyz",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 6234,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_hiHY4M",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 6303,
+    "h": 495,
+    "id": "shopify-section-sections--20133098684556__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "*These statements have not been evaluated by the Food and Drug Adminis"
+   }
+  ],
+  "apps": [
+   "klaviyo"
+  ],
+  "plinks": [
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-resin-altai",
+   "https://shop.purehimalayanshilajit.com/products/soft-resin-himalayan-shilajit",
+   "https://shop.purehimalayanshilajit.com/products/liquid-shilajit-drops"
+  ],
+  "text": "Skip to content Cart Shop Now What Makes Us Different History Founded over 10 years ago, we have the best relationships with the best harvesters in the world and have 100,000+ reviews from happy customers. AUTHENTICITY Harvested high in the Himalayas and the Altai Mountains of Siberia. Processed in accordance with the centuries-old tradition. TESTING Our products are tested by 3rd party ISO/IEC 17025 accredited laboratories for safety and efficacy. PURITY One of the highest purity standards in the market. No artificial additives or fillers. Up to 99.9% pure shilajit. Where is our shilajit from? We source our shilajit from diverse regions of the Himalayan and Altai mountains. 16,000 FT Gilgit-Baltistan Region Our shilajit is sourced from the pristine region of Gilgit-Baltistan in Pakistan, an area renowned for its pure and potent natural resources. Nestled within the Himalayan Mountain Range, Gilgit-Baltistan provides an ideal environment for harvesting shilajit of exceptional quality. The high altitudes and untouched landscapes contribute to the unique mineral composition and bioactive properties of our shilajit. By choosing shilajit from this region, you are experiencing a product that embodies the ancient wisdom and natural purity of the Himalayas. 16,000 FT Sikkim Region We also obtain shilajit from the Sikkim region of the Himalayas, known for its rich and diverse mineral deposits. The Sikkim Himalayas offer a unique environment where shilajit forms over centuries, absorbing essential nutrients from the surrounding rocks and vegetation. This region’s shilajit is celebrated for its high potency and purity, reflecting the deep connection between the land and its traditional use in Ayurvedic medicine. By incorporating shilajit from the Sikkim Himalayas, we ensure a product that harnesses the best of both worlds, providing you with a powerful and authentic natural supplement. 14,000 FT Altai Mountains Our shilajit collection extends to the rugged Altai Mountains of Siberia, a region known for its untouched wilderness and ancient geological formations. The Altai Mountains produce shilajit that is distinct in its composition, enriched by the unique flora and mineral-rich soil of this remote area. This Siberian shilajit undergoes minimal processing to preserve its natural integrity and bioactive properties, ensuring a potent supplement that stands out for its exceptional quality. By including shilajit from the Altai Mountains, we bring you a diverse and robust product that captures the essence of Siberia’s pristine environment. Try our products today Sale Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each Regular price $35.00 USD Sale price From $24.99 USD Sale Standard Shilajit Resin — 85+ Trace Minerals & Fulvic Acid Regular price $50.00 USD Sale price From $39.99 USD Sale Soft Resin Himalayan Shilajit — 85+ Trace Minerals & Fulvic Acid Regular price $75.00 USD Sale price From $69.99 USD Sold out Liquid Himalayan Shilajit Drops — Trace Minerals & Fulvic Acid, 50ml Regular price $114.99 USD Sale price $99.99 USD *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Subscribe to our emails Email Payment methods © 2026, Pure Himalayan Shilajit Powered by Shopify Refund policy Privacy policy Terms of service Shipping policy"
+ },
+ "pdpUrl": "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+ "pdpDesktop": {
+  "status": 200,
+  "url": "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+  "title": "Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each – Pure Himalayan Shilajit",
+  "desc": "Pressed shilajit drops from the Altai Mountains. 200 mg per drop, sealed and pre-measured, no fillers. Third-party US lab tested. 60 and 120 count.",
+  "theme": "Dawn (CAPXEL) / Dawn",
+  "shopify": true,
+  "height": 2998,
+  "styles": [
+   "body: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Bayon 40px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Inter 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Inter 16px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Inter 15px/400 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shop",
+   "About",
+   "Contact",
+   "Log in",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "View cart",
+   "Check out",
+   "Continue shopping",
+   "Skip to product information",
+   "Add to Cart",
+   "Copy link",
+   "Write a review",
+   "Reviews0",
+   "With media"
+  ],
+  "heads": [
+   "-134 H2 Item added to your cart",
+   "72 H1 Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each",
+   "1535 H2 How To Use",
+   "1585 H2 Shipping Details",
+   "1636 H2 FAQ's",
+   "1698 H2 Customer reviews",
+   "2097 H2 No reviews yet",
+   "2744 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 72,
+    "id": "shopify-section-sections--20133099176076__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Shop"
+   },
+   {
+    "y": 72,
+    "h": 1599,
+    "id": "shopify-section-template--20133103665292__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 1671,
+    "h": 681,
+    "id": "shopify-section-template--20133103665292__17861300616a8bd43f",
+    "cls": "shopify-section section",
+    "first": "Customer reviews"
+   },
+   {
+    "y": 2352,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_nriacQ",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 2444,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_4YViyz",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 2536,
+    "h": 92,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_hiHY4M",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 2628,
+    "h": 369,
+    "id": "shopify-section-sections--20133098684556__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "*These statements have not been evaluated by the Food and Drug Adminis"
+   }
+  ],
+  "apps": [
+   "klaviyo",
+   "bold"
+  ],
+  "plinks": [
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#MainContent",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#ProductInfo-template--20133103665292__main",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#fulfilled-reviews-all"
+  ],
+  "text": "Skip to content Shop About Contact Log in Cart Skip to product information Open media 1 in modal Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each 0 reviews Size 60 Count 90 Count 120 Count Quantity Decrease quantity for Shilajit Dry Drops — 85+ Trace Minerals &amp; Fulvic Acid, 200 mg Each Increase quantity for Shilajit Dry Drops — 85+ Trace Minerals &amp; Fulvic Acid, 200 mg Each Regular price $35.00 USD Sale price $24.99 USD Sale Subscription Shipping calculated at checkout. One-time purchase $24.99 USD Subscription $22.49 USD $24.99 USD Dry Drops Subscription Deliver every 2 months, 10% off $22.49 USD Deliver every 3 months, 7.5% off $23.12 USD Deliver every 4 months, 5% off $23.74 USD Auto-renews, skip or cancel anytime. Add to Cart Share From the Altai Mountains Shilajit harvested at high altitude in the Altai, purified with spring water, filtered, and dried. Then compacted and pressed into 200 mg drops. No binding agents. No fillers. One Dry Drop, One Serving Each dry drop is a single serving, sealed in its own air-tight compartment in the blister pack. Nothing to cut, weigh, or clean up. They don't leak, crumble, or break down, so they travel well. Shilajit Tastes Like Shilajit Bold. Earthy. Unmistakably mineral. That flavor isn't a defect to engineer around — it's the honest signature of the real thing, and nothing can fully mask it. Plenty of people don't mind it, and some have made peace with stirring it into their morning coffee. But if you'd rather have the minerals without the ritual, that's what these are for. Same shilajit, pressed dry into a 200 mg drop. No binding agents, no fillers, no stirring — 85+ trace minerals and fulvic acid, down in seconds, in the car or on the plane. 100% pure shilajit. 200 mg per drop. Third-party US lab tested. How To Use Shipping Details FAQ's Customer reviews 0 / 5 0 reviews 5 0% 4 0% 3 0% 2 0% 1 0% Write a review Reviews0 Most recent Highest rating Lowest rating Most relevant All ratings 1 star 2 stars 3 stars 4 stars 5 stars With media No reviews yet *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Subscribe to our emails Email Payment methods © 2026, Pure Himalayan Shilajit Powered by Shopify Refund policy Privacy policy Terms of service Shipping policy"
+ },
+ "pdpMobile": {
+  "status": 200,
+  "url": "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+  "title": "Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each – Pure Himalayan Shilajit",
+  "desc": "Pressed shilajit drops from the Altai Mountains. 200 mg per drop, sealed and pre-measured, no fillers. Third-party US lab tested. 60 and 120 count.",
+  "theme": "Dawn (CAPXEL) / Dawn",
+  "shopify": true,
+  "height": 3927,
+  "styles": [
+   "body: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgb(255, 255, 255)",
+   "h1: Bayon 30px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "h2: Inter 13px/400 color rgb(18, 18, 18) bg rgba(0, 0, 0, 0)",
+   "p: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "header: Inter 15px/400 color rgba(18, 18, 18, 0.75) bg rgba(0, 0, 0, 0)",
+   "button[name=add], .product-form__submit, button[type=submit]: Inter 15px/400 color rgb(255, 255, 255) bg rgb(18, 18, 18)"
+  ],
+  "nav": [
+   "Shop",
+   "About",
+   "Contact",
+   "Log in",
+   "Cart"
+  ],
+  "btns": [
+   "Skip to content",
+   "Skip to product information",
+   "Add to Cart",
+   "Copy link",
+   "Write a review",
+   "Reviews0",
+   "With media"
+  ],
+  "heads": [
+   "492 H1 Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each",
+   "2149 H2 How To Use",
+   "2199 H2 Shipping Details",
+   "2250 H2 FAQ's",
+   "2312 H2 Customer reviews",
+   "2973 H2 No reviews yet",
+   "3658 H2 Subscribe to our emails"
+  ],
+  "secs": [
+   {
+    "y": 0,
+    "h": 72,
+    "id": "shopify-section-sections--20133099176076__header",
+    "cls": "shopify-section shopify-section-group-header-group section-header",
+    "first": "Shop"
+   },
+   {
+    "y": 72,
+    "h": 2213,
+    "id": "shopify-section-template--20133103665292__main",
+    "cls": "shopify-section section",
+    "first": "Skip to product information"
+   },
+   {
+    "y": 2285,
+    "h": 940,
+    "id": "shopify-section-template--20133103665292__17861300616a8bd43f",
+    "cls": "shopify-section section",
+    "first": "Customer reviews"
+   },
+   {
+    "y": 3225,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_nriacQ",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 3294,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_4YViyz",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 3363,
+    "h": 69,
+    "id": "shopify-section-sections--20133098684556__custom_liquid_hiHY4M",
+    "cls": "shopify-section shopify-section-group-footer-group section",
+    "first": ""
+   },
+   {
+    "y": 3432,
+    "h": 495,
+    "id": "shopify-section-sections--20133098684556__footer",
+    "cls": "shopify-section shopify-section-group-footer-group",
+    "first": "*These statements have not been evaluated by the Food and Drug Adminis"
+   }
+  ],
+  "apps": [
+   "klaviyo",
+   "bold"
+  ],
+  "plinks": [
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#MainContent",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#ProductInfo-template--20133103665292__main",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops",
+   "https://shop.purehimalayanshilajit.com/products/shilajit-dry-drops#fulfilled-reviews-all"
+  ],
+  "text": "Skip to content Cart Skip to product information Open media 1 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in modal Open media 8 in modal Open media 9 in modal 1 / of 7 Shilajit Dry Drops — 85+ Trace Minerals & Fulvic Acid, 200 mg Each 0 reviews Size 60 Count 90 Count 120 Count Quantity Decrease quantity for Shilajit Dry Drops — 85+ Trace Minerals &amp; Fulvic Acid, 200 mg Each Increase quantity for Shilajit Dry Drops — 85+ Trace Minerals &amp; Fulvic Acid, 200 mg Each Regular price $35.00 USD Sale price $24.99 USD Sale Subscription Shipping calculated at checkout. One-time purchase $24.99 USD Subscription $22.49 USD $24.99 USD Dry Drops Subscription Deliver every 2 months, 10% off $22.49 USD Deliver every 3 months, 7.5% off $23.12 USD Deliver every 4 months, 5% off $23.74 USD Auto-renews, skip or cancel anytime. Add to Cart Share From the Altai Mountains Shilajit harvested at high altitude in the Altai, purified with spring water, filtered, and dried. Then compacted and pressed into 200 mg drops. No binding agents. No fillers. One Dry Drop, One Serving Each dry drop is a single serving, sealed in its own air-tight compartment in the blister pack. Nothing to cut, weigh, or clean up. They don't leak, crumble, or break down, so they travel well. Shilajit Tastes Like Shilajit Bold. Earthy. Unmistakably mineral. That flavor isn't a defect to engineer around — it's the honest signature of the real thing, and nothing can fully mask it. Plenty of people don't mind it, and some have made peace with stirring it into their morning coffee. But if you'd rather have the minerals without the ritual, that's what these are for. Same shilajit, pressed dry into a 200 mg drop. No binding agents, no fillers, no stirring — 85+ trace minerals and fulvic acid, down in seconds, in the car or on the plane. 100% pure shilajit. 200 mg per drop. Third-party US lab tested. How To Use Shipping Details FAQ's Customer reviews 0 / 5 0 reviews 5 0% 4 0% 3 0% 2 0% 1 0% Write a review Reviews0 Most recent Highest rating Lowest rating Most relevant All ratings 1 star 2 stars 3 stars 4 stars 5 stars With media No reviews yet *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Subscribe to our emails Email Payment methods © 2026, Pure Himalayan Shilajit Powered by Shopify Refund policy Privacy policy Terms of service Shipping policy"
+ }
+}

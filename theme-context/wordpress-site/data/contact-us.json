@@ -1,0 +1,183 @@
+{
+  "slug": "contact-us",
+  "url": "https://xomoashro.com/contact-us/",
+  "type": "page",
+  "status": 200,
+  "finalUrl": "https://xomoashro.com/contact-us/",
+  "navChain": [
+    "200 https://xomoashro.com/contact-us/"
+  ],
+  "title": "Contact US - Xomorashro",
+  "description": "Contact us today to learn more about incorporating pure shilajit into your daily routine and embark on a journey of holistic health and vitality.",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "canonical": "https://xomoashro.com/contact-us/",
+  "ogTitle": "Contact US - Xomorashro",
+  "ogDescription": "Contact us today to learn more about incorporating pure shilajit into your daily routine and embark on a journey of holistic health and vitality.",
+  "ogImage": null,
+  "ogType": "article",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": "Contact US - Xomorashro",
+  "twitterDescription": "Contact us today to learn more about incorporating pure shilajit into your daily routine and embark on a journey of holistic health and vitality.",
+  "lang": "en-US",
+  "bodyClass": "wp-singular page-template-default page page-id-148 wp-custom-logo wp-embed-responsive wp-theme-astra ast-page-builder-template ast-no-sidebar astra-4.14.0 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-148 ast-desktop ast-header-loaded e--ua-blink e--ua-chrome e--ua-webkit",
+  "h1": [
+    "Contact Us"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Contact Us"
+    },
+    {
+      "tag": "h3",
+      "text": "Get In Touch"
+    },
+    {
+      "tag": "h3",
+      "text": "Contact Us"
+    }
+  ],
+  "wordCount": 84,
+  "copy": {
+    "header": [
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com",
+      "(label) Search",
+      "Search",
+      "[field: search | s | placeholder=\"Search...\"]",
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com"
+    ],
+    "main": [
+      "[Skip to content](#content)",
+      "# Contact Us",
+      "- Home",
+      "- /",
+      "- Contact",
+      "### Get In Touch",
+      "(label) Name",
+      "[field: text | form_fields[name] | placeholder=\"Name\" | required]",
+      "(label) Email",
+      "[field: email | form_fields[email] | placeholder=\"Email\" | required]",
+      "(label) Subject",
+      "[field: text | form_fields[field_fc37307] | placeholder=\"Subject\"]",
+      "(label) Message",
+      "[field: textarea | form_fields[message] | placeholder=\"Message\"]",
+      "[button: Submit]",
+      "### Contact Us",
+      "[+92-3128000718](tel:+923128000718)",
+      "[ask@xomoashro.com](mailto:ask@xomoashro.com)",
+      "Islamabad",
+      "Contact us today to learn more about incorporating pure shilajit into your daily routine and embark on a journey of holistic health and vitality."
+    ],
+    "footer": [
+      "![](https://xomoashro.com/wp-content/uploads/Asset-25.svg)",
+      "Discover the transformative power of Shilajit, carefully sourced and curated for your vitality. Embrace a journey of holistic health with nature’s rejuvenating essence. Elevate your well-being with Xomoashro.",
+      "## Quick links",
+      "[Affiliate Program](/affiliate-dashboard/)",
+      "[My Account](/affiliate-dashboard/)",
+      "[Become Brand Ambassadar](/become-brand-ambassadar/)",
+      "[Become Distributor](/become-distributor/)",
+      "## Customer Care",
+      "Email: ask@xomoashro.com",
+      "+9230333444",
+      "+9230333444",
+      "Facebook",
+      "Twitter",
+      "Youtube",
+      "##### Copyright © 2025 Xomoahro",
+      "- Privacy Policy",
+      "- Terms and Conditions",
+      "- Shipping and Returns"
+    ],
+    "popup": []
+  },
+  "links": [
+    {
+      "text": "Skip to content",
+      "href": "https://xomoashro.com/contact-us/#content",
+      "region": "main"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "Home",
+      "href": "https://xomoashro.com/",
+      "region": "main"
+    },
+    {
+      "text": "Contact",
+      "href": "https://xomoashro.com/contact-us/",
+      "region": "main"
+    },
+    {
+      "text": "+92-3128000718",
+      "href": "tel:+923128000718",
+      "region": "main"
+    },
+    {
+      "text": "+92-3128000718",
+      "href": "tel:+923128000718",
+      "region": "main"
+    },
+    {
+      "text": "ask@xomoashro.com",
+      "href": "mailto:ask@xomoashro.com",
+      "region": "main"
+    },
+    {
+      "text": "ask@xomoashro.com",
+      "href": "mailto:ask@xomoashro.com",
+      "region": "main"
+    },
+    {
+      "text": "Affiliate Program",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "My Account",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Brand Ambassadar",
+      "href": "https://xomoashro.com/become-brand-ambassadar/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Distributor",
+      "href": "https://xomoashro.com/become-distributor/",
+      "region": "footer"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://xomoashro.com/privacy-policy/",
+      "region": "footer"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://xomoashro.com/terms-and-conditions/",
+      "region": "footer"
+    },
+    {
+      "text": "Shipping and Returns",
+      "href": "https://xomoashro.com/shipping-returns/",
+      "region": "footer"
+    }
+  ],
+  "backgroundImages": [
+    "https://xomoashro.com/wp-content/uploads/2023/11/Rectangle-39358.jpg"
+  ],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://xomoashro.com/#organization\",\"name\":\"Xomorashro\",\"url\":\"https://xomoashro.com\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://xomoashro.com/#logo\",\"url\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"contentUrl\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"caption\":\"Xomorashro\",\"inLanguage\":\"en-US\",\"width\":\"315\",\"height\":\"48\"}},{\"@type\":\"WebSite\",\"@id\":\"https://xomoashro.com/#website\",\"url\":\"https://xomoashro.com\",\"name\":\"Xomorashro\",\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://xomoashro.com/contact-us/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":\"1\",\"item\":{\"@id\":\"https://xomoashro.com\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":\"2\",\"item\":{\"@id\":\"https://xomoashro.com/contact-us/\",\"name\":\"Contact US\"}}]},{\"@type\":\"WebPage\",\"@id\":\"https://xomoashro.com/contact-us/#webpage\",\"url\":\"https://xomoashro.com/contact-us/\",\"name\":\"Contact US - Xomorashro\",\"datePublished\":\"2023-11-29T11:48:52+00:00\",\"dateModified\":\"2025-11-18T00:15:59+00:00\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/#website\"},\"inLanguage\":\"en-US\",\"breadcrumb\":{\"@id\":\"https://xomoashro.com/contact-us/#breadcrumb\"}},{\"@type\":\"Person\",\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\",\"url\":\"https://xomoashro.com/author/wp-support/\",\"image\":{\"@type\":\"ImageObject\",\"@id\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"url\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"caption\":\"wp-support\",\"inLanguage\":\"en-US\"},\"sameAs\":[\"https://xomoashro.com\"],\"worksFor\":{\"@id\":\"https://xomoashro.com/#organization\"}},{\"@type\":\"Article\",\"headline\":\"Contact US - Xomorashro\",\"keywords\":\"pure shilajit,himalaya shilajit,pure cure shilajit\",\"datePublished\":\"2023-11-29T11:48:52+00:00\",\"dateModified\":\"2025-11-18T00:15:59+00:00\",\"author\":{\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\"},\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"description\":\"Contact us today to learn more about incorporating pure shilajit into your daily routine and embark on a journey of holistic health and vitality.\",\"name\":\"Contact US - Xomorashro\",\"@id\":\"https://xomoashro.com/contact-us/#richSnippet\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/contact-us/#webpage\"},\"inLanguage\":\"en-US\",\"mainEntityOfPage\":{\"@id\":\"https://xomoashro.com/contact-us/#webpage\"}}]}"
+  ],
+  "docHeight": 1780,
+  "mobileDocHeight": 2703
+}

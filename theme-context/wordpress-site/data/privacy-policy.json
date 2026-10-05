@@ -1,0 +1,160 @@
+{
+  "slug": "privacy-policy",
+  "url": "https://xomoashro.com/privacy-policy/",
+  "type": "page",
+  "status": 200,
+  "finalUrl": "https://xomoashro.com/privacy-policy/",
+  "navChain": [
+    "200 https://xomoashro.com/privacy-policy/"
+  ],
+  "title": "Privacy Policy - Xomorashro",
+  "description": "Read Xomorashro's privacy policy to understand how we protect your personal information and ensure your data remains secure and confidential.",
+  "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "canonical": "https://xomoashro.com/privacy-policy/",
+  "ogTitle": "Privacy Policy - Xomorashro",
+  "ogDescription": "Read Xomorashro's privacy policy to understand how we protect your personal information and ensure your data remains secure and confidential.",
+  "ogImage": null,
+  "ogType": "article",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": "Privacy Policy - Xomorashro",
+  "twitterDescription": "Read Xomorashro's privacy policy to understand how we protect your personal information and ensure your data remains secure and confidential.",
+  "lang": "en-US",
+  "bodyClass": "wp-singular page-template-default page page-id-550 wp-custom-logo wp-embed-responsive wp-theme-astra ast-desktop ast-plain-container ast-no-sidebar astra-4.14.0 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header ast-normal-title-enabled elementor-default elementor-kit-6 ast-header-loaded e--ua-blink e--ua-chrome e--ua-webkit",
+  "h1": [
+    "Privacy Policy"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Privacy Policy"
+    }
+  ],
+  "wordCount": 412,
+  "copy": {
+    "header": [
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com",
+      "(label) Search",
+      "Search",
+      "[field: search | s | placeholder=\"Search...\"]",
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com"
+    ],
+    "main": [
+      "[Skip to content](#content)",
+      "# Privacy Policy",
+      "This Privacy Policy outlines how Pure Shilajeet (“we,” “us,” or “our”) collects, uses, discloses, and protects the personal information you provide when you visit our website and purchase Pure Himalaya Shilajeet products. By accessing or using our website, you agree to the terms of this Privacy Policy.",
+      "1. Information We Collect:",
+      "a. Personal Information:",
+      "- When you make a purchase, we may collect your name, billing address, shipping address, email address, and phone number.",
+      "- If you create an account on our website, we may collect your username and password.",
+      "b. Payment Information:",
+      "- We collect payment information when you make a purchase, including credit card details or other payment details. This information is securely processed by our payment service providers, and we do not store your payment information.",
+      "c. Automatically Collected Information:",
+      "- We may collect information about your device, browsing actions, and patterns, such as IP address, browser type, referring/exit pages, and date/time stamps.",
+      "2. How We Use Your Information:",
+      "a. Order Processing:",
+      "- We use your personal and payment information to process and fulfill your orders.",
+      "b. Account Management:",
+      "- If you create an account, we use your information to manage and maintain your account.",
+      "c. Communication:",
+      "- We may use your email address to communicate with you about your orders, promotions, and updates.",
+      "d. Improving Our Services:",
+      "- We analyze data to improve our website, products, and services.",
+      "3. Information Sharing:",
+      "a. Third-Party Service Providers:",
+      "- We may share your information with third-party service providers who assist us in operating our website, conducting our business, or servicing you.",
+      "b. Legal Compliance:",
+      "- We may disclose your information when required by law or to protect our rights, property, or safety.",
+      "4. Security:",
+      "a. We implement security measures to protect your personal information. However, no method of transmission over the internet or electronic storage is 100% secure.",
+      "5. Your Choices:",
+      "a. Opt-Out:",
+      "- You may opt-out of receiving promotional emails by following the instructions in those emails.",
+      "b. Account Information:",
+      "- You can update or delete your account information by logging into your account or contacting us.",
+      "6. Updates to this Privacy Policy:",
+      "a. We may update this Privacy Policy from time to time. The latest version will be posted on our website with the effective date.",
+      "7. Contact Us:",
+      "If you have any questions or concerns about our Privacy Policy, please contact us at ask@xomoashro.com",
+      "This Privacy Policy was last updated on 01-01-2024."
+    ],
+    "footer": [
+      "![](https://xomoashro.com/wp-content/uploads/Asset-25.svg)",
+      "Discover the transformative power of Shilajit, carefully sourced and curated for your vitality. Embrace a journey of holistic health with nature’s rejuvenating essence. Elevate your well-being with Xomoashro.",
+      "## Quick links",
+      "[Affiliate Program](/affiliate-dashboard/)",
+      "[My Account](/affiliate-dashboard/)",
+      "[Become Brand Ambassadar](/become-brand-ambassadar/)",
+      "[Become Distributor](/become-distributor/)",
+      "## Customer Care",
+      "Email: ask@xomoashro.com",
+      "+9230333444",
+      "+9230333444",
+      "Facebook",
+      "Twitter",
+      "Youtube",
+      "##### Copyright © 2025 Xomoahro",
+      "- Privacy Policy",
+      "- Terms and Conditions",
+      "- Shipping and Returns"
+    ],
+    "popup": []
+  },
+  "links": [
+    {
+      "text": "Skip to content",
+      "href": "https://xomoashro.com/privacy-policy/#content",
+      "region": "main"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "Affiliate Program",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "My Account",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Brand Ambassadar",
+      "href": "https://xomoashro.com/become-brand-ambassadar/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Distributor",
+      "href": "https://xomoashro.com/become-distributor/",
+      "region": "footer"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://xomoashro.com/privacy-policy/",
+      "region": "footer"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://xomoashro.com/terms-and-conditions/",
+      "region": "footer"
+    },
+    {
+      "text": "Shipping and Returns",
+      "href": "https://xomoashro.com/shipping-returns/",
+      "region": "footer"
+    }
+  ],
+  "backgroundImages": [],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://xomoashro.com/#organization\",\"name\":\"Xomorashro\",\"url\":\"https://xomoashro.com\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://xomoashro.com/#logo\",\"url\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"contentUrl\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"caption\":\"Xomorashro\",\"inLanguage\":\"en-US\",\"width\":\"315\",\"height\":\"48\"}},{\"@type\":\"WebSite\",\"@id\":\"https://xomoashro.com/#website\",\"url\":\"https://xomoashro.com\",\"name\":\"Xomorashro\",\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://xomoashro.com/privacy-policy/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":\"1\",\"item\":{\"@id\":\"https://xomoashro.com\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":\"2\",\"item\":{\"@id\":\"https://xomoashro.com/privacy-policy/\",\"name\":\"Privacy Policy\"}}]},{\"@type\":\"WebPage\",\"@id\":\"https://xomoashro.com/privacy-policy/#webpage\",\"url\":\"https://xomoashro.com/privacy-policy/\",\"name\":\"Privacy Policy - Xomorashro\",\"datePublished\":\"2024-01-01T20:35:51+00:00\",\"dateModified\":\"2025-03-15T18:39:54+00:00\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/#website\"},\"inLanguage\":\"en-US\",\"breadcrumb\":{\"@id\":\"https://xomoashro.com/privacy-policy/#breadcrumb\"}},{\"@type\":\"Person\",\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\",\"url\":\"https://xomoashro.com/author/wp-support/\",\"image\":{\"@type\":\"ImageObject\",\"@id\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"url\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"caption\":\"wp-support\",\"inLanguage\":\"en-US\"},\"sameAs\":[\"https://xomoashro.com\"],\"worksFor\":{\"@id\":\"https://xomoashro.com/#organization\"}},{\"@type\":\"Article\",\"headline\":\"Privacy Policy - Xomorashro\",\"datePublished\":\"2024-01-01T20:35:51+00:00\",\"dateModified\":\"2025-03-15T18:39:54+00:00\",\"author\":{\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\"},\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"description\":\"Read Xomorashro&#039;s privacy policy to understand how we protect your personal information and ensure your data remains secure and confidential.\",\"name\":\"Privacy Policy - Xomorashro\",\"@id\":\"https://xomoashro.com/privacy-policy/#richSnippet\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/privacy-policy/#webpage\"},\"inLanguage\":\"en-US\",\"mainEntityOfPage\":{\"@id\":\"https://xomoashro.com/privacy-policy/#webpage\"}}]}"
+  ],
+  "docHeight": 2599,
+  "mobileDocHeight": 3691
+}

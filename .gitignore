@@ -1,0 +1,9 @@
+node_modules/
+.playwright-mcp/
+theme-context/_build/tools/node_modules/
+
+# Raw screenshots (decision B17: not committed; text and data files are)
+theme-context/wordpress-site/screenshots/
+theme-context/competitors/**/*.png
+theme-context/competitors/**/*.jpg
+theme-context/competitors/**/*.jpeg

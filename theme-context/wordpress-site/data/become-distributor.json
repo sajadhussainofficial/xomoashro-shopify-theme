@@ -1,0 +1,169 @@
+{
+  "slug": "become-distributor",
+  "url": "https://xomoashro.com/become-distributor/",
+  "type": "page",
+  "status": 200,
+  "finalUrl": "https://xomoashro.com/become-distributor/",
+  "navChain": [
+    "200 https://xomoashro.com/become-distributor/"
+  ],
+  "title": "Become Distributor - Xomorashro",
+  "description": null,
+  "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "canonical": "https://xomoashro.com/become-distributor/",
+  "ogTitle": "Become Distributor - Xomorashro",
+  "ogDescription": "Xomoashro Become a Distributor Become a Xomoashro Distributor and earn money How it works Register yourself Wait for Email confirmation Sign-in Order should be on your referral link Get Paid Distributor Application Form",
+  "ogImage": null,
+  "ogType": "article",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": "Become Distributor - Xomorashro",
+  "twitterDescription": "Xomoashro Become a Distributor Become a Xomoashro Distributor and earn money How it works Register yourself Wait for Email confirmation Sign-in Order should be on your referral link Get Paid Distributor Application Form",
+  "lang": "en-US",
+  "bodyClass": "wp-singular page-template-default page page-id-843 wp-custom-logo wp-embed-responsive wp-theme-astra ast-desktop ast-page-builder-template ast-no-sidebar astra-4.14.0 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-843 ast-header-loaded e--ua-blink e--ua-chrome e--ua-webkit",
+  "h1": [
+    "Become a Distributor"
+  ],
+  "headings": [
+    {
+      "tag": "h6",
+      "text": "Xomoashro"
+    },
+    {
+      "tag": "h1",
+      "text": "Become a Distributor"
+    },
+    {
+      "tag": "h3",
+      "text": "How it works"
+    },
+    {
+      "tag": "h3",
+      "text": "Distributor Application Form"
+    }
+  ],
+  "wordCount": 158,
+  "copy": {
+    "header": [
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com",
+      "(label) Search",
+      "Search",
+      "[field: search | s | placeholder=\"Search...\"]",
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com"
+    ],
+    "main": [
+      "[Skip to content](#content)",
+      "###### Xomoashro",
+      "# Become a Distributor",
+      "Become a Xomoashro Distributor and earn money",
+      "### HOW IT WORKS",
+      "Register yourself",
+      "Wait for Email confirmation",
+      "Sign-in",
+      "Order should be on your referral link",
+      "Get Paid",
+      "![](https://xomoashro.com/wp-content/uploads/11667278_20945983.svg)",
+      "### Distributor Application Form",
+      "(label) Company Name",
+      "[field: text | form_fields[name] | placeholder=\"Company Name\"]",
+      "(label) Contact Person Full Name",
+      "[field: text | form_fields[field_393f821] | placeholder=\"Contact Person Full Name\"]",
+      "(label) Email Address",
+      "[field: email | form_fields[email] | placeholder=\"Email Address\" | required]",
+      "(label) Phone Number",
+      "[field: number | form_fields[field_0aa34ec] | placeholder=\"Phone Number\"]",
+      "(label) Company Website URL",
+      "[field: url | form_fields[field_adea372] | placeholder=\"Company Website URL\"]",
+      "(label) Business Address",
+      "[field: text | form_fields[field_70d50db] | placeholder=\"Business Address\"]",
+      "(label) Type of Business",
+      "[field: select | form_fields[field_ad4f363]]",
+      "  (option) Retail",
+      "  (option) Wholesale",
+      "  (option) Online",
+      "(label) Years in Business",
+      "[field: text | form_fields[field_caee5c8] | placeholder=\"Years in Business\"]",
+      "(label) Why do you want to become a distributor?",
+      "[field: text | form_fields[field_06b0e7b] | placeholder=\"Why do you want to become a distributor?\"]",
+      "[button: Submit]"
+    ],
+    "footer": [
+      "![](https://xomoashro.com/wp-content/uploads/Asset-25.svg)",
+      "Discover the transformative power of Shilajit, carefully sourced and curated for your vitality. Embrace a journey of holistic health with nature’s rejuvenating essence. Elevate your well-being with Xomoashro.",
+      "## Quick links",
+      "[Affiliate Program](/affiliate-dashboard/)",
+      "[My Account](/affiliate-dashboard/)",
+      "[Become Brand Ambassadar](/become-brand-ambassadar/)",
+      "[Become Distributor](/become-distributor/)",
+      "## Customer Care",
+      "Email: ask@xomoashro.com",
+      "+9230333444",
+      "+9230333444",
+      "Facebook",
+      "Twitter",
+      "Youtube",
+      "##### Copyright © 2025 Xomoahro",
+      "- Privacy Policy",
+      "- Terms and Conditions",
+      "- Shipping and Returns"
+    ],
+    "popup": []
+  },
+  "links": [
+    {
+      "text": "Skip to content",
+      "href": "https://xomoashro.com/become-distributor/#content",
+      "region": "main"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "Affiliate Program",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "My Account",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Brand Ambassadar",
+      "href": "https://xomoashro.com/become-brand-ambassadar/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Distributor",
+      "href": "https://xomoashro.com/become-distributor/",
+      "region": "footer"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://xomoashro.com/privacy-policy/",
+      "region": "footer"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://xomoashro.com/terms-and-conditions/",
+      "region": "footer"
+    },
+    {
+      "text": "Shipping and Returns",
+      "href": "https://xomoashro.com/shipping-returns/",
+      "region": "footer"
+    }
+  ],
+  "backgroundImages": [],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://xomoashro.com/#organization\",\"name\":\"Xomorashro\",\"url\":\"https://xomoashro.com\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://xomoashro.com/#logo\",\"url\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"contentUrl\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"caption\":\"Xomorashro\",\"inLanguage\":\"en-US\",\"width\":\"315\",\"height\":\"48\"}},{\"@type\":\"WebSite\",\"@id\":\"https://xomoashro.com/#website\",\"url\":\"https://xomoashro.com\",\"name\":\"Xomorashro\",\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"inLanguage\":\"en-US\"},{\"@type\":\"ImageObject\",\"@id\":\"https://xomoashro.com/wp-content/uploads/2024/08/11667278_20945983.svg\",\"url\":\"https://xomoashro.com/wp-content/uploads/2024/08/11667278_20945983.svg\",\"width\":\"200\",\"height\":\"200\",\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://xomoashro.com/become-distributor/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":\"1\",\"item\":{\"@id\":\"https://xomoashro.com\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":\"2\",\"item\":{\"@id\":\"https://xomoashro.com/become-distributor/\",\"name\":\"Become Distributor\"}}]},{\"@type\":\"WebPage\",\"@id\":\"https://xomoashro.com/become-distributor/#webpage\",\"url\":\"https://xomoashro.com/become-distributor/\",\"name\":\"Become Distributor - Xomorashro\",\"datePublished\":\"2024-08-04T10:33:24+00:00\",\"dateModified\":\"2025-03-15T18:46:16+00:00\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/#website\"},\"primaryImageOfPage\":{\"@id\":\"https://xomoashro.com/wp-content/uploads/2024/08/11667278_20945983.svg\"},\"inLanguage\":\"en-US\",\"breadcrumb\":{\"@id\":\"https://xomoashro.com/become-distributor/#breadcrumb\"}},{\"@type\":\"Person\",\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\",\"url\":\"https://xomoashro.com/author/wp-support/\",\"image\":{\"@type\":\"ImageObject\",\"@id\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"url\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"caption\":\"wp-support\",\"inLanguage\":\"en-US\"},\"sameAs\":[\"https://xomoashro.com\"],\"worksFor\":{\"@id\":\"https://xomoashro.com/#organization\"}},{\"@type\":\"Article\",\"headline\":\"Become Distributor - Xomorashro\",\"datePublished\":\"2024-08-04T10:33:24+00:00\",\"dateModified\":\"2025-03-15T18:46:16+00:00\",\"author\":{\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\"},\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"description\":\"Become a Xomoashro Distributor and earn money\",\"name\":\"Become Distributor - Xomorashro\",\"@id\":\"https://xomoashro.com/become-distributor/#richSnippet\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/become-distributor/#webpage\"},\"image\":{\"@id\":\"https://xomoashro.com/wp-content/uploads/2024/08/11667278_20945983.svg\"},\"inLanguage\":\"en-US\",\"mainEntityOfPage\":{\"@id\":\"https://xomoashro.com/become-distributor/#webpage\"}}]}"
+  ],
+  "docHeight": 2599,
+  "mobileDocHeight": 3157
+}

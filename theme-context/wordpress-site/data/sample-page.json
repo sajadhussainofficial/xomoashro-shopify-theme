@@ -1,0 +1,135 @@
+{
+  "slug": "sample-page",
+  "url": "https://xomoashro.com/sample-page/",
+  "type": "page",
+  "status": 200,
+  "finalUrl": "https://xomoashro.com/sample-page/",
+  "navChain": [
+    "200 https://xomoashro.com/sample-page/"
+  ],
+  "title": "Sample Page - Xomorashro",
+  "description": null,
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "canonical": "https://xomoashro.com/sample-page/",
+  "ogTitle": "Sample Page - Xomorashro",
+  "ogDescription": "This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this: Hi there! I’m a bike messenger […]",
+  "ogImage": null,
+  "ogType": "article",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": "Sample Page - Xomorashro",
+  "twitterDescription": "This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this: Hi there! I’m a bike messenger […]",
+  "lang": "en-US",
+  "bodyClass": "wp-singular page-template-default page page-id-2 wp-custom-logo wp-embed-responsive wp-theme-astra ast-desktop ast-plain-container ast-no-sidebar astra-4.14.0 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header ast-normal-title-enabled elementor-default elementor-kit-6 ast-header-loaded e--ua-blink e--ua-chrome e--ua-webkit",
+  "h1": [
+    "Sample Page"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Sample Page"
+    }
+  ],
+  "wordCount": 161,
+  "copy": {
+    "header": [
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com",
+      "(label) Search",
+      "Search",
+      "[field: search | s | placeholder=\"Search...\"]",
+      "![](https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg) -> https://xomoashro.com"
+    ],
+    "main": [
+      "[Skip to content](#content)",
+      "# Sample Page",
+      "This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:",
+      "Hi there! I’m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like piña coladas. (And gettin’ caught in the rain.)",
+      "…or something like this:",
+      "The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.",
+      "As a new WordPress user, you should go to your dashboard to delete this page and create new pages for your content. Have fun!"
+    ],
+    "footer": [
+      "![](https://xomoashro.com/wp-content/uploads/Asset-25.svg)",
+      "Discover the transformative power of Shilajit, carefully sourced and curated for your vitality. Embrace a journey of holistic health with nature’s rejuvenating essence. Elevate your well-being with Xomoashro.",
+      "## Quick links",
+      "[Affiliate Program](/affiliate-dashboard/)",
+      "[My Account](/affiliate-dashboard/)",
+      "[Become Brand Ambassadar](/become-brand-ambassadar/)",
+      "[Become Distributor](/become-distributor/)",
+      "## Customer Care",
+      "Email: ask@xomoashro.com",
+      "+9230333444",
+      "+9230333444",
+      "Facebook",
+      "Twitter",
+      "Youtube",
+      "##### Copyright © 2025 Xomoahro",
+      "- Privacy Policy",
+      "- Terms and Conditions",
+      "- Shipping and Returns"
+    ],
+    "popup": []
+  },
+  "links": [
+    {
+      "text": "Skip to content",
+      "href": "https://xomoashro.com/sample-page/#content",
+      "region": "main"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "[img] ",
+      "href": "https://xomoashro.com/",
+      "region": "header"
+    },
+    {
+      "text": "your dashboard",
+      "href": "https://xomoashro.com/wp-admin/",
+      "region": "main"
+    },
+    {
+      "text": "Affiliate Program",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "My Account",
+      "href": "https://xomoashro.com/affiliate-dashboard/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Brand Ambassadar",
+      "href": "https://xomoashro.com/become-brand-ambassadar/",
+      "region": "footer"
+    },
+    {
+      "text": "Become Distributor",
+      "href": "https://xomoashro.com/become-distributor/",
+      "region": "footer"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://xomoashro.com/privacy-policy/",
+      "region": "footer"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://xomoashro.com/terms-and-conditions/",
+      "region": "footer"
+    },
+    {
+      "text": "Shipping and Returns",
+      "href": "https://xomoashro.com/shipping-returns/",
+      "region": "footer"
+    }
+  ],
+  "backgroundImages": [],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://xomoashro.com/#organization\",\"name\":\"Xomorashro\",\"url\":\"https://xomoashro.com\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://xomoashro.com/#logo\",\"url\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"contentUrl\":\"https://xomoashro.com/wp-content/uploads/2023/12/Asset-24.svg\",\"caption\":\"Xomorashro\",\"inLanguage\":\"en-US\",\"width\":\"315\",\"height\":\"48\"}},{\"@type\":\"WebSite\",\"@id\":\"https://xomoashro.com/#website\",\"url\":\"https://xomoashro.com\",\"name\":\"Xomorashro\",\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://xomoashro.com/sample-page/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":\"1\",\"item\":{\"@id\":\"https://xomoashro.com\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":\"2\",\"item\":{\"@id\":\"https://xomoashro.com/sample-page/\",\"name\":\"Sample Page\"}}]},{\"@type\":\"WebPage\",\"@id\":\"https://xomoashro.com/sample-page/#webpage\",\"url\":\"https://xomoashro.com/sample-page/\",\"name\":\"Sample Page - Xomorashro\",\"datePublished\":\"2023-11-25T18:52:54+00:00\",\"dateModified\":\"2023-11-25T18:52:54+00:00\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/#website\"},\"inLanguage\":\"en-US\",\"breadcrumb\":{\"@id\":\"https://xomoashro.com/sample-page/#breadcrumb\"}},{\"@type\":\"Person\",\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\",\"url\":\"https://xomoashro.com/author/wp-support/\",\"image\":{\"@type\":\"ImageObject\",\"@id\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"url\":\"https://secure.gravatar.com/avatar/c849fec61988038f47744718335ad9e5ff8f4dbb86d1d86356a613490207c018?s=96&amp;d=mm&amp;r=g\",\"caption\":\"wp-support\",\"inLanguage\":\"en-US\"},\"sameAs\":[\"https://xomoashro.com\"],\"worksFor\":{\"@id\":\"https://xomoashro.com/#organization\"}},{\"@type\":\"Article\",\"headline\":\"Sample Page - Xomorashro\",\"datePublished\":\"2023-11-25T18:52:54+00:00\",\"dateModified\":\"2023-11-25T18:52:54+00:00\",\"author\":{\"@id\":\"https://xomoashro.com/author/wp-support/\",\"name\":\"wp-support\"},\"publisher\":{\"@id\":\"https://xomoashro.com/#organization\"},\"description\":\"This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:\",\"name\":\"Sample Page - Xomorashro\",\"@id\":\"https://xomoashro.com/sample-page/#richSnippet\",\"isPartOf\":{\"@id\":\"https://xomoashro.com/sample-page/#webpage\"},\"inLanguage\":\"en-US\",\"mainEntityOfPage\":{\"@id\":\"https://xomoashro.com/sample-page/#webpage\"}}]}"
+  ],
+  "docHeight": 1227,
+  "mobileDocHeight": 1941
+}
