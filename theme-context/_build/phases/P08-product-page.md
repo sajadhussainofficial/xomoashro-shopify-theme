@@ -22,6 +22,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | B2 | Which sizes are sold: (a) 30g only, offered as 1, 2 or 3 jar packs; (b) 10g, 20g, 60g; (c) another set. | soft | (a), because 30g is the only size in the old site. |
 | B3 | Lab report file, lab name, test date, batch number, measured fulvic percentage and heavy-metal values. | soft | All lab claims and lab sections stay hidden. |
 | B4 | Guarantee length (7 or 30 days), and the one correct phone number and WhatsApp number. | soft | Guarantee line omitted; WhatsApp button and widget hidden. |
+| B18 | Which jar is the current packaging: black lid with copper logo, gold lid, or the green jar? | soft | Black-lid jar, because it is the one on the old live site. |
 
 ## Read first
 

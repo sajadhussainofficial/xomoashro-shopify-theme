@@ -21,6 +21,7 @@ One row per question for the store owner. The runner reads this file before ever
 | B15 | Meta (Facebook) Pixel ID, if Meta ads are used. | Meta tracking not set up. | P16 | open | | |
 | B16 | Tracking route: GA4 through Google Tag Manager (recommended since GTM is wanted), or through Shopify's Google and YouTube app. One only. | GA4 through GTM in a custom pixel; Meta through Shopify's Facebook and Instagram app. | P16, P17 | open | | |
 | B17 | Commit the raw screenshots (about 240 MB) to git, or ignore them? | Ignore the PNG folders, commit text and data files. | P00 | default taken | Ignore the PNG/JPG screenshot folders; commit text and data files. Owner can reverse this. | 2026-10-06 |
+| B18 | Which jar is the current packaging: black lid with copper logo (shown on the old site), gold lid, or the green jar? All three are in the media library. | Black-lid jar, because it is the one on the old live site. | P07, P08, P12 | open | | |
 
 ## Decisions already made
 

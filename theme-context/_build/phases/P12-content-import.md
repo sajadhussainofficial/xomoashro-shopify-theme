@@ -21,6 +21,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | B1 | Product price(s) in PKR, SKU, net weight, real compare-at price if any, and the full product description. | hard | Phase waits. |
 | B2 | Which sizes are sold: (a) 30g only, offered as 1, 2 or 3 jar packs; (b) 10g, 20g, 60g; (c) another set. | hard | Phase waits. |
 | B9 | Shipping facts: delivery time in days, shipping fee, free-delivery threshold, return terms. | soft | Progress bar and delivery estimate hidden; policies keep marked placeholders (blocks launch). |
+| B18 | Which jar is the current packaging: black lid with copper logo, gold lid, or the green jar? | soft | Black-lid jar, because it is the one on the old live site. |
 
 ## Read first
 

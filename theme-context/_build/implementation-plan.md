@@ -165,12 +165,12 @@ Recommended order top to bottom. Each row links to the phase file.
 | 5 | [P05](phases/P05-footer.md) | Footer | Foundation | P02 | - | B4, B8 |
 | 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | Foundation | P00 | B7 | B4, B9 |
 | 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | Storefront | P02, P01 | B7 | B9 |
-| 8 | [P07](phases/P07-homepage.md) | Homepage | Storefront | P02, P03, P05 | - | B2, B3, B4, B8, B10 |
-| 9 | [P08](phases/P08-product-page.md) | Product page | Storefront | P02, P06, P01, P07 | B7 | B1, B2, B3, B4 |
+| 8 | [P07](phases/P07-homepage.md) | Homepage | Storefront | P02, P03, P05 | - | B2, B3, B4, B8, B10, B18 |
+| 9 | [P08](phases/P08-product-page.md) | Product page | Storefront | P02, P06, P01, P07 | B7 | B1, B2, B3, B4, B18 |
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | Storefront | P02, P08 | - | - |
 | 11 | [P10](phases/P10-content-pages.md) | Content pages | Storefront | P02, P07, P01 | - | B3, B4, B6 |
 | 12 | [P11](phases/P11-blog-and-article.md) | Journal: blog and article | Storefront | P02 | - | - |
-| 13 | [P12](phases/P12-content-import.md) | Content import | Storefront | P00, P01 | B7, B1, B2 | B9 |
+| 13 | [P12](phases/P12-content-import.md) | Content import | Storefront | P00, P01 | B7, B1, B2 | B9, B18 |
 | 14 | [P13](phases/P13-promotional-popup.md) | Promotional popup | Interactive features | P02 | - | B11 |
 | 15 | [P14](phases/P14-whatsapp-widget.md) | WhatsApp chat widget | Interactive features | P02, P01 | - | B4 |
 | 16 | [P15](phases/P15-cookie-consent.md) | Cookie consent | Interactive features | P02, P05 | - | B14, B7 |

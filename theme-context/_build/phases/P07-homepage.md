@@ -22,6 +22,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | B4 | Guarantee length (7 or 30 days), and the one correct phone number and WhatsApp number. | soft | Guarantee line omitted; WhatsApp button and widget hidden. |
 | B8 | Keep the "5,000+ customers" claim? Is "Asad" the person in `Khalid-Kurt.png`? Real social profile URLs? | soft | Claim removed, that testimonial shown without photo, social icons hidden. |
 | B10 | New photography (see `reference/photo-shoot-list.md`). | soft | Launch with the cut-out jar on designed backgrounds. |
+| B18 | Which jar is the current packaging: black lid with copper logo, gold lid, or the green jar? | soft | Black-lid jar, because it is the one on the old live site. |
 
 ## Read first
 
