@@ -1,0 +1,8 @@
+# Theme Check configuration for the Xomoashro theme.
+extends: theme-check:recommended
+
+# The starter ships 56 non-English locale files. New `xo` strings exist only in
+# English, so this check would report every string once per locale. It stays off
+# until the unused locale files are removed (decision B20) or translated.
+MatchingTranslations:
+  enabled: false
