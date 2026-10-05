@@ -44,3 +44,4 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 P00 approved by the owner with no changes; merged to `main`. B5 answered (keep orange logo). New question B19 (accent colour beside the orange logo) added.
 - 2026-10-06 B7 answered (store connected, local preview running). P02 started on branch `phase/P02-design-foundation`.
 - 2026-10-06 P02 finished; all checks pass (editor click-through and keyboard pass not run, see report). Owner asked for commit, push, pull request and merge on completion. Fonts changed to Manrope and accent to the logo orange during the phase. New question B20 added.
+- 2026-10-06 P02 push blocked: the GitHub account logged in on the command line (`zeshan-rx`) has read-only access to `sajadhussainofficial/xomoashro-shopify-theme`; earlier pushes came from `zeshanamindev-hub`. Branch `phase/P02-design-foundation` is committed locally and waits to be pushed, opened as a pull request and merged.
