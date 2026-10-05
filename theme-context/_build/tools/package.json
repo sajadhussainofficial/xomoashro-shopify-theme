@@ -1,0 +1,12 @@
+{
+  "name": "xomoashro-build-tools",
+  "private": true,
+  "type": "module",
+  "description": "Local build helpers for the Xomoashro theme project. Not part of the theme.",
+  "scripts": {
+    "optimize-images": "node optimize-images.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.0"
+  }
+}
