@@ -18,6 +18,7 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | ID | Question | Type | If unanswered |
 |---|---|---|---|
 | B5 | Logo colour: keep orange `#FF6B31`, or render the logo in the new ink and amber palette. | soft | Logo shape kept, rendered in ink with an amber mark. |
+| B19 | With the logo staying orange, which accent colour: (a) brand orange `#FF6B31` with dark text; (b) amber `#B8742A` as first planned. | soft | (a): orange buttons with ink text, deep orange `#C2410C` for links. |
 
 ## Read first
 

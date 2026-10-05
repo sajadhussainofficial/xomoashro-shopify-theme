@@ -4,7 +4,7 @@ The single record of progress. The runner updates this file at the start and end
 
 | Order | Phase | Title | Needs | Hard decisions | Status | Started | Finished | Report |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | awaiting approval | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
+| 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
 | 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | not started | | | |
 | 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | not started | | | |
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | not started | | | |
@@ -41,3 +41,4 @@ The single record of progress. The runner updates this file at the start and end
 Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 P00 started on branch `phase/P00-inventory-and-audit`. B17 not asked separately; default taken (screenshots ignored in git).
 - 2026-10-06 P00 finished, all five checks pass; awaiting owner approval. New question B18 (jar design) added.
+- 2026-10-06 P00 approved by the owner with no changes; merged to `main`. B5 answered (keep orange logo). New question B19 (accent colour beside the orange logo) added.

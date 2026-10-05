@@ -159,7 +159,7 @@ Recommended order top to bottom. Each row links to the phase file.
 | Order | Phase | Title | Group | Needs finished first | Hard decisions | Soft decisions |
 |---|---|---|---|---|---|---|
 | 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | Foundation | - | - | B17 |
-| 2 | [P02](phases/P02-design-foundation.md) | Design foundation | Foundation | P00 | - | B5 |
+| 2 | [P02](phases/P02-design-foundation.md) | Design foundation | Foundation | P00 | - | B5, B19 |
 | 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | Foundation | P02 | - | B5 |
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | Interactive features | P02 | - | B9, B4 |
 | 5 | [P05](phases/P05-footer.md) | Footer | Foundation | P02 | - | B4, B8 |
