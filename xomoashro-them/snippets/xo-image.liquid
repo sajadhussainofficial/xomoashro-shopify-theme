@@ -1,0 +1,40 @@
+{% doc %}
+  Renders a responsive image with `srcset`, `sizes`, and width and height attributes
+  (so the page does not shift while it loads). Renders a placeholder when no image
+  is set, so sections look complete in the Theme Editor.
+
+  @param {image} [image] - Image from an `image_picker` setting, a product or an article
+  @param {string} [sizes] - The `sizes` attribute. Defaults to `100vw`
+  @param {string} [widths] - Comma-separated widths for `srcset`. Defaults to `360, 540, 750, 990, 1280, 1600`
+  @param {number} [max_width] - Largest width requested from the CDN. Defaults to 1600
+  @param {string} [alt] - Alternative text. Defaults to the image's own alt text
+  @param {boolean} [priority] - True for the one image that is the largest element on first screen: loads eagerly with high fetch priority
+  @param {string} [class] - Extra class names
+  @param {string} [placeholder] - Placeholder name for `placeholder_svg_tag`. Defaults to `image`
+
+  @example
+  {% render 'xo-image', image: section.settings.image, sizes: '(min-width: 990px) 50vw, 100vw', priority: true %}
+{% enddoc %}
+
+{%- liquid
+  assign xo_image_sizes = sizes | default: '100vw'
+  assign xo_image_widths = widths | default: '360, 540, 750, 990, 1280, 1600'
+  assign xo_image_max = max_width | default: 1600
+  assign xo_image_class = 'xo-img'
+  if class != blank
+    assign xo_image_class = xo_image_class | append: ' ' | append: class
+  endif
+-%}
+
+{%- if image != blank -%}
+  {%- liquid
+    assign xo_image_alt = alt | default: image.alt
+    if priority
+      echo image | image_url: width: xo_image_max | image_tag: widths: xo_image_widths, sizes: xo_image_sizes, alt: xo_image_alt, class: xo_image_class, loading: 'eager', fetchpriority: 'high'
+    else
+      echo image | image_url: width: xo_image_max | image_tag: widths: xo_image_widths, sizes: xo_image_sizes, alt: xo_image_alt, class: xo_image_class, loading: 'lazy'
+    endif
+  -%}
+{%- else -%}
+  {{- placeholder | default: 'image' | placeholder_svg_tag: xo_image_class -}}
+{%- endif -%}

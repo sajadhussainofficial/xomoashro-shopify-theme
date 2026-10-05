@@ -1,0 +1,56 @@
+{% doc %}
+  Renders a Xomoashro button as a link, or as a `<button>` when no URL is given.
+  Renders nothing when the label is blank.
+
+  @param {string} label - Button text
+  @param {string} [url] - Destination. When blank a `<button>` element is rendered
+  @param {string} [style] - `primary` (default), `secondary` or `quiet`
+  @param {string} [icon] - Icon name from `xo-icon`, shown after the label
+  @param {boolean} [block] - Stretch to the full width of the parent
+  @param {string} [type] - Button type when rendered as `<button>`. Defaults to `button`
+  @param {string} [class] - Extra class names
+  @param {string} [attributes] - Extra HTML attributes
+
+  @example
+  {% render 'xo-button', label: section.settings.button_label, url: section.settings.button_url, style: 'primary', icon: 'arrow-right' %}
+{% enddoc %}
+
+{%- if label != blank -%}
+  {%- liquid
+    assign xo_button_class = 'xo-btn'
+    if style == 'secondary'
+      assign xo_button_class = xo_button_class | append: ' xo-btn--secondary'
+    elsif style == 'quiet'
+      assign xo_button_class = xo_button_class | append: ' xo-btn--quiet'
+    endif
+    if block
+      assign xo_button_class = xo_button_class | append: ' xo-btn--block'
+    endif
+    if class != blank
+      assign xo_button_class = xo_button_class | append: ' ' | append: class
+    endif
+  -%}
+  {%- if url != blank -%}
+    <a
+      class="{{ xo_button_class }}"
+      href="{{ url }}"
+      {{ attributes }}
+    >
+      <span>{{ label | escape }}</span>
+      {%- if icon != blank -%}
+        {%- render 'xo-icon', name: icon, size: 18 -%}
+      {%- endif -%}
+    </a>
+  {%- else -%}
+    <button
+      class="{{ xo_button_class }}"
+      type="{{ type | default: 'button' }}"
+      {{ attributes }}
+    >
+      <span>{{ label | escape }}</span>
+      {%- if icon != blank -%}
+        {%- render 'xo-icon', name: icon, size: 18 -%}
+      {%- endif -%}
+    </button>
+  {%- endif -%}
+{%- endif -%}

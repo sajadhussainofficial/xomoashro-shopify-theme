@@ -1,0 +1,46 @@
+{% doc %}
+  Standard section heading: small-caps eyebrow, serif heading, short accent rule
+  and an optional lead paragraph. Renders nothing when every part is blank.
+
+  @param {string} [eyebrow] - Short label above the heading
+  @param {string} [heading] - Heading text. Inline rich text is allowed (`<em>` is highlighted)
+  @param {string} [lead] - Supporting paragraph. Rich text is allowed
+  @param {string} [level] - Heading element: `h1`, `h2` (default) or `h3`
+  @param {string} [size] - Visual size: `h1`, `h2` (default) or `h3`
+  @param {string} [align] - `start` (default) or `center`
+  @param {boolean} [rule] - Show the accent rule. Defaults to true
+  @param {string} [id] - ID for the heading element, for `aria-labelledby`
+
+  @example
+  {% render 'xo-section-heading', eyebrow: section.settings.eyebrow, heading: section.settings.heading, lead: section.settings.lead, align: 'center' %}
+{% enddoc %}
+
+{%- liquid
+  assign xo_heading_level = level | default: 'h2'
+  assign xo_heading_size = size | default: 'h2'
+  assign xo_heading_rule = rule | default: true, allow_false: true
+-%}
+
+{%- if eyebrow != blank or heading != blank or lead != blank -%}
+  <div class="xo-heading{% if align == 'center' %} xo-heading--center{% endif %}">
+    {%- if eyebrow != blank -%}
+      <p class="xo-eyebrow">{{ eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if heading != blank -%}
+      <{{ xo_heading_level }}
+        class="xo-{{ xo_heading_size }}"
+        {% if id != blank %}
+          id="{{ id }}"
+        {% endif %}
+      >
+        {{- heading -}}
+      </{{ xo_heading_level }}>
+      {%- if xo_heading_rule -%}
+        <hr class="xo-rule" aria-hidden="true">
+      {%- endif -%}
+    {%- endif -%}
+    {%- if lead != blank -%}
+      <div class="xo-lead xo-muted xo-rte">{{ lead }}</div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
