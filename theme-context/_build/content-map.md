@@ -14,7 +14,7 @@ Phase P00 output. Source: `theme-context/wordpress-site/` (captured 2026-10-06).
 | `pages/shop.md`, `cart.md`, `checkout.md`, `my-account.md`, `affiliate-*.md` | Broken or empty pages | 8 | Redirect map only |
 | `pages/home-2.md`, `sample-page.md`, `404-error.md`, `real-404.md` | Leftovers | 4 | Redirect map only (`home-2` has older wording of the homepage, not used) |
 | `seo-meta.csv` | Titles, descriptions, H1, canonical | 43 rows | SEO carry-over (P20) |
-| `assets/images/` | Raster images | 94 | 39 reused (25 journal, 14 product, section, testimonial) |
+| `assets/images/` | Raster images | 94 | 38 reused (25 journal, 13 product, section, testimonial) |
 | `assets/svg/` | Logos, icons, decorations | 47 | 6 reused (5 logos, 1 COD mark as reference) |
 | `assets/manifest.json` | Original URL, alt text, old usage per asset | 141 | Image manifest |
 | `design-tokens.json` | Old colours and fonts | 1 | Reference only; the old design is not a target |

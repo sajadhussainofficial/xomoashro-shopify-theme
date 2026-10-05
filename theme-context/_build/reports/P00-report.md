@@ -14,7 +14,7 @@ The phase goal is met: the WordPress capture is now a content map, an image mani
 | `_build/content-map.md` | Every old page, section, post, policy, testimonial and contact detail mapped to its new home |
 | `_build/image-manifest.csv` | 141 rows: new file name, intended use, alt text, dimensions, reuse yes or no, reshoot note |
 | `_build/tools/optimize-images.mjs`, `package.json`, `package-lock.json` | Image optimisation script (sharp) |
-| `_build/images-optimized/` | 44 files: 39 WebP images, 5 logo SVGs and 1 COD mark, plus `_optimization-log.csv` |
+| `_build/images-optimized/` | 44 files: 38 WebP images and 6 SVGs (5 logos, 1 COD mark), plus `_optimization-log.csv` |
 | `_build/content-fixes.md` | 12 global fixes, 14 claim items, 6 benefit rewrites, 6 FAQ rewrites, policy and journal items |
 | `_build/theme-audit.md` | Baseline, reuse map per phase, code risks, deletion candidates |
 | `_build/decisions.md`, three phase files, `implementation-plan.md` | New question B18 added |
