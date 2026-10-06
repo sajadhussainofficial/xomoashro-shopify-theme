@@ -1,0 +1,553 @@
+{%- liquid
+  capture threshold_raw
+    render 'xo-shop-facts', fact: 'free_shipping_threshold'
+  endcapture
+  capture guarantee_days
+    render 'xo-shop-facts', fact: 'guarantee_days'
+  endcapture
+  capture whatsapp_url
+    render 'xo-shop-facts', fact: 'whatsapp_url'
+  endcapture
+
+  assign threshold_money = ''
+  if threshold_raw != blank
+    assign threshold_cents = threshold_raw | times: 100
+    assign threshold_money = threshold_cents | money_without_trailing_zeros
+  endif
+
+  assign storage_key = 'xo:announcement-dismissed:' | append: section.id
+-%}
+
+{%- capture slides -%}
+  {%- assign slide_count = 0 -%}
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign text = block.settings.text
+      assign link = block.settings.link
+      assign missing_fact = false
+
+      case block.settings.requires
+        when 'free_shipping'
+          if threshold_money == blank
+            assign missing_fact = true
+          endif
+        when 'guarantee'
+          if guarantee_days == blank
+            assign missing_fact = true
+          endif
+        when 'whatsapp'
+          if whatsapp_url == blank
+            assign missing_fact = true
+          elsif link == blank
+            assign link = whatsapp_url
+          endif
+      endcase
+
+      assign text = text | replace: '[amount]', threshold_money | replace: '[days]', guarantee_days
+      assign plain = text | strip_html | strip
+
+      assign render_slide = true
+      if plain == blank
+        assign render_slide = false
+      elsif missing_fact and request.design_mode != true
+        assign render_slide = false
+      endif
+    -%}
+    {%- if render_slide -%}
+      {%- assign slide_count = slide_count | plus: 1 -%}
+      <div
+        class="xo-announcement__slide"
+        ref="slides[]"
+        {% if slide_count > 1 %}
+          inert
+          aria-hidden="true"
+        {% else %}
+          data-active
+        {% endif %}
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.icon != 'none' -%}
+          {%- render 'xo-icon', name: block.settings.icon, size: 16 -%}
+        {%- endif -%}
+        {%- if link != blank -%}
+          <a
+            class="xo-announcement__text xo-announcement__link"
+            href="{{ link }}"
+            {% if block.settings.requires == 'whatsapp' %}
+              target="_blank" rel="noopener"
+            {% endif %}
+          >
+            {{- text -}}
+          </a>
+        {%- else -%}
+          <p class="xo-announcement__text">{{ text }}</p>
+        {%- endif -%}
+        {%- if missing_fact -%}
+          <span class="xo-announcement__editor-note">{{ 'xo.announcement.hidden_until_set' | t }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign rotates = false
+  if slide_count > 1 and section.settings.autoplay
+    assign rotates = true
+  endif
+
+  assign control_count = 0
+  if rotates
+    assign control_count = control_count | plus: 1
+  endif
+  if section.settings.dismissible
+    assign control_count = control_count | plus: 1
+  endif
+-%}
+
+{%- if slide_count > 0 -%}
+  <div
+    class="xo-announcement xo-tone-{{ section.settings.tone }} xo-announcement--{{ section.settings.text_size }}"
+    data-xo-announcement
+    style="--xo-announcement-controls: {{ control_count | times: 2 }}rem;"
+    role="region"
+    aria-label="{{ 'xo.announcement.label' | t }}"
+  >
+    {%- if section.settings.dismissible -%}
+      <script>
+        try {
+          if (!window.Shopify?.designMode && sessionStorage.getItem({{ storage_key | json }})) {
+            document.currentScript.parentElement.hidden = true;
+          }
+        } catch (_) {}
+      </script>
+    {%- endif -%}
+
+    <xo-announcement
+      class="xo-announcement__inner xo-container"
+      data-storage-key="{{ storage_key }}"
+      {% if rotates %}
+        autoplay="{{ section.settings.speed }}"
+      {% endif %}
+    >
+      {%- if slide_count > 1 and section.settings.show_arrows -%}
+        <button
+          type="button"
+          class="xo-announcement__btn xo-announcement__arrow"
+          on:click="/previous"
+          aria-label="{{ 'xo.announcement.previous' | t }}"
+        >
+          {%- render 'xo-icon', name: 'chevron-down', class: 'xo-announcement__icon-prev', size: 16 -%}
+        </button>
+      {%- endif -%}
+
+      <div
+        class="xo-announcement__viewport"
+        ref="viewport"
+        aria-live="off"
+      >
+        {{- slides -}}
+      </div>
+
+      {%- if slide_count > 1 and section.settings.show_arrows -%}
+        <button
+          type="button"
+          class="xo-announcement__btn xo-announcement__arrow"
+          on:click="/next"
+          aria-label="{{ 'xo.announcement.next' | t }}"
+        >
+          {%- render 'xo-icon', name: 'chevron-down', class: 'xo-announcement__icon-next', size: 16 -%}
+        </button>
+      {%- endif -%}
+
+      {%- if rotates or section.settings.dismissible -%}
+        <div class="xo-announcement__controls">
+          {%- if rotates -%}
+            <button
+              type="button"
+              class="xo-announcement__btn xo-announcement__toggle"
+              ref="toggle"
+              on:click="/togglePlay"
+              aria-pressed="false"
+              aria-label="{{ 'xo.announcement.pause' | t }}"
+              data-label-pause="{{ 'xo.announcement.pause' | t }}"
+              data-label-play="{{ 'xo.announcement.play' | t }}"
+            >
+              <svg
+                class="xo-announcement__pause-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 3.5v9M11 3.5v9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <svg
+                class="xo-announcement__play-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5.5 3.5v9l7-4.5-7-4.5z" fill="currentColor"/>
+              </svg>
+            </button>
+          {%- endif -%}
+          {%- if section.settings.dismissible -%}
+            <button
+              type="button"
+              class="xo-announcement__btn"
+              on:click="/dismiss"
+              aria-label="{{ 'xo.announcement.dismiss' | t }}"
+            >
+              {%- render 'xo-icon', name: 'close', size: 16 -%}
+            </button>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </xo-announcement>
+  </div>
+
+  <script
+    src="{{ 'xo-announcement.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-announcement {
+    --xo-announcement-height: 2.5rem;
+
+    position: relative;
+    z-index: calc(var(--layer-menu-drawer) + 1);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-announcement[hidden] {
+    display: none;
+  }
+
+  /* Arrows sit beside the message; the outer columns stay equal so the message stays centred. */
+  .xo-announcement__inner {
+    display: grid;
+    grid-template-columns:
+      minmax(var(--xo-announcement-controls, 0px), 1fr) auto minmax(0, 40rem) auto
+      minmax(var(--xo-announcement-controls, 0px), 1fr);
+    grid-template-areas: '. prev viewport next controls';
+    align-items: center;
+    min-block-size: var(--xo-announcement-height);
+  }
+
+  .xo-announcement__arrow:first-child {
+    grid-area: prev;
+  }
+
+  .xo-announcement__viewport {
+    grid-area: viewport;
+    display: grid;
+    grid-template-areas: 'stack';
+    min-inline-size: 0;
+  }
+
+  .xo-announcement__viewport + .xo-announcement__arrow {
+    grid-area: next;
+  }
+
+  .xo-announcement__controls {
+    grid-area: controls;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    margin-inline-end: calc(var(--xo-space-2) * -1);
+  }
+
+  .xo-announcement__slide {
+    grid-area: stack;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--xo-space-2);
+    min-inline-size: 0;
+    opacity: 1;
+    transition: opacity 400ms var(--xo-ease), visibility 400ms;
+  }
+
+  .xo-announcement__slide:not([data-active]) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .xo-announcement__slide .xo-icon {
+    color: currentcolor;
+  }
+
+  .xo-announcement__text {
+    overflow: hidden;
+    margin: 0;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-announcement-font, 0.8125rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .xo-announcement--md {
+    --xo-announcement-font: 0.875rem;
+  }
+
+  .xo-announcement__link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (hover: hover) {
+    .xo-announcement__link:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  .xo-announcement__editor-note {
+    flex: none;
+    padding: 0.125rem 0.5rem;
+    border: 1px dashed currentcolor;
+    border-radius: var(--xo-radius-pill);
+    font-size: 0.6875rem;
+    font-weight: 500;
+  }
+
+  .xo-announcement__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--xo-fg);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .xo-announcement__btn:hover {
+      background: color-mix(in srgb, var(--xo-fg) 12%, transparent);
+    }
+  }
+
+  .xo-announcement__btn svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .xo-announcement__icon-prev {
+    transform: rotate(90deg);
+  }
+
+  .xo-announcement__icon-next {
+    transform: rotate(-90deg);
+  }
+
+  .xo-announcement__icon-prev:dir(rtl) {
+    transform: rotate(-90deg);
+  }
+
+  .xo-announcement__icon-next:dir(rtl) {
+    transform: rotate(90deg);
+  }
+
+  .xo-announcement__play-icon,
+  .xo-announcement__toggle[aria-pressed='true'] .xo-announcement__pause-icon {
+    display: none;
+  }
+
+  .xo-announcement__toggle[aria-pressed='true'] .xo-announcement__play-icon {
+    display: block;
+  }
+
+  /* Rotation is off for reduced motion and in the editor, so its pause button is not needed there. */
+  xo-announcement[data-static] .xo-announcement__toggle {
+    display: none;
+  }
+
+  @media (max-width: 749px) {
+    .xo-announcement__arrow {
+      display: none;
+    }
+  }
+
+  /* On narrow phones the icon gives its room to the words. */
+  @media (max-width: 419px) {
+    .xo-announcement__slide .xo-icon {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-announcement__slide {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.announcement",
+  "tag": "div",
+  "class": "xo-announcement-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:xo.info.announcement"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "accent", "label": "t:xo.options.accent" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "accent"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "t:xo.labels.text_size",
+      "options": [
+        { "value": "sm", "label": "t:xo.options.small" },
+        { "value": "md", "label": "t:xo.options.medium" }
+      ],
+      "default": "sm"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "t:xo.labels.autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "t:xo.labels.speed",
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 6,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "t:xo.labels.show_arrows",
+      "info": "t:xo.info.show_arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dismissible",
+      "label": "t:xo.labels.dismissible",
+      "info": "t:xo.info.dismissible",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "t:xo.names.announcement_message",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:xo.labels.message",
+          "info": "t:xo.info.announcement_text",
+          "default": "Cash on delivery across Pakistan"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:xo.labels.link"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "none", "label": "t:xo.options.icon_none" },
+            { "value": "truck", "label": "t:xo.options.icon_truck" },
+            { "value": "cash", "label": "t:xo.options.icon_cash" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "whatsapp", "label": "t:xo.options.icon_whatsapp" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "select",
+          "id": "requires",
+          "label": "t:xo.labels.requires",
+          "info": "t:xo.info.requires",
+          "options": [
+            { "value": "none", "label": "t:xo.options.requires_none" },
+            { "value": "free_shipping", "label": "t:xo.options.requires_free_shipping" },
+            { "value": "guarantee", "label": "t:xo.options.requires_guarantee" },
+            { "value": "whatsapp", "label": "t:xo.options.requires_whatsapp" }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.announcement",
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "text": "Free delivery on orders over [amount]",
+            "icon": "truck",
+            "requires": "free_shipping"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Cash on delivery across Pakistan",
+            "icon": "cash",
+            "requires": "none"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "From Chitral and Gilgit-Baltistan",
+            "icon": "mountain",
+            "requires": "none"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Questions? Chat with us on WhatsApp",
+            "icon": "whatsapp",
+            "requires": "whatsapp"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

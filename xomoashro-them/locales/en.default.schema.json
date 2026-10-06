@@ -31,12 +31,21 @@
       "overlay": "Overlays"
     },
     "names": {
+      "announcement": "Announcement bar",
+      "announcement_message": "Message",
       "header": "Header",
       "utility_link": "Menu link",
       "social_link": "Social link",
       "styleguide": "Style guide"
     },
     "labels": {
+      "text_size": "Text size",
+      "autoplay": "Rotate messages automatically",
+      "speed": "Time per message",
+      "show_arrows": "Show arrows",
+      "dismissible": "Let visitors close the bar",
+      "message": "Message",
+      "requires": "Only show when this is set",
       "menu": "Menu",
       "sticky": "Keep the header visible while scrolling",
       "show_search": "Show search",
@@ -62,6 +71,16 @@
       "show_tones": "Show all tones"
     },
     "options": {
+      "small": "Small",
+      "medium": "Medium",
+      "icon_none": "None",
+      "icon_cash": "Cash",
+      "icon_mountain": "Mountain",
+      "icon_whatsapp": "WhatsApp",
+      "requires_none": "Always show",
+      "requires_free_shipping": "Free delivery amount",
+      "requires_guarantee": "Guarantee days",
+      "requires_whatsapp": "WhatsApp number",
       "icon_truck": "Delivery truck",
       "icon_mail": "Envelope",
       "icon_phone": "Phone",
@@ -76,6 +95,11 @@
       "accent": "Accent"
     },
     "info": {
+      "announcement": "Short messages work best: about 45 characters fit on a phone. Rotation pauses while a visitor points at or focuses the bar, and a pause button is shown while it rotates.",
+      "show_arrows": "Arrows show on tablets and computers. Phones use the pause button only.",
+      "dismissible": "A closed bar stays closed until the visitor's browser session ends.",
+      "announcement_text": "Write [amount] for the free delivery amount and [days] for the guarantee days. Both come from store data.",
+      "requires": "Hides the message on the store until that value is saved in store data, so it never shows a blank.",
       "cta_label": "Keep it to one short word so the logo has room on phones.",
       "header_logo": "The logo image and its height are set in Theme settings > Logo and favicon. Without an image, the built-in Xomoashro logo is used.",
       "show_account": "Needs customer accounts to be turned on in the store.",
