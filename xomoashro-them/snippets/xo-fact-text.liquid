@@ -1,0 +1,69 @@
+{%- doc -%}
+  Outputs a line of text with store facts filled in, or nothing when the fact it
+  depends on is not set (so callers can hide the line). In the Theme Editor the
+  line is always shown, with "…" in place of a missing fact, so it can be edited.
+
+  Placeholders: [amount] free delivery amount, [days] guarantee days,
+  [delivery] delivery time in days, [email] support email.
+
+  @param {string} text - The text, which may contain placeholders
+  @param {string} [requires] - Fact the line depends on: none, free_shipping, guarantee, delivery or whatsapp
+
+  @example
+  {% capture line %}{% render 'xo-fact-text', text: block.settings.text, requires: block.settings.requires %}{% endcapture %}
+{%- enddoc -%}
+
+{%- liquid
+  capture xo_ft_threshold
+    render 'xo-shop-facts', fact: 'free_shipping_threshold'
+  endcapture
+  capture xo_ft_days
+    render 'xo-shop-facts', fact: 'guarantee_days'
+  endcapture
+  capture xo_ft_delivery
+    render 'xo-shop-facts', fact: 'delivery_range'
+  endcapture
+  capture xo_ft_email
+    render 'xo-shop-facts', fact: 'support_email'
+  endcapture
+  capture xo_ft_whatsapp
+    render 'xo-shop-facts', fact: 'whatsapp_number'
+  endcapture
+
+  assign xo_ft_amount = ''
+  if xo_ft_threshold != blank
+    assign xo_ft_cents = xo_ft_threshold | times: 100
+    assign xo_ft_amount = xo_ft_cents | money_without_trailing_zeros
+  endif
+
+  assign xo_ft_missing = false
+  case requires
+    when 'free_shipping'
+      if xo_ft_amount == blank
+        assign xo_ft_missing = true
+      endif
+    when 'guarantee'
+      if xo_ft_days == blank
+        assign xo_ft_missing = true
+      endif
+    when 'delivery'
+      if xo_ft_delivery == blank
+        assign xo_ft_missing = true
+      endif
+    when 'whatsapp'
+      if xo_ft_whatsapp == blank
+        assign xo_ft_missing = true
+      endif
+  endcase
+
+  assign xo_ft_output = ''
+  if xo_ft_missing == false or request.design_mode
+    assign xo_ft_gap = '…'
+    assign xo_ft_amount = xo_ft_amount | default: xo_ft_gap
+    assign xo_ft_days = xo_ft_days | default: xo_ft_gap
+    assign xo_ft_delivery = xo_ft_delivery | default: xo_ft_gap
+    assign xo_ft_email = xo_ft_email | default: xo_ft_gap
+    assign xo_ft_output = text | replace: '[amount]', xo_ft_amount | replace: '[days]', xo_ft_days | replace: '[delivery]', xo_ft_delivery | replace: '[email]', xo_ft_email
+  endif
+-%}
+{{- xo_ft_output -}}

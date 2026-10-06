@@ -57,6 +57,41 @@
       "chip": "Cash on delivery",
       "card_title": "Card heading",
       "stat_label": "Harvest altitude, feet"
+    },
+    "bundles": {
+      "supply": "About {{ days }} days of daily use",
+      "regular_price": "Regular price",
+      "per_gram": "{{ price }} per gram",
+      "saving": "Save {{ percent }}% per gram",
+      "best_for": "Best for: {{ text }}",
+      "sold_out": "Sold out",
+      "add": "Add to cart",
+      "add_label": "Add {{ title }} to cart",
+      "choose_product": "Choose a product in this section's settings to show its sizes. Shoppers do not see this section until a product is chosen."
+    },
+    "lab": {
+      "batch": "Batch",
+      "tested_on": "Tested on",
+      "lab": "Laboratory",
+      "fulvic": "Fulvic acid",
+      "metals": "Heavy metals",
+      "metal": "Metal",
+      "result": "Result (ppm)",
+      "lead": "Lead",
+      "arsenic": "Arsenic",
+      "mercury": "Mercury",
+      "cadmium": "Cadmium",
+      "empty": "No lab report is saved in the store's data yet. Shoppers do not see this section until one is added."
+    },
+    "compare": {
+      "caption": "{{ ours }} compared with {{ others }}",
+      "feature": "Feature"
+    },
+    "journal": {
+      "empty": "This blog has no posts yet. Shoppers do not see this section until a post is published."
+    },
+    "editor": {
+      "draft": "Draft wording: please check this section before launch, then turn off \"Draft reminder\" in its settings. Shoppers never see this note."
     }
   },
   "accessibility": {
