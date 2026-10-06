@@ -1,0 +1,16 @@
+query FilesByName($query: String!) {
+  files(first: 10, query: $query) {
+    nodes {
+      id
+      fileStatus
+      alt
+      ... on MediaImage {
+        image {
+          url
+          width
+          height
+        }
+      }
+    }
+  }
+}

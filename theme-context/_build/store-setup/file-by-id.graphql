@@ -1,0 +1,18 @@
+query FileById($id: ID!) {
+  node(id: $id) {
+    ... on MediaImage {
+      id
+      fileStatus
+      alt
+      image {
+        url
+        width
+        height
+      }
+      fileErrors {
+        code
+        message
+      }
+    }
+  }
+}
