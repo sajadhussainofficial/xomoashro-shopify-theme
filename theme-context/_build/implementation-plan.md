@@ -278,6 +278,14 @@ Not used: Hydrogen (this is a Liquid theme), checkout and customer-account exten
 - From 990px up Horizon scrolls `.page-wrapper`, not the window. Use `position: sticky` and viewport-based observers accordingly. For full-page or element screenshots on desktop, first inject `html,body,.page-wrapper{height:auto!important;overflow:visible!important}`.
 - Horizon's `base.css` styles `input` by element name. Field styles must include the element (`:is(input, textarea, select).xo-field__control`) to take effect.
 - Create a section file before the template that uses it; the live preview uploads files as they are saved and rejects a template that names a missing section.
+- After changing many files at once, do not rely on the live preview to upload them all: on 2026-10-07 it skipped one changed section. Push the changed files to the development theme directly (`shopify theme push --theme <development theme id> --only <file> --nodelete`) before checking the page.
+
+### Pictures
+
+- Content pictures live in the store's Files, never in `assets/`. `tools/upload-files.mjs` uploads everything listed in `images-generated/manifest.json` with its alt text and replaces a file of the same name, so a better version of a picture can be swapped in without touching the theme. Settings refer to a picture as `shopify://shop_images/<file name>`.
+- `tools/compose-homepage-images.mjs` restages the real photographs locally. `tools/generate-images.mjs` makes pictures with OpenAI from a jobs file and switches between the keys in `.env` when one is refused. Never print or commit the keys; `.env` is git-ignored.
+- Never redraw the bottle's label by hand or accept a generated picture in which the logo or lettering has changed. Check each generated picture against the real bottle before uploading.
+- Check what an old-site picture actually shows before using it: two files named as shilajit were stock photos of caviar and of a jelly dessert.
 
 ### Liquid
 
