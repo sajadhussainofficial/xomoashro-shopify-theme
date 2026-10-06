@@ -28,6 +28,7 @@ One row per question for the store owner. The runner reads this file before ever
 | B22 | Wording written for the new homepage with no source in the old site: results timeline, four purity checks, comparison table rows, three how-to-use steps, the answers on cash on delivery and the guarantee, the hero text and the three source-story facts. Approve, or send corrections? | Results timeline stays switched off; the others stay visible with a "Draft reminder" note in the Theme Editor. All are re-checked in P24. | P07, P24 | open | | |
 | B23 | Both OpenAI keys in `.env` are refused with "no credits remaining". Add credit to one of the accounts so the real bottle can be restaged in different settings (six homepage pictures, roughly 2 to 4 US dollars in total at high quality)? | The locally restaged pictures stay. | P07, P08 | open | | |
 | B24 | The Journal section on the homepage is hidden because the store has no blog posts. Import posts now? Two are ready as they are (`what-is-shilajit`, `what-is-shilajit-types-and-benefits`); the other eight need the health-content review in `content-fixes.md` part 6 first. | Posts are imported in P12 after the review; the section stays hidden until then. | P07, P11, P12 | open | | |
+| B25 | Which hero design: 1 Studio (current layout, bottle free on the page), 2 Obsidian (dark, full width), or 3 Summit (centred, bottle in front of mountains)? Review file: `previews/hero-concepts/hero-concepts.html` (temporary, not in git). | The current hero stays until one is chosen. | P07 | open | | |
 
 ## Decisions already made
 
@@ -43,6 +44,8 @@ One row per question for the store owner. The runner reads this file before ever
 | 2026-10-06 | Typeface is Manrope for headings and body (owner's request during P02), replacing Fraunces and Inter. |
 | 2026-10-06 | For P02 the owner asked for commit, push, pull request and merge into `main` on completion, without a separate approval stop. |
 | 2026-10-06 | That instruction now applies to every phase: once a phase is fully satisfactory (all checks pass), commit, push, open a pull request and merge into `main`. |
+| 2026-10-07 | Colour rule from the owner, replacing the wider use of orange agreed under B19: obsidian black (`#0B0B0D`) is the second colour; orange (`#FF6B31`) is used only on main buttons and a few important elements (the featured size card, the cart count). Headings no longer have an orange word; the emphasised part is full black and the rest a little lighter. |
+| 2026-10-07 | Pictures: the owner wants the real bottle shown without a box behind it, and the final hero pictures generated with OpenAI image model 2 (`gpt-image-2`). Both keys in `.env` were refused again with "no credits remaining" (text and picture requests), so stand-in pictures cut from the real bottle photograph are used in the review file. |
 
 ## New questions
 
