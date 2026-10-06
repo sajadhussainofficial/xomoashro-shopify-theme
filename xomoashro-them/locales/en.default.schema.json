@@ -76,6 +76,7 @@
       "accent": "Accent"
     },
     "info": {
+      "cta_label": "Keep it to one short word so the logo has room on phones.",
       "header_logo": "The logo image and its height are set in Theme settings > Logo and favicon. Without an image, the built-in Xomoashro logo is used.",
       "show_account": "Needs customer accounts to be turned on in the store.",
       "cta_desktop": "On phones and tablets the button always shows. On desktop the menu already has room for the same link.",
