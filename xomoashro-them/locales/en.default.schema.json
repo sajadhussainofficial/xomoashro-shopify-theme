@@ -168,7 +168,9 @@
       "link_label": "Link text",
       "show_date": "Show date",
       "show_excerpt": "Show summary",
-      "draft": "Draft reminder"
+      "draft": "Draft reminder",
+      "background_image": "Background picture",
+      "overlay": "Darken the picture"
     },
     "options": {
       "small": "Small",
@@ -239,7 +241,9 @@
       "structured_data": "Use on one section per page only.",
       "journal": "Shows the newest posts from the chosen blog. When no blog is chosen, the blog named Journal is used. Hidden on the store while there are no posts.",
       "draft": "This section's wording was written for the new store and has not been confirmed. While this is on, a reminder appears here in the editor only. Shoppers never see it.",
-      "howto_image": "Optional. Without an image the steps are shown side by side."
+      "howto_image": "Optional. Without an image the steps are shown side by side.",
+      "statement_image": "Optional picture behind the text. With a picture the section always uses the dark-section colours so the text stays readable.",
+      "benefits_image": "Optional wide picture shown above the cards."
     }
   },
   "categories": {

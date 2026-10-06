@@ -43,7 +43,7 @@
                   <figcaption class="xo-review__person">
                     {%- if block.settings.image != blank -%}
                       <span class="xo-review__avatar">
-                        {%- render 'xo-image', image: block.settings.image, sizes: '48px', widths: '48, 96, 144', max_width: 144, alt: '' -%}
+                        {%- render 'xo-image', image: block.settings.image, sizes: '48px', widths: '48, 96, 144', max_width: 144, decorative: true -%}
                       </span>
                     {%- else -%}
                       <span

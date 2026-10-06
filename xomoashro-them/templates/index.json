@@ -38,7 +38,9 @@
         "button_label": "Shop Shilajit",
         "button_link": "/collections/all",
         "secondary_button_label": "How to use",
-        "secondary_button_link": "#how-to-use"
+        "secondary_button_link": "#how-to-use",
+        "image": "shopify://shop_images/xomoashro-pure-himalayan-shilajit-resin-jar.webp",
+        "image_mobile": "shopify://shop_images/xomoashro-pure-himalayan-shilajit-resin-jar-square.webp"
       }
     },
     "trust": {
@@ -95,7 +97,9 @@
         "heading": "We found that most shilajit on the market was <em>fake or diluted</em>",
         "text": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>",
         "button_label": "Our source",
-        "button_link": "/pages/our-source"
+        "overlay": 55,
+        "button_link": "/pages/our-source",
+        "image": "shopify://shop_images/xomoashro-himalayan-peaks-dark-sky.webp"
       }
     },
     "bundles": {
@@ -176,7 +180,8 @@
         "eyebrow": "About our product",
         "heading": "An ancient remedy for <em>everyday</em> well-being",
         "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
-        "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease."
+        "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-with-raw-resin.webp"
       }
     },
     "stats": {
@@ -381,7 +386,8 @@
         "text": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>",
         "button_label": "Read our story",
         "media_first": true,
-        "button_link": "/pages/our-source"
+        "button_link": "/pages/our-source",
+        "image": "shopify://shop_images/xomoashro-himalayan-mountain-range.webp"
       }
     },
     "purity": {
@@ -516,7 +522,8 @@
           "settings": {
             "quote": "<p>I'm delighted with the high-quality shilajit from Xomoashro. Their product has noticeably improved my well-being, and the prompt delivery service adds to the overall positive experience. Xomoashro is my go-to for top-tier shilajit and reliable service.</p>",
             "name": "Abdullah",
-            "role": "Cricketer"
+            "role": "Cricketer",
+            "image": "shopify://shop_images/xomoashro-customer-abdullah.webp"
           }
         },
         "review_2": {
@@ -532,7 +539,8 @@
           "settings": {
             "quote": "<p>Xomoashro's shilajit is a game-changer! The quality is outstanding, and their fast delivery makes it a hassle-free experience. Highly recommend for anyone looking for a reliable and effective supplement.</p>",
             "name": "Taimoor Khan",
-            "role": "Professional international boxer"
+            "role": "Professional international boxer",
+            "image": "shopify://shop_images/xomoashro-customer-taimoor-khan.webp"
           }
         }
       },

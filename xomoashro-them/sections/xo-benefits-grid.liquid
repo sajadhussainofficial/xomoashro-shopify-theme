@@ -7,6 +7,15 @@
     <div class="xo-container">
       {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
 
+      {%- if s.image != blank -%}
+        <div
+          class="xo-media xo-benefits__media"
+          data-xo-reveal
+        >
+          {%- render 'xo-image', image: s.image, sizes: '(min-width: 1280px) 1200px, 100vw' -%}
+        </div>
+      {%- endif -%}
+
       <ul
         class="xo-grid xo-benefits__list"
         role="list"
@@ -44,6 +53,17 @@
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .xo-benefits__media {
+    aspect-ratio: 4 / 3;
+    margin-block-end: var(--xo-space-5);
+  }
+
+  @media (min-width: 750px) {
+    .xo-benefits__media {
+      aspect-ratio: 3 / 1;
+    }
   }
 {% endstylesheet %}
 
@@ -83,6 +103,7 @@
       "label": "t:xo.labels.lead",
       "default": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>"
     },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.benefits_image" },
     {
       "type": "text",
       "id": "footnote",
