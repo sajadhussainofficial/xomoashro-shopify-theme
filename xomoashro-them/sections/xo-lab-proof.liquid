@@ -1,0 +1,279 @@
+{%- liquid
+  assign s = section.settings
+  assign report = s.report
+  if report == blank
+    assign newest = 0
+    for entry in metaobjects.lab_report.values
+      assign stamp = entry.test_date.value | date: '%s' | plus: 0
+      if stamp >= newest
+        assign newest = stamp
+        assign report = entry
+      endif
+    endfor
+  endif
+
+  assign report_url = ''
+  if report != blank
+    assign report_file = report.report_file.value
+    if report_file.media_type == 'image'
+      assign report_url = report_file | image_url: width: 2400
+    elsif report_file.url != blank
+      assign report_url = report_file.url
+    endif
+  endif
+-%}
+
+{%- if report != blank -%}
+  <div
+    class="xo-lab xo-section xo-tone-{{ s.tone }}"
+    {% if s.anchor != blank %}
+      id="{{ s.anchor | handleize }}"
+      data-xo-anchor
+    {% endif %}
+  >
+    <div class="xo-container xo-split">
+      <div class="xo-lab__copy">
+        {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+        <div class="xo-lab__actions">
+          {%- if report_url != blank -%}
+            {%- render 'xo-button', label: s.button_label, url: report_url, icon: 'arrow-right', attributes: 'target="_blank" rel="noopener"' -%}
+          {%- endif -%}
+          {%- if s.page_link != blank -%}
+            {%- render 'xo-button', label: s.page_label, url: s.page_link, style: 'secondary' -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div
+        class="xo-card xo-lab__card"
+        data-xo-reveal
+      >
+        <dl class="xo-lab__facts">
+          {%- if report.batch.value != blank -%}
+            <div>
+              <dt>{{ 'xo.lab.batch' | t }}</dt>
+              <dd>{{ report.batch.value | escape }}</dd>
+            </div>
+          {%- endif -%}
+          {%- if report.test_date.value != blank -%}
+            <div>
+              <dt>{{ 'xo.lab.tested_on' | t }}</dt>
+              <dd>
+                <time datetime="{{ report.test_date.value | date: '%Y-%m-%d' }}">
+                  {{- report.test_date.value | date: '%-d %B %Y' -}}
+                </time>
+              </dd>
+            </div>
+          {%- endif -%}
+          {%- if report.lab.value != blank -%}
+            <div>
+              <dt>{{ 'xo.lab.lab' | t }}</dt>
+              <dd>{{ report.lab.value | escape }}</dd>
+            </div>
+          {%- endif -%}
+          {%- if report.fulvic_percent.value != blank -%}
+            <div class="xo-lab__fulvic">
+              <dt>{{ 'xo.lab.fulvic' | t }}</dt>
+              <dd class="xo-stat">{{ report.fulvic_percent.value }}%</dd>
+            </div>
+          {%- endif -%}
+        </dl>
+
+        {%- liquid
+          assign has_metals = false
+          if report.lead_ppm.value != blank or report.arsenic_ppm.value != blank or report.mercury_ppm.value != blank or report.cadmium_ppm.value != blank
+            assign has_metals = true
+          endif
+        -%}
+        {%- if s.show_metals and has_metals -%}
+          <table class="xo-lab__table">
+            <caption>
+              {{ 'xo.lab.metals' | t }}
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">{{ 'xo.lab.metal' | t }}</th>
+                <th scope="col">{{ 'xo.lab.result' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- if report.lead_ppm.value != blank -%}
+                <tr>
+                  <th scope="row">{{ 'xo.lab.lead' | t }}</th>
+                  <td>{{ report.lead_ppm.value }}</td>
+                </tr>
+              {%- endif -%}
+              {%- if report.arsenic_ppm.value != blank -%}
+                <tr>
+                  <th scope="row">{{ 'xo.lab.arsenic' | t }}</th>
+                  <td>{{ report.arsenic_ppm.value }}</td>
+                </tr>
+              {%- endif -%}
+              {%- if report.mercury_ppm.value != blank -%}
+                <tr>
+                  <th scope="row">{{ 'xo.lab.mercury' | t }}</th>
+                  <td>{{ report.mercury_ppm.value }}</td>
+                </tr>
+              {%- endif -%}
+              {%- if report.cadmium_ppm.value != blank -%}
+                <tr>
+                  <th scope="row">{{ 'xo.lab.cadmium' | t }}</th>
+                  <td>{{ report.cadmium_ppm.value }}</td>
+                </tr>
+              {%- endif -%}
+            </tbody>
+          </table>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- elsif request.design_mode -%}
+  <div class="xo-section xo-section--tight xo-tone-{{ s.tone }}">
+    <div class="xo-container">
+      <p class="xo-editor-note">{{ 'xo.lab.empty' | t }}</p>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-lab__copy .xo-heading {
+    margin-block-end: var(--xo-space-5);
+  }
+
+  .xo-lab__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-lab__card {
+    gap: var(--xo-space-5);
+  }
+
+  .xo-lab__facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--xo-space-5);
+    margin: 0;
+  }
+
+  .xo-lab__facts dt,
+  .xo-lab__table caption,
+  .xo-lab__table thead th {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .xo-lab__facts dd {
+    margin: var(--xo-space-1) 0 0;
+    color: var(--xo-fg);
+    font-weight: 600;
+  }
+
+  .xo-lab__fulvic {
+    grid-column: 1 / -1;
+    padding-block-start: var(--xo-space-5);
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-lab__fulvic dd {
+    color: var(--xo-highlight);
+  }
+
+  .xo-lab__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--xo-text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-lab__table caption {
+    padding-block-end: var(--xo-space-2);
+    text-align: start;
+  }
+
+  .xo-lab__table :is(th, td) {
+    padding-block: var(--xo-space-3);
+    border-block-start: 1px solid var(--xo-line);
+    text-align: start;
+  }
+
+  .xo-lab__table tbody th {
+    font-weight: 500;
+  }
+
+  .xo-lab__table :is(th, td):last-child {
+    text-align: end;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.lab_proof",
+  "tag": "section",
+  "class": "xo-lab-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.lab_proof" },
+    {
+      "type": "metaobject",
+      "id": "report",
+      "label": "t:xo.labels.lab_report",
+      "info": "t:xo.info.lab_report",
+      "metaobject_type": "lab_report"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "surface"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Lab tested" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "See the <em>report</em> for yourself"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>These are the lab results for the batch on sale now. Open the full report to see every figure.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:xo.labels.button_label",
+      "default": "View the lab report"
+    },
+    {
+      "type": "text",
+      "id": "page_label",
+      "label": "t:xo.labels.secondary_button_label",
+      "default": "All lab reports"
+    },
+    { "type": "url", "id": "page_link", "label": "t:xo.labels.secondary_button_link" },
+    { "type": "checkbox", "id": "show_metals", "label": "t:xo.labels.show_metals", "default": true },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.lab_proof",
+      "settings": { "page_link": "/pages/lab-reports" }
+    }
+  ]
+}
+{% endschema %}

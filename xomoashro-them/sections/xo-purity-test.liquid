@@ -1,0 +1,157 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <div class="xo-purity xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container">
+      {%- if s.draft and request.design_mode -%}
+        <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
+      {%- endif -%}
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+
+      <ol
+        class="xo-grid xo-purity__list"
+        role="list"
+        style="--xo-cols-md: 2; --xo-cols-lg: 4;"
+      >
+        {%- for block in section.blocks -%}
+          <li
+            class="xo-card xo-feature"
+            data-xo-reveal
+            style="--xo-reveal-order: {{ forloop.index0 }};"
+            {{ block.shopify_attributes }}
+          >
+            <span
+              class="xo-number"
+              aria-hidden="true"
+            >
+              {{- forloop.index -}}
+            </span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+
+      {%- if s.footnote != blank -%}
+        <p class="xo-footnote">{{ s.footnote | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-purity__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.purity_test",
+  "tag": "section",
+  "class": "xo-purity-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "draft",
+      "label": "t:xo.labels.draft",
+      "info": "t:xo.info.draft",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "surface"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Check it yourself" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Four ways to check shilajit <em>at home</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Simple checks people commonly use to tell real resin from imitations.</p>"
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "t:xo.labels.footnote",
+      "default": "These checks are a guide only. They do not replace a lab report."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "test",
+      "name": "t:xo.names.test",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "It dissolves fully" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "default": "<p>Real resin dissolves in warm water or milk without gritty residue.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.purity_test",
+      "blocks": [
+        {
+          "type": "test",
+          "settings": {
+            "title": "It dissolves fully",
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>"
+          }
+        },
+        {
+          "type": "test",
+          "settings": {
+            "title": "It softens with warmth",
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>"
+          }
+        },
+        {
+          "type": "test",
+          "settings": {
+            "title": "It is dark and glossy",
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>"
+          }
+        },
+        {
+          "type": "test",
+          "settings": {
+            "title": "It smells earthy",
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
