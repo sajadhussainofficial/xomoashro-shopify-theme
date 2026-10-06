@@ -1,0 +1,42 @@
+{
+  "model": "gpt-image-2",
+  "quality": "high",
+  "jobs": [
+    {
+      "id": "hero-studio",
+      "size": "1536x1024",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic high-end studio product photograph for a skincare-grade wellness brand. The exact jar from the reference images stands slightly right of centre on a seamless, perfectly even, warm bone-white studio floor and backdrop, colour #F5F1EA, with no visible horizon line, no gradient band, no frame, no box and no panel behind it. The jar: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo on the left of the label, the white lowercase serif wordmark 'xomoashro' beside it and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Three pieces of glossy black raw shilajit resin sit beside the jar, two on the right and one behind on the left. Soft daylight from the upper left, a gentle natural contact shadow falling to the right, crisp label, fine texture on the matte glass. Three-quarter view from slightly above. The outer edges of the picture are plain backdrop colour only, so the picture can blend into a web page of the same colour. No leaves, no people, no hands, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-hero-studio", "width": 1536, "height": 1024, "quality": 84 }
+      ]
+    },
+    {
+      "id": "hero-obsidian",
+      "size": "1536x1024",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic dark, cinematic luxury product photograph, wide format. The exact jar from the reference images stands in the right third of the frame on a slab of wet, polished black obsidian rock: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo on the left of the label, the white lowercase serif wordmark 'xomoashro' beside it and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. One warm, low light from behind on the right draws a thin copper rim along the lid and shoulder of the jar and catches the edges of the rock; a soft cool fill keeps the label readable. A clear mirror reflection of the jar in the wet stone, a few fragments of glossy black raw shilajit resin beside it, faint low mist drifting across the stone. The whole left half of the frame is empty, deep, even black, colour #0B0B0D, with no objects and no light, for a headline to be placed there. Low-key lighting, rich blacks, no colour cast. No leaves, no people, no hands, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-hero-obsidian", "width": 1536, "height": 1024, "quality": 84 }
+      ]
+    },
+    {
+      "id": "hero-summit",
+      "size": "1536x1024",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic outdoor product photograph, wide format, taken at first light in the high Himalaya. The exact jar from the reference images stands in the lower centre of the frame on a flat ledge of rough grey mountain rock: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo on the left of the label, the white lowercase serif wordmark 'xomoashro' beside it and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Behind the jar, slightly out of focus, a range of jagged snow-covered peaks with low cloud in the valleys, the highest summits just touched by pale sunrise light. The jar and the mountains share the same cool dawn light, with a soft highlight on the lid. The upper half of the frame is calm, pale sky with no clouds, for a headline to be placed there. Natural colours: slate grey rock, white snow, pale cream sky. Shot on a 50mm lens from low down, sharp jar, gentle depth of field. A few fragments of glossy black raw shilajit resin on the rock beside the jar. No leaves, no people, no hands, no animals, no buildings, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-hero-summit", "width": 1536, "height": 1024, "quality": 84 }
+      ]
+    }
+  ]
+}

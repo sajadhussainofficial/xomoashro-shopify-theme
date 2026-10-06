@@ -14,3 +14,6 @@ theme-context/competitors/**/*.jpeg
 
 # Full-size masters of generated pictures (the WebP files beside them are committed)
 theme-context/_build/images-generated/masters/
+
+# Temporary design review files (not part of the theme)
+theme-context/_build/previews/
