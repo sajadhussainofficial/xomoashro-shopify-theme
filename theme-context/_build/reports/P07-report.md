@@ -10,13 +10,15 @@ Three sections show nothing on the store yet, by design, because the data they r
 
 **Update, same day, after your feedback on pictures:** the homepage now shows real pictures. Seven were uploaded to the store's Files and set on the hero, statement, benefits, source story and two testimonials. They are the real bottle and mountain photographs from the old site, restaged on this computer. The restaging by OpenAI that you asked for did not run: both keys in `.env` are refused with "no credits remaining".
 
+**Second update, same day: new hero and colours.** You chose concept 2, "Obsidian", from three designs, with your own picture (`wordpress-site/assets/salajit.png`). The hero is now dark and full width: the picture fills the section and fades to black behind the text, and the four key numbers run along its bottom. Obsidian black (`#0B0B0D`) is now the second colour and orange is kept for main buttons; headings no longer have an orange word. The header and the announcement bar are dark on every page.
+
 ## 2. Files created and changed
 
 Theme (`xomoashro-them/`):
 
 | File | What it is |
 |---|---|
-| `sections/xo-hero-proof.liquid` | Hero: label, the page's one H1, text, two buttons, proof points, a slot for a reviews-app rating, separate images for computers and phones |
+| `sections/xo-hero-proof.liquid` | Hero, rebuilt as the approved "Obsidian" design: dark, full width, the page's one H1, text, main button and text link, up to four numbers (blocks), a slot for a reviews-app rating, separate pictures for computers and for phones and tablets |
 | `sections/xo-trust-strip.liquid` | Row of short trust points with icons |
 | `sections/xo-problem.liquid` | Large statement on a dark band |
 | `sections/xo-course-bundles.liquid` | One card for each size of a chosen product: price, days of supply, price per gram, saving, "best for" line, badge, add to cart |
@@ -79,7 +81,7 @@ Deviations from the phase file:
 | Reviews | `home.md` | Three testimonials, wording unchanged apart from the brand spelling. No star ratings, no photos, no "5,000+" line |
 | Questions | `home.md`, `content-fixes.md` part 4 | Four rewritten answers; "Still have questions?" became the contact box |
 | Partner links | `pages/become-distributor.md`, `become-brand-ambassadar.md` | One line each, spelling corrected |
-| Hero picture | `assets/images/xomoashro_pure_Himaliyan_shilajit.png` (the real bottle with resin and leaves, cut out) | Placed on a warm backdrop with an orange sun and a soft shadow. The bottle itself is not redrawn. A square version is used on phones |
+| Hero picture | `assets/salajit.png`, supplied by you (the bottle on a rock in front of the mountains at sunset) | Converted to WebP, not altered. A closer crop is used on phones and tablets |
 | Benefits picture | `assets/images/product_shot-1.png` (studio photograph) | Cropped wide and warmed to the page colour. Not enlarged |
 | Statement background | `assets/images/Rectangle-39358.jpg` (mountain range, dark) | Unchanged, darkened by the section |
 | Source story picture | `assets/images/Rectangle-145.jpg` (mountain range) | Made tall by continuing its plain sky upward and its dark ridge downward |
@@ -131,7 +133,11 @@ Other items:
 
 - **Links to pages that do not exist yet** return "page not found" until P10: `/pages/our-source`, `/pages/how-to-use`, `/pages/wholesale`, `/pages/ambassador`, `/pages/affiliate`.
 - **OpenAI keys:** both keys in `.env` answer "You have no credits remaining" for every picture model (tested 2026-10-07 with four models). Once one account has credit, `node theme-context/_build/tools/generate-images.mjs theme-context/_build/tools/image-jobs-homepage.json` makes six pictures of the real bottle in different settings (decision B23).
-- **Picture sharpness:** the only real bottle photographs are about 340px wide across the bottle, so the hero is slightly soft on sharp screens. This is what the OpenAI step, or a new photograph, would fix.
+- **Picture sharpness:** your hero picture is 1586px wide, so on screens wider than about 1600px it is shown slightly enlarged. A 2400px version would be sharper there.
+- **Numbers band:** the separate numbers section is switched off on the homepage because the hero now shows the same four numbers. It is still available under "Add section".
+- **Trust strip:** now shows the points the hero does not: cash on delivery, delivery across Pakistan, direct from local collectors, help on WhatsApp.
+- **Unused pictures in the store's Files:** the two first-design hero pictures (`xomoashro-pure-himalayan-shilajit-resin-jar*.webp`) are no longer used. They can be deleted from Content > Files; I have not deleted them.
+- **Hero concepts review file** (`previews/hero-concepts/`) is temporary and git-ignored.
 - **Two old-site pictures are not shilajit** and are not used: `Purified-Shilajit.png` is a stock photo of black caviar, and `Group-1000001394-min.png` is a stock photo of a jelly dessert. `image-manifest.csv` is corrected.
 - **Mountain photograph:** its source and usage rights are unknown (`image-manifest.csv`). It is used on two sections for now.
 - **How to use and purity checks have no picture:** no real photograph exists for them.
