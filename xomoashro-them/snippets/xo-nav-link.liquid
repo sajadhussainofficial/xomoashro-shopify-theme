@@ -1,0 +1,24 @@
+{% doc %}
+  Renders one navigation link from a menu. The current page is marked with
+  `aria-current="page"`; a link whose child page is open is marked `data-active`.
+
+  @param {object} link - A link from a menu (`linklists[handle].links`)
+  @param {string} [class] - Class names for the anchor
+
+  @example
+  {% render 'xo-nav-link', link: link, class: 'xo-header__nav-link' %}
+{% enddoc %}
+
+<a
+  href="{{ link.url }}"
+  {% if class != blank %}
+    class="{{ class }}"
+  {% endif %}
+  {% if link.current %}
+    aria-current="page"
+  {% elsif link.child_current or link.active %}
+    data-active
+  {% endif %}
+>
+  {{- link.title | escape -}}
+</a>

@@ -1,0 +1,926 @@
+{%- liquid
+  assign menu = section.settings.menu
+  assign tone = section.settings.tone
+
+  capture whatsapp_url
+    render 'xo-shop-facts', fact: 'whatsapp_url', message: section.settings.whatsapp_message
+  endcapture
+
+  assign show_cta = false
+  if section.settings.cta_label != blank and section.settings.cta_link != blank
+    assign show_cta = true
+  endif
+
+  assign logo_image = settings.logo
+  if tone == 'ink' and settings.logo_inverse != blank
+    assign logo_image = settings.logo_inverse
+  endif
+-%}
+
+{%- capture logo -%}
+  {%- if logo_image != blank -%}
+    {%- liquid
+      assign logo_width = settings.logo_height | times: logo_image.aspect_ratio | times: 2 | ceil
+      echo logo_image | image_url: width: logo_width | image_tag: alt: shop.name, class: 'xo-header__logo-image xo-header__logo-image--custom', loading: 'eager', sizes: '200px'
+    -%}
+  {%- else -%}
+    {%- liquid
+      assign logo_file = 'xo-logo.svg'
+      if tone == 'ink'
+        assign logo_file = 'xo-logo-inverse.svg'
+      endif
+    -%}
+    <img
+      class="xo-header__logo-image"
+      src="{{ logo_file | asset_url }}"
+      alt="{{ shop.name | escape }}"
+      width="315"
+      height="48"
+      loading="eager"
+    >
+  {%- endif -%}
+{%- endcapture -%}
+
+<header-component
+  id="header-component"
+  class="xo-header xo-tone-{{ tone }}"
+  data-scroll-direction="none"
+  data-skip-node-update
+  {% if section.settings.sticky %}
+    sticky="always"
+  {% endif %}
+  style="--xo-logo-height-custom: {{ settings.logo_height }}px; --xo-logo-height-custom-mobile: {{ settings.logo_height_mobile }}px;"
+>
+  <div
+    class="xo-header__bar xo-container"
+    ref="headerRowTop"
+  >
+    <div
+      class="xo-header__start"
+      ref="headerDrawerContainer"
+    >
+      <button
+        type="button"
+        class="xo-header__icon-btn"
+        on:click="#xo-nav-drawer/showDialog"
+        aria-haspopup="dialog"
+        aria-controls="xo-nav-drawer-dialog"
+        aria-expanded="false"
+        aria-label="{{ 'xo.header.menu' | t }}"
+      >
+        {%- render 'xo-icon', name: 'menu', size: 24 -%}
+      </button>
+    </div>
+
+    <a
+      class="xo-header__logo"
+      href="{{ routes.root_url }}"
+      {% if request.page_type == 'index' %}
+        aria-current="page"
+      {% endif %}
+    >
+      {{- logo -}}
+    </a>
+
+    <nav
+      class="xo-header__nav"
+      ref="headerMenu"
+      aria-label="{{ 'xo.header.main_navigation' | t }}"
+    >
+      {%- if menu.links.size > 0 -%}
+        <ul
+          class="xo-header__nav-list"
+          role="list"
+        >
+          {%- for link in menu.links -%}
+            <li>
+              {%- if link.links.size > 0 -%}
+                <details
+                  class="xo-header__dropdown"
+                  name="xo-header-dropdown"
+                >
+                  <summary
+                    class="xo-header__nav-link"
+                    {% if link.child_current or link.active %}
+                      data-active
+                    {% endif %}
+                  >
+                    <span>{{ link.title | escape }}</span>
+                    {%- render 'xo-icon', name: 'chevron-down', size: 16 -%}
+                  </summary>
+                  <ul
+                    class="xo-header__dropdown-list"
+                    role="list"
+                  >
+                    <li>
+                      {%- render 'xo-nav-link', link: link, class: 'xo-header__dropdown-link' -%}
+                    </li>
+                    {%- for child_link in link.links -%}
+                      <li>
+                        {%- render 'xo-nav-link', link: child_link, class: 'xo-header__dropdown-link' -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </details>
+              {%- else -%}
+                {%- render 'xo-nav-link', link: link, class: 'xo-header__nav-link' -%}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </nav>
+
+    <div class="xo-header__end">
+      {%- if show_cta -%}
+        {%- liquid
+          assign cta_class = 'xo-btn--sm xo-header__cta'
+          if section.settings.cta_desktop
+            assign cta_class = cta_class | append: ' xo-header__cta--desktop'
+          endif
+          render 'xo-button', label: section.settings.cta_label, url: section.settings.cta_link, class: cta_class
+        -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_search -%}
+        <button
+          type="button"
+          class="xo-header__icon-btn xo-header__search"
+          on:click="#search-modal/showDialog"
+          aria-haspopup="dialog"
+          aria-label="{{ 'content.search_input_label' | t }}"
+        >
+          {%- render 'xo-icon', name: 'search', size: 22 -%}
+        </button>
+      {%- endif -%}
+
+      {%- if section.settings.show_account and shop.customer_accounts_enabled -%}
+        <a
+          class="xo-header__icon-btn xo-header__account"
+          href="{{ routes.account_url }}"
+          aria-label="{{ 'content.account_title' | t }}"
+        >
+          {%- render 'xo-icon', name: 'user', size: 22 -%}
+        </a>
+      {%- endif -%}
+
+      <header-actions class="xo-header__actions">
+        {%- capture cart_icon -%}
+          <cart-icon class="xo-header__cart{% unless cart == empty %} header-actions__cart-icon--has-cart{% endunless %}">
+            {%- render 'xo-icon', name: 'bag', size: 22 -%}
+            {%- render 'cart-bubble', limit: 100 -%}
+          </cart-icon>
+        {%- endcapture -%}
+
+        {%- if settings.cart_type == 'drawer' and template.name != 'cart' -%}
+          <button
+            type="button"
+            class="xo-header__icon-btn"
+            on:click="#cart-drawer/toggle"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="cart-drawer"
+            aria-label="{{ 'accessibility.cart' | t }}"
+            aria-describedby="cart-bubble-text"
+          >
+            {{- cart_icon -}}
+          </button>
+        {%- else -%}
+          <a
+            class="xo-header__icon-btn"
+            href="{{ routes.cart_url }}"
+            aria-label="{{ 'accessibility.cart' | t }}"
+            aria-describedby="cart-bubble-text"
+          >
+            {{- cart_icon -}}
+          </a>
+        {%- endif -%}
+
+        <span
+          ref="liveRegion"
+          class="xo-visually-hidden"
+          role="status"
+        ></span>
+      </header-actions>
+    </div>
+  </div>
+</header-component>
+
+{%- render 'xo-header-drawer', section: section, menu: menu, tone: tone, logo: logo, whatsapp_url: whatsapp_url -%}
+
+<script
+  src="{{ 'header.js' | asset_url }}"
+  type="module"
+></script>
+<script
+  src="{{ 'cart-icon.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'header-actions.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'xo-header.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% stylesheet %}
+  /* Header heights are fixed so nothing below shifts while the page loads.
+     header.js keeps --header-height exact after load. */
+  :root {
+    --xo-header-height: 3.75rem;
+    --header-height: 3.75rem;
+  }
+
+  @media (min-width: 990px) {
+    :root {
+      --xo-header-height: 4.5rem;
+      --header-height: 4.5rem;
+    }
+  }
+
+  /* Let the sticky header travel the whole page, not just its section group. */
+  #header-group:has(.xo-header[sticky]) {
+    display: contents;
+  }
+
+  .xo-header-section {
+    position: relative;
+    z-index: var(--layer-menu-drawer);
+  }
+
+  .xo-header-section:has(> .xo-header[sticky]) {
+    position: sticky;
+
+    /* -1px lets header.js detect the stuck state with an intersection observer. */
+    inset-block-start: -1px;
+  }
+
+  .xo-header {
+    display: block;
+    border-block-end: 1px solid transparent;
+    transition: border-color var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-header[data-sticky-state='active'] {
+    border-block-end-color: var(--xo-line);
+  }
+
+  .xo-header__bar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--xo-space-2);
+    min-block-size: var(--xo-header-height);
+  }
+
+  .xo-header__start,
+  .xo-header__end {
+    display: flex;
+    align-items: center;
+  }
+
+  .xo-header__start {
+    margin-inline-start: calc(var(--xo-space-2) * -1);
+  }
+
+  .xo-header__end {
+    justify-content: flex-end;
+    gap: var(--xo-space-1);
+    margin-inline-end: calc(var(--xo-space-2) * -1);
+  }
+
+  .xo-header__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .xo-header__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-block-size: var(--xo-tap-target);
+    color: inherit;
+  }
+
+  .xo-header__logo-image {
+    display: block;
+    inline-size: auto;
+    block-size: 1.375rem;
+    max-inline-size: 100%;
+  }
+
+  .xo-header__logo-image--custom {
+    block-size: var(--xo-logo-height-custom-mobile);
+    object-fit: contain;
+  }
+
+  .xo-header__nav {
+    display: none;
+  }
+
+  .xo-header__icon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--xo-tap-target);
+    block-size: var(--xo-tap-target);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--xo-fg);
+    cursor: pointer;
+    transition: background-color var(--xo-duration) var(--xo-ease);
+  }
+
+  @media (hover: hover) {
+    .xo-header__icon-btn:hover {
+      background: color-mix(in srgb, var(--xo-fg) 8%, transparent);
+    }
+  }
+
+  .xo-header__cta {
+    margin-inline-end: var(--xo-space-1);
+  }
+
+  /* On very narrow phones the bar keeps menu, logo and cart; the shop link stays in the drawer. */
+  @media (max-width: 349px) {
+    .xo-header__cta {
+      display: none;
+    }
+  }
+
+  .xo-header__search,
+  .xo-header__account {
+    display: none;
+  }
+
+  @media (min-width: 750px) {
+    .xo-header__search,
+    .xo-header__account {
+      display: inline-flex;
+    }
+
+    .xo-header__logo-image {
+      block-size: 1.625rem;
+    }
+
+    .xo-header__logo-image--custom {
+      block-size: var(--xo-logo-height-custom);
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-header__bar {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      column-gap: var(--xo-space-5);
+    }
+
+    .xo-header__start {
+      display: none;
+    }
+
+    .xo-header__nav {
+      display: block;
+    }
+
+    .xo-header__cta:not(.xo-header__cta--desktop) {
+      display: none;
+    }
+
+    .xo-header__logo-image {
+      block-size: 1.75rem;
+    }
+  }
+
+  /* Cart count */
+
+  .xo-header__cart {
+    --cart-bubble-background: var(--xo-accent);
+    --cart-bubble-text: var(--xo-on-accent);
+
+    position: relative;
+    display: inline-flex;
+  }
+
+  .xo-tone-accent .xo-header__cart {
+    --cart-bubble-background: var(--xo-ink);
+    --cart-bubble-text: var(--xo-on-ink);
+  }
+
+  .xo-header__cart .cart-bubble {
+    position: absolute;
+    inset-block-start: -0.5rem;
+    inset-inline-end: -0.625rem;
+    inline-size: 1.125rem;
+  }
+
+  .xo-header__cart .cart-bubble__text {
+    font-family: var(--xo-font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+
+  /* Desktop navigation */
+
+  .xo-header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-header__nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-1);
+    min-block-size: var(--xo-tap-target);
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .xo-header__nav-link::-webkit-details-marker {
+    display: none;
+  }
+
+  .xo-header__nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0.5rem;
+    block-size: 2px;
+    background: var(--xo-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-header__nav-link:dir(rtl)::after {
+    transform-origin: right center;
+  }
+
+  .xo-header__nav-link[aria-current='page']::after,
+  .xo-header__nav-link[data-active]::after,
+  .xo-header__dropdown[open] > .xo-header__nav-link::after {
+    transform: scaleX(1);
+  }
+
+  @media (hover: hover) {
+    .xo-header__nav-link:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .xo-header__dropdown {
+    position: relative;
+  }
+
+  .xo-header__dropdown .xo-icon {
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-header__dropdown[open] .xo-icon {
+    transform: rotate(180deg);
+  }
+
+  .xo-header__dropdown-list {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: calc(var(--xo-space-4) * -1);
+    min-inline-size: 13rem;
+    margin: 0;
+    padding: var(--xo-space-2);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-bg);
+    box-shadow: 0 1rem 2.5rem rgb(14 13 11 / 0.12);
+    list-style: none;
+  }
+
+  .xo-header__dropdown-link {
+    display: flex;
+    align-items: center;
+    min-block-size: var(--xo-tap-target);
+    padding-inline: var(--xo-space-3);
+    border-radius: var(--xo-radius-sm);
+    color: var(--xo-fg);
+    font-size: 0.9375rem;
+    text-decoration: none;
+  }
+
+  .xo-header__dropdown-link[aria-current='page'] {
+    font-weight: 600;
+  }
+
+  @media (hover: hover) {
+    .xo-header__dropdown-link:hover {
+      background: color-mix(in srgb, var(--xo-fg) 6%, transparent);
+    }
+  }
+
+  /* Mobile drawer */
+
+  .xo-drawer {
+    position: fixed;
+    inset-block: 0;
+    inset-inline: 0 auto;
+    flex-direction: column;
+    inline-size: min(88vw, 22.5rem);
+    max-inline-size: none;
+    block-size: 100dvh;
+    max-block-size: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+  }
+
+  .xo-drawer[open] {
+    display: flex;
+  }
+
+  .xo-drawer::backdrop {
+    background: rgb(14 13 11 / 0.5);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .xo-drawer[open] {
+      animation: xo-drawer-in 280ms var(--xo-ease);
+    }
+
+    .xo-drawer[open]::backdrop {
+      animation: xo-backdrop-in 280ms ease-out;
+    }
+
+    .xo-drawer.dialog-closing {
+      animation: xo-drawer-out 200ms ease-in forwards;
+    }
+
+    .xo-drawer.dialog-closing::backdrop {
+      animation: xo-backdrop-out 200ms ease-in forwards;
+    }
+  }
+
+  @keyframes xo-drawer-in {
+    from {
+      translate: -100% 0;
+    }
+  }
+
+  @keyframes xo-drawer-out {
+    to {
+      translate: -100% 0;
+    }
+  }
+
+  .xo-drawer:dir(rtl) {
+    animation-name: xo-drawer-in-rtl;
+  }
+
+  .xo-drawer.dialog-closing:dir(rtl) {
+    animation-name: xo-drawer-out-rtl;
+  }
+
+  @keyframes xo-drawer-in-rtl {
+    from {
+      translate: 100% 0;
+    }
+  }
+
+  @keyframes xo-drawer-out-rtl {
+    to {
+      translate: 100% 0;
+    }
+  }
+
+  @keyframes xo-backdrop-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes xo-backdrop-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  .xo-drawer__top {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: var(--xo-header-height);
+    padding-inline: var(--xo-gutter) calc(var(--xo-gutter) - var(--xo-space-2));
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-drawer__logo {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--xo-tap-target);
+  }
+
+  .xo-drawer__body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--xo-space-2) var(--xo-gutter) var(--xo-space-5);
+  }
+
+  .xo-drawer__nav,
+  .xo-drawer__subnav,
+  .xo-drawer__utility,
+  .xo-drawer__social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-drawer__nav > li {
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-drawer__nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+    min-block-size: 3.5rem;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .xo-drawer__nav-link::-webkit-details-marker {
+    display: none;
+  }
+
+  .xo-drawer__nav-link[aria-current='page'] {
+    color: var(--xo-highlight);
+  }
+
+  .xo-drawer__group .xo-icon {
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-drawer__group[open] .xo-icon {
+    transform: rotate(180deg);
+  }
+
+  .xo-drawer__subnav {
+    padding-block-end: var(--xo-space-3);
+  }
+
+  .xo-drawer__sub-link {
+    display: flex;
+    align-items: center;
+    min-block-size: 3rem;
+    padding-inline-start: var(--xo-space-4);
+    color: var(--xo-muted);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .xo-drawer__sub-link[aria-current='page'] {
+    color: var(--xo-fg);
+    font-weight: 600;
+  }
+
+  .xo-drawer__cta {
+    margin-block: var(--xo-space-5) var(--xo-space-4);
+  }
+
+  .xo-drawer__utility-link {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-3);
+    inline-size: 100%;
+    min-block-size: 3rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .xo-drawer__utility-link .xo-icon {
+    color: var(--xo-muted);
+  }
+
+  .xo-drawer__social {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    gap: var(--xo-space-1);
+    padding: var(--xo-space-3) calc(var(--xo-gutter) - var(--xo-space-2));
+    padding-block-end: calc(var(--xo-space-3) + env(safe-area-inset-bottom, 0px));
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-drawer__social-icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.header",
+  "tag": "header",
+  "class": "xo-header-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:xo.info.header_logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:xo.labels.menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "t:xo.labels.sticky",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "t:xo.labels.show_search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "t:xo.labels.show_account",
+      "info": "t:xo.info.show_account",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:xo.labels.shop_button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "t:xo.labels.button_label",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "t:xo.labels.button_link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_desktop",
+      "label": "t:xo.labels.cta_desktop",
+      "info": "t:xo.info.cta_desktop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:xo.labels.mobile_menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_whatsapp",
+      "label": "t:xo.labels.show_whatsapp",
+      "info": "t:xo.info.show_whatsapp",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_label",
+      "label": "t:xo.labels.whatsapp_label",
+      "default": "Chat on WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "t:xo.labels.whatsapp_message",
+      "default": "Hello Xomoashro, I have a question."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "utility_link",
+      "name": "t:xo.names.utility_link",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:xo.labels.label",
+          "default": "Contact us"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:xo.labels.link"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "truck", "label": "t:xo.options.icon_truck" },
+            { "value": "mail", "label": "t:xo.options.icon_mail" },
+            { "value": "phone", "label": "t:xo.options.icon_phone" },
+            { "value": "pin", "label": "t:xo.options.icon_pin" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "arrow-right", "label": "t:xo.options.icon_arrow" }
+          ],
+          "default": "arrow-right"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "t:xo.names.social_link",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:xo.labels.social_url",
+          "info": "t:xo.info.social_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.header",
+      "blocks": [
+        {
+          "type": "utility_link",
+          "settings": {
+            "label": "Track your order",
+            "link": "/pages/track-order",
+            "icon": "truck"
+          }
+        },
+        {
+          "type": "utility_link",
+          "settings": {
+            "label": "Contact us",
+            "link": "/pages/contact",
+            "icon": "mail"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
