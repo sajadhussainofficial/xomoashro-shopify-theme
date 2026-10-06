@@ -9,9 +9,9 @@ The single record of progress. The runner updates this file at the start and end
 | 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P03-report.md) |
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P04-report.md) |
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P05-report.md) |
-| 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P01-report.md) |
+| 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | done | 2026-10-06 | 2026-10-06 | [report](reports/P01-report.md) |
 | 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | not started | | | |
-| 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | not started | | | |
+| 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | awaiting approval | 2026-10-07 | | [report](reports/P07-report.md) |
 | 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | not started | | | |
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | P02, P08 | - | not started | | | |
 | 11 | [P10](phases/P10-content-pages.md) | Content pages | P02, P07, P01 | - | not started | | | |
@@ -58,3 +58,5 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 Owner approved the P01 store writes and the working copy. Working copy created: "Xomoashro (working copy)", theme 158632640684, unpublished, preview https://https-xomoashro-com-fcrv98st.myshopify.com?preview_theme_id=158632640684. B4 and B9 answered "yes" without values; still open.
 - 2026-10-06 P03 and P04 marked done: merged through pull requests #2, #3 and #4.
 - 2026-10-06 Store login completed by the owner. `run_setup.py` created 19 metafield definitions and the `lab_report` metaobject definition and saved four store facts (support email, WhatsApp number, guarantee 7 days, delivery up to 5 days). Read-back confirmed. Working copy theme 158632640684 updated. P01 finished; waiting for the owner to push, open and merge the pull request.
+- 2026-10-07 P01 merged by the owner (pull request #6). P07 started on branch `phase/P07-homepage`, ahead of P06 because the store has no product to test the cart with.
+- 2026-10-07 P07 built: 17 homepage sections and `templates/index.json`. One acceptance check not run (add to cart from the size cards: the store has no product), so the phase is awaiting the owner's approval. New questions B21 (test product) and B22 (draft wording) added.

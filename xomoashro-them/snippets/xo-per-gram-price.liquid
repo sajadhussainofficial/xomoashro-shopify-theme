@@ -1,0 +1,19 @@
+{%- doc -%}
+  Outputs the price per gram of a variant as formatted money, or nothing when the
+  variant has no net weight saved (`variant.metafields.custom.net_weight_g`).
+
+  @param {object} variant - The product variant
+
+  @example
+  {% capture per_gram %}{% render 'xo-per-gram-price', variant: variant %}{% endcapture %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_pg_weight = variant.metafields.custom.net_weight_g.value
+  assign xo_pg_output = ''
+  if xo_pg_weight != blank and xo_pg_weight > 0
+    assign xo_pg_cents = variant.price | divided_by: xo_pg_weight | round
+    assign xo_pg_output = xo_pg_cents | money
+  endif
+-%}
+{{- xo_pg_output -}}

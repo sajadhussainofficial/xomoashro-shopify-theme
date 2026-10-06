@@ -1,0 +1,179 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="xo-source xo-section xo-tone-{{ s.tone }}">
+  <div class="xo-container xo-split{% if s.media_first %} xo-split--media-first{% endif %}">
+    <div class="xo-source__copy">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading -%}
+      {%- if s.text != blank -%}
+        <div class="xo-text xo-muted xo-rte">{{ s.text }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <dl class="xo-source__facts">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.value != blank -%}
+              <div {{ block.shopify_attributes }}>
+                <dt>{{ block.settings.label | escape }}</dt>
+                <dd>{{ block.settings.value | escape }}</dd>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </dl>
+      {%- endif -%}
+
+      {%- if s.button_link != blank -%}
+        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+      {%- endif -%}
+    </div>
+
+    <div
+      class="xo-source__media"
+      data-xo-reveal
+    >
+      {%- if s.image != blank -%}
+        <div class="xo-media xo-source__picture">
+          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 50vw, 100vw' -%}
+        </div>
+      {%- else -%}
+        <div class="xo-art xo-art--night">
+          {{- 'xo-art-mountains.svg' | inline_asset_content -}}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-source__copy {
+    display: grid;
+    gap: var(--xo-space-5);
+    justify-items: start;
+  }
+
+  .xo-source__copy .xo-heading {
+    margin-block-end: 0;
+  }
+
+  .xo-source__facts {
+    display: grid;
+    gap: 0;
+    inline-size: 100%;
+    margin: 0;
+  }
+
+  .xo-source__facts > div {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    padding-block: var(--xo-space-3);
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-source__facts dt {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .xo-source__facts dd {
+    margin: 0;
+    color: var(--xo-fg);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .xo-source__picture {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (min-width: 990px) {
+    .xo-source__picture,
+    .xo-source__media .xo-art {
+      aspect-ratio: 5 / 6;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.source_story",
+  "tag": "section",
+  "class": "xo-source-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Our story" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Born in the <em>Himalayas</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Read our story" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
+    { "type": "checkbox", "id": "media_first", "label": "t:xo.labels.media_first", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "t:xo.names.fact",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Regions" },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "t:xo.labels.value",
+          "default": "Chitral and Gilgit-Baltistan"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.source_story",
+      "settings": { "button_link": "/pages/our-source" },
+      "blocks": [
+        {
+          "type": "fact",
+          "settings": { "label": "Regions", "value": "Chitral and Gilgit-Baltistan" }
+        },
+        {
+          "type": "fact",
+          "settings": { "label": "Altitude", "value": "Above 16,000 ft" }
+        },
+        {
+          "type": "fact",
+          "settings": { "label": "Sourcing", "value": "Direct from local collectors" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

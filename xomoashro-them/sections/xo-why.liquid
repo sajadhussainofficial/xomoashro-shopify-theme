@@ -1,0 +1,156 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <div class="xo-why xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+
+      <ol
+        class="xo-grid xo-why__list"
+        role="list"
+        style="--xo-cols-md: 2; --xo-cols-lg: 3; --xo-grid-gap: var(--xo-space-7) var(--xo-space-6);"
+      >
+        {%- for block in section.blocks -%}
+          <li
+            class="xo-feature xo-why__item"
+            data-xo-reveal
+            style="--xo-reveal-order: {{ forloop.index0 | modulo: 3 }};"
+            {{ block.shopify_attributes }}
+          >
+            <span
+              class="xo-number"
+              aria-hidden="true"
+            >
+              {{- forloop.index | prepend: '0' | slice: -2, 2 -}}
+            </span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-why__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-why__item {
+    padding-block-start: var(--xo-space-5);
+    border-block-start: 1px solid var(--xo-line);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.why",
+  "tag": "section",
+  "class": "xo-why-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "surface"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Why Xomoashro" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Why choose <em>Xomoashro</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "t:xo.names.reason",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "Authentic" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "default": "<p>Directly sourced from trusted Himalayan collectors.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.why",
+      "blocks": [
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Authentic",
+            "text": "<p>Directly sourced from trusted Himalayan collectors and carefully processed for natural purity.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Genuine Himalayan shilajit",
+            "text": "<p>Collected from the pristine regions of Chitral and Gilgit-Baltistan.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "100% pure resin",
+            "text": "<p>No fillers, additives or binders. Just concentrated shilajit resin in its purest form.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Nationwide delivery",
+            "text": "<p>Reliable shipping across Pakistan with tracking support.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Guided support",
+            "text": "<p>Clear instructions, and help from our team on WhatsApp, so you get the most from your shilajit.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Customer promise",
+            "text": "<p>We are committed to resolving concerns quickly. Your trust matters most.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

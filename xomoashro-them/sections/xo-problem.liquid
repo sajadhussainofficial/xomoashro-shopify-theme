@@ -1,0 +1,92 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- if s.heading != blank or s.text != blank -%}
+  <div class="xo-problem xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container xo-problem__inner">
+      {%- if s.eyebrow != blank -%}
+        <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if s.heading != blank -%}
+        <h2 class="xo-h1 xo-problem__heading">{{ s.heading }}</h2>
+      {%- endif -%}
+      {%- if s.text != blank -%}
+        <div class="xo-lead xo-muted xo-rte xo-problem__text">{{ s.text }}</div>
+      {%- endif -%}
+      {%- if s.button_link != blank -%}
+        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-problem__inner {
+    display: grid;
+    gap: var(--xo-space-5);
+    justify-items: start;
+  }
+
+  .xo-problem__heading {
+    max-inline-size: 22ch;
+  }
+
+  .xo-problem__text {
+    max-inline-size: 40rem;
+  }
+
+  @media (min-width: 750px) {
+    .xo-problem__inner {
+      justify-items: center;
+      text-align: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.problem",
+  "tag": "section",
+  "class": "xo-problem-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "ink"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Why we started" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "We found that most shilajit on the market was <em>fake or diluted</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Our source" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.problem",
+      "settings": { "button_link": "/pages/our-source" }
+    }
+  ]
+}
+{% endschema %}

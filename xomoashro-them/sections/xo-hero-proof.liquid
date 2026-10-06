@@ -1,0 +1,275 @@
+{%- liquid
+  assign s = section.settings
+  assign chips = section.blocks | where: 'type', 'chip'
+  assign preload_image = true
+  if s.image_mobile != blank
+    assign preload_image = false
+  endif
+-%}
+
+<div class="xo-hero xo-tone-{{ s.tone }}">
+  <div class="xo-container xo-hero__inner">
+    <div class="xo-hero__copy">
+      {%- if s.eyebrow != blank -%}
+        <p class="xo-eyebrow xo-eyebrow--pill">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if s.heading != blank -%}
+        <h1 class="xo-h1 xo-hero__heading">{{ s.heading }}</h1>
+      {%- endif -%}
+      {%- if s.text != blank -%}
+        <div class="xo-lead xo-muted xo-rte xo-hero__text">{{ s.text }}</div>
+      {%- endif -%}
+
+      {%- capture actions -%}
+        {%- if s.button_link != blank -%}
+          {%- render 'xo-button', label: s.button_label, url: s.button_link, icon: 'arrow-right' -%}
+        {%- endif -%}
+        {%- if s.secondary_button_link != blank -%}
+          {%- render 'xo-button', label: s.secondary_button_label, url: s.secondary_button_link, style: 'secondary' -%}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- if actions != blank -%}
+        <div class="xo-hero__actions">{{ actions }}</div>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == '@app' -%}
+          <div class="xo-hero__rating">{% render block %}</div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if chips.size > 0 -%}
+        <ul
+          class="xo-hero__chips"
+          role="list"
+        >
+          {%- for block in chips -%}
+            {%- if block.settings.text != blank -%}
+              <li
+                class="xo-chip"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.icon != 'none' -%}
+                  {%- render 'xo-icon', name: block.settings.icon, size: 16 -%}
+                {%- endif -%}
+                {{- block.settings.text | escape -}}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <div class="xo-hero__media">
+      {%- if s.image != blank -%}
+        <picture class="xo-media xo-hero__picture">
+          {%- if s.image_mobile != blank -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ s.image_mobile | image_url: width: 480 }} 480w,
+                {{ s.image_mobile | image_url: width: 750 }} 750w,
+                {{ s.image_mobile | image_url: width: 1100 }} 1100w
+              "
+              sizes="100vw"
+              width="{{ s.image_mobile.width }}"
+              height="{{ s.image_mobile.height }}"
+            >
+          {%- endif -%}
+          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 45vw, 100vw', priority: true, preload: preload_image -%}
+        </picture>
+      {%- else -%}
+        <div class="xo-art xo-hero__art">
+          {{- 'xo-art-mountains.svg' | inline_asset_content -}}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-hero {
+    padding-block: var(--xo-space-7) var(--xo-space-8);
+  }
+
+  .xo-hero__inner {
+    display: grid;
+    gap: var(--xo-space-7);
+    align-items: center;
+  }
+
+  .xo-hero__copy {
+    display: grid;
+    gap: var(--xo-space-5);
+    justify-items: start;
+  }
+
+  .xo-hero__heading {
+    max-inline-size: 16ch;
+  }
+
+  .xo-hero__text {
+    max-inline-size: 34rem;
+  }
+
+  .xo-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-hero__picture {
+    display: block;
+    aspect-ratio: 1 / 1;
+  }
+
+  .xo-hero__art {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 479px) {
+    .xo-hero__actions .xo-btn {
+      flex: 1 1 100%;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-hero {
+      padding-block: var(--xo-space-9);
+    }
+
+    .xo-hero__inner {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: var(--xo-space-9);
+    }
+
+    .xo-hero__picture,
+    .xo-hero__art {
+      aspect-ratio: 4 / 5;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.hero",
+  "tag": "section",
+  "class": "xo-hero-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:xo.labels.eyebrow",
+      "default": "Himalayan Aftabi Shilajit · Pakistan"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Elevate your life with <em>pure</em> Himalayan Aftabi Shilajit"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Pure Himalayan shilajit resin, traditionally taken for daily energy, focus and vitality. Sourced above 16,000 ft and delivered across Pakistan.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Shop Shilajit" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link", "default": "/collections/all" },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "t:xo.labels.secondary_button_label",
+      "default": "How to use"
+    },
+    { "type": "url", "id": "secondary_button_link", "label": "t:xo.labels.secondary_button_link" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.hero_image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "t:xo.labels.image_mobile" }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "t:xo.names.chip",
+      "limit": 5,
+      "settings": [
+        { "type": "text", "id": "text", "label": "t:xo.labels.text", "default": "Cash on delivery" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "none", "label": "t:xo.options.icon_none" },
+            { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "truck", "label": "t:xo.options.icon_truck" },
+            { "value": "cash", "label": "t:xo.options.icon_cash" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "drop", "label": "t:xo.options.icon_drop" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "sun", "label": "t:xo.options.icon_sun" },
+            { "value": "clock", "label": "t:xo.options.icon_clock" },
+            { "value": "bolt", "label": "t:xo.options.icon_bolt" },
+            { "value": "target", "label": "t:xo.options.icon_target" },
+            { "value": "heart", "label": "t:xo.options.icon_heart" },
+            { "value": "strength", "label": "t:xo.options.icon_strength" },
+            { "value": "users", "label": "t:xo.options.icon_users" },
+            { "value": "chat", "label": "t:xo.options.icon_chat" },
+            { "value": "whatsapp", "label": "t:xo.options.icon_whatsapp" },
+            { "value": "jar", "label": "t:xo.options.icon_jar" },
+            { "value": "star", "label": "t:xo.options.icon_star" }
+          ],
+          "default": "check-circle"
+        }
+      ]
+    },
+    { "type": "@app" }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.hero",
+      "settings": { "secondary_button_link": "/pages/how-to-use" },
+      "blocks": [
+        {
+          "type": "chip",
+          "settings": { "text": "Sourced above 16,000 ft", "icon": "mountain" }
+        },
+        {
+          "type": "chip",
+          "settings": { "text": "100% resin, no fillers", "icon": "drop" }
+        },
+        {
+          "type": "chip",
+          "settings": { "text": "Cash on delivery", "icon": "cash" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

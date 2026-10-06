@@ -1,285 +1,737 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "hero": {
+      "type": "xo-hero-proof",
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "chip_1": {
+          "type": "chip",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Sourced above 16,000 ft",
+            "icon": "mountain"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "chip_2": {
+          "type": "chip",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "text": "100% resin, no fillers",
+            "icon": "drop"
+          }
+        },
+        "chip_3": {
+          "type": "chip",
+          "settings": {
+            "text": "Cash on delivery",
+            "icon": "cash"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "chip_1",
+        "chip_2",
+        "chip_3"
       ],
-      "name": "t:names.hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "tone": "bone",
+        "eyebrow": "Himalayan Aftabi Shilajit · Pakistan",
+        "heading": "Elevate your life with <em>pure</em> Himalayan Aftabi Shilajit",
+        "text": "<p>Pure Himalayan shilajit resin, traditionally taken for daily energy, focus and vitality. Sourced above 16,000 ft and delivered across Pakistan.</p>",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all",
+        "secondary_button_label": "How to use",
+        "secondary_button_link": "#how-to-use"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "trust": {
+      "type": "xo-trust-strip",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "item_1": {
+          "type": "item",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "text": "100% pure resin",
+            "icon": "drop",
+            "requires": "none"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "item_2": {
+          "type": "item",
           "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "text": "Cash on delivery",
+            "icon": "cash",
+            "requires": "none"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "[days]-day money-back guarantee",
+            "icon": "shield",
+            "requires": "guarantee"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Delivery across Pakistan",
+            "icon": "truck",
+            "requires": "none"
+          }
         }
       },
-      "name": "t:names.product_list",
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "tone": "surface"
+      }
+    },
+    "problem": {
+      "type": "xo-problem",
+      "settings": {
+        "tone": "ink",
+        "eyebrow": "Why we started",
+        "heading": "We found that most shilajit on the market was <em>fake or diluted</em>",
+        "text": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>",
+        "button_label": "Our source",
+        "button_link": "/pages/our-source"
+      }
+    },
+    "bundles": {
+      "type": "xo-course-bundles",
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "Choose your size",
+        "heading": "Pure Himalayan Aftabi Shilajit",
+        "lead": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>",
+        "button_label": "Add to cart",
+        "show_per_gram": true,
+        "note": "Cash on delivery available across Pakistan.",
+        "anchor": "sizes"
+      }
+    },
+    "benefits": {
+      "type": "xo-benefits-grid",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "strength",
+            "title": "Strength and recovery",
+            "text": "<p>Naturally contains 85+ trace minerals and fulvic acid. Traditionally used to support strength, recovery and endurance.</p>"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sun",
+            "title": "Active lifestyle",
+            "text": "<p>Many people take shilajit as part of a training routine to support stamina and recovery.</p>"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Everyday wellness",
+            "text": "<p>Contains natural antioxidants. Traditionally used to support general well-being and vitality.</p>"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "clock",
+            "title": "Healthy ageing",
+            "text": "<p>A long-standing part of Ayurvedic tradition for vitality in later years.</p>"
+          }
+        },
+        "benefit_5": {
+          "type": "benefit",
+          "settings": {
+            "icon": "bolt",
+            "title": "Natural energy",
+            "text": "<p>Fulvic acid is studied for its role in nutrient absorption. Many people take shilajit for steady daily energy.</p>"
+          }
+        },
+        "benefit_6": {
+          "type": "benefit",
+          "settings": {
+            "icon": "target",
+            "title": "Focus and clarity",
+            "text": "<p>Traditionally taken to support focus and mental clarity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "benefit_5",
+        "benefit_6"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "About our product",
+        "heading": "An ancient remedy for <em>everyday</em> well-being",
+        "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
+        "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease."
+      }
+    },
+    "stats": {
+      "type": "xo-stats-band",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "16,000+",
+            "label": "Feet, harvest altitude",
+            "requires": "none"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "85+",
+            "label": "Trace minerals found in shilajit",
+            "requires": "none"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "Resin, no fillers",
+            "requires": "none"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "value": "[days] days",
+            "label": "Money-back guarantee",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "settings": {
+        "tone": "ink",
+        "heading": "Xomoashro in numbers"
+      }
+    },
+    "why": {
+      "type": "xo-why",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "Authentic",
+            "text": "<p>Directly sourced from trusted Himalayan collectors and carefully processed for natural purity.</p>"
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "Genuine Himalayan shilajit",
+            "text": "<p>Collected from the pristine regions of Chitral and Gilgit-Baltistan.</p>"
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "100% pure resin",
+            "text": "<p>No fillers, additives or binders. Just concentrated shilajit resin in its purest form.</p>"
+          }
+        },
+        "reason_4": {
+          "type": "reason",
+          "settings": {
+            "title": "Nationwide delivery",
+            "text": "<p>Reliable shipping across Pakistan with tracking support.</p>"
+          }
+        },
+        "reason_5": {
+          "type": "reason",
+          "settings": {
+            "title": "Guided support",
+            "text": "<p>Clear instructions, and help from our team on WhatsApp, so you get the most from your shilajit.</p>"
+          }
+        },
+        "reason_6": {
+          "type": "reason",
+          "settings": {
+            "title": "Customer promise",
+            "text": "<p>We are committed to resolving concerns quickly. Your trust matters most.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "reason_4",
+        "reason_5",
+        "reason_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "Why Xomoashro",
+        "heading": "Why choose <em>Xomoashro</em>",
+        "lead": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>"
+      }
+    },
+    "timeline": {
+      "type": "xo-results-timeline",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "period": "Week 1",
+            "title": "Getting started",
+            "text": "<p>Start with a small amount once a day and let your body get used to the taste and routine.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "period": "Weeks 2–4",
+            "title": "Building the habit",
+            "text": "<p>With daily use, many people say this is when they start to notice a difference in how they feel through the day.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "period": "Weeks 5–8",
+            "title": "Staying consistent",
+            "text": "<p>Shilajit is traditionally taken as a longer course. Keep to the daily amount on the label.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "disabled": true,
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "eyebrow": "What to expect",
+        "heading": "Give it time",
+        "lead": "<p>Shilajit is taken daily over weeks, not as a quick fix. Everyone is different, so treat this as a rough guide.</p>",
+        "footnote": "Individual experiences vary. This is not medical advice."
+      }
+    },
+    "lab": {
+      "type": "xo-lab-proof",
+      "settings": {
+        "tone": "ink",
+        "eyebrow": "Lab tested",
+        "heading": "See the <em>report</em> for yourself",
+        "lead": "<p>These are the lab results for the batch on sale now. Open the full report to see every figure.</p>",
+        "button_label": "View the lab report",
+        "page_label": "All lab reports",
+        "show_metals": true,
+        "page_link": "/pages/lab-reports",
+        "anchor": "lab-report"
+      }
+    },
+    "source": {
+      "type": "xo-source-story",
+      "blocks": {
+        "fact_1": {
+          "type": "fact",
+          "settings": {
+            "label": "Regions",
+            "value": "Chitral and Gilgit-Baltistan"
+          }
+        },
+        "fact_2": {
+          "type": "fact",
+          "settings": {
+            "label": "Altitude",
+            "value": "Above 16,000 ft"
+          }
+        },
+        "fact_3": {
+          "type": "fact",
+          "settings": {
+            "label": "Sourcing",
+            "value": "Direct from local collectors"
+          }
+        }
+      },
+      "block_order": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Our story",
+        "heading": "Born in the <em>Himalayas</em>",
+        "text": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>",
+        "button_label": "Read our story",
+        "media_first": true,
+        "button_link": "/pages/our-source"
+      }
+    },
+    "purity": {
+      "type": "xo-purity-test",
+      "blocks": {
+        "test_1": {
+          "type": "test",
+          "settings": {
+            "title": "It dissolves fully",
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>"
+          }
+        },
+        "test_2": {
+          "type": "test",
+          "settings": {
+            "title": "It softens with warmth",
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>"
+          }
+        },
+        "test_3": {
+          "type": "test",
+          "settings": {
+            "title": "It is dark and glossy",
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>"
+          }
+        },
+        "test_4": {
+          "type": "test",
+          "settings": {
+            "title": "It smells earthy",
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "test_1",
+        "test_2",
+        "test_3",
+        "test_4"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "surface",
+        "eyebrow": "Check it yourself",
+        "heading": "Four ways to check shilajit <em>at home</em>",
+        "lead": "<p>Simple checks people commonly use to tell real resin from imitations.</p>",
+        "footnote": "These checks are a guide only. They do not replace a lab report."
+      }
+    },
+    "comparison": {
+      "type": "xo-comparison-table",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Form",
+            "ours": "Pure resin",
+            "others": "Often powder or capsules",
+            "requires": "none"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Fillers or binders",
+            "ours": "None",
+            "others": "Not always stated",
+            "requires": "none"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Source",
+            "ours": "Chitral and Gilgit-Baltistan, direct from collectors",
+            "others": "Often not stated",
+            "requires": "none"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Payment",
+            "ours": "Cash on delivery",
+            "others": "Varies",
+            "requires": "none"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Guarantee",
+            "ours": "[days]-day money-back",
+            "others": "Varies",
+            "requires": "guarantee"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Support",
+            "ours": "Help from our team on WhatsApp",
+            "others": "Varies",
+            "requires": "whatsapp"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "eyebrow": "Compare",
+        "heading": "Know what you are <em>buying</em>",
+        "lead": "<p>Shilajit quality varies a lot. Here is what we commit to.</p>",
+        "ours_heading": "Xomoashro",
+        "others_heading": "Typical market shilajit",
+        "footnote": "A general comparison. It does not refer to any specific brand."
+      }
+    },
+    "reviews": {
+      "type": "xo-reviews-wall",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>I'm delighted with the high-quality shilajit from Xomoashro. Their product has noticeably improved my well-being, and the prompt delivery service adds to the overall positive experience. Xomoashro is my go-to for top-tier shilajit and reliable service.</p>",
+            "name": "Abdullah",
+            "role": "Cricketer"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is top-notch! The quality is impressive, and their delivery is quick and reliable. I highly recommend their product for anyone seeking premium shilajit.</p>",
+            "name": "Asad",
+            "role": "Customer"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is a game-changer! The quality is outstanding, and their fast delivery makes it a hassle-free experience. Highly recommend for anyone looking for a reliable and effective supplement.</p>",
+            "name": "Taimoor Khan",
+            "role": "Professional international boxer"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "Reviews",
+        "heading": "What our customers <em>say</em>",
+        "lead": "<p>Trusted by customers across Pakistan.</p>",
+        "anchor": "reviews"
+      }
+    },
+    "how_to_use": {
+      "type": "xo-how-to-use",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Take a pea-sized amount",
+            "text": "<p>Scoop a small portion of resin with a clean, dry spoon.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Dissolve it",
+            "text": "<p>Stir it into warm water, milk or tea until it has dissolved.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Drink once a day",
+            "text": "<p>Start small and keep to the amount on the label.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "eyebrow": "How to use",
+        "heading": "Three steps, <em>once a day</em>",
+        "button_label": "Read the full guide",
+        "footnote": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.",
+        "media_first": false,
+        "button_link": "/pages/how-to-use",
+        "anchor": "how-to-use"
+      }
+    },
+    "faq": {
+      "type": "xo-faq",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What is shilajit?",
+            "answer": "<p>Shilajit is a natural mineral resin that forms over centuries in high mountain rock, including the Himalayas. It contains fulvic acid, humic acid and trace minerals, and has been used in traditional medicine for centuries.</p>",
+            "requires": "none"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take shilajit?",
+            "answer": "<p>Take a pea-sized amount of resin, dissolve it in warm water, milk or tea, and drink it once a day. Start small and keep to the amount on the label.</p>",
+            "requires": "none"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Are there any side effects?",
+            "answer": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
+            "requires": "none"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are delivered within [delivery] working days across Pakistan.</p>",
+            "requires": "delivery"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I pay cash on delivery?",
+            "answer": "<p>Yes. You can pay in cash when your order arrives, anywhere in Pakistan.</p>",
+            "requires": "none"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a money-back guarantee?",
+            "answer": "<p>Yes. Every order is covered by our [days]-day money-back guarantee. Message us on WhatsApp or email [email] and we will help.</p>",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "FAQ",
+        "heading": "Frequently asked <em>questions</em>",
+        "contact_heading": "Still have questions?",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hello, I have a question about Xomoashro shilajit.",
+        "structured_data": true,
+        "anchor": "faq"
+      }
+    },
+    "journal": {
+      "type": "xo-featured-journal",
+      "settings": {
+        "count": 3,
+        "tone": "bone",
+        "eyebrow": "Journal",
+        "heading": "Learn more about <em>shilajit</em>",
+        "link_label": "All articles",
+        "show_date": true,
+        "show_excerpt": true
+      }
+    },
+    "partners": {
+      "type": "xo-cta-partners",
+      "blocks": {
+        "partner_1": {
+          "type": "partner",
+          "settings": {
+            "title": "Wholesale",
+            "text": "Become a Xomoashro distributor and stock our shilajit.",
+            "link": "/pages/wholesale"
+          }
+        },
+        "partner_2": {
+          "type": "partner",
+          "settings": {
+            "title": "Ambassador programme",
+            "text": "Become a Xomoashro ambassador and explore new opportunities.",
+            "link": "/pages/ambassador"
+          }
+        },
+        "partner_3": {
+          "type": "partner",
+          "settings": {
+            "title": "Affiliates",
+            "text": "Recommend Xomoashro and apply to join our affiliate programme.",
+            "link": "/pages/affiliate"
+          }
+        }
+      },
+      "block_order": [
+        "partner_1",
+        "partner_2",
+        "partner_3"
+      ],
+      "settings": {
+        "tone": "accent",
+        "eyebrow": "Work with us",
+        "heading": "Partner with Xomoashro",
+        "lead": "<p>Grow with us as a distributor, ambassador or affiliate.</p>"
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero",
+    "trust",
+    "problem",
+    "bundles",
+    "benefits",
+    "stats",
+    "why",
+    "timeline",
+    "lab",
+    "source",
+    "purity",
+    "comparison",
+    "reviews",
+    "how_to_use",
+    "faq",
+    "journal",
+    "partners"
   ]
 }

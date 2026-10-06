@@ -1,0 +1,310 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- capture rows -%}
+  {%- for block in section.blocks -%}
+    {%- capture ours -%}
+      {%- render 'xo-fact-text', text: block.settings.ours, requires: block.settings.requires -%}
+    {%- endcapture -%}
+    {%- if ours != blank and block.settings.label != blank -%}
+      <tr {{ block.shopify_attributes }}>
+        <th scope="row">{{ block.settings.label | escape }}</th>
+        <td class="xo-compare__ours">
+          <span class="xo-compare__cell">
+            {%- render 'xo-icon', name: 'check-circle', size: 20 -%}
+            <span>{{ ours | escape }}</span>
+          </span>
+        </td>
+        <td>{{ block.settings.others | escape }}</td>
+      </tr>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if rows != blank -%}
+  <div class="xo-compare xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container xo-container--narrow">
+      {%- if s.draft and request.design_mode -%}
+        <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
+      {%- endif -%}
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, align: 'center' -%}
+
+      <table
+        class="xo-compare__table"
+        data-xo-reveal
+      >
+        <caption class="xo-visually-hidden">
+          {{ 'xo.compare.caption' | t: ours: s.ours_heading, others: s.others_heading }}
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">
+              <span class="xo-visually-hidden">{{ 'xo.compare.feature' | t }}</span>
+            </th>
+            <th
+              scope="col"
+              class="xo-compare__ours"
+            >
+              {{ s.ours_heading | escape }}
+            </th>
+            <th scope="col">{{ s.others_heading | escape }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ rows }}
+        </tbody>
+      </table>
+
+      {%- if s.footnote != blank -%}
+        <p class="xo-footnote xo-compare__note">{{ s.footnote | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-compare__table {
+    inline-size: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    font-size: var(--xo-text-sm);
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+
+  .xo-compare__table :is(th, td) {
+    padding: var(--xo-space-4) var(--xo-space-3);
+    border-block-end: 1px solid var(--xo-line);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .xo-compare__table thead th {
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: var(--xo-text-base);
+    font-weight: var(--xo-font-display-weight);
+    vertical-align: bottom;
+  }
+
+  .xo-compare__table tbody th {
+    color: var(--xo-muted);
+    font-weight: 600;
+  }
+
+  .xo-compare__table tbody td {
+    color: var(--xo-muted);
+  }
+
+  .xo-compare__table .xo-compare__ours {
+    border-inline: 1px solid var(--xo-line-strong);
+    background: var(--xo-surface);
+    color: var(--xo-fg);
+    font-weight: 600;
+  }
+
+  .xo-compare__table thead .xo-compare__ours {
+    border-block-start: 1px solid var(--xo-line-strong);
+    border-start-start-radius: var(--xo-radius-card);
+    border-start-end-radius: var(--xo-radius-card);
+  }
+
+  .xo-compare__table tbody tr:last-child .xo-compare__ours {
+    border-block-end: 1px solid var(--xo-line-strong);
+    border-end-start-radius: var(--xo-radius-card);
+    border-end-end-radius: var(--xo-radius-card);
+  }
+
+  .xo-compare__table tbody tr:last-child :is(th, td):not(.xo-compare__ours) {
+    border-block-end: 0;
+  }
+
+  .xo-compare__cell {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-compare__cell .xo-icon {
+    color: var(--xo-success);
+  }
+
+  .xo-tone-ink .xo-compare__cell .xo-icon,
+  .xo-tone-accent .xo-compare__cell .xo-icon {
+    color: var(--xo-highlight);
+  }
+
+  .xo-compare__note {
+    text-align: center;
+  }
+
+  .xo-compare__table th:first-child {
+    inline-size: 30%;
+  }
+
+  .xo-compare__table .xo-compare__ours {
+    inline-size: 37%;
+  }
+
+  @media (max-width: 479px) {
+    .xo-compare__cell .xo-icon {
+      display: none;
+    }
+
+    .xo-compare__table :is(th, td) {
+      padding-inline: 0.625rem;
+    }
+
+    .xo-compare__table thead th {
+      font-size: var(--xo-text-sm);
+    }
+  }
+
+  @media (min-width: 750px) {
+    .xo-compare__table {
+      font-size: var(--xo-text-base);
+    }
+
+    .xo-compare__table :is(th, td) {
+      padding: var(--xo-space-4) var(--xo-space-5);
+    }
+
+    .xo-compare__table thead th {
+      font-size: var(--xo-text-h4);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.comparison",
+  "tag": "section",
+  "class": "xo-compare-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "draft",
+      "label": "t:xo.labels.draft",
+      "info": "t:xo.info.draft",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Compare" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Know what you are <em>buying</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Shilajit quality varies a lot. Here is what we commit to.</p>"
+    },
+    { "type": "text", "id": "ours_heading", "label": "t:xo.labels.ours_heading", "default": "Xomoashro" },
+    {
+      "type": "text",
+      "id": "others_heading",
+      "label": "t:xo.labels.others_heading",
+      "default": "Typical market shilajit"
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "t:xo.labels.footnote",
+      "default": "A general comparison. It does not refer to any specific brand."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "t:xo.names.row",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Form" },
+        {
+          "type": "text",
+          "id": "ours",
+          "label": "t:xo.labels.ours",
+          "info": "t:xo.info.fact_text",
+          "default": "Pure resin"
+        },
+        { "type": "text", "id": "others", "label": "t:xo.labels.others", "default": "Varies" },
+        {
+          "type": "select",
+          "id": "requires",
+          "label": "t:xo.labels.requires",
+          "info": "t:xo.info.requires",
+          "options": [
+            { "value": "none", "label": "t:xo.options.requires_none" },
+            { "value": "free_shipping", "label": "t:xo.options.requires_free_shipping" },
+            { "value": "guarantee", "label": "t:xo.options.requires_guarantee" },
+            { "value": "delivery", "label": "t:xo.options.requires_delivery" },
+            { "value": "whatsapp", "label": "t:xo.options.requires_whatsapp" }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": { "label": "Form", "ours": "Pure resin", "others": "Often powder or capsules", "requires": "none" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Fillers or binders", "ours": "None", "others": "Not always stated", "requires": "none" }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Source",
+            "ours": "Chitral and Gilgit-Baltistan, direct from collectors",
+            "others": "Often not stated",
+            "requires": "none"
+          }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Payment", "ours": "Cash on delivery", "others": "Varies", "requires": "none" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Guarantee", "ours": "[days]-day money-back", "others": "Varies", "requires": "guarantee" }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Support",
+            "ours": "Help from our team on WhatsApp",
+            "others": "Varies",
+            "requires": "whatsapp"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+{%- capture items -%}
+  {%- for block in section.blocks -%}
+    {%- capture line -%}
+      {%- render 'xo-fact-text', text: block.settings.text, requires: block.settings.requires -%}
+    {%- endcapture -%}
+    {%- if line != blank -%}
+      <li
+        class="xo-trust__item"
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.icon != 'none' -%}
+          {%- render 'xo-icon', name: block.settings.icon, size: 22 -%}
+        {%- endif -%}
+        <span>{{ line | escape }}</span>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if items != blank -%}
+  <div class="xo-trust xo-tone-{{ section.settings.tone }}">
+    <div class="xo-container">
+      <ul
+        class="xo-trust__list"
+        role="list"
+      >
+        {{ items }}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-trust {
+    border-block: 1px solid var(--xo-line);
+  }
+
+  .xo-trust__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-trust__item {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-3);
+    min-block-size: 4rem;
+    padding-block: var(--xo-space-3);
+    padding-inline-end: var(--xo-space-3);
+    color: var(--xo-fg);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .xo-trust__item .xo-icon {
+    color: var(--xo-highlight);
+  }
+
+  @media (min-width: 750px) {
+    .xo-trust__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      column-gap: var(--xo-space-6);
+    }
+
+    .xo-trust__item {
+      padding-inline-end: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.trust_strip",
+  "tag": "section",
+  "class": "xo-trust-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "surface"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:xo.names.trust_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "info": "t:xo.info.fact_text",
+          "default": "Cash on delivery"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "none", "label": "t:xo.options.icon_none" },
+            { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "truck", "label": "t:xo.options.icon_truck" },
+            { "value": "cash", "label": "t:xo.options.icon_cash" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "drop", "label": "t:xo.options.icon_drop" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "sun", "label": "t:xo.options.icon_sun" },
+            { "value": "clock", "label": "t:xo.options.icon_clock" },
+            { "value": "bolt", "label": "t:xo.options.icon_bolt" },
+            { "value": "target", "label": "t:xo.options.icon_target" },
+            { "value": "heart", "label": "t:xo.options.icon_heart" },
+            { "value": "strength", "label": "t:xo.options.icon_strength" },
+            { "value": "users", "label": "t:xo.options.icon_users" },
+            { "value": "chat", "label": "t:xo.options.icon_chat" },
+            { "value": "whatsapp", "label": "t:xo.options.icon_whatsapp" },
+            { "value": "jar", "label": "t:xo.options.icon_jar" },
+            { "value": "star", "label": "t:xo.options.icon_star" }
+          ],
+          "default": "check-circle"
+        },
+        {
+          "type": "select",
+          "id": "requires",
+          "label": "t:xo.labels.requires",
+          "info": "t:xo.info.requires",
+          "options": [
+            { "value": "none", "label": "t:xo.options.requires_none" },
+            { "value": "free_shipping", "label": "t:xo.options.requires_free_shipping" },
+            { "value": "guarantee", "label": "t:xo.options.requires_guarantee" },
+            { "value": "delivery", "label": "t:xo.options.requires_delivery" },
+            { "value": "whatsapp", "label": "t:xo.options.requires_whatsapp" }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.trust_strip",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": { "text": "100% pure resin", "icon": "drop", "requires": "none" }
+        },
+        {
+          "type": "item",
+          "settings": { "text": "Cash on delivery", "icon": "cash", "requires": "none" }
+        },
+        {
+          "type": "item",
+          "settings": { "text": "[days]-day money-back guarantee", "icon": "shield", "requires": "guarantee" }
+        },
+        {
+          "type": "item",
+          "settings": { "text": "Delivery across Pakistan", "icon": "truck", "requires": "none" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

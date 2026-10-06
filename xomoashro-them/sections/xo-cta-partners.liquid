@@ -1,0 +1,205 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- if section.blocks.size > 0 or s.heading != blank -%}
+  <div class="xo-partners xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container xo-partners__inner">
+      <div class="xo-partners__copy">
+        {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, rule: false -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <ul
+          class="xo-partners__list"
+          role="list"
+        >
+          {%- for block in section.blocks -%}
+            {%- if block.settings.title == blank -%}
+              {%- continue -%}
+            {%- endif -%}
+            <li {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a
+                  class="xo-partners__item"
+                  href="{{ block.settings.link }}"
+                >
+              {%- else -%}
+                <div class="xo-partners__item">
+              {%- endif -%}
+              <span class="xo-partners__text">
+                <span class="xo-feature__title">{{ block.settings.title | escape }}</span>
+                {%- if block.settings.text != blank -%}
+                  <span class="xo-partners__detail">{{ block.settings.text | escape }}</span>
+                {%- endif -%}
+              </span>
+              {%- if block.settings.link != blank -%}
+                {%- render 'xo-icon', name: 'arrow-right', size: 22 -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-partners__inner {
+    display: grid;
+    gap: var(--xo-space-6);
+  }
+
+  .xo-partners__copy .xo-heading {
+    margin-block-end: 0;
+  }
+
+  .xo-partners__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-partners__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-4);
+    min-block-size: 4.5rem;
+    padding-block: var(--xo-space-4);
+    border-block-start: 1px solid var(--xo-line-strong);
+    color: var(--xo-fg);
+    text-decoration: none;
+  }
+
+  .xo-partners__list li:last-child .xo-partners__item {
+    border-block-end: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-partners__text {
+    display: grid;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-partners__detail {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+  }
+
+  .xo-partners__item .xo-icon {
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  a.xo-partners__item:hover .xo-icon {
+    transform: translateX(0.25rem);
+  }
+
+  [dir='rtl'] .xo-partners__item .xo-icon {
+    scale: -1 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-partners__item .xo-icon {
+      transition: none;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-partners__inner {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: var(--xo-space-9);
+      align-items: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.partners",
+  "tag": "section",
+  "class": "xo-partners-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "accent"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Work with us" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "default": "Partner with Xomoashro"
+    },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Grow with us as a distributor, ambassador or affiliate.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner",
+      "name": "t:xo.names.partner",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "Wholesale" },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "default": "Become a Xomoashro distributor."
+        },
+        { "type": "url", "id": "link", "label": "t:xo.labels.link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.partners",
+      "blocks": [
+        {
+          "type": "partner",
+          "settings": {
+            "title": "Wholesale",
+            "text": "Become a Xomoashro distributor and stock our shilajit.",
+            "link": "/pages/wholesale"
+          }
+        },
+        {
+          "type": "partner",
+          "settings": {
+            "title": "Ambassador programme",
+            "text": "Become a Xomoashro ambassador and explore new opportunities.",
+            "link": "/pages/ambassador"
+          }
+        },
+        {
+          "type": "partner",
+          "settings": {
+            "title": "Affiliates",
+            "text": "Recommend Xomoashro and apply to join our affiliate programme.",
+            "link": "/pages/affiliate"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
