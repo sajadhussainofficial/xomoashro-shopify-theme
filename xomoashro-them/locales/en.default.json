@@ -9,6 +9,16 @@
  */
 {
   "xo": {
+    "footer": {
+      "social": "Follow Xomoashro",
+      "empty_column": "Nothing to show yet. This column is hidden on the store until it has content.",
+      "social_label": "Xomoashro on {{ platform }}",
+      "links": "Footer links",
+      "email_label": "Email address",
+      "policies": "Policies",
+      "cash_on_delivery": "Cash on delivery",
+      "payment_methods": "Payment methods"
+    },
     "announcement": {
       "label": "Announcements",
       "previous": "Previous announcement",

@@ -1,0 +1,964 @@
+{%- liquid
+  assign tone = section.settings.tone
+
+  capture fact_email
+    render 'xo-shop-facts', fact: 'support_email'
+  endcapture
+  capture fact_whatsapp_url
+    render 'xo-shop-facts', fact: 'whatsapp_url', message: section.settings.whatsapp_message
+  endcapture
+-%}
+
+<div class="xo-footer xo-tone-{{ tone }}">
+  <div class="xo-container xo-footer__inner">
+    <div class="xo-footer__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'brand' -%}
+            <div
+              class="xo-footer__block xo-footer__block--brand"
+              {{ block.shopify_attributes }}
+            >
+              <a
+                class="xo-footer__logo"
+                href="{{ routes.root_url }}"
+              >
+                {%- if block.settings.logo != blank -%}
+                  {{-
+                    block.settings.logo
+                    | image_url: width: 480
+                    | image_tag: alt: shop.name, class: 'xo-footer__logo-image', loading: 'lazy', sizes: '220px'
+                  -}}
+                {%- else -%}
+                  {%- liquid
+                    assign logo_file = 'xo-logo-inverse.svg'
+                    if tone == 'bone' or tone == 'surface'
+                      assign logo_file = 'xo-logo.svg'
+                    endif
+                  -%}
+                  <img
+                    class="xo-footer__logo-image"
+                    src="{{ logo_file | asset_url }}"
+                    alt="{{ block.settings.logo_alt | default: shop.name | escape }}"
+                    width="315"
+                    height="48"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              </a>
+              {%- if block.settings.text != blank -%}
+                <div class="xo-footer__blurb xo-rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+
+              {%- capture social_items -%}
+                {%- assign social_keys = 'facebook,instagram,youtube,tiktok,x' | split: ',' -%}
+                {%- for key in social_keys -%}
+                  {%- assign social_setting = 'social_' | append: key -%}
+                  {%- assign social_url = block.settings[social_setting] -%}
+                  {%- if social_url != blank -%}
+                    {%- liquid
+                      assign platform_name = key | capitalize
+                      if key == 'x'
+                        assign platform_name = 'X'
+                      elsif key == 'youtube'
+                        assign platform_name = 'YouTube'
+                      elsif key == 'tiktok'
+                        assign platform_name = 'TikTok'
+                      endif
+                    -%}
+                    <li>
+                      <a
+                        class="xo-footer__social-link"
+                        href="{{ social_url }}"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="{{ 'xo.footer.social_label' | t: platform: platform_name }}"
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          {%- render 'icon', icon: key -%}
+                        </svg>
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- if social_items != blank -%}
+                <ul
+                  class="xo-footer__social"
+                  role="list"
+                  aria-label="{{ 'xo.footer.social' | t }}"
+                >
+                  {{ social_items }}
+                </ul>
+              {%- endif -%}
+            </div>
+
+          {%- when 'links' -%}
+            {%- liquid
+              assign menu = block.settings.menu
+              assign has_menu = false
+              if menu != blank and menu.links.size > 0
+                assign has_menu = true
+              endif
+              assign link_heading_id = 'XoFooterLinks-' | append: block.id
+            -%}
+            {%- capture link_items -%}
+              {%- if has_menu -%}
+                {%- for link in menu.links -%}
+                  <li>
+                    {%- render 'xo-nav-link', link: link, class: 'xo-footer__link' -%}
+                  </li>
+                {%- endfor -%}
+              {%- else -%}
+                {%- for i in (1..5) -%}
+                  {%- liquid
+                    assign label_key = 'link_' | append: i | append: '_label'
+                    assign url_key = 'link_' | append: i | append: '_url'
+                    assign link_label = block.settings[label_key]
+                    assign link_url = block.settings[url_key]
+                  -%}
+                  {%- if link_label != blank and link_url != blank -%}
+                    <li>
+                      <a
+                        class="xo-footer__link"
+                        href="{{ link_url }}"
+                        {% if link_url == request.path %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{- link_label | escape -}}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endcapture -%}
+            {%- if link_items != blank or request.design_mode -%}
+              <nav
+                class="xo-footer__block xo-footer__block--links"
+                {% if block.settings.heading != blank %}
+                  aria-labelledby="{{ link_heading_id }}"
+                {% else %}
+                  aria-label="{{ 'xo.footer.links' | t }}"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.heading != blank -%}
+                  <h2
+                    class="xo-footer__heading"
+                    id="{{ link_heading_id }}"
+                  >
+                    {{ block.settings.heading | escape }}
+                  </h2>
+                {%- endif -%}
+                {%- if link_items != blank -%}
+                  <ul
+                    class="xo-footer__links"
+                    role="list"
+                  >
+                    {{ link_items }}
+                  </ul>
+                {%- else -%}
+                  <p class="xo-footer__editor-note">{{ 'xo.footer.empty_column' | t }}</p>
+                {%- endif -%}
+              </nav>
+            {%- endif -%}
+
+          {%- when 'newsletter' -%}
+            {%- assign form_id = 'XoFooterNewsletter-' | append: block.id -%}
+            <div
+              class="xo-footer__block xo-footer__block--newsletter"
+              {{ block.shopify_attributes }}
+            >
+              <div class="xo-footer__newsletter-copy">
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="xo-h3 xo-footer__newsletter-heading">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="xo-footer__newsletter-text xo-rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+
+              {%- form 'customer', id: form_id, class: 'xo-footer__form' -%}
+                <input
+                  type="hidden"
+                  name="contact[tags]"
+                  value="newsletter,footer"
+                >
+                <div class="xo-footer__form-row">
+                  <label
+                    class="xo-visually-hidden"
+                    for="{{ form_id }}-email"
+                  >
+                    {{- 'xo.footer.email_label' | t -}}
+                  </label>
+                  <input
+                    class="xo-field__control xo-footer__input"
+                    id="{{ form_id }}-email"
+                    type="email"
+                    name="contact[email]"
+                    autocomplete="email"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    placeholder="{{ block.settings.placeholder | escape }}"
+                    required
+                    {% if form.errors %}
+                      aria-invalid="true"
+                      aria-describedby="{{ form_id }}-message"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="{{ form_id }}-message"
+                    {% endif %}
+                  >
+                  <button
+                    class="xo-btn xo-footer__submit"
+                    type="submit"
+                  >
+                    {{- block.settings.button_label | escape -}}
+                  </button>
+                </div>
+
+                {%- if form.errors -%}
+                  <p
+                    class="xo-footer__form-message xo-footer__form-message--error"
+                    id="{{ form_id }}-message"
+                    role="alert"
+                  >
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </p>
+                {%- elsif form.posted_successfully? -%}
+                  <p
+                    class="xo-footer__form-message"
+                    id="{{ form_id }}-message"
+                    role="status"
+                  >
+                    {%- render 'xo-icon', name: 'check-circle', size: 18 -%}
+                    {{ block.settings.success_message | escape }}
+                  </p>
+                {%- endif -%}
+
+                {%- if block.settings.small_print != blank -%}
+                  <div class="xo-footer__small-print xo-rte">{{ block.settings.small_print }}</div>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+
+          {%- when 'contact' -%}
+            {%- liquid
+              assign contact_email = block.settings.email | default: fact_email
+              assign contact_phone = block.settings.phone
+              assign phone_digits = contact_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
+              assign contact_heading_id = 'XoFooterContact-' | append: block.id
+            -%}
+            {%- capture contact_items -%}
+              {%- if fact_whatsapp_url != blank and block.settings.show_whatsapp -%}
+                <li>
+                  <a
+                    class="xo-footer__link xo-footer__contact-link"
+                    href="{{ fact_whatsapp_url }}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {%- render 'xo-icon', name: 'whatsapp', size: 18 -%}
+                    <span>{{ block.settings.whatsapp_label | escape }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if contact_phone != blank -%}
+                <li>
+                  <a
+                    class="xo-footer__link xo-footer__contact-link"
+                    href="tel:{{ phone_digits }}"
+                  >
+                    {%- render 'xo-icon', name: 'phone', size: 18 -%}
+                    <span>{{ contact_phone | escape }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if contact_email != blank -%}
+                <li>
+                  <a
+                    class="xo-footer__link xo-footer__contact-link"
+                    href="mailto:{{ contact_email }}"
+                  >
+                    {%- render 'xo-icon', name: 'mail', size: 18 -%}
+                    <span>{{ contact_email | escape }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if block.settings.address != blank -%}
+                <li class="xo-footer__contact-line">
+                  {%- render 'xo-icon', name: 'pin', size: 18 -%}
+                  <span>{{ block.settings.address | escape }}</span>
+                </li>
+              {%- endif -%}
+              {%- if block.settings.hours != blank -%}
+                <li class="xo-footer__contact-line">
+                  {%- render 'xo-icon', name: 'clock', size: 18 -%}
+                  <span>{{ block.settings.hours | escape }}</span>
+                </li>
+              {%- endif -%}
+            {%- endcapture -%}
+            {%- if contact_items != blank or request.design_mode -%}
+              <div
+                class="xo-footer__block xo-footer__block--contact"
+                {% if block.settings.heading != blank %}
+                  role="group"
+                  aria-labelledby="{{ contact_heading_id }}"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.heading != blank -%}
+                  <h2
+                    class="xo-footer__heading"
+                    id="{{ contact_heading_id }}"
+                  >
+                    {{ block.settings.heading | escape }}
+                  </h2>
+                {%- endif -%}
+                {%- if contact_items != blank -%}
+                  <ul
+                    class="xo-footer__contact"
+                    role="list"
+                  >
+                    {{ contact_items }}
+                  </ul>
+                {%- else -%}
+                  <p class="xo-footer__editor-note">{{ 'xo.footer.empty_column' | t }}</p>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="xo-footer__bottom">
+      <p class="xo-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }}
+        {{ section.settings.copyright_name | default: shop.name | escape -}}
+        {%- if section.settings.copyright_text != blank -%}
+          . {{ section.settings.copyright_text | escape }}
+        {%- endif -%}
+      </p>
+
+      {%- if section.settings.show_policies and shop.policies.size > 0 -%}
+        <nav
+          class="xo-footer__policies"
+          aria-label="{{ 'xo.footer.policies' | t }}"
+        >
+          <ul role="list">
+            {%- for policy in shop.policies -%}
+              {%- if policy != blank -%}
+                <li>
+                  <a
+                    class="xo-footer__link"
+                    href="{{ policy.url }}"
+                  >
+                    {{- policy.title | escape -}}
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+
+      {%- if section.settings.show_cod or section.settings.show_payment_icons -%}
+        <div class="xo-footer__payments">
+          {%- if section.settings.show_cod -%}
+            <span class="xo-chip xo-footer__cod">
+              {%- render 'xo-icon', name: 'cash', size: 16 -%}
+              {{- 'xo.footer.cash_on_delivery' | t -}}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+            <ul
+              class="xo-footer__payment-icons"
+              role="list"
+              aria-label="{{ 'xo.footer.payment_methods' | t }}"
+            >
+              {%- for type in shop.enabled_payment_types -%}
+                <li>{{ type | payment_type_svg_tag: class: 'xo-footer__payment-icon' }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-footer {
+    padding-block: var(--xo-space-8) calc(var(--xo-space-5) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .xo-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--xo-space-7) var(--xo-space-5);
+  }
+
+  .xo-footer__block {
+    display: grid;
+    align-content: start;
+    gap: var(--xo-space-4);
+    min-inline-size: 0;
+  }
+
+  .xo-footer__block--brand,
+  .xo-footer__block--newsletter,
+  .xo-footer__block--contact {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 750px) {
+    .xo-footer__grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .xo-footer__block--links {
+      grid-column: span 2;
+    }
+
+    .xo-footer__block--contact .xo-footer__contact {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--xo-space-5);
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-footer__grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--xo-space-8) var(--xo-space-6);
+    }
+
+    .xo-footer__block--brand {
+      grid-column: span 4;
+      padding-inline-end: var(--xo-space-6);
+    }
+
+    .xo-footer__block--links {
+      grid-column: span 2;
+    }
+
+    .xo-footer__block--contact {
+      grid-column: span 2;
+    }
+
+    .xo-footer__block--contact .xo-footer__contact {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .xo-footer__block--newsletter {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Newsletter band */
+
+  .xo-footer__block--newsletter {
+    gap: var(--xo-space-5);
+    padding-block-end: var(--xo-space-7);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  @media (min-width: 990px) {
+    .xo-footer__block--newsletter {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: end;
+      gap: var(--xo-space-8);
+    }
+  }
+
+  .xo-footer__newsletter-copy {
+    display: grid;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-footer__newsletter-heading {
+    max-inline-size: 22ch;
+  }
+
+  .xo-footer__newsletter-text {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-base);
+    line-height: 1.6;
+  }
+
+  .xo-footer__form {
+    display: grid;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-footer__form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-footer__form-row .xo-footer__input {
+    flex: 1 1 14rem;
+    inline-size: auto;
+    border-radius: var(--xo-radius-pill);
+    padding-inline: 1.25rem;
+  }
+
+  .xo-footer__submit {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 479px) {
+    .xo-footer__submit {
+      flex-basis: 100%;
+    }
+  }
+
+  .xo-footer__form-message {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-footer__form-message--error {
+    color: var(--xo-error);
+  }
+
+  .xo-footer__small-print {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+    line-height: 1.5;
+  }
+
+  /* Brand */
+
+  .xo-footer__logo {
+    display: inline-flex;
+    justify-self: start;
+  }
+
+  .xo-footer__logo-image {
+    display: block;
+    inline-size: auto;
+    block-size: 2rem;
+    max-inline-size: 100%;
+    object-fit: contain;
+  }
+
+  .xo-footer__blurb {
+    max-inline-size: 38ch;
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+    line-height: 1.65;
+  }
+
+  .xo-footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--xo-tap-target);
+    block-size: var(--xo-tap-target);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+    color: var(--xo-fg);
+    transition: background-color var(--xo-duration) var(--xo-ease), color var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-footer__social-link svg {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+  }
+
+  @media (hover: hover) {
+    .xo-footer__social-link:hover {
+      background: var(--xo-accent);
+      color: var(--xo-on-accent);
+    }
+  }
+
+  /* Link columns and contact */
+
+  .xo-footer__heading {
+    margin: 0;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .xo-footer__links,
+  .xo-footer__contact {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    min-block-size: var(--xo-tap-target);
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+    line-height: 1.3;
+    text-decoration: none;
+    transition: color var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-footer__link[aria-current='page'] {
+    color: var(--xo-fg);
+  }
+
+  @media (hover: hover) {
+    .xo-footer__link:hover {
+      color: var(--xo-fg);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  }
+
+  .xo-footer__contact-link {
+    overflow-wrap: anywhere;
+  }
+
+  .xo-footer__contact-line {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    min-block-size: var(--xo-tap-target);
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+  }
+
+  .xo-footer__contact .xo-icon {
+    color: var(--xo-highlight);
+  }
+
+  .xo-footer__editor-note {
+    margin: 0;
+    padding: var(--xo-space-3);
+    border: 1px dashed var(--xo-line-strong);
+    border-radius: var(--xo-radius-sm);
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+  }
+
+  /* Bottom bar */
+
+  .xo-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-4) var(--xo-space-6);
+    margin-block-start: var(--xo-space-8);
+    padding-block-start: var(--xo-space-5);
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-footer__copyright {
+    margin: 0;
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+  }
+
+  .xo-footer__policies ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--xo-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-footer__policies .xo-footer__link {
+    font-size: var(--xo-text-xs);
+  }
+
+  .xo-footer__payments {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-footer__cod {
+    font-size: var(--xo-text-xs);
+  }
+
+  .xo-footer__payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-footer__payment-icon {
+    display: block;
+    inline-size: 2.375rem;
+    block-size: 1.5rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.footer",
+  "tag": "div",
+  "class": "xo-footer-section",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "ink"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "t:xo.labels.whatsapp_message",
+      "default": "Hello Xomoashro, I have a question."
+    },
+    {
+      "type": "header",
+      "content": "t:xo.labels.bottom_bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "t:xo.labels.copyright_name",
+      "default": "Xomoashro"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "t:xo.labels.copyright_text",
+      "default": "All rights reserved"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policies",
+      "label": "t:xo.labels.show_policies",
+      "info": "t:xo.info.show_policies",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cod",
+      "label": "t:xo.labels.show_cod",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "t:xo.labels.show_payment_icons",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "t:xo.names.footer_brand",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "t:xo.labels.logo",
+          "info": "t:xo.info.footer_logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "t:xo.labels.logo_alt",
+          "default": "Xomoashro"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:xo.labels.body",
+          "default": "<p>Discover the transformative power of Shilajit, carefully sourced and curated for your vitality. Embrace a journey of holistic health with nature's rejuvenating essence. Elevate your well-being with Xomoashro.</p>"
+        },
+        {
+          "type": "header",
+          "content": "t:xo.labels.social_links"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:xo.info.social_links"
+        },
+        { "type": "url", "id": "social_facebook", "label": "t:xo.labels.facebook" },
+        { "type": "url", "id": "social_instagram", "label": "t:xo.labels.instagram" },
+        { "type": "url", "id": "social_youtube", "label": "t:xo.labels.youtube" },
+        { "type": "url", "id": "social_tiktok", "label": "t:xo.labels.tiktok" },
+        { "type": "url", "id": "social_x", "label": "t:xo.labels.x" }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "t:xo.names.footer_links",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:xo.labels.heading",
+          "default": "Shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:xo.labels.menu",
+          "info": "t:xo.info.footer_menu"
+        },
+        { "type": "text", "id": "link_1_label", "label": "t:xo.labels.link_1_label", "default": "Pure Himalayan Shilajit" },
+        { "type": "url", "id": "link_1_url", "label": "t:xo.labels.link_1_url", "default": "/collections/all" },
+        { "type": "text", "id": "link_2_label", "label": "t:xo.labels.link_2_label", "default": "How to Use" },
+        { "type": "url", "id": "link_2_url", "label": "t:xo.labels.link_2_url" },
+        { "type": "text", "id": "link_3_label", "label": "t:xo.labels.link_3_label", "default": "Lab Reports" },
+        { "type": "url", "id": "link_3_url", "label": "t:xo.labels.link_3_url" },
+        { "type": "text", "id": "link_4_label", "label": "t:xo.labels.link_4_label", "default": "Track Your Order" },
+        { "type": "url", "id": "link_4_url", "label": "t:xo.labels.link_4_url" },
+        { "type": "text", "id": "link_5_label", "label": "t:xo.labels.link_5_label" },
+        { "type": "url", "id": "link_5_url", "label": "t:xo.labels.link_5_url" }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "t:xo.names.footer_newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:xo.labels.heading",
+          "default": "Join the Xomoashro newsletter"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:xo.labels.body",
+          "default": "<p>Sourcing stories, how-to guides and new batches, straight to your inbox.</p>"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "t:xo.labels.placeholder",
+          "default": "Your email address"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:xo.labels.button_label",
+          "default": "Subscribe"
+        },
+        {
+          "type": "text",
+          "id": "success_message",
+          "label": "t:xo.labels.success_message",
+          "default": "Thank you for subscribing."
+        },
+        {
+          "type": "richtext",
+          "id": "small_print",
+          "label": "t:xo.labels.small_print",
+          "default": "<p>No spam. Unsubscribe at any time.</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "t:xo.names.footer_contact",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:xo.info.footer_contact"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:xo.labels.heading",
+          "default": "Customer care"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_whatsapp",
+          "label": "t:xo.labels.show_whatsapp",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "whatsapp_label",
+          "label": "t:xo.labels.whatsapp_label",
+          "default": "Chat on WhatsApp"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "t:xo.labels.email",
+          "default": "ask@xomoashro.com"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "t:xo.labels.phone"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "t:xo.labels.address",
+          "default": "Islamabad, Pakistan"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "label": "t:xo.labels.hours"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.footer",
+      "blocks": [
+        { "type": "newsletter" },
+        { "type": "brand" },
+        { "type": "links" },
+        { "type": "contact" }
+      ]
+    }
+  ]
+}
+{% endschema %}
