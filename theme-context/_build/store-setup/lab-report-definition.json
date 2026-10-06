@@ -1,0 +1,87 @@
+{
+  "definition": {
+    "type": "lab_report",
+    "name": "Lab report",
+    "description": "One entry per tested batch. Shown on the Lab Reports page.",
+    "displayNameKey": "batch",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "capabilities": {
+      "publishable": {
+        "enabled": true
+      }
+    },
+    "fieldDefinitions": [
+      {
+        "key": "batch",
+        "name": "Batch number",
+        "type": "single_line_text_field",
+        "required": true
+      },
+      {
+        "key": "test_date",
+        "name": "Test date",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "lab",
+        "name": "Testing lab",
+        "type": "single_line_text_field",
+        "required": true
+      },
+      {
+        "key": "fulvic_percent",
+        "name": "Fulvic acid (%)",
+        "type": "number_decimal",
+        "required": false,
+        "validations": [
+          {
+            "name": "min",
+            "value": "0"
+          },
+          {
+            "name": "max",
+            "value": "100"
+          }
+        ]
+      },
+      {
+        "key": "lead_ppm",
+        "name": "Lead (ppm)",
+        "type": "number_decimal",
+        "required": false,
+        "description": "Parts per million, as printed on the report."
+      },
+      {
+        "key": "arsenic_ppm",
+        "name": "Arsenic (ppm)",
+        "type": "number_decimal",
+        "required": false,
+        "description": "Parts per million, as printed on the report."
+      },
+      {
+        "key": "mercury_ppm",
+        "name": "Mercury (ppm)",
+        "type": "number_decimal",
+        "required": false,
+        "description": "Parts per million, as printed on the report."
+      },
+      {
+        "key": "cadmium_ppm",
+        "name": "Cadmium (ppm)",
+        "type": "number_decimal",
+        "required": false,
+        "description": "Parts per million, as printed on the report."
+      },
+      {
+        "key": "report_file",
+        "name": "Report file",
+        "type": "file_reference",
+        "required": false,
+        "description": "PDF or image of the full report."
+      }
+    ]
+  }
+}

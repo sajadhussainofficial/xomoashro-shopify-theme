@@ -6,10 +6,10 @@ The single record of progress. The runner updates this file at the start and end
 |---|---|---|---|---|---|---|---|---|
 | 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
 | 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P02-report.md) |
-| 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P03-report.md) |
-| 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P04-report.md) |
-| 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | awaiting approval | 2026-10-06 | 2026-10-06 | [report](reports/P05-report.md) |
-| 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | not started | | | |
+| 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P03-report.md) |
+| 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P04-report.md) |
+| 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P05-report.md) |
+| 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P01-report.md) |
 | 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | not started | | | |
 | 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | not started | | | |
 | 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | not started | | | |
@@ -53,3 +53,8 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 The owner's terminal started `shopify theme dev` from the repository root again and emptied the development theme. Fixed for good with `shopify.theme.toml` in the repository root and in `xomoashro-them/` (path and `nodelete`); development theme restored with `shopify theme push`.
 - 2026-10-06 P04 finished; all checks pass. Waiting for the owner to push, open and merge the pull request.
 - 2026-10-06 P05 finished except one check: a real newsletter signup. Shopify's bot protection blocks automated form posts, so the owner is asked to sign up once and confirm the customer appears in admin before the pull request is merged.
+- 2026-10-06 P05 merged by the owner (pull request #5). The manual newsletter signup check was not confirmed before the merge; it is carried into P24 launch checks.
+- 2026-10-06 P01 started on branch `phase/P01-store-setup-and-data-model`.
+- 2026-10-06 Owner approved the P01 store writes and the working copy. Working copy created: "Xomoashro (working copy)", theme 158632640684, unpublished, preview https://https-xomoashro-com-fcrv98st.myshopify.com?preview_theme_id=158632640684. B4 and B9 answered "yes" without values; still open.
+- 2026-10-06 P03 and P04 marked done: merged through pull requests #2, #3 and #4.
+- 2026-10-06 Store login completed by the owner. `run_setup.py` created 19 metafield definitions and the `lab_report` metaobject definition and saved four store facts (support email, WhatsApp number, guarantee 7 days, delivery up to 5 days). Read-back confirmed. Working copy theme 158632640684 updated. P01 finished; waiting for the owner to push, open and merge the pull request.

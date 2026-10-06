@@ -1,0 +1,9 @@
+{
+  "_about": "Store facts written to shop metafields (namespace custom). null means not set yet: every line that uses it stays hidden on the store. Fill in a value and run run_setup.py again to save it.",
+  "support_email": "ask@xomoashro.com",
+  "whatsapp_number": "+92 306 8886317",
+  "guarantee_days": 7,
+  "free_shipping_threshold": null,
+  "delivery_days_min": null,
+  "delivery_days_max": 5
+}

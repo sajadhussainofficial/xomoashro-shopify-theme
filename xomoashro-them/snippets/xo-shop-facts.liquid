@@ -1,4 +1,4 @@
-{% doc %}
+{%- doc -%}
   Outputs one store fact from shop metafields (namespace `custom`), as plain text.
   Outputs nothing when the fact is not set, so callers can hide the line:
 
@@ -11,7 +11,7 @@
 
   @example
   {% render 'xo-shop-facts', fact: 'whatsapp_url', message: 'Hello, I have a question about my order.' %}
-{% enddoc %}
+{%- enddoc -%}
 
 {%- liquid
   assign xo_facts = shop.metafields.custom

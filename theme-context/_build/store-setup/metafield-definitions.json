@@ -1,0 +1,310 @@
+[
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "fulvic_percent",
+    "name": "Fulvic acid (%)",
+    "type": "number_decimal",
+    "description": "Measured fulvic acid content from the current lab report. Leave empty until a report confirms it.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      },
+      {
+        "name": "max",
+        "value": "100"
+      }
+    ]
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "altitude_ft",
+    "name": "Harvest altitude (ft)",
+    "type": "number_integer",
+    "description": "Altitude where the resin is collected, in feet.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      },
+      {
+        "name": "max",
+        "value": "30000"
+      }
+    ]
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "origin_region",
+    "name": "Origin region",
+    "type": "single_line_text_field",
+    "description": "Where the resin comes from, for example Chitral and Gilgit-Baltistan.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "batch_number",
+    "name": "Batch number",
+    "type": "single_line_text_field",
+    "description": "Batch of the stock currently being sold.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "lab_name",
+    "name": "Testing lab",
+    "type": "single_line_text_field",
+    "description": "Name of the laboratory that tested the current batch.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "lab_test_date",
+    "name": "Lab test date",
+    "type": "date",
+    "description": "Date of the current lab report.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "lab_report",
+    "name": "Lab report file",
+    "type": "file_reference",
+    "description": "PDF or image of the current lab report.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "how_to_use",
+    "name": "How to use",
+    "type": "rich_text_field",
+    "description": "Shown in the How to use section of the product page.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "safety",
+    "name": "Safety and precautions",
+    "type": "rich_text_field",
+    "description": "Shown in the Safety section of the product page.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCTVARIANT",
+    "namespace": "custom",
+    "key": "net_weight_g",
+    "name": "Net weight (g)",
+    "type": "number_decimal",
+    "description": "Weight of resin in this size, in grams. Used for the price per gram.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "ownerType": "PRODUCTVARIANT",
+    "namespace": "custom",
+    "key": "supply_days",
+    "name": "Days of supply",
+    "type": "number_integer",
+    "description": "Roughly how many days this size lasts at the recommended amount.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "ownerType": "PRODUCTVARIANT",
+    "namespace": "custom",
+    "key": "best_for",
+    "name": "Best for",
+    "type": "single_line_text_field",
+    "description": "One short line shown on the size card, for example: First-time users.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "PRODUCTVARIANT",
+    "namespace": "custom",
+    "key": "badge",
+    "name": "Badge",
+    "type": "single_line_text_field",
+    "description": "Optional label on the size card, for example: Best value.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "whatsapp_number",
+    "name": "WhatsApp number",
+    "type": "single_line_text_field",
+    "description": "International format, for example +92 300 1234567. Used by every WhatsApp link.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "regex",
+        "value": "^\\+?[0-9 ()-]{10,20}$"
+      }
+    ]
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "support_email",
+    "name": "Support email",
+    "type": "single_line_text_field",
+    "description": "Shown in the footer, contact page and FAQ.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "regex",
+        "value": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+      }
+    ]
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "free_shipping_threshold",
+    "name": "Free delivery from (PKR)",
+    "type": "number_decimal",
+    "description": "Order total in rupees from which delivery is free. Leave empty if delivery is never free.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "guarantee_days",
+    "name": "Guarantee (days)",
+    "type": "number_integer",
+    "description": "Length of the money-back guarantee. Leave empty to hide every guarantee line.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      },
+      {
+        "name": "max",
+        "value": "365"
+      }
+    ]
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "delivery_days_min",
+    "name": "Delivery time from (days)",
+    "type": "number_integer",
+    "description": "Fastest usual delivery time in working days.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      },
+      {
+        "name": "max",
+        "value": "60"
+      }
+    ]
+  },
+  {
+    "ownerType": "SHOP",
+    "namespace": "custom",
+    "key": "delivery_days_max",
+    "name": "Delivery time to (days)",
+    "type": "number_integer",
+    "description": "Slowest usual delivery time in working days.",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "pin": true,
+    "validations": [
+      {
+        "name": "min",
+        "value": "0"
+      },
+      {
+        "name": "max",
+        "value": "60"
+      }
+    ]
+  }
+]

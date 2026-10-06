@@ -1,0 +1,55 @@
+query ReadBackDefinitions {
+  product: metafieldDefinitions(first: 30, ownerType: PRODUCT, namespace: "custom") {
+    nodes {
+      key
+      type {
+        name
+      }
+      pinnedPosition
+      access {
+        storefront
+      }
+    }
+  }
+  variant: metafieldDefinitions(first: 30, ownerType: PRODUCTVARIANT, namespace: "custom") {
+    nodes {
+      key
+      type {
+        name
+      }
+      access {
+        storefront
+      }
+    }
+  }
+  shopDefinitions: metafieldDefinitions(first: 30, ownerType: SHOP, namespace: "custom") {
+    nodes {
+      key
+      type {
+        name
+      }
+      access {
+        storefront
+      }
+    }
+  }
+  labReport: metaobjectDefinitionByType(type: "lab_report") {
+    type
+    name
+    access {
+      storefront
+    }
+    fieldDefinitions {
+      key
+      type {
+        name
+      }
+      required
+    }
+  }
+  shop {
+    supportEmail: metafield(namespace: "custom", key: "support_email") {
+      value
+    }
+  }
+}
