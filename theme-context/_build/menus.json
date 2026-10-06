@@ -1,0 +1,122 @@
+{
+  "_about": "Menus to create in Shopify admin (Content > Menus), or through the Admin API in phase P12. Links to pages that do not exist yet use their future handles.",
+  "main-menu": {
+    "title": "Main menu",
+    "handle": "main-menu",
+    "items": [
+      {
+        "title": "Shop",
+        "url": "/products/pure-himalayan-aftabi-shilajit",
+        "note": "Until the product exists: /collections/all"
+      },
+      {
+        "title": "Lab Reports",
+        "url": "/pages/lab-reports"
+      },
+      {
+        "title": "Our Source",
+        "url": "/pages/our-source"
+      },
+      {
+        "title": "How to Use",
+        "url": "/pages/how-to-use"
+      },
+      {
+        "title": "Reviews",
+        "url": "/products/pure-himalayan-aftabi-shilajit#reviews"
+      },
+      {
+        "title": "Journal",
+        "url": "/blogs/journal"
+      },
+      {
+        "title": "Wholesale",
+        "url": "/pages/wholesale"
+      }
+    ]
+  },
+  "footer-shop": {
+    "title": "Shop",
+    "handle": "footer-shop",
+    "items": [
+      {
+        "title": "Pure Himalayan Aftabi Shilajit",
+        "url": "/products/pure-himalayan-aftabi-shilajit"
+      },
+      {
+        "title": "How to Use",
+        "url": "/pages/how-to-use"
+      },
+      {
+        "title": "Lab Reports",
+        "url": "/pages/lab-reports"
+      },
+      {
+        "title": "Track Your Order",
+        "url": "/pages/track-order"
+      }
+    ]
+  },
+  "footer-company": {
+    "title": "Company",
+    "handle": "footer-company",
+    "items": [
+      {
+        "title": "About",
+        "url": "/pages/about"
+      },
+      {
+        "title": "Our Source",
+        "url": "/pages/our-source"
+      },
+      {
+        "title": "Journal",
+        "url": "/blogs/journal"
+      },
+      {
+        "title": "Contact",
+        "url": "/pages/contact"
+      }
+    ]
+  },
+  "footer-partners": {
+    "title": "Partners",
+    "handle": "footer-partners",
+    "items": [
+      {
+        "title": "Wholesale",
+        "url": "/pages/wholesale"
+      },
+      {
+        "title": "Brand Ambassador",
+        "url": "/pages/ambassador"
+      },
+      {
+        "title": "Affiliate Program",
+        "url": "/pages/affiliate"
+      }
+    ]
+  },
+  "footer-policies": {
+    "title": "Policies",
+    "handle": "footer-policies",
+    "items": [
+      {
+        "title": "Privacy Policy",
+        "url": "/policies/privacy-policy"
+      },
+      {
+        "title": "Terms of Service",
+        "url": "/policies/terms-of-service"
+      },
+      {
+        "title": "Shipping Policy",
+        "url": "/policies/shipping-policy"
+      },
+      {
+        "title": "Refund Policy",
+        "url": "/policies/refund-policy"
+      }
+    ]
+  }
+}
