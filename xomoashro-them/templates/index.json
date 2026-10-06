@@ -3,44 +3,55 @@
     "hero": {
       "type": "xo-hero-proof",
       "blocks": {
-        "chip_1": {
-          "type": "chip",
+        "stat_1": {
+          "type": "stat",
           "settings": {
-            "text": "Sourced above 16,000 ft",
-            "icon": "mountain"
+            "value": "16,000+",
+            "label": "Feet, harvest altitude",
+            "requires": "none"
           }
         },
-        "chip_2": {
-          "type": "chip",
+        "stat_2": {
+          "type": "stat",
           "settings": {
-            "text": "100% resin, no fillers",
-            "icon": "drop"
+            "value": "85+",
+            "label": "Trace minerals in shilajit",
+            "requires": "none"
           }
         },
-        "chip_3": {
-          "type": "chip",
+        "stat_3": {
+          "type": "stat",
           "settings": {
-            "text": "Cash on delivery",
-            "icon": "cash"
+            "value": "100%",
+            "label": "Resin, no fillers",
+            "requires": "none"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "value": "[days] days",
+            "label": "Money-back guarantee",
+            "requires": "guarantee"
           }
         }
       },
       "block_order": [
-        "chip_1",
-        "chip_2",
-        "chip_3"
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
       ],
       "settings": {
-        "tone": "bone",
         "eyebrow": "Himalayan Aftabi Shilajit · Pakistan",
-        "heading": "Elevate your life with <em>pure Himalayan Aftabi Shilajit</em>",
+        "heading": "Elevate your life with pure Himalayan Aftabi Shilajit",
         "text": "<p>Pure Himalayan shilajit resin, traditionally taken for daily energy, focus and vitality. Sourced above 16,000 ft and delivered across Pakistan.</p>",
         "button_label": "Shop Shilajit",
         "button_link": "/collections/all",
         "secondary_button_label": "How to use",
         "secondary_button_link": "#how-to-use",
-        "image": "shopify://shop_images/xomoashro-pure-himalayan-shilajit-resin-jar.webp",
-        "image_mobile": "shopify://shop_images/xomoashro-pure-himalayan-shilajit-resin-jar-square.webp"
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock.webp",
+        "image_mobile": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-phone.webp"
       }
     },
     "trust": {
@@ -49,33 +60,33 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "text": "100% pure resin",
-            "icon": "drop",
+            "text": "Cash on delivery",
+            "icon": "cash",
             "requires": "none"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "text": "Cash on delivery",
-            "icon": "cash",
+            "text": "Delivery across Pakistan",
+            "icon": "truck",
             "requires": "none"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "text": "[days]-day money-back guarantee",
-            "icon": "shield",
-            "requires": "guarantee"
+            "text": "Direct from local collectors",
+            "icon": "mountain",
+            "requires": "none"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "text": "Delivery across Pakistan",
-            "icon": "truck",
-            "requires": "none"
+            "text": "Help on WhatsApp",
+            "icon": "whatsapp",
+            "requires": "whatsapp"
           }
         }
       },
@@ -229,7 +240,8 @@
       "settings": {
         "tone": "ink",
         "heading": "Xomoashro in numbers"
-      }
+      },
+      "disabled": true
     },
     "why": {
       "type": "xo-why",

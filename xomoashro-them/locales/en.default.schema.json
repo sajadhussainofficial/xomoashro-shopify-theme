@@ -170,7 +170,8 @@
       "show_excerpt": "Show summary",
       "draft": "Draft reminder",
       "background_image": "Background picture",
-      "overlay": "Darken the picture"
+      "overlay": "Darken the picture",
+      "picture_header": "Picture"
     },
     "options": {
       "small": "Small",
@@ -228,7 +229,7 @@
       "social_url": "Paste the full profile address, for example https://instagram.com/yourname. The icon is chosen from the address.",
       "styleguide": "Internal page for checking colours, type and components. Not linked from the store.",
       "heading_highlight": "Italic text is shown at full strength and the rest of the heading a little lighter.",
-      "hero_image": "Shown beside the text on computers and below it on phones. A portrait image works best. A mountain drawing is shown until an image is chosen.",
+      "hero_image": "On computers the picture fills the section and its left side fades to black behind the text, so use a wide picture with the product on the right. A dark picture works best.",
       "fact_text": "Placeholders are filled in from store data: [days] guarantee days, [amount] free delivery amount, [delivery] delivery time in days, [email] support email.",
       "bundles": "Shows one card for each size of the chosen product. Days of supply, the \"best for\" line, the badge and price per gram come from each size's details in the product. Hidden on the store until a product is chosen.",
       "anchor": "Optional. Lets buttons and menus jump to this section: a section named sizes is reached with the link #sizes. Use each name once per page.",
@@ -243,7 +244,9 @@
       "draft": "This section's wording was written for the new store and has not been confirmed. While this is on, a reminder appears here in the editor only. Shoppers never see it.",
       "howto_image": "Optional. Without an image the steps are shown side by side.",
       "statement_image": "Optional picture behind the text. With a picture the section always uses the dark-section colours so the text stays readable.",
-      "benefits_image": "Optional wide picture shown above the cards."
+      "benefits_image": "Optional wide picture shown above the cards.",
+      "hero": "Dark, full-width opening section. The numbers along the bottom are blocks: add, remove or reorder up to four.",
+      "hero_image_mobile": "Optional. A closer crop of the picture for phones and tablets, where it sits above the text."
     }
   },
   "categories": {
