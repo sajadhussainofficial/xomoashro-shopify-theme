@@ -30,14 +30,14 @@ Project in one paragraph: XOMOASHRO sells Pure Himalayan Aftabi Shilajit resin i
 Follow these steps every time this file is run, including in a new session with no memory of earlier work.
 
 1. **Load state.** Read `status.md` and `decisions.md`. Read `reference/architecture.md` and `reference/design-system.md` once per session.
-2. **Resume first.** If a phase is `in progress`, continue it from its task file. If a phase is `awaiting approval`, show its report again and ask for approval; do not start another phase.
+2. **Resume first.** If a phase is `in progress`, continue it from its task file. If a phase is `awaiting merge` or `awaiting approval`, finish that first (section 3, "Finishing a phase"); do not start another phase.
 3. **Pick the next phase.** Take the first phase in the order of section 6 that is `not started` and whose "needs finished first" phases are all `done`.
 4. **Check its decisions.** Compare the phase's hard and soft decisions with `decisions.md`.
    - No open hard decision: go to step 5.
    - An open hard decision: follow section 5 (ask, and offer the next unblocked phase).
 5. **Ask before building.** Ask the owner every open question the phase lists, hard and soft, in one batch of at most four questions at a time, each with the default stated. Write the answers into `decisions.md` with the date. An unanswered soft question takes its default.
 6. **Run the phase** as described in sections 3 and 4.
-7. **Stop.** After the report, set the phase to `awaiting approval` and wait. On approval set it to `done`, log it in `status.md`, and tell the owner which phase is next and what it will need from them.
+7. **Finish.** After the report, follow "Finishing a phase" in section 3: when every check passes, commit, push, open a pull request and merge it into `main`; otherwise stop and ask. Then tell the owner which phase is next and what it will need from them, and wait for their go before starting it.
 
 The owner may also name a phase directly ("run P13"). Then skip step 3, but still apply steps 4 to 7, and refuse to start if a needed phase is not done, saying which one.
 
@@ -57,9 +57,18 @@ Every phase moves through the same seven stages.
 | 4. Task list | The task outline is expanded into concrete tasks (section 4) | `tasks/Pxx-tasks.md` |
 | 5. Build | Tasks done one at a time with the loop in section 4 | Theme files or build files, one commit per task |
 | 6. Verify | Every acceptance check in the phase file is run and evidence collected | Check results |
-| 7. Report | Report written, status set to `awaiting approval`, work stops | `reports/Pxx-report.md` |
+| 7. Report and merge | Report written; phase committed, pushed, opened as a pull request and merged (see below) | `reports/Pxx-report.md`, merged pull request |
 
-Work happens on a git branch named `phase/Pxx-short-name`, created from `main` at stage 1. The branch is merged only after the owner approves the phase.
+Work happens on a git branch named `phase/Pxx-short-name`, created from `main` at stage 1.
+
+### Finishing a phase
+
+Standing instruction from the owner (2026-10-06): every phase ends with commit, push, pull request and merge into `main`, once the phase is fully satisfactory.
+
+1. **All acceptance checks pass:** set the phase to `done`, commit, push the branch, open a pull request into `main` with the report summary as its description, and merge it with a merge commit (never squash: local history must match). Then update local `main`.
+2. **A check failed, or an important check could not be run:** set the phase to `awaiting approval`, report, and ask the owner before merging.
+3. **No write access from the command line:** commit, set the phase to `awaiting merge`, and hand the owner the pull request title and description. The owner pushes, opens and merges, then pulls `main`. (On 2026-10-06 the command-line GitHub account `zeshan-rx` was not a collaborator on the repository; the owner pushes through GitHub Desktop.)
+4. **After any merge, pull or branch switch,** check the local preview. If pages return 404 or 502, re-upload the theme to the development theme (`shopify theme push --theme <development theme id>`) or restart `shopify theme dev`.
 
 ### Report format
 
@@ -207,7 +216,7 @@ These come from the master prompt and from the owner's later instructions. A pha
 7. **Conservative health wording.** "Supports", "traditionally used for"; never "cures" or "treats". Risky content is flagged for the owner.
 8. **Checkout is not touched.**
 9. **Ask before deleting** any existing file and before any write to the store.
-10. **Stop after every phase** for approval.
+10. **Finish every phase with commit, push, pull request and merge** once all checks pass (section 3). Stop and ask instead when a check fails or could not be run. Start the next phase only on the owner's go.
 11. **Definition of done for any section:** theme check clean; correct at 360, 768 and 1280px; keyboard usable; contrast passes; no layout shift; editable and pre-filled; strings in the locale file; committed.
 
 ---
@@ -329,6 +338,8 @@ Not used: Hydrogen (this is a Liquid theme), checkout and customer-account exten
 ### Git and safety
 
 - One branch per phase, one commit per task, clear messages.
+- Never amend, rebase or otherwise rewrite a commit. The owner's GitHub Desktop pushes alongside the agent, and a rewritten commit causes a conflict on their next pull. Corrections go in a new commit.
+- Do not switch branches in the middle of a phase. `shopify theme dev` mirrors every file change, including the deletions a branch switch causes, to the development theme.
 - Never commit tokens, passwords or customer data.
 - Never push to or publish the live theme, and never write to the store, without the owner's explicit approval for that action.
 - Before deleting or overwriting anything, look at it and list it.

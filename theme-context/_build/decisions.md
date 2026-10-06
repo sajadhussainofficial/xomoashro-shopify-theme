@@ -38,6 +38,7 @@ One row per question for the store owner. The runner reads this file before ever
 | 2026-10-06 | The logo stays orange `#FF6B31`; the accent colour follows it (buttons orange with dark text, links `#C2410C`). The earlier amber accent is dropped. |
 | 2026-10-06 | Typeface is Manrope for headings and body (owner's request during P02), replacing Fraunces and Inter. |
 | 2026-10-06 | For P02 the owner asked for commit, push, pull request and merge into `main` on completion, without a separate approval stop. |
+| 2026-10-06 | That instruction now applies to every phase: once a phase is fully satisfactory (all checks pass), commit, push, open a pull request and merge into `main`. |
 
 ## New questions
 
