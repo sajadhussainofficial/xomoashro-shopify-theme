@@ -11,7 +11,7 @@ The single record of progress. The runner updates this file at the start and end
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P05-report.md) |
 | 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | done | 2026-10-06 | 2026-10-06 | [report](reports/P01-report.md) |
 | 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | not started | | | |
-| 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | awaiting approval | 2026-10-07 | | [report](reports/P07-report.md) |
+| 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | done | 2026-10-07 | 2026-10-07 | [report](reports/P07-report.md) |
 | 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | not started | | | |
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | P02, P08 | - | not started | | | |
 | 11 | [P10](phases/P10-content-pages.md) | Content pages | P02, P07, P01 | - | not started | | | |
@@ -61,3 +61,4 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-07 P01 merged by the owner (pull request #6). P07 started on branch `phase/P07-homepage`, ahead of P06 because the store has no product to test the cart with.
 - 2026-10-07 P07 built: 17 homepage sections and `templates/index.json`. One acceptance check not run (add to cart from the size cards: the store has no product), so the phase is awaiting the owner's approval. New questions B21 (test product) and B22 (draft wording) added.
 - 2026-10-07 P07 update after the owner's feedback ("use actual pictures"): seven pictures restaged from the real old-site photographs, uploaded to the store's Files and set on the homepage. OpenAI restaging not run: both keys in `.env` report no credits. `.env` added to `.gitignore` (it was not ignored; the repository is public). Two old-site pictures found to be stock photos of other things and dropped. New questions B23 (OpenAI credit) and B24 (import blog posts now).
+- 2026-10-07 P07 merged by the owner (pull request #7), which approves it with one check carried into P06: add to cart from the homepage size cards. The picture work above is on branch `phase/P07-homepage-pictures`, waiting for the owner to push, open and merge.
