@@ -1,0 +1,271 @@
+{
+  "product": {
+    "nodes": [
+      {
+        "key": "fulvic_percent",
+        "type": {
+          "name": "number_decimal"
+        },
+        "pinnedPosition": 1,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "altitude_ft",
+        "type": {
+          "name": "number_integer"
+        },
+        "pinnedPosition": 2,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "origin_region",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "pinnedPosition": 3,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "batch_number",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "pinnedPosition": 4,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "lab_name",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "pinnedPosition": 5,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "lab_test_date",
+        "type": {
+          "name": "date"
+        },
+        "pinnedPosition": 6,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "lab_report",
+        "type": {
+          "name": "file_reference"
+        },
+        "pinnedPosition": 7,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "how_to_use",
+        "type": {
+          "name": "rich_text_field"
+        },
+        "pinnedPosition": 8,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "safety",
+        "type": {
+          "name": "rich_text_field"
+        },
+        "pinnedPosition": 9,
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      }
+    ]
+  },
+  "variant": {
+    "nodes": [
+      {
+        "key": "net_weight_g",
+        "type": {
+          "name": "number_decimal"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "supply_days",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "best_for",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "badge",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      }
+    ]
+  },
+  "shopDefinitions": {
+    "nodes": [
+      {
+        "key": "whatsapp_number",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "support_email",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "free_shipping_threshold",
+        "type": {
+          "name": "number_decimal"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "guarantee_days",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "delivery_days_min",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "key": "delivery_days_max",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      }
+    ]
+  },
+  "labReport": {
+    "type": "lab_report",
+    "name": "Lab report",
+    "access": {
+      "storefront": "PUBLIC_READ"
+    },
+    "fieldDefinitions": [
+      {
+        "key": "batch",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "required": true
+      },
+      {
+        "key": "test_date",
+        "type": {
+          "name": "date"
+        },
+        "required": true
+      },
+      {
+        "key": "lab",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "required": true
+      },
+      {
+        "key": "fulvic_percent",
+        "type": {
+          "name": "number_decimal"
+        },
+        "required": false
+      },
+      {
+        "key": "lead_ppm",
+        "type": {
+          "name": "number_decimal"
+        },
+        "required": false
+      },
+      {
+        "key": "arsenic_ppm",
+        "type": {
+          "name": "number_decimal"
+        },
+        "required": false
+      },
+      {
+        "key": "mercury_ppm",
+        "type": {
+          "name": "number_decimal"
+        },
+        "required": false
+      },
+      {
+        "key": "cadmium_ppm",
+        "type": {
+          "name": "number_decimal"
+        },
+        "required": false
+      },
+      {
+        "key": "report_file",
+        "type": {
+          "name": "file_reference"
+        },
+        "required": false
+      }
+    ]
+  },
+  "shop": {
+    "supportEmail": {
+      "value": "ask@xomoashro.com"
+    }
+  }
+}
