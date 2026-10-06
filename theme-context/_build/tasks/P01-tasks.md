@@ -9,4 +9,4 @@
 | 5 | Store facts | `store-setup/shop-metafield-values.json`, `shop-metafields-set.graphql` | Values read back from the store; theme shows them | prepared, waiting for approval and answers to B4, B9 |
 | 6 | Runner and read-back | `store-setup/run_setup.py`, `read-back.graphql`, `shop-id.graphql` | `read-back-result.json` lists every definition | prepared, waiting for approval |
 | 7 | Owner checklist | `store-setup/settings-checklist.md` | Owner ticks each item | done |
-| 8 | Working copy of the theme on the store (optional) | none | `shopify theme push --unpublished` creates a theme with a stable preview link | waiting for approval |
+| 8 | Working copy of the theme on the store (optional) | none | `shopify theme push --unpublished` creates a theme with a stable preview link | done: theme 158632640684 |

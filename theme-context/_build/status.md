@@ -55,3 +55,4 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 P05 finished except one check: a real newsletter signup. Shopify's bot protection blocks automated form posts, so the owner is asked to sign up once and confirm the customer appears in admin before the pull request is merged.
 - 2026-10-06 P05 merged by the owner (pull request #5). The manual newsletter signup check was not confirmed before the merge; it is carried into P24 launch checks.
 - 2026-10-06 P01 started on branch `phase/P01-store-setup-and-data-model`.
+- 2026-10-06 Owner approved the P01 store writes and the working copy. Working copy created: "Xomoashro (working copy)", theme 158632640684, unpublished, preview https://https-xomoashro-com-fcrv98st.myshopify.com?preview_theme_id=158632640684. B4 and B9 answered "yes" without values; still open.
