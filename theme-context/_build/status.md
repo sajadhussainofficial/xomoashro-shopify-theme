@@ -7,7 +7,7 @@ The single record of progress. The runner updates this file at the start and end
 | 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
 | 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P02-report.md) |
 | 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P03-report.md) |
-| 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | not started | | | |
+| 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P04-report.md) |
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | not started | | | |
 | 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | not started | | | |
 | 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | not started | | | |
@@ -49,3 +49,6 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 Owner made commit, push, pull request and merge standing for every phase; runner updated. P03 started on branch `phase/P03-header-and-navigation`.
 - 2026-10-06 Correction to the P02 note above: the files lost from the development theme, and the broken style guide reported by the owner during P03, were caused by `shopify theme dev` running from the repository root instead of `xomoashro-them/`, not by branch switching. The server was restarted from `xomoashro-them/`; runner updated.
 - 2026-10-06 P03 finished; all checks pass, two of them by simulation or proxy (see report). Owner committed part of the work mid-phase through GitHub Desktop (`d7fbb69`). Waiting for the owner to push, open and merge the pull request.
+- 2026-10-06 P03's last two commits reached GitHub after pull request #2 was merged; they were merged into the P04 branch so they reach `main` with P04.
+- 2026-10-06 The owner's terminal started `shopify theme dev` from the repository root again and emptied the development theme. Fixed for good with `shopify.theme.toml` in the repository root and in `xomoashro-them/` (path and `nodelete`); development theme restored with `shopify theme push`.
+- 2026-10-06 P04 finished; all checks pass. Waiting for the owner to push, open and merge the pull request.
