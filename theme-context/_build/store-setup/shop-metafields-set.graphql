@@ -1,0 +1,14 @@
+mutation SetShopMetafields($metafields: [MetafieldsSetInput!]!) {
+  metafieldsSet(metafields: $metafields) {
+    metafields {
+      namespace
+      key
+      value
+    }
+    userErrors {
+      field
+      message
+      code
+    }
+  }
+}

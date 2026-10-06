@@ -1,0 +1,7 @@
+query ShopId {
+  shop {
+    id
+    name
+    currencyCode
+  }
+}
