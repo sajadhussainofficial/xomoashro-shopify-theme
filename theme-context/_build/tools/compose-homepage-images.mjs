@@ -145,7 +145,16 @@ async function customers() {
   await save(sharp(path.join(src, 'Taimoor.png')), 'xomoashro-customer-taimoor-khan', 86);
 }
 
+// 6. Hero (approved design, 2026-10-07): the owner's own picture of the bottle on a
+//    rock in front of the mountains. Only resized and cropped; nothing is redrawn.
+async function heroScene() {
+  const file = path.join(repoRoot, 'theme-context/wordpress-site/assets/salajit.png');
+  await save(sharp(file), 'xomoashro-shilajit-jar-on-mountain-rock', 84);
+  await save(sharp(file).extract({ left: 486, top: 40, width: 1100, height: 900 }), 'xomoashro-shilajit-jar-on-mountain-rock-phone', 82);
+}
+
 await hero();
+await heroScene();
 await benefits();
 await statement();
 await source();

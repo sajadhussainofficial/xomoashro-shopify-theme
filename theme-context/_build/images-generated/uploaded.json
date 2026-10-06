@@ -54,5 +54,21 @@
     "height": 300,
     "alt": "Taimoor Khan, professional boxer and Xomoashro customer",
     "setting": "shopify://shop_images/xomoashro-customer-taimoor-khan.webp"
+  },
+  "xomoashro-shilajit-jar-on-mountain-rock.webp": {
+    "id": "gid://shopify/MediaImage/41653739585708",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-on-mountain-rock.webp?v=1791319042",
+    "width": 1586,
+    "height": 992,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock.webp"
+  },
+  "xomoashro-shilajit-jar-on-mountain-rock-phone.webp": {
+    "id": "gid://shopify/MediaImage/41653740929196",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-on-mountain-rock-phone.webp?v=1791319054",
+    "width": 1100,
+    "height": 900,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-phone.webp"
   }
 }
