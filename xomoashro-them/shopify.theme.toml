@@ -1,0 +1,7 @@
+# Shopify CLI settings when commands run from inside the theme folder.
+# The repository root has its own shopify.theme.toml that points here.
+
+[environments.default]
+store = "https-xomoashro-com-fcrv98st.myshopify.com"
+path = "."
+nodelete = true
