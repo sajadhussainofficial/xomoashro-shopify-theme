@@ -1,0 +1,242 @@
+{%- liquid
+  assign s = section.settings
+  assign has_media = false
+  if s.image != blank
+    assign has_media = true
+  endif
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <div
+    class="xo-howto xo-section xo-tone-{{ s.tone }}"
+    {% if s.anchor != blank %}
+      id="{{ s.anchor | handleize }}"
+      data-xo-anchor
+    {% endif %}
+  >
+    <div class="xo-container{% if has_media %} xo-split{% if s.media_first %} xo-split--media-first{% endif %}{% endif %}">
+      <div class="xo-howto__copy">
+        {%- if s.draft and request.design_mode -%}
+        <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
+      {%- endif -%}
+        {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+
+        <ol
+          class="xo-howto__steps{% unless has_media %} xo-howto__steps--row{% endunless %}"
+          role="list"
+        >
+          {%- for block in section.blocks -%}
+            <li
+              class="xo-howto__step"
+              data-xo-reveal
+              {{ block.shopify_attributes }}
+            >
+              <span
+                class="xo-number"
+                aria-hidden="true"
+              >
+                {{- forloop.index -}}
+              </span>
+              <div class="xo-feature">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+        {%- if s.button_link != blank -%}
+          {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+        {%- endif -%}
+        {%- if s.footnote != blank -%}
+          <p class="xo-footnote xo-howto__note">{{ s.footnote | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if has_media -%}
+        <div
+          class="xo-howto__media xo-media xo-howto__picture"
+          data-xo-reveal
+        >
+          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 50vw, 100vw' -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-howto__copy {
+    display: grid;
+    gap: var(--xo-space-5);
+    justify-items: start;
+  }
+
+  .xo-howto__copy .xo-heading {
+    margin-block-end: var(--xo-space-2);
+  }
+
+  .xo-howto__steps {
+    display: grid;
+    gap: var(--xo-space-5);
+    inline-size: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-howto__step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    align-items: start;
+    align-content: start;
+  }
+
+  .xo-howto__step .xo-feature {
+    gap: var(--xo-space-1);
+    padding-block-start: 0.375rem;
+  }
+
+  .xo-howto__note {
+    margin-block-start: 0;
+  }
+
+  .xo-howto__picture {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (min-width: 750px) {
+    .xo-howto__steps--row {
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      gap: var(--xo-space-6);
+      margin-block: var(--xo-space-3);
+    }
+
+    .xo-howto__steps--row .xo-howto__step {
+      grid-template-columns: minmax(0, 1fr);
+      padding-block-start: var(--xo-space-5);
+      border-block-start: 1px solid var(--xo-line);
+    }
+
+    .xo-howto__steps--row .xo-feature {
+      gap: var(--xo-space-2);
+      padding-block-start: 0;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-howto__picture {
+      aspect-ratio: 5 / 6;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.how_to_use",
+  "tag": "section",
+  "class": "xo-howto-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "draft",
+      "label": "t:xo.labels.draft",
+      "info": "t:xo.info.draft",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" },
+        { "value": "accent", "label": "t:xo.options.accent" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "How to use" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "info": "t:xo.info.heading_highlight",
+      "default": "Three steps, <em>once a day</em>"
+    },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:xo.labels.button_label",
+      "default": "Read the full guide"
+    },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "t:xo.labels.footnote",
+      "default": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition."
+    },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.howto_image" },
+    {
+      "type": "checkbox",
+      "id": "media_first",
+      "label": "t:xo.labels.media_first",
+      "default": false,
+      "visible_if": "{{ section.settings.image != blank }}"
+    },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "t:xo.names.step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "Take a pea-sized amount" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "default": "<p>Scoop a small portion of resin with a clean, dry spoon.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.how_to_use",
+      "settings": { "button_link": "/pages/how-to-use" },
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Take a pea-sized amount",
+            "text": "<p>Scoop a small portion of resin with a clean, dry spoon.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Dissolve it",
+            "text": "<p>Stir it into warm water, milk or tea until it has dissolved.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": { "title": "Drink once a day", "text": "<p>Start small and keep to the amount on the label.</p>" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,33 @@
+{%- doc -%}
+  FAQPage structured data built from the same question blocks shoppers see, so
+  the two can never disagree. Outputs nothing when there are no answered
+  questions. Use it once per page.
+
+  @param {object[]} blocks - Section blocks; those of type `question` with `question`, `answer` and optional `requires` settings are used
+
+  @example
+  {% render 'xo-faq-jsonld', blocks: section.blocks %}
+{%- enddoc -%}
+
+{%- capture xo_faq_entities -%}
+  {%- for block in blocks -%}
+    {%- if block.type != 'question' or block.settings.question == blank -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- capture xo_faq_answer -%}
+      {%- render 'xo-fact-text', text: block.settings.answer, requires: block.settings.requires -%}
+    {%- endcapture -%}
+    {%- assign xo_faq_answer_text = xo_faq_answer | replace: '</p>', '</p> ' | strip_html | strip -%}
+    {%- if xo_faq_answer_text == blank -%}
+      {%- continue -%}
+    {%- endif -%}
+    ,{"@type":"Question","name":{{ block.settings.question | json }},"acceptedAnswer":{"@type":"Answer","text":{{ xo_faq_answer_text | json }}}}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign xo_faq_entities = xo_faq_entities | strip | remove_first: ',' -%}
+
+{%- if xo_faq_entities != blank -%}
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{ xo_faq_entities }}]}
+  </script>
+{%- endif -%}
