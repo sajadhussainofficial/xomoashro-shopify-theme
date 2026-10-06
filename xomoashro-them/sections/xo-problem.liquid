@@ -79,7 +79,12 @@
     opacity: var(--xo-problem-overlay, 0.55);
   }
 
-  /* Over a picture, body text uses the full text colour to keep its contrast. */
+  /* Over a picture, body text uses the full text colour and the quiet half of the
+     heading is lighter, to keep their contrast. */
+  .xo-problem--media {
+    --xo-heading-soft: color-mix(in srgb, var(--xo-on-ink) 80%, var(--xo-ink));
+  }
+
   .xo-problem--media .xo-problem__text {
     color: var(--xo-fg);
   }

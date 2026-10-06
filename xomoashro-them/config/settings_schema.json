@@ -52,7 +52,7 @@
         "type": "color",
         "id": "xo_color_ink",
         "label": "t:xo.settings.ink",
-        "default": "#0E0D0B"
+        "default": "#0B0B0D"
       },
       {
         "type": "color",

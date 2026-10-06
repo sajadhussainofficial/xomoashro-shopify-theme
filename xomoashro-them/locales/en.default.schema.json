@@ -227,7 +227,7 @@
       "show_whatsapp": "Uses the WhatsApp number saved in the store's data. Hidden while no number is saved.",
       "social_url": "Paste the full profile address, for example https://instagram.com/yourname. The icon is chosen from the address.",
       "styleguide": "Internal page for checking colours, type and components. Not linked from the store.",
-      "heading_highlight": "Italic text is shown in the accent colour.",
+      "heading_highlight": "Italic text is shown at full strength and the rest of the heading a little lighter.",
       "hero_image": "Shown beside the text on computers and below it on phones. A portrait image works best. A mountain drawing is shown until an image is chosen.",
       "fact_text": "Placeholders are filled in from store data: [days] guarantee days, [amount] free delivery amount, [delivery] delivery time in days, [email] support email.",
       "bundles": "Shows one card for each size of the chosen product. Days of supply, the \"best for\" line, the badge and price per gram come from each size's details in the product. Hidden on the store until a product is chosen.",

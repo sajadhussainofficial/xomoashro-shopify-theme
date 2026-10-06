@@ -96,7 +96,7 @@
         "whatsapp"
       ],
       "settings": {
-        "tone": "accent",
+        "tone": "ink",
         "text_size": "sm",
         "autoplay": true,
         "speed": 6,

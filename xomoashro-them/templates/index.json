@@ -33,7 +33,7 @@
       "settings": {
         "tone": "bone",
         "eyebrow": "Himalayan Aftabi Shilajit · Pakistan",
-        "heading": "Elevate your life with <em>pure</em> Himalayan Aftabi Shilajit",
+        "heading": "Elevate your life with <em>pure Himalayan Aftabi Shilajit</em>",
         "text": "<p>Pure Himalayan shilajit resin, traditionally taken for daily energy, focus and vitality. Sourced above 16,000 ft and delivered across Pakistan.</p>",
         "button_label": "Shop Shilajit",
         "button_link": "/collections/all",
@@ -178,7 +178,7 @@
       "settings": {
         "tone": "bone",
         "eyebrow": "About our product",
-        "heading": "An ancient remedy for <em>everyday</em> well-being",
+        "heading": "An ancient remedy for <em>everyday well-being</em>",
         "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
         "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
         "image": "shopify://shop_images/xomoashro-shilajit-jar-with-raw-resin.webp"
@@ -716,7 +716,7 @@
         "partner_3"
       ],
       "settings": {
-        "tone": "accent",
+        "tone": "ink",
         "eyebrow": "Work with us",
         "heading": "Partner with Xomoashro",
         "lead": "<p>Grow with us as a distributor, ambassador or affiliate.</p>"
