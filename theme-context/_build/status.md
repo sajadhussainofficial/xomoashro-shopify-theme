@@ -6,7 +6,7 @@ The single record of progress. The runner updates this file at the start and end
 |---|---|---|---|---|---|---|---|---|
 | 1 | [P00](phases/P00-inventory-and-audit.md) | Inventory and audit | - | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P00-report.md) |
 | 2 | [P02](phases/P02-design-foundation.md) | Design foundation | P00 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P02-report.md) |
-| 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | in progress | 2026-10-06 | | |
+| 3 | [P03](phases/P03-header-and-navigation.md) | Header and navigation | P02 | - | awaiting merge | 2026-10-06 | 2026-10-06 | [report](reports/P03-report.md) |
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | not started | | | |
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | not started | | | |
 | 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | not started | | | |
@@ -47,3 +47,5 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-06 P02 pull request and merge blocked: the GitHub account logged in on the command line (`zeshan-rx`) is not a collaborator on `sajadhussainofficial/xomoashro-shopify-theme` (push and `gh pr create` both refused). The branch `phase/P02-design-foundation` reached GitHub through the owner's editor account (`zeshanamindev-hub`). Waiting for the owner to open and merge the pull request, or to give the command-line account write access.
 - 2026-10-06 P02 merged into `main` through pull request #1 (opened and merged by the owner). The development theme lost files during the branch switches and was repaired with a full `shopify theme push` to theme `158613045420`.
 - 2026-10-06 Owner made commit, push, pull request and merge standing for every phase; runner updated. P03 started on branch `phase/P03-header-and-navigation`.
+- 2026-10-06 Correction to the P02 note above: the files lost from the development theme, and the broken style guide reported by the owner during P03, were caused by `shopify theme dev` running from the repository root instead of `xomoashro-them/`, not by branch switching. The server was restarted from `xomoashro-them/`; runner updated.
+- 2026-10-06 P03 finished; all checks pass, two of them by simulation or proxy (see report). Owner committed part of the work mid-phase through GitHub Desktop (`d7fbb69`). Waiting for the owner to push, open and merge the pull request.
