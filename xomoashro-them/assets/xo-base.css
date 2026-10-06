@@ -317,6 +317,12 @@
   --xo-btn-fg: var(--xo-on-ink);
 }
 
+.xo-btn--sm {
+  min-block-size: var(--xo-tap-target);
+  padding: 0.5rem 1.125rem;
+  font-size: var(--xo-text-sm);
+}
+
 .xo-btn--block {
   inline-size: 100%;
 }

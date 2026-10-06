@@ -31,9 +31,28 @@
       "overlay": "Overlays"
     },
     "names": {
+      "header": "Header",
+      "utility_link": "Menu link",
+      "social_link": "Social link",
       "styleguide": "Style guide"
     },
     "labels": {
+      "menu": "Menu",
+      "sticky": "Keep the header visible while scrolling",
+      "show_search": "Show search",
+      "show_account": "Show account link",
+      "shop_button": "Shop button",
+      "button_label": "Button label",
+      "button_link": "Button link",
+      "cta_desktop": "Show the button on desktop too",
+      "mobile_menu": "Mobile menu",
+      "show_whatsapp": "Show WhatsApp link",
+      "whatsapp_label": "WhatsApp link label",
+      "whatsapp_message": "WhatsApp starting message",
+      "label": "Label",
+      "link": "Link",
+      "icon": "Icon",
+      "social_url": "Profile link",
       "image": "Image",
       "tone": "Colour tone",
       "eyebrow": "Eyebrow",
@@ -43,12 +62,25 @@
       "show_tones": "Show all tones"
     },
     "options": {
+      "icon_truck": "Delivery truck",
+      "icon_mail": "Envelope",
+      "icon_phone": "Phone",
+      "icon_pin": "Map pin",
+      "icon_flask": "Lab flask",
+      "icon_shield": "Shield",
+      "icon_leaf": "Leaf",
+      "icon_arrow": "Arrow",
       "bone": "Light (page colour)",
       "surface": "Light (card colour)",
       "ink": "Dark",
       "accent": "Accent"
     },
     "info": {
+      "header_logo": "The logo image and its height are set in Theme settings > Logo and favicon. Without an image, the built-in Xomoashro logo is used.",
+      "show_account": "Needs customer accounts to be turned on in the store.",
+      "cta_desktop": "On phones and tablets the button always shows. On desktop the menu already has room for the same link.",
+      "show_whatsapp": "Uses the WhatsApp number saved in the store's data. Hidden while no number is saved.",
+      "social_url": "Paste the full profile address, for example https://instagram.com/yourname. The icon is chosen from the address.",
       "styleguide": "Internal page for checking colours, type and components. Not linked from the store."
     }
   },

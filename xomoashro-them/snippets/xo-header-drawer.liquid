@@ -1,0 +1,197 @@
+{% doc %}
+  Mobile navigation drawer for the Xomoashro header. A native modal dialog, so the
+  browser traps focus, closes on Escape and returns focus to the menu button.
+  Behaviour lives in `assets/xo-header.js` (`xo-nav-drawer`, built on Horizon's dialog).
+
+  @param {object} section - The header section (settings and blocks)
+  @param {object} menu - The main menu (`linklists[handle]`)
+  @param {string} tone - Tone name: bone, surface, ink or accent
+  @param {string} logo - Rendered logo markup
+  @param {string} [whatsapp_url] - WhatsApp link, blank when no number is set
+
+  @example
+  {% render 'xo-header-drawer', section: section, menu: menu, tone: tone, logo: logo, whatsapp_url: whatsapp_url %}
+{% enddoc %}
+
+{%- liquid
+  assign xo_utility_blocks = section.blocks | where: 'type', 'utility_link'
+  assign xo_social_blocks = section.blocks | where: 'type', 'social'
+-%}
+
+<xo-nav-drawer
+  id="xo-nav-drawer"
+  dialog-active-max-width="989"
+>
+  <dialog
+    ref="dialog"
+    id="xo-nav-drawer-dialog"
+    class="xo-drawer xo-tone-{{ tone }}"
+    aria-label="{{ 'xo.header.menu' | t }}"
+  >
+    <div class="xo-drawer__top">
+      <a
+        class="xo-drawer__logo"
+        href="{{ routes.root_url }}"
+        aria-label="{{ shop.name | escape }}"
+      >
+        {{- logo -}}
+      </a>
+      <button
+        type="button"
+        class="xo-header__icon-btn"
+        on:click="/closeDialog"
+        aria-label="{{ 'xo.header.close_menu' | t }}"
+      >
+        {%- render 'xo-icon', name: 'close', size: 24 -%}
+      </button>
+    </div>
+
+    <div class="xo-drawer__body">
+      {%- if menu.links.size > 0 -%}
+        <nav aria-label="{{ 'xo.header.main_navigation' | t }}">
+          <ul
+            class="xo-drawer__nav"
+            role="list"
+          >
+            {%- for link in menu.links -%}
+              <li>
+                {%- if link.links.size > 0 -%}
+                  <details class="xo-drawer__group">
+                    <summary class="xo-drawer__nav-link">
+                      <span>{{ link.title | escape }}</span>
+                      {%- render 'xo-icon', name: 'chevron-down', size: 20 -%}
+                    </summary>
+                    <ul
+                      class="xo-drawer__subnav"
+                      role="list"
+                    >
+                      <li>
+                        {%- render 'xo-nav-link', link: link, class: 'xo-drawer__sub-link' -%}
+                      </li>
+                      {%- for child_link in link.links -%}
+                        <li>
+                          {%- render 'xo-nav-link', link: child_link, class: 'xo-drawer__sub-link' -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </details>
+                {%- else -%}
+                  {%- render 'xo-nav-link', link: link, class: 'xo-drawer__nav-link' -%}
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+
+      {%- if section.settings.cta_label != blank and section.settings.cta_link != blank -%}
+        <div class="xo-drawer__cta">
+          {%- render 'xo-button',
+            label: section.settings.cta_label,
+            url: section.settings.cta_link,
+            icon: 'arrow-right',
+            block: true
+          -%}
+        </div>
+      {%- endif -%}
+
+      <ul
+        class="xo-drawer__utility"
+        role="list"
+        aria-label="{{ 'xo.header.more_links' | t }}"
+      >
+        {%- if section.settings.show_search -%}
+          <li>
+            <button
+              type="button"
+              class="xo-drawer__utility-link"
+              data-xo-open-after-close="search-modal"
+              aria-haspopup="dialog"
+            >
+              {%- render 'xo-icon', name: 'search', size: 20 -%}
+              <span>{{ 'content.search' | t }}</span>
+            </button>
+          </li>
+        {%- endif -%}
+        {%- if whatsapp_url != blank and section.settings.show_whatsapp -%}
+          <li>
+            <a
+              class="xo-drawer__utility-link"
+              href="{{ whatsapp_url }}"
+              target="_blank"
+              rel="noopener"
+            >
+              {%- render 'xo-icon', name: 'whatsapp', size: 20 -%}
+              <span>{{ section.settings.whatsapp_label | escape }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- for block in xo_utility_blocks -%}
+          {%- if block.settings.label != blank and block.settings.link != blank -%}
+            <li {{ block.shopify_attributes }}>
+              <a
+                class="xo-drawer__utility-link"
+                href="{{ block.settings.link }}"
+              >
+                {%- render 'xo-icon', name: block.settings.icon, size: 20 -%}
+                <span>{{ block.settings.label | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if section.settings.show_account and shop.customer_accounts_enabled -%}
+          <li>
+            <a
+              class="xo-drawer__utility-link"
+              href="{{ routes.account_url }}"
+            >
+              {%- render 'xo-icon', name: 'user', size: 20 -%}
+              <span>{{ 'content.account_title' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    {%- capture xo_social_links -%}
+      {%- for block in xo_social_blocks -%}
+        {%- liquid
+          assign xo_social_url = block.settings.link
+          assign xo_social_platform = xo_social_url | split: '//' | last | remove: 'www.' | split: '.' | first
+          assign xo_social_path = xo_social_url | split: '//' | last | split: '/'
+        -%}
+        {%- if xo_social_url != blank and xo_social_path.size > 1 and xo_social_path[1] != '' -%}
+          <li {{ block.shopify_attributes }}>
+            <a
+              class="xo-header__icon-btn"
+              href="{{ xo_social_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{ xo_social_platform | capitalize }}"
+            >
+              <svg
+                class="xo-drawer__social-icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                {%- render 'icon', icon: xo_social_platform -%}
+              </svg>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- if xo_social_links != blank -%}
+      <ul
+        class="xo-drawer__social"
+        role="list"
+        aria-label="{{ 'xo.header.social' | t }}"
+      >
+        {{- xo_social_links -}}
+      </ul>
+    {%- endif -%}
+  </dialog>
+</xo-nav-drawer>
