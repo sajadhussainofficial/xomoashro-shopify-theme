@@ -1,9 +1,25 @@
 {%- liquid
   assign s = section.settings
+  assign tone = s.tone
+  assign has_image = false
+  if s.image != blank
+    assign has_image = true
+    assign tone = 'ink'
+  endif
 -%}
 
 {%- if s.heading != blank or s.text != blank -%}
-  <div class="xo-problem xo-section xo-tone-{{ s.tone }}">
+  <div
+    class="xo-problem xo-section xo-tone-{{ tone }}{% if has_image %} xo-problem--media{% endif %}"
+    {% if has_image %}
+      style="--xo-problem-overlay: {{ s.overlay | divided_by: 100.0 }};"
+    {% endif %}
+  >
+    {%- if has_image -%}
+      <div class="xo-problem__media">
+        {%- render 'xo-image', image: s.image, sizes: '100vw', max_width: 2400, decorative: true -%}
+      </div>
+    {%- endif -%}
     <div class="xo-container xo-problem__inner">
       {%- if s.eyebrow != blank -%}
         <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
@@ -34,6 +50,43 @@
 
   .xo-problem__text {
     max-inline-size: 40rem;
+  }
+
+  .xo-problem--media {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .xo-problem__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .xo-problem__media .xo-img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .xo-problem__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--xo-ink);
+    opacity: var(--xo-problem-overlay, 0.55);
+  }
+
+  /* Over a picture, body text uses the full text colour and the quiet half of the
+     heading is lighter, to keep their contrast. */
+  .xo-problem--media {
+    --xo-heading-soft: color-mix(in srgb, var(--xo-on-ink) 80%, var(--xo-ink));
+  }
+
+  .xo-problem--media .xo-problem__text {
+    color: var(--xo-fg);
   }
 
   @media (min-width: 750px) {
@@ -80,7 +133,24 @@
       "default": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>"
     },
     { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Our source" },
-    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" }
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:xo.labels.background_image",
+      "info": "t:xo.info.statement_image"
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "t:xo.labels.overlay",
+      "min": 30,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 55,
+      "visible_if": "{{ section.settings.image != blank }}"
+    }
   ],
   "presets": [
     {

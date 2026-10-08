@@ -21,7 +21,7 @@ id,original_path,new_filename,intended_use,alt_text,dimensions,size_kb,old_pages
 19,wordpress-site/assets/images/Food-Archive-Pic.png,,not used,,910x370,160,0,no,Unrelated stock or template image
 20,wordpress-site/assets/images/Group-1000001393-min.png,,not used,Pure Himalayan Shilajit,460x439,63,0,no,Jar or tray with the old design background baked in; superseded
 21,wordpress-site/assets/images/Group-1000001393.png,,not used,,460x439,251,0,no,Jar or tray with the old design background baked in; superseded
-22,wordpress-site/assets/images/Group-1000001394-min.png,xomoashro-raw-shilajit-tray.webp,section: source story (interim),Bowls of raw shilajit pieces on a wooden tray,630x449,113,1,yes,yes: source and rights unknown
+22,wordpress-site/assets/images/Group-1000001394-min.png,,not used,Bowls of raw shilajit pieces on a wooden tray,630x449,113,1,no,"Stock photo of a jelly dessert on a tray, not shilajit (checked 2026-10-07); must not be shown as shilajit"
 23,wordpress-site/assets/images/Group-1000001394.png,,not used,Buy Shilajit,630x449,379,0,no,Jar or tray with the old design background baked in; superseded
 24,wordpress-site/assets/images/Group-1000001400.jpg,,not used,,77x90,4,0,no,Small UI graphic from the old design; replaced by the xo icon set or Shopify icons
 25,wordpress-site/assets/images/Group-1000001404.png,,not used,,70x70,0,2,no,Small UI graphic from the old design; replaced by the xo icon set or Shopify icons
@@ -41,7 +41,7 @@ id,original_path,new_filename,intended_use,alt_text,dimensions,size_kb,old_pages
 39,wordpress-site/assets/images/Pure-Himalayan-Shilajit.jpg,xomoashro-journal-pure-himalayan-shilajit-featured.webp,blog: pure-himalayan-shilajit (featured),Hand holding a jar of shilajit in front of Himalayan peaks,1024x1024,155,13,yes,"yes: AI-generated illustration; acceptable for the journal only, replace with real photography over time"
 40,wordpress-site/assets/images/Pure-Shilajit-2.png,xomoashro-journal-what-is-shilajit-types-and-benefits-pure-resin.webp,blog: what-is-shilajit-types-and-benefits (inline),Two pieces of black raw shilajit,347x263,62,2,yes,"yes: AI-generated illustration; acceptable for the journal only, replace with real photography over time"
 41,wordpress-site/assets/images/Pure-Shilajit.png,,not used,,360x540,268,0,no,Unused duplicate or earlier version
-42,wordpress-site/assets/images/Purified-Shilajit.png,xomoashro-shilajit-resin-in-bowl.webp,section: purity test / how to use (interim),Dark shilajit resin in a small bowl with a spoonful beside it,740x494,438,1,yes,"yes: 740px, source unknown"
+42,wordpress-site/assets/images/Purified-Shilajit.png,,not used,Dark shilajit resin in a small bowl with a spoonful beside it,740x494,438,1,no,"Stock photo of black caviar in a bowl, not shilajit (checked 2026-10-07); must not be shown as shilajit"
 43,wordpress-site/assets/images/Rectangle-145-min.jpg,xomoashro-himalaya-mountains-banner.webp,section: partner / newsletter band background,Snow-covered mountain range,1512x412,49,2,yes,yes: 1512x412 and rights unknown
 44,wordpress-site/assets/images/Rectangle-145.jpg,,not used,,1512x412,247,0,no,Unused duplicate or earlier version
 45,wordpress-site/assets/images/Rectangle-39358.jpg,xomoashro-himalaya-mountains-dark-banner.webp,"section: page hero background (about, contact)",Snow-covered mountain range under a dark sky,1512x464,235,2,yes,yes: 1512px wide and rights unknown; replace with own Chitral or Gilgit-Baltistan photo

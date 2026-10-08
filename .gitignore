@@ -7,3 +7,13 @@ theme-context/wordpress-site/screenshots/
 theme-context/competitors/**/*.png
 theme-context/competitors/**/*.jpg
 theme-context/competitors/**/*.jpeg
+
+# Local secrets (API keys). Never commit.
+.env
+.env.*
+
+# Full-size masters of generated pictures (the WebP files beside them are committed)
+theme-context/_build/images-generated/masters/
+
+# Temporary design review files (not part of the theme)
+theme-context/_build/previews/

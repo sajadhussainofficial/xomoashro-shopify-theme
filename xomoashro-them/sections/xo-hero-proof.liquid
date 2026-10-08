@@ -1,160 +1,292 @@
 {%- liquid
   assign s = section.settings
-  assign chips = section.blocks | where: 'type', 'chip'
+  assign has_image = false
+  if s.image != blank
+    assign has_image = true
+  endif
   assign preload_image = true
   if s.image_mobile != blank
     assign preload_image = false
   endif
 -%}
 
-<div class="xo-hero xo-tone-{{ s.tone }}">
-  <div class="xo-container xo-hero__inner">
-    <div class="xo-hero__copy">
-      {%- if s.eyebrow != blank -%}
-        <p class="xo-eyebrow xo-eyebrow--pill">{{ s.eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if s.heading != blank -%}
-        <h1 class="xo-h1 xo-hero__heading">{{ s.heading }}</h1>
-      {%- endif -%}
-      {%- if s.text != blank -%}
-        <div class="xo-lead xo-muted xo-rte xo-hero__text">{{ s.text }}</div>
-      {%- endif -%}
+{%- capture stats -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type != 'stat' -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- capture value -%}
+      {%- render 'xo-fact-text', text: block.settings.value, requires: block.settings.requires -%}
+    {%- endcapture -%}
+    {%- if value != blank -%}
+      <div
+        class="xo-hero__stat"
+        {{ block.shopify_attributes }}
+      >
+        <dt>{{ block.settings.label | escape }}</dt>
+        <dd>{{ value | escape }}</dd>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
 
-      {%- capture actions -%}
-        {%- if s.button_link != blank -%}
-          {%- render 'xo-button', label: s.button_label, url: s.button_link, icon: 'arrow-right' -%}
-        {%- endif -%}
-        {%- if s.secondary_button_link != blank -%}
-          {%- render 'xo-button', label: s.secondary_button_label, url: s.secondary_button_link, style: 'secondary' -%}
-        {%- endif -%}
-      {%- endcapture -%}
-      {%- if actions != blank -%}
-        <div class="xo-hero__actions">{{ actions }}</div>
-      {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- if block.type == '@app' -%}
-          <div class="xo-hero__rating">{% render block %}</div>
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- if chips.size > 0 -%}
-        <ul
-          class="xo-hero__chips"
-          role="list"
+<div class="xo-hero xo-tone-ink{% if has_image %} xo-hero--media{% endif %}">
+  {%- if has_image -%}
+    <picture class="xo-hero__picture">
+      {%- if s.image_mobile != blank -%}
+        <source
+          media="(max-width: 989px)"
+          srcset="
+            {{ s.image_mobile | image_url: width: 480 }} 480w,
+            {{ s.image_mobile | image_url: width: 750 }} 750w,
+            {{ s.image_mobile | image_url: width: 1100 }} 1100w
+          "
+          sizes="100vw"
+          width="{{ s.image_mobile.width }}"
+          height="{{ s.image_mobile.height }}"
         >
-          {%- for block in chips -%}
-            {%- if block.settings.text != blank -%}
-              <li
-                class="xo-chip"
-                {{ block.shopify_attributes }}
-              >
-                {%- if block.settings.icon != 'none' -%}
-                  {%- render 'xo-icon', name: block.settings.icon, size: 16 -%}
-                {%- endif -%}
-                {{- block.settings.text | escape -}}
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
       {%- endif -%}
-    </div>
+      {%- render 'xo-image',
+        image: s.image,
+        sizes: '100vw',
+        widths: '750, 990, 1280, 1600, 1920, 2400',
+        max_width: 2400,
+        priority: true,
+        preload: preload_image
+      -%}
+    </picture>
+  {%- endif -%}
 
-    <div class="xo-hero__media">
-      {%- if s.image != blank -%}
-        <picture class="xo-media xo-hero__picture">
-          {%- if s.image_mobile != blank -%}
-            <source
-              media="(max-width: 749px)"
-              srcset="
-                {{ s.image_mobile | image_url: width: 480 }} 480w,
-                {{ s.image_mobile | image_url: width: 750 }} 750w,
-                {{ s.image_mobile | image_url: width: 1100 }} 1100w
-              "
-              sizes="100vw"
-              width="{{ s.image_mobile.width }}"
-              height="{{ s.image_mobile.height }}"
-            >
-          {%- endif -%}
-          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 45vw, 100vw', priority: true, preload: preload_image -%}
-        </picture>
-      {%- else -%}
-        <div class="xo-art xo-hero__art">
-          {{- 'xo-art-mountains.svg' | inline_asset_content -}}
-        </div>
+  <div class="xo-container xo-hero__content">
+    {%- if s.eyebrow != blank -%}
+      <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if s.heading != blank -%}
+      <h1 class="xo-h1 xo-hero__heading">{{ s.heading }}</h1>
+    {%- endif -%}
+    {%- if s.text != blank -%}
+      <div class="xo-lead xo-muted xo-rte xo-hero__text">{{ s.text }}</div>
+    {%- endif -%}
+
+    {%- capture actions -%}
+      {%- if s.button_link != blank -%}
+        {%- render 'xo-button', label: s.button_label, url: s.button_link, icon: 'arrow-right' -%}
       {%- endif -%}
-    </div>
+      {%- if s.secondary_button_link != blank -%}
+        {%- render 'xo-button', label: s.secondary_button_label, url: s.secondary_button_link, style: 'quiet' -%}
+      {%- endif -%}
+    {%- endcapture -%}
+    {%- if actions != blank -%}
+      <div class="xo-hero__actions">{{ actions }}</div>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == '@app' -%}
+        <div class="xo-hero__rating">{% render block %}</div>
+      {%- endif -%}
+    {%- endfor -%}
   </div>
+
+  {%- if stats != blank -%}
+    <div class="xo-container">
+      <dl class="xo-hero__stats">
+        {{ stats }}
+      </dl>
+    </div>
+  {%- endif -%}
 </div>
 
 {% stylesheet %}
+  /* Dark, full-width opening section. On computers the picture fills the section and
+     fades to the dark colour behind the text; on phones and tablets it sits above
+     the text. */
+
   .xo-hero {
-    padding-block: var(--xo-space-7) var(--xo-space-8);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
   }
 
-  .xo-hero__inner {
-    display: grid;
-    gap: var(--xo-space-7);
-    align-items: center;
+  .xo-hero__picture {
+    position: relative;
+    display: block;
   }
 
-  .xo-hero__copy {
+  .xo-hero__picture .xo-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: 70% 60%;
+  }
+
+  .xo-hero__picture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--xo-ink) 30%, transparent) 0%,
+      transparent 26%,
+      transparent 52%,
+      var(--xo-ink) 100%
+    );
+    pointer-events: none;
+  }
+
+  .xo-hero__content {
+    position: relative;
+    z-index: 1;
     display: grid;
     gap: var(--xo-space-5);
     justify-items: start;
+    padding-block: var(--xo-space-7) var(--xo-space-7);
+  }
+
+  .xo-hero--media .xo-hero__content {
+    margin-block-start: calc(var(--xo-space-6) * -1);
+    padding-block-start: 0;
   }
 
   .xo-hero__heading {
-    max-inline-size: 16ch;
+    max-inline-size: 12ch;
+    font-size: clamp(2.5rem, 1.5rem + 4vw, 4.875rem);
+    letter-spacing: -0.042em;
+    line-height: 1;
   }
 
   .xo-hero__text {
-    max-inline-size: 34rem;
+    max-inline-size: 29rem;
   }
 
   .xo-hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--xo-space-3);
+    align-items: center;
+    gap: var(--xo-space-3) var(--xo-space-5);
   }
 
-  .xo-hero__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--xo-space-2);
+  .xo-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin: 0;
-    padding: 0;
-    list-style: none;
+    border-block-start: 1px solid var(--xo-line-strong);
   }
 
-  .xo-hero__picture {
-    display: block;
-    aspect-ratio: 1 / 1;
+  .xo-hero__stat {
+    display: grid;
+    gap: 0.125rem;
+    align-content: start;
+    padding-block: var(--xo-space-4);
+    border-block-end: 1px solid var(--xo-line);
   }
 
-  .xo-hero__art {
-    aspect-ratio: 4 / 3;
+  .xo-hero__stat:nth-child(odd) {
+    padding-inline-end: var(--xo-space-4);
+  }
+
+  .xo-hero__stat dd {
+    order: -1;
+    margin: 0;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: 1.5rem;
+    font-weight: var(--xo-font-display-weight);
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .xo-hero__stat dt {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
   }
 
   @media (max-width: 479px) {
-    .xo-hero__actions .xo-btn {
+    .xo-hero__actions .xo-btn:not(.xo-btn--quiet) {
       flex: 1 1 100%;
+    }
+  }
+
+  @media (min-width: 750px) and (max-width: 989px) {
+    .xo-hero__picture .xo-img {
+      aspect-ratio: 16 / 9;
     }
   }
 
   @media (min-width: 990px) {
     .xo-hero {
-      padding-block: var(--xo-space-9);
+      display: grid;
+      grid-template-rows: 1fr auto;
     }
 
-    .xo-hero__inner {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      gap: var(--xo-space-9);
+    .xo-hero--media {
+      min-block-size: clamp(40rem, 50vw, 54rem);
     }
 
-    .xo-hero__picture,
-    .xo-hero__art {
-      aspect-ratio: 4 / 5;
+    .xo-hero__picture {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .xo-hero__picture .xo-img {
+      block-size: 100%;
+      aspect-ratio: auto;
+      object-position: 50% 62%;
+    }
+
+    .xo-hero__picture::after {
+      background:
+        linear-gradient(
+          to top,
+          var(--xo-ink) 0%,
+          color-mix(in srgb, var(--xo-ink) 72%, transparent) 14%,
+          transparent 38%
+        ),
+        linear-gradient(
+          to right,
+          var(--xo-ink) 0%,
+          color-mix(in srgb, var(--xo-ink) 92%, transparent) 26%,
+          color-mix(in srgb, var(--xo-ink) 55%, transparent) 46%,
+          transparent 66%
+        );
+    }
+
+    [dir='rtl'] .xo-hero__picture {
+      transform: scaleX(-1);
+    }
+
+    .xo-hero__content,
+    .xo-hero--media .xo-hero__content {
+      align-content: center;
+      margin-block-start: 0;
+      padding-block: var(--xo-space-7);
+    }
+
+    .xo-hero__stats {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+      grid-template-columns: none;
+    }
+
+    .xo-hero__stat,
+    .xo-hero__stat:nth-child(odd) {
+      padding: var(--xo-space-5) 0 var(--xo-space-6);
+      border-block-end: 0;
+    }
+
+    .xo-hero__stat + .xo-hero__stat {
+      padding-inline-start: var(--xo-space-6);
+      border-inline-start: 1px solid var(--xo-line);
+    }
+
+    .xo-hero__stat dd {
+      font-size: 2rem;
     }
   }
 {% endstylesheet %}
@@ -167,20 +299,9 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
-  "max_blocks": 8,
+  "max_blocks": 6,
   "settings": [
-    {
-      "type": "select",
-      "id": "tone",
-      "label": "t:xo.labels.tone",
-      "options": [
-        { "value": "bone", "label": "t:xo.options.bone" },
-        { "value": "surface", "label": "t:xo.options.surface" },
-        { "value": "ink", "label": "t:xo.options.ink" },
-        { "value": "accent", "label": "t:xo.options.accent" }
-      ],
-      "default": "bone"
-    },
+    { "type": "paragraph", "content": "t:xo.info.hero" },
     {
       "type": "text",
       "id": "eyebrow",
@@ -191,8 +312,7 @@
       "type": "inline_richtext",
       "id": "heading",
       "label": "t:xo.labels.heading",
-      "info": "t:xo.info.heading_highlight",
-      "default": "Elevate your life with <em>pure</em> Himalayan Aftabi Shilajit"
+      "default": "Elevate your life with pure Himalayan Aftabi Shilajit"
     },
     {
       "type": "richtext",
@@ -209,43 +329,42 @@
       "default": "How to use"
     },
     { "type": "url", "id": "secondary_button_link", "label": "t:xo.labels.secondary_button_link" },
+    { "type": "header", "content": "t:xo.labels.picture_header" },
     { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.hero_image" },
-    { "type": "image_picker", "id": "image_mobile", "label": "t:xo.labels.image_mobile" }
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:xo.labels.image_mobile",
+      "info": "t:xo.info.hero_image_mobile"
+    }
   ],
   "blocks": [
     {
-      "type": "chip",
-      "name": "t:xo.names.chip",
-      "limit": 5,
+      "type": "stat",
+      "name": "t:xo.names.stat",
+      "limit": 4,
       "settings": [
-        { "type": "text", "id": "text", "label": "t:xo.labels.text", "default": "Cash on delivery" },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "t:xo.labels.value",
+          "info": "t:xo.info.fact_text",
+          "default": "100%"
+        },
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Resin, no fillers" },
         {
           "type": "select",
-          "id": "icon",
-          "label": "t:xo.labels.icon",
+          "id": "requires",
+          "label": "t:xo.labels.requires",
+          "info": "t:xo.info.requires",
           "options": [
-            { "value": "none", "label": "t:xo.options.icon_none" },
-            { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
-            { "value": "shield", "label": "t:xo.options.icon_shield" },
-            { "value": "truck", "label": "t:xo.options.icon_truck" },
-            { "value": "cash", "label": "t:xo.options.icon_cash" },
-            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
-            { "value": "drop", "label": "t:xo.options.icon_drop" },
-            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
-            { "value": "flask", "label": "t:xo.options.icon_flask" },
-            { "value": "sun", "label": "t:xo.options.icon_sun" },
-            { "value": "clock", "label": "t:xo.options.icon_clock" },
-            { "value": "bolt", "label": "t:xo.options.icon_bolt" },
-            { "value": "target", "label": "t:xo.options.icon_target" },
-            { "value": "heart", "label": "t:xo.options.icon_heart" },
-            { "value": "strength", "label": "t:xo.options.icon_strength" },
-            { "value": "users", "label": "t:xo.options.icon_users" },
-            { "value": "chat", "label": "t:xo.options.icon_chat" },
-            { "value": "whatsapp", "label": "t:xo.options.icon_whatsapp" },
-            { "value": "jar", "label": "t:xo.options.icon_jar" },
-            { "value": "star", "label": "t:xo.options.icon_star" }
+            { "value": "none", "label": "t:xo.options.requires_none" },
+            { "value": "free_shipping", "label": "t:xo.options.requires_free_shipping" },
+            { "value": "guarantee", "label": "t:xo.options.requires_guarantee" },
+            { "value": "delivery", "label": "t:xo.options.requires_delivery" },
+            { "value": "whatsapp", "label": "t:xo.options.requires_whatsapp" }
           ],
-          "default": "check-circle"
+          "default": "none"
         }
       ]
     },
@@ -254,20 +373,14 @@
   "presets": [
     {
       "name": "t:xo.names.hero",
-      "settings": { "secondary_button_link": "/pages/how-to-use" },
+      "settings": {
+        "secondary_button_link": "/pages/how-to-use"
+      },
       "blocks": [
-        {
-          "type": "chip",
-          "settings": { "text": "Sourced above 16,000 ft", "icon": "mountain" }
-        },
-        {
-          "type": "chip",
-          "settings": { "text": "100% resin, no fillers", "icon": "drop" }
-        },
-        {
-          "type": "chip",
-          "settings": { "text": "Cash on delivery", "icon": "cash" }
-        }
+        { "type": "stat", "settings": { "value": "16,000+", "label": "Feet, harvest altitude", "requires": "none" } },
+        { "type": "stat", "settings": { "value": "85+", "label": "Trace minerals in shilajit", "requires": "none" } },
+        { "type": "stat", "settings": { "value": "100%", "label": "Resin, no fillers", "requires": "none" } },
+        { "type": "stat", "settings": { "value": "[days] days", "label": "Money-back guarantee", "requires": "guarantee" } }
       ]
     }
   ]

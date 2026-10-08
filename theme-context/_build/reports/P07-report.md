@@ -8,13 +8,17 @@ The homepage is built: 17 new sections, each editable and pre-filled with correc
 
 Three sections show nothing on the store yet, by design, because the data they read does not exist: sizes and bundles (no product), lab report (no report), journal posts (no posts). Their code passes validation and their layout was checked with sample markup, but none of the three has ever run with real data.
 
+**Update, same day, after your feedback on pictures:** the homepage now shows real pictures. Seven were uploaded to the store's Files and set on the hero, statement, benefits, source story and two testimonials. They are the real bottle and mountain photographs from the old site, restaged on this computer. The restaging by OpenAI that you asked for did not run: both keys in `.env` are refused with "no credits remaining".
+
+**Second update, same day: new hero and colours.** You chose concept 2, "Obsidian", from three designs, with your own picture (`wordpress-site/assets/salajit.png`). The hero is now dark and full width: the picture fills the section and fades to black behind the text, and the four key numbers run along its bottom. Obsidian black (`#0B0B0D`) is now the second colour and orange is kept for main buttons; headings no longer have an orange word. The header and the announcement bar are dark on every page.
+
 ## 2. Files created and changed
 
 Theme (`xomoashro-them/`):
 
 | File | What it is |
 |---|---|
-| `sections/xo-hero-proof.liquid` | Hero: label, the page's one H1, text, two buttons, proof points, a slot for a reviews-app rating, separate images for computers and phones |
+| `sections/xo-hero-proof.liquid` | Hero, rebuilt as the approved "Obsidian" design: dark, full width, the page's one H1, text, main button and text link, up to four numbers (blocks), a slot for a reviews-app rating, separate pictures for computers and for phones and tablets |
 | `sections/xo-trust-strip.liquid` | Row of short trust points with icons |
 | `sections/xo-problem.liquid` | Large statement on a dark band |
 | `sections/xo-course-bundles.liquid` | One card for each size of a chosen product: price, days of supply, price per gram, saving, "best for" line, badge, add to cart |
@@ -39,7 +43,20 @@ Theme (`xomoashro-them/`):
 | `assets/xo-base.css` | Shared styles for feature cards, numbers, two-column layouts, the drawing, editor notes, small print, jump links |
 | `snippets/xo-image.liquid`, `snippets/xo-icon.liquid`, `sections/xo-styleguide.liquid` | Image preloading for the hero; new icons listed |
 | `locales/en.default.json`, `en.default.schema.json` | Storefront strings and editor labels |
-| `templates/index.json` | The homepage: 17 sections in order |
+| `templates/index.json` | The homepage: 17 sections in order, with the pictures set |
+
+Pictures (added in the update):
+
+| File | What it is |
+|---|---|
+| `sections/xo-problem.liquid` | New: optional background picture with a darkness setting |
+| `sections/xo-benefits-grid.liquid` | New: optional wide picture above the cards |
+| `snippets/xo-image.liquid` | New `decorative` option for pictures that need no description |
+| `_build/tools/compose-homepage-images.mjs` | Restages the real photographs: cuts the bottle out, places it on a warm backdrop with a shadow, saves WebP |
+| `_build/tools/generate-images.mjs`, `image-jobs-homepage.json`, `openai-keys.mjs` | Ready-to-run OpenAI picture generation for six homepage pictures, with switching between the keys in `.env`. Not run yet (no credits) |
+| `_build/tools/upload-files.mjs`, `_build/store-setup/staged-uploads-create.graphql`, `file-create.graphql`, `file-by-id.graphql`, `files-by-name.graphql` | Uploads pictures to the store's Files with alt text; a file with the same name is replaced |
+| `_build/images-generated/` | The seven WebP pictures, `manifest.json` (alt text and source of each) and `uploaded.json` (where each one is in the store) |
+| `.gitignore` | `.env` is now ignored. It was not, and this repository is public |
 
 Build files: `tasks/P07-tasks.md`, `reports/P07-screens/`, status and decisions updates.
 
@@ -64,12 +81,17 @@ Deviations from the phase file:
 | Reviews | `home.md` | Three testimonials, wording unchanged apart from the brand spelling. No star ratings, no photos, no "5,000+" line |
 | Questions | `home.md`, `content-fixes.md` part 4 | Four rewritten answers; "Still have questions?" became the contact box |
 | Partner links | `pages/become-distributor.md`, `become-brand-ambassadar.md` | One line each, spelling corrected |
+| Hero picture | `assets/salajit.png`, supplied by you (the bottle on a rock in front of the mountains at sunset) | Converted to WebP, not altered. A closer crop is used on phones and tablets |
+| Benefits picture | `assets/images/product_shot-1.png` (studio photograph) | Cropped wide and warmed to the page colour. Not enlarged |
+| Statement background | `assets/images/Rectangle-39358.jpg` (mountain range, dark) | Unchanged, darkened by the section |
+| Source story picture | `assets/images/Rectangle-145.jpg` (mountain range) | Made tall by continuing its plain sky upward and its dark ridge downward |
+| Testimonial photos | `assets/images/Abdullah.png`, `Taimoor.png` | Unchanged. Asad has no photo (B8) |
 
 ## 4. Acceptance checks
 
 | Check | Result | Evidence |
 |---|---|---|
-| Change a text and an image in the editor and see it update; a section added fresh arrives with default content | **Partly run** | Text, a block's text, block order and colour tone were changed in the template and the page updated each time, then restored. Every section on the homepage is filled from its own "Add section" defaults. **Not run:** changing an image (no image is uploaded to the store yet, so no section has shown a real image), and the Theme Editor itself (needs your login) |
+| Change a text and an image in the editor and see it update; a section added fresh arrives with default content | **Partly run** | Text, a block's text, block order and colour tone were changed in the template and the page updated each time, then restored. Every section on the homepage is filled from its own "Add section" defaults. Pictures were set through the template and all six load at 360, 768 and 1280px with width, height and alt text; the hero picture loads first, the others when scrolled to. **Not run:** the Theme Editor itself (needs your login) |
 | No Lorem ipsum and no empty blocks | Pass | Page text searched at three widths: no Lorem ipsum, no TODO text. Sections with nothing to show output nothing |
 | Bundle add to cart works and updates the drawer | **Not run** | The store has no product (`/products.json` is empty). The cards use the theme's own add-to-cart code, which already drives the cart drawer, but this has not been seen working here |
 | Theme check 0 errors | Pass | 0 errors; 6 warnings, all in two stock Horizon files, unchanged from earlier phases. Toolkit validation: 24 of 24 files valid |
@@ -90,8 +112,8 @@ Further checks made:
 
 - **B2 (sizes):** nothing fixed in the theme. The cards show whatever sizes the product has.
 - **B3 (lab report):** lab section hidden; no lab claims anywhere on the page.
-- **B8 (5,000+ customers, photos):** claim removed; all three testimonials shown with an initial instead of a photo.
-- **B10 (photography) and B18 (jar):** no product photo used yet. The hero and source story show the mountain drawing until images are uploaded in P12.
+- **B8 (5,000+ customers, photos):** claim removed. Abdullah and Taimoor Khan are shown with their photos from the old site; Asad is shown with an initial until his photo is confirmed.
+- **B10 (photography) and B18 (jar):** the black-lid bottle from the old site is used, restaged locally. No new photography.
 - **B6 (affiliates):** the affiliate link is kept and worded as an application.
 
 ## 6. Open items
@@ -110,7 +132,16 @@ Wording written for the new store, with no source in the old site. Please read a
 Other items:
 
 - **Links to pages that do not exist yet** return "page not found" until P10: `/pages/our-source`, `/pages/how-to-use`, `/pages/wholesale`, `/pages/ambassador`, `/pages/affiliate`.
-- **Images:** none chosen. Upload happens in P12, with your approval.
+- **OpenAI keys:** both keys in `.env` answer "You have no credits remaining" for every picture model (tested 2026-10-07 with four models). Once one account has credit, `node theme-context/_build/tools/generate-images.mjs theme-context/_build/tools/image-jobs-homepage.json` makes six pictures of the real bottle in different settings (decision B23).
+- **Picture sharpness:** your hero picture is 1586px wide, so on screens wider than about 1600px it is shown slightly enlarged. A 2400px version would be sharper there.
+- **Numbers band:** the separate numbers section is switched off on the homepage because the hero now shows the same four numbers. It is still available under "Add section".
+- **Trust strip:** now shows the points the hero does not: cash on delivery, delivery across Pakistan, direct from local collectors, help on WhatsApp.
+- **Unused pictures in the store's Files:** the two first-design hero pictures (`xomoashro-pure-himalayan-shilajit-resin-jar*.webp`) are no longer used. They can be deleted from Content > Files; I have not deleted them.
+- **Hero concepts review file** (`previews/hero-concepts/`) is temporary and git-ignored.
+- **Two old-site pictures are not shilajit** and are not used: `Purified-Shilajit.png` is a stock photo of black caviar, and `Group-1000001394-min.png` is a stock photo of a jelly dessert. `image-manifest.csv` is corrected.
+- **Mountain photograph:** its source and usage rights are unknown (`image-manifest.csv`). It is used on two sections for now.
+- **How to use and purity checks have no picture:** no real photograph exists for them.
+- **Store Files:** seven pictures were written to the store, at your request. The store login now also has permission for blog content, asked for at the same time; nothing was written with it.
 - **Search-engine question data** is output once per questions section; use the setting on one section per page.
 - **Development theme:** a temporary test template, `templates/page.p07-test.json`, was removed locally but remains on the development theme (file deletion is switched off there on purpose). It is not in the repository or the working copy.
 - **Working copy theme** (158632640684) not updated yet; it follows your approval.

@@ -4,7 +4,7 @@
  * each section's own {% stylesheet %} block, not here.
  *
  * Contrast (WCAG AA) for the default palette:
- *   ink #0E0D0B on bone #F5F1EA      17.25:1
+ *   obsidian #0B0B0D on bone #F5F1EA 17.4:1
  *   ink on accent #FF6B31             6.84:1  (button text)
  *   accent-deep #C2410C on bone       4.60:1  (links, small accents)
  *   muted #6B655C on bone             5.12:1
@@ -48,8 +48,9 @@
   --xo-surface: color-mix(in srgb, var(--xo-on-ink) 7%, var(--xo-ink));
   --xo-line: color-mix(in srgb, var(--xo-on-ink) 16%, transparent);
   --xo-line-strong: color-mix(in srgb, var(--xo-on-ink) 34%, transparent);
-  --xo-link: var(--xo-accent);
-  --xo-highlight: var(--xo-accent);
+  --xo-link: var(--xo-fg);
+  --xo-highlight: var(--xo-fg);
+  --xo-heading-soft: color-mix(in srgb, var(--xo-on-ink) 58%, var(--xo-ink));
   --xo-control-border: color-mix(in srgb, var(--xo-on-ink) 55%, var(--xo-ink));
   --xo-error: #FFA39A;
 }
@@ -63,6 +64,7 @@
   --xo-line-strong: color-mix(in srgb, var(--xo-on-accent) 45%, transparent);
   --xo-link: var(--xo-on-accent);
   --xo-highlight: var(--xo-on-accent);
+  --xo-heading-soft: color-mix(in srgb, var(--xo-on-accent) 72%, var(--xo-accent));
   --xo-control-border: color-mix(in srgb, var(--xo-on-accent) 70%, var(--xo-accent));
   --xo-error: var(--xo-on-accent);
 }
@@ -167,6 +169,12 @@
   color: var(--xo-highlight);
 }
 
+/* Two-tone headings: when part of a heading is emphasised, the rest steps back.
+   The accent colour is kept for buttons. */
+:is(.xo-h1, .xo-h2, .xo-h3, .xo-h4):has(em) {
+  color: var(--xo-heading-soft);
+}
+
 .xo-text,
 .xo-lead,
 .xo-small {
@@ -210,7 +218,7 @@
   line-height: 1.2;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--xo-highlight);
+  color: var(--xo-muted);
 }
 
 .xo-eyebrow--pill {
@@ -227,7 +235,7 @@
   block-size: 2px;
   margin: 0;
   border: 0;
-  background: var(--xo-accent);
+  background: var(--xo-fg);
 }
 
 .xo-rte > * + * {

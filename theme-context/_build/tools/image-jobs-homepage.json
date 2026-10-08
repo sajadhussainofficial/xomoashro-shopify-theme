@@ -1,0 +1,73 @@
+{
+  "model": "gpt-image-2.5-sunburst",
+  "quality": "high",
+  "jobs": [
+    {
+      "id": "home-hero",
+      "size": "1600x2000",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic premium product photograph, portrait format. The exact jar from the reference images stands on a rough dark slate rock ledge in the lower centre of the frame: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo on the left of the label, the white lowercase serif wordmark 'xomoashro' beside it and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Three small pieces of glossy black raw shilajit resin lie on the rock beside the jar. Far behind, softly out of focus, snow-covered Himalayan peaks at golden hour under a pale warm cream sky. A warm copper rim light touches the right edge of the jar; soft natural shadows. Calm, minimal, editorial composition with generous empty sky in the top third. Colour palette: warm cream, charcoal black, soft orange. 85mm lens, shallow depth of field. No people, no hands, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-shilajit-jar-himalayan-rock-hero", "width": 1600, "height": 2000 },
+        { "name": "xomoashro-shilajit-jar-himalayan-rock-hero-square", "width": 1400, "height": 1400, "position": "bottom" }
+      ]
+    },
+    {
+      "id": "home-statement",
+      "size": "2048x1152",
+      "references": ["theme-context/wordpress-site/assets/images/Rectangle-39358.jpg"],
+      "prompt": "Recreate this photograph of a snow-covered mountain range under a dark sky as a sharp, high-resolution, photorealistic wide landscape photograph. Keep the same mountain shapes, the same composition with the peaks in the lower half, and the same dark, moody, desaturated charcoal and slate-blue tones. Keep the large plain dark sky in the upper half and keep the foreground ridge almost black, so that light text can be placed over the picture. Fine natural detail in the snow and rock, soft low clouds behind the peaks. No text, no people, no buildings, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-himalayan-peaks-dark-sky", "width": 2048, "height": 1152, "quality": 74 }
+      ]
+    },
+    {
+      "id": "home-benefits",
+      "size": "2048x688",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic lifestyle product photograph, very wide panoramic format. The exact jar from the reference images stands on a pale oak breakfast table in soft morning window light: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo, the white lowercase serif wordmark 'xomoashro' and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Beside the jar: a plain cream ceramic cup of warm milk, a small steel teaspoon resting on a folded natural linen napkin, and a sprig of fresh green leaves. Bright, airy, calm daily-routine mood, warm cream and soft white background with gentle window shadows, the jar sharp in the centre with clean empty space to the left and right. 50mm lens, natural light. No people, no hands, no other products or packaging, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-shilajit-jar-morning-routine", "width": 2048, "height": 688 }
+      ]
+    },
+    {
+      "id": "home-source",
+      "size": "1280x1536",
+      "references": ["theme-context/wordpress-site/assets/images/Rectangle-145.jpg"],
+      "prompt": "Photorealistic landscape photograph in portrait format, based on the snow-covered mountain range in the reference photograph. Keep the same kind of jagged snow-covered peaks and low clouds in the upper half. Extend the scene downward into a high-altitude valley: dark weathered rock cliffs and scree slopes in the foreground and middle distance, with the first warm light of sunrise touching the snow on the highest peaks. Clear cold air, deep shadows in the valley, natural colours with a soft warm glow on the summits and cool slate tones below. Documentary travel-photography style, sharp detail. No people, no animals, no buildings, no roads, no text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-himalayan-valley-sunrise", "width": 1280, "height": 1536 }
+      ]
+    },
+    {
+      "id": "home-purity",
+      "size": "1280x1536",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic macro product photograph, portrait format. In the foreground, sharp: a small polished steel teaspoon holding a pea-sized piece of soft, glossy, tar-black shilajit resin, a thin glossy strand of the resin stretching down from the spoon. Behind it, slightly out of focus but still readable, the exact jar from the reference images stands on a pale grey stone surface: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo, the white lowercase serif wordmark 'xomoashro' and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Soft daylight from the left, warm cream background, clean and minimal. The resin looks like dark glossy tar, not powder and not beads. No people, no hands, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-shilajit-resin-on-spoon", "width": 1280, "height": 1536 }
+      ]
+    },
+    {
+      "id": "home-how-to-use",
+      "size": "1280x1536",
+      "references": [
+        "theme-context/wordpress-site/assets/images/product_shot-1.png",
+        "theme-context/wordpress-site/assets/images/xomoashro_pure_Himaliyan_shilajit.png"
+      ],
+      "prompt": "Photorealistic product photograph, portrait format. A clear glass of warm water stands on a pale stone kitchen counter; a small steel teaspoon rests in the glass and dark shilajit resin is dissolving from it, sending soft amber and golden-brown swirls through the water. Beside the glass stands the exact jar from the reference images with its lid on: a small, squat, matte black glass jar with a matte black screw lid, a copper-coloured stylised X mountain logo, the white lowercase serif wordmark 'xomoashro' and the smaller white line 'Pure Himalayan Shilajit' beneath. Keep the jar's shape, proportions, label layout, logo and lettering exactly as in the reference images. Do not add, remove, restyle or misspell any text. Soft morning light from a window, gentle steam above the glass, warm cream and light grey tones, calm and clean. Jar and glass sharp in the lower half, clean space above. No people, no hands, no other products, no extra text, no watermark.",
+      "outputs": [
+        { "name": "xomoashro-shilajit-dissolving-in-warm-water", "width": 1280, "height": 1536 }
+      ]
+    }
+  ]
+}
