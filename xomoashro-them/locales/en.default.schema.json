@@ -71,7 +71,11 @@
       "question": "Question",
       "journal": "Journal posts",
       "partners": "Partner links",
-      "partner": "Partner link"
+      "partner": "Partner link",
+      "found": "Problem point",
+      "promise": "Promise",
+      "assurance": "Assurance",
+      "topic": "Topic"
     },
     "labels": {
       "bottom_bar": "Bottom bar",
@@ -171,7 +175,22 @@
       "draft": "Draft reminder",
       "background_image": "Background picture",
       "overlay": "Darken the picture",
-      "picture_header": "Picture"
+      "picture_header": "Picture",
+      "move": "Move the points across the screen",
+      "speed_pass": "Time for one full pass",
+      "found_title": "First panel heading",
+      "promise_title": "Second panel heading",
+      "sheet_title": "Certificate heading",
+      "product_name": "Product name",
+      "drop_cap": "Large first letter",
+      "tab_label": "Button text",
+      "drawing": "Drawing",
+      "show_colour": "Show the colour to expect",
+      "colour_label": "Colour note",
+      "jar_image": "Jar picture",
+      "buy_header": "Buying box",
+      "buy_heading": "Box heading",
+      "read_label": "Link text on each card"
     },
     "options": {
       "small": "Small",
@@ -208,7 +227,11 @@
       "icon_chat": "Chat",
       "icon_jar": "Jar",
       "icon_star": "Star",
-      "requires_delivery": "Delivery time"
+      "requires_delivery": "Delivery time",
+      "drawing_glass": "Glass of water",
+      "drawing_warmth": "Softening resin",
+      "drawing_gloss": "Glossy piece",
+      "drawing_smell": "Jar and its smell"
     },
     "info": {
       "show_policies": "Lists the policies saved in Settings > Policies. Nothing shows until at least one policy is saved.",
@@ -231,12 +254,12 @@
       "heading_highlight": "Italic text is shown at full strength and the rest of the heading a little lighter.",
       "hero_image": "On computers the picture fills the section and its left side fades to black behind the text, so use a wide picture with the product on the right. A dark picture works best.",
       "fact_text": "Placeholders are filled in from store data: [days] guarantee days, [amount] free delivery amount, [delivery] delivery time in days, [email] support email.",
-      "bundles": "Shows one card for each size of the chosen product. Days of supply, the \"best for\" line, the badge and price per gram come from each size's details in the product. Hidden on the store until a product is chosen.",
+      "bundles": "Shows the chosen product with its sizes to pick from and one add-to-cart button. Days of supply, the badge and price per gram come from each size's details in the product. Hidden on the store until a product is chosen.",
       "anchor": "Optional. Lets buttons and menus jump to this section: a section named sizes is reached with the link #sizes. Use each name once per page.",
       "hidden_heading": "Read by screen readers and search engines. Not shown on the page.",
       "lab_proof": "Shows results from a lab report saved in the store's data (Content > Metaobjects > Lab report). Hidden on the store until a report exists.",
       "lab_report": "Leave empty to show the report with the newest test date.",
-      "reviews": "Add a reviews app block to show verified reviews. Testimonials are shown without star ratings because they are not verified.",
+      "reviews": "Testimonials are split into two columns. Add a reviews app block to show verified reviews above them. Testimonials are shown without star ratings because they are not verified.",
       "photo": "Only use a photo with the person's permission. Their initial is shown when there is no photo.",
       "faq_contact": "Shows the WhatsApp number and support email saved in the store's data. Leave the heading empty to hide the box.",
       "structured_data": "Use on one section per page only.",
@@ -246,7 +269,18 @@
       "statement_image": "Optional picture behind the text. With a picture the section always uses the dark-section colours so the text stays readable.",
       "benefits_image": "Optional wide picture shown above the cards.",
       "hero": "Dark, full-width opening section. The numbers along the bottom are blocks: add, remove or reorder up to four.",
-      "hero_image_mobile": "Optional. A closer crop of the picture for phones and tablets, where it sits above the text."
+      "hero_image_mobile": "Optional. A closer crop of the picture for phones and tablets, where it sits above the text.",
+      "trust_move": "Pauses when someone points at it. Always still for visitors who ask for less motion.",
+      "bundles_image": "Optional. When empty, the product's own first photo is shown.",
+      "bundles_heading": "Leave empty to use the product's name.",
+      "bundles_button": "Used for products that come in one size only. Products with sizes say \"Add 2 jars to cart\" and so on.",
+      "orbit": "The benefits are split between the two sides of the picture: the first half on the left, the rest on the right. On phones they follow the picture in one list.",
+      "orbit_image": "Shown in a circle in the middle. A square picture with the product in the centre works best.",
+      "spread_image": "Shown wide across the top. A landscape picture works best.",
+      "jar_image": "Shown on the Xomoashro card. A picture of the jar with a see-through background works best.",
+      "invite_image": "Shown behind the text, darkened so the text stays readable. With a picture the section always uses the dark-section colours.",
+      "purity_tabs": "Each check is a block. With two or more checks, visitors switch between them with buttons.",
+      "faq_topics": "Add a Topic block, then the questions that belong to it. With two or more topics, visitors switch between them with buttons. All answers are shown open."
     }
   },
   "categories": {

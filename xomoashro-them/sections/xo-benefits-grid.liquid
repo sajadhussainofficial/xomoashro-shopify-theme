@@ -1,68 +1,162 @@
 {%- liquid
   assign s = section.settings
+  assign half = section.blocks.size | plus: 1 | divided_by: 2
 -%}
 
 {%- if section.blocks.size > 0 -%}
-  <div class="xo-benefits xo-section xo-tone-{{ s.tone }}">
+  <div class="xo-orbit xo-section xo-tone-{{ s.tone }}">
     <div class="xo-container">
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+      {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, align: 'center', rule: false -%}
 
-      {%- if s.image != blank -%}
-        <div
-          class="xo-media xo-benefits__media"
-          data-xo-reveal
+      <div class="xo-orbit__ring">
+        <ul
+          class="xo-orbit__col xo-orbit__col--start"
+          role="list"
         >
-          {%- render 'xo-image', image: s.image, sizes: '(min-width: 1280px) 1200px, 100vw' -%}
-        </div>
-      {%- endif -%}
+          {%- for block in section.blocks limit: half -%}
+            <li {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != 'none' -%}
+                <span class="xo-orbit__icon">{%- render 'xo-icon', name: block.settings.icon -%}</span>
+              {%- endif -%}
+              <div class="xo-feature">
+                <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
+                <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
 
-      <ul
-        class="xo-grid xo-benefits__list"
-        role="list"
-        style="--xo-cols-md: 2; --xo-cols-lg: 3;"
-      >
-        {%- for block in section.blocks -%}
-          <li
-            class="xo-card xo-feature"
-            data-xo-reveal
-            style="--xo-reveal-order: {{ forloop.index0 | modulo: 3 }};"
-            {{ block.shopify_attributes }}
-          >
-            {%- if block.settings.icon != 'none' -%}
-              {%- render 'xo-icon', name: block.settings.icon, class: 'xo-icon--badge' -%}
-            {%- endif -%}
-            {%- if block.settings.title != blank -%}
-              <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
+        <div class="xo-orbit__centre">
+          {%- if s.image != blank -%}
+            {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 400px, 320px', widths: '320, 480, 640, 800', max_width: 800 -%}
+          {%- else -%}
+            <div class="xo-art xo-orbit__art">
+              {{- 'xo-art-mountains.svg' | inline_asset_content -}}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <ul
+          class="xo-orbit__col"
+          role="list"
+        >
+          {%- for block in section.blocks offset: half -%}
+            <li {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != 'none' -%}
+                <span class="xo-orbit__icon">{%- render 'xo-icon', name: block.settings.icon -%}</span>
+              {%- endif -%}
+              <div class="xo-feature">
+                <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
+                <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
 
       {%- if s.footnote != blank -%}
-        <p class="xo-footnote">{{ s.footnote | escape }}</p>
+        <p class="xo-footnote xo-orbit__note">{{ s.footnote | escape }}</p>
       {%- endif -%}
     </div>
   </div>
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-benefits__list {
+  .xo-orbit__ring {
+    display: grid;
+    gap: var(--xo-space-6);
+  }
+
+  .xo-orbit__centre {
+    order: -1;
+    justify-self: center;
+    inline-size: min(100% - 2rem, 20rem);
+    aspect-ratio: 1 / 1;
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--xo-line-strong), 0 0 0 0.875rem var(--xo-bg), 0 0 0 calc(0.875rem + 1px) var(--xo-line);
+  }
+
+  .xo-orbit__centre .xo-img,
+  .xo-orbit__art {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .xo-orbit__col {
+    display: grid;
+    align-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .xo-benefits__media {
-    aspect-ratio: 4 / 3;
-    margin-block-end: var(--xo-space-5);
+  .xo-orbit__col li {
+    display: flex;
+    gap: var(--xo-space-4);
+    align-items: flex-start;
+    padding-block: var(--xo-space-5);
   }
 
-  @media (min-width: 750px) {
-    .xo-benefits__media {
-      aspect-ratio: 3 / 1;
+  .xo-orbit__col li + li {
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-orbit__col .xo-feature {
+    gap: var(--xo-space-2);
+  }
+
+  .xo-orbit__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+    color: var(--xo-fg);
+  }
+
+  @media (max-width: 989px) {
+    .xo-orbit__ring {
+      gap: 0;
+    }
+
+    .xo-orbit__centre {
+      margin-block-end: var(--xo-space-6);
+    }
+
+    .xo-orbit__col:last-child li:first-child {
+      border-block-start: 1px solid var(--xo-line);
+    }
+  }
+
+  .xo-orbit__note {
+    max-inline-size: 44rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  @media (min-width: 990px) {
+    .xo-orbit__ring {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem) minmax(0, 1fr);
+      gap: var(--xo-space-8);
+      align-items: center;
+    }
+
+    .xo-orbit__centre {
+      order: 0;
+      inline-size: auto;
+      margin: 0;
+    }
+
+    .xo-orbit__col--start li {
+      flex-direction: row-reverse;
+      text-align: end;
     }
   }
 {% endstylesheet %}
@@ -75,8 +169,9 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
-  "max_blocks": 9,
+  "max_blocks": 8,
   "settings": [
+    { "type": "paragraph", "content": "t:xo.info.orbit" },
     {
       "type": "select",
       "id": "tone",
@@ -87,9 +182,8 @@
         { "value": "ink", "label": "t:xo.options.ink" },
         { "value": "accent", "label": "t:xo.options.accent" }
       ],
-      "default": "bone"
+      "default": "surface"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "About our product" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -103,7 +197,7 @@
       "label": "t:xo.labels.lead",
       "default": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>"
     },
-    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.benefits_image" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.orbit_image" },
     {
       "type": "text",
       "id": "footnote",

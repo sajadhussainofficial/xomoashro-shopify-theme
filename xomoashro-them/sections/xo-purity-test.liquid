@@ -1,55 +1,249 @@
 {%- liquid
   assign s = section.settings
+  assign checks = section.blocks
+  assign use_tabs = false
+  if checks.size > 1
+    assign use_tabs = true
+  endif
 -%}
 
-{%- if section.blocks.size > 0 -%}
-  <div class="xo-purity xo-section xo-tone-{{ s.tone }}">
+{%- if checks.size > 0 -%}
+  <div class="xo-checks xo-section xo-tone-{{ s.tone }}">
     <div class="xo-container">
       {%- if s.draft and request.design_mode -%}
         <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
       {%- endif -%}
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+      {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, rule: false -%}
 
-      <ol
-        class="xo-grid xo-purity__list"
-        role="list"
-        style="--xo-cols-md: 2; --xo-cols-lg: 4;"
-      >
-        {%- for block in section.blocks -%}
-          <li
-            class="xo-card xo-feature"
-            data-xo-reveal
-            style="--xo-reveal-order: {{ forloop.index0 }};"
-            {{ block.shopify_attributes }}
+      <xo-tabs class="xo-checks__grid">
+        {%- if use_tabs -%}
+          <div
+            class="xo-checks__tabs"
+            role="tablist"
+            aria-label="{{ s.heading | strip_html | escape }}"
           >
-            <span
-              class="xo-number"
-              aria-hidden="true"
+            {%- for block in checks -%}
+              <button
+                type="button"
+                role="tab"
+                id="XoCheckTab-{{ section.id }}-{{ forloop.index }}"
+                aria-controls="XoCheck-{{ section.id }}-{{ forloop.index }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                {% unless forloop.first %}
+                  tabindex="-1"
+                {% endunless %}
+              >
+                {{- block.settings.tab_label | default: block.settings.title | escape -}}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="xo-checks__panels">
+          {%- for block in checks -%}
+            <div
+              class="xo-checks__panel"
+              id="XoCheck-{{ section.id }}-{{ forloop.index }}"
+              {% if use_tabs %}
+                role="tabpanel"
+                aria-labelledby="XoCheckTab-{{ section.id }}-{{ forloop.index }}"
+                {% unless forloop.first %}
+                  hidden
+                {% endunless %}
+              {% endif %}
+              {{ block.shopify_attributes }}
             >
-              {{- forloop.index -}}
-            </span>
-            {%- if block.settings.title != blank -%}
-              <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ol>
+              {%- if block.settings.drawing != 'none' -%}
+                <div class="xo-checks__art">
+                  {%- render 'xo-illustration', name: block.settings.drawing -%}
+                </div>
+              {%- endif -%}
+              <div class="xo-checks__text">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="xo-checks__title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+                {%- if block.settings.show_colour -%}
+                  <p class="xo-checks__swatch">
+                    <span aria-hidden="true"></span>
+                    {{- block.settings.colour_label | escape -}}
+                  </p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </xo-tabs>
 
       {%- if s.footnote != blank -%}
         <p class="xo-footnote">{{ s.footnote | escape }}</p>
       {%- endif -%}
     </div>
   </div>
+
+  {%- if use_tabs -%}
+    <script
+      src="{{ 'xo-tabs.js' | asset_url }}"
+      type="module"
+    ></script>
+  {%- endif -%}
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-purity__list {
+  .xo-checks__grid {
+    display: grid;
+    gap: var(--xo-space-5);
+  }
+
+  .xo-checks__tabs {
+    display: flex;
+    gap: var(--xo-space-2);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .xo-checks__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .xo-checks__tabs [role='tab'] {
+    flex: none;
+    min-block-size: var(--xo-tap-target);
+    padding: 0 1.125rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    background: transparent;
+    color: var(--xo-fg);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .xo-checks__tabs [aria-selected='true'] {
+    border-color: var(--xo-fg);
+    background: var(--xo-fg);
+    color: var(--xo-bg);
+  }
+
+  .xo-checks__panel {
+    display: grid;
+    gap: var(--xo-space-5);
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  .xo-checks__panel[hidden] {
+    display: none;
+  }
+
+  .xo-checks__art {
+    display: grid;
+    place-items: center;
+    inline-size: 11rem;
+    block-size: 11rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--xo-fg) 7%, var(--xo-surface));
+    color: var(--xo-fg);
+  }
+
+  .xo-checks__art svg {
+    inline-size: 8.5rem;
+    block-size: 8.5rem;
+  }
+
+  .xo-checks__text {
+    display: grid;
+    gap: var(--xo-space-3);
+    align-content: center;
+  }
+
+  .xo-checks__title {
     margin: 0;
-    padding: 0;
-    list-style: none;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+    font-weight: var(--xo-font-display-weight);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .xo-checks__text .xo-feature__text {
+    max-inline-size: 34rem;
+    font-size: 1.0625rem;
+  }
+
+  .xo-checks__swatch {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-3);
+    margin: var(--xo-space-2) 0 0;
+    color: var(--xo-fg);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-checks__swatch span {
+    inline-size: 7rem;
+    block-size: 0.75rem;
+    border-radius: var(--xo-radius-pill);
+    background: linear-gradient(to right, #C98A2B, #7A3516);
+  }
+
+  @media (min-width: 700px) {
+    .xo-checks__panel {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--xo-space-7);
+      align-items: center;
+      min-block-size: 17rem;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-checks__grid {
+      grid-template-columns: 17rem minmax(0, 1fr);
+      gap: var(--xo-space-7);
+      align-items: start;
+    }
+
+    .xo-checks__tabs {
+      flex-direction: column;
+      gap: 0;
+      overflow: visible;
+      border-block-end: 1px solid var(--xo-line-strong);
+    }
+
+    .xo-checks__tabs [role='tab'] {
+      min-block-size: 0;
+      padding: 1.125rem 0;
+      border: 0;
+      border-block-start: 1px solid var(--xo-line-strong);
+      border-radius: 0;
+      color: var(--xo-heading-soft);
+      font-size: 1.375rem;
+      letter-spacing: -0.015em;
+      text-align: start;
+    }
+
+    .xo-checks__tabs [aria-selected='true'] {
+      background: transparent;
+      color: var(--xo-fg);
+    }
+
+    .xo-checks__tabs [aria-selected='true']::after {
+      content: '';
+      float: inline-end;
+      inline-size: 0.5rem;
+      block-size: 0.5rem;
+      margin-block-start: 0.6em;
+      border-radius: 50%;
+      background: var(--xo-fg);
+    }
   }
 {% endstylesheet %}
 
@@ -63,6 +257,7 @@
   },
   "max_blocks": 6,
   "settings": [
+    { "type": "paragraph", "content": "t:xo.info.purity_tabs" },
     {
       "type": "checkbox",
       "id": "draft",
@@ -82,7 +277,6 @@
       ],
       "default": "surface"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Check it yourself" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -108,12 +302,34 @@
       "type": "test",
       "name": "t:xo.names.test",
       "settings": [
+        { "type": "text", "id": "tab_label", "label": "t:xo.labels.tab_label", "default": "Dissolve it" },
         { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "It dissolves fully" },
         {
           "type": "richtext",
           "id": "text",
           "label": "t:xo.labels.text",
           "default": "<p>Real resin dissolves in warm water or milk without gritty residue.</p>"
+        },
+        {
+          "type": "select",
+          "id": "drawing",
+          "label": "t:xo.labels.drawing",
+          "options": [
+            { "value": "glass", "label": "t:xo.options.drawing_glass" },
+            { "value": "warmth", "label": "t:xo.options.drawing_warmth" },
+            { "value": "gloss", "label": "t:xo.options.drawing_gloss" },
+            { "value": "smell", "label": "t:xo.options.drawing_smell" },
+            { "value": "none", "label": "t:xo.options.icon_none" }
+          ],
+          "default": "glass"
+        },
+        { "type": "checkbox", "id": "show_colour", "label": "t:xo.labels.show_colour", "default": false },
+        {
+          "type": "text",
+          "id": "colour_label",
+          "label": "t:xo.labels.colour_label",
+          "default": "The colour to expect",
+          "visible_if": "{{ block.settings.show_colour }}"
         }
       ]
     }
@@ -125,29 +341,38 @@
         {
           "type": "test",
           "settings": {
+            "tab_label": "Dissolve it",
             "title": "It dissolves fully",
-            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>"
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>",
+            "drawing": "glass",
+            "show_colour": true
           }
         },
         {
           "type": "test",
           "settings": {
+            "tab_label": "Warm it",
             "title": "It softens with warmth",
-            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>"
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>",
+            "drawing": "warmth"
           }
         },
         {
           "type": "test",
           "settings": {
+            "tab_label": "Look at it",
             "title": "It is dark and glossy",
-            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>"
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>",
+            "drawing": "gloss"
           }
         },
         {
           "type": "test",
           "settings": {
+            "tab_label": "Smell it",
             "title": "It smells earthy",
-            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>"
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>",
+            "drawing": "smell"
           }
         }
       ]

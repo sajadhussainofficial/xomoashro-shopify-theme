@@ -12,6 +12,8 @@ Three sections show nothing on the store yet, by design, because the data they r
 
 **Second update, same day: new hero and colours.** You chose concept 2, "Obsidian", from three designs, with your own picture (`wordpress-site/assets/salajit.png`). The hero is now dark and full width: the picture fills the section and fades to black behind the text, and the four key numbers run along its bottom. Obsidian black (`#0B0B0D`) is now the second colour and orange is kept for main buttons; headings no longer have an orange word. The header and the announcement bar are dark on every page.
 
+**Third update, 2026-10-09: your chosen section designs.** You picked one of two new designs for each of the 14 sections below the hero (decision B26). All 14 are now built into the theme with their settings and default content: trust strip A, statement A, sizes A, benefits A, why choose B, lab report A, source story B, purity checks B, comparison A, reviews B, how to use A, questions B, journal B, partners B. Eleven show on the homepage now. Sizes, lab report and journal stay hidden until a product, a lab report and blog posts exist, so those three have only been seen in the preview files with sample figures.
+
 ## 2. Files created and changed
 
 Theme (`xomoashro-them/`):
@@ -67,6 +69,30 @@ Deviations from the phase file:
 - **No `{{TODO: confirm}}` text in the copy.** It would show to shoppers. Draft sections instead have a "Draft reminder" setting, on by default, that shows a note in the Theme Editor only.
 - **Added `snippets/xo-fact-text.liquid`**, used by five sections.
 
+Chosen section designs (third update):
+
+| File | What it is now |
+|---|---|
+| `sections/xo-trust-strip.liquid` | A slow-moving ribbon of points on black; pauses when pointed at; still for visitors who ask for less motion. Setting to stop it and to set its speed |
+| `sections/xo-problem.liquid` | The statement as two panels: "What we found" and "What we do", each point a block |
+| `sections/xo-course-bundles.liquid` | One product with its sizes as a list to pick from and a single add-to-cart button that names the size; assurances under it are blocks |
+| `sections/xo-benefits-grid.liquid` | Benefits on both sides of a round picture of the jar |
+| `sections/xo-why.liquid` | A ruled list on black with the heading and the main button staying in view |
+| `sections/xo-lab-proof.liquid` | The lab results drawn as a paper certificate |
+| `sections/xo-source-story.liquid` | A wide picture over a two-column story with a large first letter and three facts |
+| `sections/xo-purity-test.liquid` | One check at a time, picked with buttons, each with a drawing |
+| `sections/xo-comparison-table.liquid` | Two cards face to face: a black Xomoashro card with the jar, a dashed card for typical market shilajit |
+| `sections/xo-reviews-wall.liquid` | Testimonials in two staggered columns on black, a picture, and a buying box |
+| `sections/xo-how-to-use.liquid` | Three numbered steps joined by a line, beside a picture that stays in view |
+| `sections/xo-faq.liquid` | Questions grouped by topic blocks, switched with buttons, all answers open |
+| `sections/xo-featured-journal.liquid` | Article cards on black with the title over the picture |
+| `sections/xo-cta-partners.liquid` | The partner invitation over a darkened mountain picture, with three buttons |
+| `snippets/xo-faq-entry.liquid`, `xo-review-card.liquid`, `xo-illustration.liquid` | One question and answer; one testimonial card; the four purity-check drawings |
+| `assets/xo-tabs.js` | Shared tab behaviour for the purity checks and the questions, including arrow keys and the Theme Editor |
+| `assets/xo-base.css`, `snippets/xo-button.liquid` | A solid black button style, so orange stays on the main buying buttons |
+| `templates/index.json` | The 14 sections with their new settings and pictures |
+| Five pictures in the store's Files | Square and tall crops of your picture, the mountain band, the jar cut-out, and the real jar on black stone (reviews), each listed in `images-generated/manifest.json` |
+
 ## 3. Source content used
 
 | Section | Source | Changes |
@@ -108,6 +134,20 @@ Further checks made:
 - **Reduced motion:** all 28 fade-in elements are visible without animation.
 - **Sample layouts** for the three data-driven sections: `sample-1280-bundles.jpeg`, `sample-360-bundles.jpeg`, `sample-1280-lab.jpeg`, `sample-1280-journal.jpeg`. The values in them are placeholders typed into the browser, not store data. Timeline: `test-1280-timeline.jpeg`.
 
+Checks for the chosen section designs (third update):
+
+| Check | Result | Evidence |
+|---|---|---|
+| Theme check and toolkit validation | Pass | 0 errors, the same 6 old Horizon warnings; toolkit validation 19 of 19 files valid |
+| Every visible section renders at 360, 768 and 1280px | Pass | `home-360-full.jpeg`, `-768-`, `-1280-`, `section-1280-*.jpeg`, `sections-360-1.jpeg`, `-2.jpeg`. No sideways scrolling, no broken pictures, one H1 |
+| Orange only on main buying buttons | Pass | The only orange buttons on the page are the three "Shop Shilajit" buttons |
+| Ribbon | Pass | Moves, pauses when pointed at, stands still and wraps for reduced motion |
+| Purity checks and questions switch by click and by arrow keys | Pass | Clicking "Warm it" shows that check; the down arrow moves to "Look at it"; "Orders and delivery" shows its three questions |
+| Store facts and search-engine data | Pass | The delivery answer reads "within 5 working days"; the page carries 6 questions for search engines; no editor notes appear on the store |
+| Sizes, lab report and journal with real data | **Not run** | No product, lab report or blog post exists. Layout reviewed in the preview files only: `preview-1280-sizes.jpeg`, `preview-1280-lab-report.jpeg`, `preview-1280-journal.jpeg` (sample figures) |
+| Add to cart from the size list | **Not run** | Needs a product (B21). The list sets the variant sent by the theme's own add-to-cart form |
+| Theme Editor | **Not run** | Needs your login. Settings and blocks were checked through the template |
+
 ## 5. Defaults taken
 
 - **B2 (sizes):** nothing fixed in the theme. The cards show whatever sizes the product has.
@@ -136,6 +176,9 @@ Other items:
 - **Picture sharpness:** your hero picture is 1586px wide, so on screens wider than about 1600px it is shown slightly enlarged. A 2400px version would be sharper there.
 - **Numbers band:** the separate numbers section is switched off on the homepage because the hero now shows the same four numbers. It is still available under "Add section".
 - **Trust strip:** now shows the points the hero does not: cash on delivery, delivery across Pakistan, direct from local collectors, help on WhatsApp.
+- **Pictures no longer used** after the section changes: `xomoashro-himalayan-peaks-dark-sky.webp`, `xomoashro-himalayan-mountain-range.webp`, `xomoashro-shilajit-jar-with-raw-resin.webp`. They stay in the store's Files; I have not deleted them.
+- **New wording in the chosen designs:** the three "What we found" points and three "What we do" points in the statement, and the tab labels of the purity checks ("Dissolve it", "Warm it", and so on). They carry the editor-only draft reminder (B22).
+- **Reviews picture:** to avoid the same picture twice in a row (reviews, then how to use), the reviews section shows your real studio bottle photo staged on black stone, not `salajit.png`.
 - **Unused pictures in the store's Files:** the two first-design hero pictures (`xomoashro-pure-himalayan-shilajit-resin-jar*.webp`) are no longer used. They can be deleted from Content > Files; I have not deleted them.
 - **Hero concepts review file** (`previews/hero-concepts/`) is temporary and git-ignored.
 - **Two old-site pictures are not shilajit** and are not used: `Purified-Shilajit.png` is a stock photo of black caviar, and `Group-1000001394-min.png` is a stock photo of a jelly dessert. `image-manifest.csv` is corrected.

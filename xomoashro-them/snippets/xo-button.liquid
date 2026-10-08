@@ -4,7 +4,7 @@
 
   @param {string} label - Button text
   @param {string} [url] - Destination. When blank a `<button>` element is rendered
-  @param {string} [style] - `primary` (default), `secondary` or `quiet`
+  @param {string} [style] - `primary` (default, the accent colour: main buying buttons only), `solid` (text colour), `secondary` (outline) or `quiet` (text link)
   @param {string} [icon] - Icon name from `xo-icon`, shown after the label
   @param {boolean} [block] - Stretch to the full width of the parent
   @param {string} [type] - Button type when rendered as `<button>`. Defaults to `button`
@@ -20,6 +20,8 @@
     assign xo_button_class = 'xo-btn'
     if style == 'secondary'
       assign xo_button_class = xo_button_class | append: ' xo-btn--secondary'
+    elsif style == 'solid'
+      assign xo_button_class = xo_button_class | append: ' xo-btn--solid'
     elsif style == 'quiet'
       assign xo_button_class = xo_button_class | append: ' xo-btn--quiet'
     endif

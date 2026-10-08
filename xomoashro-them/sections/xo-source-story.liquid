@@ -2,99 +2,144 @@
   assign s = section.settings
 -%}
 
-<div class="xo-source xo-section xo-tone-{{ s.tone }}">
-  <div class="xo-container xo-split{% if s.media_first %} xo-split--media-first{% endif %}">
-    <div class="xo-source__copy">
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading -%}
-      {%- if s.text != blank -%}
-        <div class="xo-text xo-muted xo-rte">{{ s.text }}</div>
-      {%- endif -%}
-
-      {%- if section.blocks.size > 0 -%}
-        <dl class="xo-source__facts">
-          {%- for block in section.blocks -%}
-            {%- if block.settings.value != blank -%}
-              <div {{ block.shopify_attributes }}>
-                <dt>{{ block.settings.label | escape }}</dt>
-                <dd>{{ block.settings.value | escape }}</dd>
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
-        </dl>
-      {%- endif -%}
-
-      {%- if s.button_link != blank -%}
-        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
-      {%- endif -%}
-    </div>
-
-    <div
-      class="xo-source__media"
-      data-xo-reveal
-    >
+<div class="xo-spread xo-section xo-tone-{{ s.tone }}">
+  <div class="xo-container">
+    <div class="xo-media xo-spread__pic">
       {%- if s.image != blank -%}
-        <div class="xo-media xo-source__picture">
-          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 50vw, 100vw' -%}
-        </div>
+        {%- render 'xo-image', image: s.image, sizes: '(min-width: 1280px) 1200px, 100vw', max_width: 2400 -%}
       {%- else -%}
-        <div class="xo-art xo-art--night">
+        <div class="xo-art xo-spread__art">
           {{- 'xo-art-mountains.svg' | inline_asset_content -}}
         </div>
       {%- endif -%}
+    </div>
+
+    <div class="xo-spread__grid">
+      {%- if s.heading != blank -%}
+        <h2 class="xo-h2 xo-spread__heading">{{ s.heading }}</h2>
+      {%- endif -%}
+
+      <div class="xo-spread__body">
+        {%- if s.text != blank -%}
+          <div class="xo-spread__text xo-rte{% if s.drop_cap %} xo-spread__text--drop{% endif %}">{{ s.text }}</div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <dl class="xo-spread__facts">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.value != blank -%}
+                <div {{ block.shopify_attributes }}>
+                  <dt>{{ block.settings.label | escape }}</dt>
+                  <dd>{{ block.settings.value | escape }}</dd>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+
+        {%- if s.button_link != blank -%}
+          {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'solid' -%}
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </div>
 
 {% stylesheet %}
-  .xo-source__copy {
-    display: grid;
-    gap: var(--xo-space-5);
-    justify-items: start;
-  }
-
-  .xo-source__copy .xo-heading {
-    margin-block-end: 0;
-  }
-
-  .xo-source__facts {
-    display: grid;
-    gap: 0;
-    inline-size: 100%;
-    margin: 0;
-  }
-
-  .xo-source__facts > div {
-    display: grid;
-    grid-template-columns: 7rem minmax(0, 1fr);
-    gap: var(--xo-space-4);
-    padding-block: var(--xo-space-3);
-    border-block-start: 1px solid var(--xo-line);
-  }
-
-  .xo-source__facts dt {
-    color: var(--xo-muted);
-    font-size: var(--xo-text-xs);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    line-height: 1.6;
-    text-transform: uppercase;
-  }
-
-  .xo-source__facts dd {
-    margin: 0;
-    color: var(--xo-fg);
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .xo-source__picture {
+  .xo-spread__pic {
     aspect-ratio: 4 / 3;
   }
 
+  .xo-spread__pic .xo-img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: 60% 55%;
+  }
+
+  .xo-spread__art {
+    block-size: 100%;
+    border: 0;
+  }
+
+  .xo-spread__grid {
+    display: grid;
+    gap: var(--xo-space-5);
+    margin-block-start: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  }
+
+  .xo-spread__heading {
+    font-size: clamp(2.5rem, 1.4rem + 4.4vw, 5rem);
+    letter-spacing: -0.04em;
+  }
+
+  .xo-spread__body {
+    display: grid;
+    gap: var(--xo-space-6);
+    justify-items: start;
+  }
+
+  .xo-spread__text {
+    color: var(--xo-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .xo-spread__text--drop > p:first-child::first-letter {
+    float: inline-start;
+    padding: 0.06em 0.12em 0 0;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: 3.6em;
+    font-weight: var(--xo-font-display-weight);
+    line-height: 0.8;
+  }
+
+  .xo-spread__facts {
+    display: grid;
+    gap: var(--xo-space-4);
+    inline-size: 100%;
+    margin: 0;
+    padding-block-start: var(--xo-space-5);
+    border-block-start: 2px solid var(--xo-fg);
+  }
+
+  .xo-spread__facts dt {
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+  }
+
+  .xo-spread__facts dd {
+    margin: 0;
+    color: var(--xo-fg);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  @media (min-width: 700px) {
+    .xo-spread__pic {
+      aspect-ratio: 21 / 9;
+    }
+
+    .xo-spread__text {
+      columns: 2;
+      column-gap: 2.5rem;
+    }
+
+    .xo-spread__text > * {
+      break-inside: avoid;
+    }
+
+    .xo-spread__facts {
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      gap: var(--xo-space-6);
+    }
+  }
+
   @media (min-width: 990px) {
-    .xo-source__picture,
-    .xo-source__media .xo-art {
-      aspect-ratio: 5 / 6;
+    .xo-spread__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--xo-space-8);
     }
   }
 {% endstylesheet %}
@@ -121,13 +166,12 @@
       ],
       "default": "bone"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Our story" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.spread_image" },
     {
       "type": "inline_richtext",
       "id": "heading",
       "label": "t:xo.labels.heading",
-      "info": "t:xo.info.heading_highlight",
-      "default": "Born in the <em>Himalayas</em>"
+      "default": "Born in the Himalayas"
     },
     {
       "type": "richtext",
@@ -135,10 +179,9 @@
       "label": "t:xo.labels.text",
       "default": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>"
     },
+    { "type": "checkbox", "id": "drop_cap", "label": "t:xo.labels.drop_cap", "default": true },
     { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Read our story" },
-    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
-    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
-    { "type": "checkbox", "id": "media_first", "label": "t:xo.labels.media_first", "default": true }
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" }
   ],
   "blocks": [
     {

@@ -1,98 +1,167 @@
 {%- liquid
   assign s = section.settings
-  assign tone = s.tone
-  assign has_image = false
-  if s.image != blank
-    assign has_image = true
-    assign tone = 'ink'
+  assign found = section.blocks | where: 'type', 'found'
+  assign promises = section.blocks | where: 'type', 'promise'
+  assign card_tone = 'ink'
+  if s.tone == 'ink'
+    assign card_tone = 'bone'
   endif
 -%}
 
-{%- if s.heading != blank or s.text != blank -%}
-  <div
-    class="xo-problem xo-section xo-tone-{{ tone }}{% if has_image %} xo-problem--media{% endif %}"
-    {% if has_image %}
-      style="--xo-problem-overlay: {{ s.overlay | divided_by: 100.0 }};"
-    {% endif %}
-  >
-    {%- if has_image -%}
-      <div class="xo-problem__media">
-        {%- render 'xo-image', image: s.image, sizes: '100vw', max_width: 2400, decorative: true -%}
-      </div>
-    {%- endif -%}
-    <div class="xo-container xo-problem__inner">
-      {%- if s.eyebrow != blank -%}
-        <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+{%- if s.heading != blank or section.blocks.size > 0 -%}
+  <div class="xo-found xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container">
+      {%- if s.draft and request.design_mode -%}
+        <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
       {%- endif -%}
       {%- if s.heading != blank -%}
-        <h2 class="xo-h1 xo-problem__heading">{{ s.heading }}</h2>
+        <h2 class="xo-h2 xo-found__heading">{{ s.heading }}</h2>
       {%- endif -%}
-      {%- if s.text != blank -%}
-        <div class="xo-lead xo-muted xo-rte xo-problem__text">{{ s.text }}</div>
-      {%- endif -%}
-      {%- if s.button_link != blank -%}
-        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="xo-found__pair">
+          {%- if found.size > 0 -%}
+            <div class="xo-found__card xo-found__card--found">
+              {%- if s.found_title != blank -%}
+                <p class="xo-found__title">{{ s.found_title | escape }}</p>
+              {%- endif -%}
+              <ul
+                class="xo-found__list"
+                role="list"
+              >
+                {%- for block in found -%}
+                  <li {{ block.shopify_attributes }}>
+                    {%- render 'xo-icon', name: 'minus', size: 20 -%}
+                    <span>{{ block.settings.text | escape }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          {%- if found.size > 0 and promises.size > 0 -%}
+            <span
+              class="xo-found__arrow"
+              aria-hidden="true"
+            >
+              {%- render 'xo-icon', name: 'arrow-right', size: 20 -%}
+            </span>
+          {%- endif -%}
+
+          {%- if promises.size > 0 -%}
+            <div class="xo-found__card xo-tone-{{ card_tone }}">
+              {%- if s.promise_title != blank -%}
+                <p class="xo-found__title">{{ s.promise_title | escape }}</p>
+              {%- endif -%}
+              <ul
+                class="xo-found__list"
+                role="list"
+              >
+                {%- for block in promises -%}
+                  <li {{ block.shopify_attributes }}>
+                    {%- render 'xo-icon', name: 'check', size: 20 -%}
+                    <span>{{ block.settings.text | escape }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              {%- if s.button_link != blank -%}
+                {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary' -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
       {%- endif -%}
     </div>
   </div>
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-problem__inner {
+  .xo-found__heading {
+    max-inline-size: 19ch;
+    margin-block-end: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+    font-size: clamp(2.25rem, 1.2rem + 4.2vw, 4.75rem);
+    letter-spacing: -0.04em;
+    line-height: 1.04;
+  }
+
+  .xo-found__pair {
     display: grid;
-    gap: var(--xo-space-5);
+    gap: var(--xo-space-4);
+  }
+
+  .xo-found__card {
+    display: grid;
+    gap: var(--xo-space-4);
+    align-content: start;
     justify-items: start;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-radius: var(--xo-radius-card);
   }
 
-  .xo-problem__heading {
-    max-inline-size: 22ch;
+  .xo-found__card--found {
+    border: 1px solid var(--xo-line-strong);
   }
 
-  .xo-problem__text {
-    max-inline-size: 40rem;
+  .xo-found__title {
+    margin: 0;
+    color: var(--xo-muted);
+    font-size: 0.9375rem;
+    font-weight: 600;
   }
 
-  .xo-problem--media {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-  }
-
-  .xo-problem__media {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-
-  .xo-problem__media .xo-img {
+  .xo-found__list {
+    display: grid;
     inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    object-position: center bottom;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .xo-problem__media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--xo-ink);
-    opacity: var(--xo-problem-overlay, 0.55);
-  }
-
-  /* Over a picture, body text uses the full text colour and the quiet half of the
-     heading is lighter, to keep their contrast. */
-  .xo-problem--media {
-    --xo-heading-soft: color-mix(in srgb, var(--xo-on-ink) 80%, var(--xo-ink));
-  }
-
-  .xo-problem--media .xo-problem__text {
+  .xo-found__list li {
+    display: flex;
+    gap: var(--xo-space-3);
+    align-items: flex-start;
+    padding-block: 0.875rem;
+    border-block-start: 1px solid var(--xo-line);
     color: var(--xo-fg);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.4;
   }
 
-  @media (min-width: 750px) {
-    .xo-problem__inner {
-      justify-items: center;
-      text-align: center;
+  .xo-found__card--found .xo-found__list li {
+    color: var(--xo-muted);
+  }
+
+  .xo-found__list .xo-icon {
+    margin-block-start: 0.125rem;
+  }
+
+  .xo-found__arrow {
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+    color: var(--xo-fg);
+    transform: rotate(90deg);
+  }
+
+  @media (min-width: 900px) {
+    .xo-found__pair {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: var(--xo-space-5);
+    }
+
+    .xo-found__arrow {
+      align-self: center;
+      transform: none;
+    }
+
+    [dir='rtl'] .xo-found__arrow {
+      transform: scaleX(-1);
     }
   }
 {% endstylesheet %}
@@ -105,7 +174,15 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
+  "max_blocks": 10,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "draft",
+      "label": "t:xo.labels.draft",
+      "info": "t:xo.info.draft",
+      "default": true
+    },
     {
       "type": "select",
       "id": "tone",
@@ -116,46 +193,71 @@
         { "value": "ink", "label": "t:xo.options.ink" },
         { "value": "accent", "label": "t:xo.options.accent" }
       ],
-      "default": "ink"
+      "default": "bone"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Why we started" },
     {
       "type": "inline_richtext",
       "id": "heading",
       "label": "t:xo.labels.heading",
       "info": "t:xo.info.heading_highlight",
-      "default": "We found that most shilajit on the market was <em>fake or diluted</em>"
+      "default": "We found that most shilajit on the market was <em>fake or diluted.</em>"
     },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "t:xo.labels.text",
-      "default": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>"
-    },
+    { "type": "text", "id": "found_title", "label": "t:xo.labels.found_title", "default": "What we found" },
+    { "type": "text", "id": "promise_title", "label": "t:xo.labels.promise_title", "default": "What we do" },
     { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Our source" },
-    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" }
+  ],
+  "blocks": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "t:xo.labels.background_image",
-      "info": "t:xo.info.statement_image"
+      "type": "found",
+      "name": "t:xo.names.found",
+      "settings": [
+        { "type": "text", "id": "text", "label": "t:xo.labels.text", "default": "Fake or diluted resin" }
+      ]
     },
     {
-      "type": "range",
-      "id": "overlay",
-      "label": "t:xo.labels.overlay",
-      "min": 30,
-      "max": 90,
-      "step": 5,
-      "unit": "%",
-      "default": 55,
-      "visible_if": "{{ section.settings.image != blank }}"
+      "type": "promise",
+      "name": "t:xo.names.promise",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "default": "Pure resin with nothing added"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "t:xo.names.problem",
-      "settings": { "button_link": "/pages/our-source" }
+      "settings": { "button_link": "/pages/our-source" },
+      "blocks": [
+        {
+          "type": "found",
+          "settings": { "text": "Fake or diluted resin" }
+        },
+        {
+          "type": "found",
+          "settings": { "text": "Fillers and binders that are not always stated" }
+        },
+        {
+          "type": "found",
+          "settings": { "text": "A source that is often not stated" }
+        },
+        {
+          "type": "promise",
+          "settings": { "text": "Pure resin with nothing added" }
+        },
+        {
+          "type": "promise",
+          "settings": { "text": "Sourced directly from local collectors" }
+        },
+        {
+          "type": "promise",
+          "settings": { "text": "From Chitral and Gilgit-Baltistan" }
+        }
+      ]
     }
   ]
 }

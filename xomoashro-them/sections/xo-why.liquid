@@ -3,51 +3,94 @@
 -%}
 
 {%- if section.blocks.size > 0 -%}
-  <div class="xo-why xo-section xo-tone-{{ s.tone }}">
-    <div class="xo-container">
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+  <div class="xo-reasons xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container xo-reasons__grid">
+      <div class="xo-reasons__intro">
+        {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, rule: false -%}
+        {%- if s.button_link != blank -%}
+          {%- render 'xo-button', label: s.button_label, url: s.button_link -%}
+        {%- endif -%}
+      </div>
 
-      <ol
-        class="xo-grid xo-why__list"
-        role="list"
-        style="--xo-cols-md: 2; --xo-cols-lg: 3; --xo-grid-gap: var(--xo-space-7) var(--xo-space-6);"
-      >
+      <dl class="xo-reasons__list">
         {%- for block in section.blocks -%}
-          <li
-            class="xo-feature xo-why__item"
-            data-xo-reveal
-            style="--xo-reveal-order: {{ forloop.index0 | modulo: 3 }};"
-            {{ block.shopify_attributes }}
-          >
-            <span
-              class="xo-number"
-              aria-hidden="true"
+          {%- if block.settings.title != blank -%}
+            <div
+              class="xo-reasons__row"
+              {{ block.shopify_attributes }}
             >
-              {{- forloop.index | prepend: '0' | slice: -2, 2 -}}
-            </span>
-            {%- if block.settings.title != blank -%}
-              <h3 class="xo-feature__title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="xo-feature__text xo-rte">{{ block.settings.text }}</div>
-            {%- endif -%}
-          </li>
+              <dt>{{ block.settings.title | escape }}</dt>
+              <dd class="xo-rte">{{ block.settings.text }}</dd>
+            </div>
+          {%- endif -%}
         {%- endfor -%}
-      </ol>
+      </dl>
     </div>
   </div>
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-why__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .xo-reasons__grid {
+    display: grid;
+    gap: var(--xo-space-7);
   }
 
-  .xo-why__item {
-    padding-block-start: var(--xo-space-5);
-    border-block-start: 1px solid var(--xo-line);
+  .xo-reasons__intro {
+    display: grid;
+    gap: var(--xo-space-5);
+    align-content: start;
+    justify-items: start;
+  }
+
+  .xo-reasons__intro .xo-heading {
+    margin-block-end: 0;
+  }
+
+  .xo-reasons__list {
+    margin: 0;
+    border-block-end: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-reasons__row {
+    display: grid;
+    gap: var(--xo-space-2);
+    padding-block: 1.375rem;
+    border-block-start: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-reasons__row dt {
+    color: var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+    font-weight: var(--xo-font-display-weight);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .xo-reasons__row dd {
+    margin: 0;
+    color: var(--xo-muted);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 640px) {
+    .xo-reasons__row {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: var(--xo-space-6);
+      align-items: baseline;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-reasons__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 5rem;
+    }
+
+    .xo-reasons__intro {
+      position: sticky;
+      inset-block-start: calc(var(--header-height, 4.5rem) + var(--xo-space-6));
+    }
   }
 {% endstylesheet %}
 
@@ -59,7 +102,7 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
-  "max_blocks": 9,
+  "max_blocks": 10,
   "settings": [
     {
       "type": "select",
@@ -71,9 +114,8 @@
         { "value": "ink", "label": "t:xo.options.ink" },
         { "value": "accent", "label": "t:xo.options.accent" }
       ],
-      "default": "surface"
+      "default": "ink"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Why Xomoashro" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -86,7 +128,9 @@
       "id": "lead",
       "label": "t:xo.labels.lead",
       "default": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>"
-    }
+    },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Shop Shilajit" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link", "default": "/collections/all" }
   ],
   "blocks": [
     {

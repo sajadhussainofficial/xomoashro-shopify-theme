@@ -1,178 +1,217 @@
 {%- liquid
   assign s = section.settings
+  assign ours_rows = ''
+  assign others_rows = ''
 -%}
 
-{%- capture rows -%}
-  {%- for block in section.blocks -%}
-    {%- capture ours -%}
-      {%- render 'xo-fact-text', text: block.settings.ours, requires: block.settings.requires -%}
+{%- for block in section.blocks -%}
+  {%- capture ours -%}
+    {%- render 'xo-fact-text', text: block.settings.ours, requires: block.settings.requires -%}
+  {%- endcapture -%}
+  {%- if ours != blank and block.settings.label != blank -%}
+    {%- capture ours_rows -%}
+      {{- ours_rows -}}
+      <div {{ block.shopify_attributes }}>
+        <dt>{{ block.settings.label | escape }}</dt>
+        <dd>{%- render 'xo-icon', name: 'check', size: 20 -%}<span>{{ ours | escape }}</span></dd>
+      </div>
     {%- endcapture -%}
-    {%- if ours != blank and block.settings.label != blank -%}
-      <tr {{ block.shopify_attributes }}>
-        <th scope="row">{{ block.settings.label | escape }}</th>
-        <td class="xo-compare__ours">
-          <span class="xo-compare__cell">
-            {%- render 'xo-icon', name: 'check-circle', size: 20 -%}
-            <span>{{ ours | escape }}</span>
-          </span>
-        </td>
-        <td>{{ block.settings.others | escape }}</td>
-      </tr>
-    {%- endif -%}
-  {%- endfor -%}
-{%- endcapture -%}
+    {%- capture others_rows -%}
+      {{- others_rows -}}
+      <div>
+        <dt>{{ block.settings.label | escape }}</dt>
+        <dd>{%- render 'xo-icon', name: 'minus', size: 20 -%}<span>{{ block.settings.others | escape }}</span></dd>
+      </div>
+    {%- endcapture -%}
+  {%- endif -%}
+{%- endfor -%}
 
-{%- if rows != blank -%}
-  <div class="xo-compare xo-section xo-tone-{{ s.tone }}">
-    <div class="xo-container xo-container--narrow">
+{%- if ours_rows != blank -%}
+  <div class="xo-versus xo-section xo-tone-{{ s.tone }}">
+    <div class="xo-container">
       {%- if s.draft and request.design_mode -%}
         <p class="xo-editor-note xo-draft-note">{{ 'xo.editor.draft' | t }}</p>
       {%- endif -%}
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, align: 'center' -%}
+      {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, align: 'center', rule: false -%}
 
-      <table
-        class="xo-compare__table"
-        data-xo-reveal
-      >
-        <caption class="xo-visually-hidden">
-          {{ 'xo.compare.caption' | t: ours: s.ours_heading, others: s.others_heading }}
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">
-              <span class="xo-visually-hidden">{{ 'xo.compare.feature' | t }}</span>
-            </th>
-            <th
-              scope="col"
-              class="xo-compare__ours"
-            >
-              {{ s.ours_heading | escape }}
-            </th>
-            <th scope="col">{{ s.others_heading | escape }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ rows }}
-        </tbody>
-      </table>
+      <div class="xo-versus__pair{% if s.image != blank %} xo-versus__pair--jar{% endif %}">
+        <section
+          class="xo-versus__card xo-versus__card--ours xo-tone-ink"
+          aria-labelledby="XoOurs-{{ section.id }}"
+        >
+          {%- if s.image != blank -%}
+            <div class="xo-versus__jar">
+              {%- render 'xo-image', image: s.image, sizes: '160px', widths: '160, 320, 480', max_width: 480, decorative: true -%}
+            </div>
+          {%- endif -%}
+          <h3
+            class="xo-versus__name"
+            id="XoOurs-{{ section.id }}"
+          >
+            {{- s.ours_heading | escape -}}
+          </h3>
+          <dl>{{ ours_rows }}</dl>
+        </section>
+
+        <span
+          class="xo-versus__vs"
+          aria-hidden="true"
+        >
+          {{- 'xo.compare.vs' | t -}}
+        </span>
+
+        <section
+          class="xo-versus__card xo-versus__card--others"
+          aria-labelledby="XoOthers-{{ section.id }}"
+        >
+          <h3
+            class="xo-versus__name"
+            id="XoOthers-{{ section.id }}"
+          >
+            {{- s.others_heading | escape -}}
+          </h3>
+          <dl>{{ others_rows }}</dl>
+        </section>
+      </div>
 
       {%- if s.footnote != blank -%}
-        <p class="xo-footnote xo-compare__note">{{ s.footnote | escape }}</p>
+        <p class="xo-footnote xo-versus__note">{{ s.footnote | escape }}</p>
       {%- endif -%}
     </div>
   </div>
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-compare__table {
-    inline-size: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    table-layout: fixed;
-    font-size: var(--xo-text-sm);
-    line-height: 1.4;
-    overflow-wrap: break-word;
+  .xo-versus__pair {
+    display: grid;
+    gap: var(--xo-space-4);
   }
 
-  .xo-compare__table :is(th, td) {
-    padding: var(--xo-space-4) var(--xo-space-3);
-    border-block-end: 1px solid var(--xo-line);
-    text-align: start;
-    vertical-align: top;
+  .xo-versus__pair--jar {
+    margin-block-start: var(--xo-space-7);
   }
 
-  .xo-compare__table thead th {
+  .xo-versus__card {
+    position: relative;
+    display: grid;
+    gap: var(--xo-space-5);
+    align-content: start;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-radius: var(--xo-radius-card);
+  }
+
+  .xo-versus__card--others {
+    border: 1.5px dashed var(--xo-line-strong);
+    color: var(--xo-muted);
+  }
+
+  .xo-versus__name {
+    margin: 0;
     color: var(--xo-fg);
     font-family: var(--xo-font-display);
-    font-size: var(--xo-text-base);
+    font-size: var(--xo-text-h4);
     font-weight: var(--xo-font-display-weight);
-    vertical-align: bottom;
+    letter-spacing: -0.012em;
   }
 
-  .xo-compare__table tbody th {
+  .xo-versus__jar {
+    position: absolute;
+    inset-block-start: -3rem;
+    inset-inline-end: 1.5rem;
+    inline-size: 7.5rem;
+    filter: drop-shadow(0 16px 14px rgb(0 0 0 / 0.4));
+  }
+
+  .xo-versus__card dl {
+    display: grid;
+    margin: 0;
+  }
+
+  .xo-versus__card dl > div {
+    display: grid;
+    gap: var(--xo-space-1);
+    padding-block: 0.875rem;
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-versus__card dt {
     color: var(--xo-muted);
+    font-size: 0.8125rem;
     font-weight: 600;
   }
 
-  .xo-compare__table tbody td {
-    color: var(--xo-muted);
-  }
-
-  .xo-compare__table .xo-compare__ours {
-    border-inline: 1px solid var(--xo-line-strong);
-    background: var(--xo-surface);
+  .xo-versus__card dd {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+    margin: 0;
     color: var(--xo-fg);
     font-weight: 600;
+    line-height: 1.4;
   }
 
-  .xo-compare__table thead .xo-compare__ours {
-    border-block-start: 1px solid var(--xo-line-strong);
-    border-start-start-radius: var(--xo-radius-card);
-    border-start-end-radius: var(--xo-radius-card);
+  .xo-versus__card--others dd {
+    color: var(--xo-muted);
+    font-weight: 500;
   }
 
-  .xo-compare__table tbody tr:last-child .xo-compare__ours {
-    border-block-end: 1px solid var(--xo-line-strong);
-    border-end-start-radius: var(--xo-radius-card);
-    border-end-end-radius: var(--xo-radius-card);
+  .xo-versus__card dd .xo-icon {
+    margin-block-start: 0.0625rem;
   }
 
-  .xo-compare__table tbody tr:last-child :is(th, td):not(.xo-compare__ours) {
-    border-block-end: 0;
+  .xo-versus__vs {
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    inline-size: 3.25rem;
+    block-size: 3.25rem;
+    margin-block: calc(var(--xo-space-2) * -1);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+    background: var(--xo-bg);
+    color: var(--xo-fg);
+    font-weight: 700;
   }
 
-  .xo-compare__cell {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--xo-space-2);
-  }
-
-  .xo-compare__cell .xo-icon {
-    color: var(--xo-success);
-  }
-
-  .xo-tone-ink .xo-compare__cell .xo-icon,
-  .xo-tone-accent .xo-compare__cell .xo-icon {
-    color: var(--xo-highlight);
-  }
-
-  .xo-compare__note {
+  .xo-versus__note {
     text-align: center;
   }
 
-  .xo-compare__table th:first-child {
-    inline-size: 30%;
-  }
-
-  .xo-compare__table .xo-compare__ours {
-    inline-size: 37%;
-  }
-
-  @media (max-width: 479px) {
-    .xo-compare__cell .xo-icon {
-      display: none;
+  @media (min-width: 900px) {
+    .xo-versus__pair {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 0;
+      align-items: stretch;
+      max-inline-size: 62rem;
+      margin-inline: auto;
     }
 
-    .xo-compare__table :is(th, td) {
-      padding-inline: 0.625rem;
+    .xo-versus__pair--jar {
+      margin-block-start: var(--xo-space-8);
     }
 
-    .xo-compare__table thead th {
-      font-size: var(--xo-text-sm);
-    }
-  }
-
-  @media (min-width: 750px) {
-    .xo-compare__table {
-      font-size: var(--xo-text-base);
+    .xo-versus__card--ours {
+      padding-inline-end: 3.5rem;
     }
 
-    .xo-compare__table :is(th, td) {
-      padding: var(--xo-space-4) var(--xo-space-5);
+    .xo-versus__vs {
+      align-self: center;
+      margin: 0 -1.625rem;
     }
 
-    .xo-compare__table thead th {
-      font-size: var(--xo-text-h4);
+    .xo-versus__card--others {
+      margin-block: var(--xo-space-5);
+      padding-inline-start: 3.5rem;
+      border-inline-start: 0;
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+
+    .xo-versus__jar {
+      inline-size: 9rem;
+      inset-block-start: -3.5rem;
+      inset-inline-end: 3rem;
     }
   }
 {% endstylesheet %}
@@ -206,7 +245,6 @@
       ],
       "default": "bone"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Compare" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -227,6 +265,7 @@
       "label": "t:xo.labels.others_heading",
       "default": "Typical market shilajit"
     },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.jar_image", "info": "t:xo.info.jar_image" },
     {
       "type": "text",
       "id": "footnote",

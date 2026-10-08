@@ -1,5 +1,11 @@
 {%- liquid
   assign s = section.settings
+  assign topics = section.blocks | where: 'type', 'topic'
+  assign use_tabs = false
+  if topics.size > 1
+    assign use_tabs = true
+  endif
+
   capture whatsapp_url
     render 'xo-shop-facts', fact: 'whatsapp_url', message: s.whatsapp_message
   endcapture
@@ -8,49 +14,123 @@
   endcapture
 -%}
 
-{%- capture items -%}
+{%- comment -%} Questions placed before the first topic are shown with that topic. {%- endcomment -%}
+{%- capture leading -%}
   {%- for block in section.blocks -%}
-    {%- if block.settings.question == blank -%}
-      {%- continue -%}
+    {%- if block.type == 'topic' -%}
+      {%- break -%}
     {%- endif -%}
-    {%- capture answer -%}
-      {%- render 'xo-fact-text', text: block.settings.answer, requires: block.settings.requires -%}
-    {%- endcapture -%}
-    {%- if answer != blank -%}
-      <details
-        class="xo-faq__item"
-        {{ block.shopify_attributes }}
-      >
-        <summary class="xo-faq__question">
-          <h3 class="xo-faq__title">{{ block.settings.question | escape }}</h3>
-          {%- render 'xo-icon', name: 'plus', size: 20, class: 'xo-faq__icon' -%}
-        </summary>
-        <div class="xo-faq__answer xo-rte">{{ answer }}</div>
-      </details>
+    {%- if block.type == 'question' -%}
+      {%- render 'xo-faq-entry', block: block -%}
     {%- endif -%}
   {%- endfor -%}
 {%- endcapture -%}
 
-{%- if items != blank -%}
+{%- capture panels -%}
+  {%- if topics.size == 0 -%}
+    <div class="xo-topics__panel">{{ leading }}</div>
+  {%- else -%}
+    {%- for topic in topics -%}
+      {%- assign topic_number = forloop.index -%}
+      <div
+        class="xo-topics__panel"
+        id="XoTopic-{{ section.id }}-{{ topic_number }}"
+        {% if use_tabs %}
+          role="tabpanel"
+          aria-labelledby="XoTopicTab-{{ section.id }}-{{ topic_number }}"
+          {% unless forloop.first %}
+            hidden
+          {% endunless %}
+        {% endif %}
+        {{ topic.shopify_attributes }}
+      >
+        {%- if forloop.first -%}
+          {{ leading }}
+        {%- endif -%}
+        {%- assign seen = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'topic' -%}
+            {%- assign seen = seen | plus: 1 -%}
+          {%- elsif block.type == 'question' and seen == topic_number -%}
+            {%- render 'xo-faq-entry', block: block -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if panels contains 'class="xo-qa"' -%}
   <div
-    class="xo-faq xo-section xo-tone-{{ s.tone }}"
+    class="xo-topics xo-section xo-tone-{{ s.tone }}"
     {% if s.anchor != blank %}
       id="{{ s.anchor | handleize }}"
       data-xo-anchor
     {% endif %}
   >
-    <div class="xo-container xo-faq__inner">
-      <div class="xo-faq__intro">
-        {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+    <xo-tabs class="xo-container xo-topics__grid">
+      <div class="xo-topics__side">
+        {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, rule: false -%}
+
+        {%- if use_tabs -%}
+          <div
+            class="xo-topics__tabs"
+            role="tablist"
+            aria-label="{{ 'xo.faq.topics' | t }}"
+          >
+            {%- for topic in topics -%}
+              {%- liquid
+                assign is_first = forloop.first
+                assign topic_number = forloop.index
+                assign count = 0
+                if is_first and leading != blank
+                  assign count = leading | split: 'class="xo-qa"' | size | minus: 1
+                endif
+                assign seen = 0
+                for block in section.blocks
+                  if block.type == 'topic'
+                    assign seen = seen | plus: 1
+                  elsif block.type == 'question' and seen == topic_number
+                    capture entry
+                      render 'xo-faq-entry', block: block
+                    endcapture
+                    if entry != blank
+                      assign count = count | plus: 1
+                    endif
+                  endif
+                endfor
+              -%}
+              <button
+                type="button"
+                role="tab"
+                id="XoTopicTab-{{ section.id }}-{{ topic_number }}"
+                aria-controls="XoTopic-{{ section.id }}-{{ topic_number }}"
+                aria-selected="{% if is_first %}true{% else %}false{% endif %}"
+                {% unless is_first %}
+                  tabindex="-1"
+                {% endunless %}
+              >
+                <span>{{ topic.settings.title | escape }}</span>
+                <span
+                  class="xo-topics__count"
+                  aria-hidden="true"
+                >
+                  {{- count -}}
+                </span>
+                <span class="xo-visually-hidden">{{ 'xo.faq.count' | t: count: count }}</span>
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
 
         {%- if s.contact_heading != blank -%}
           {%- if whatsapp_url != blank or support_email != blank -%}
-            <div class="xo-faq__contact">
+            <div class="xo-topics__contact">
               <p class="xo-feature__title">{{ s.contact_heading | escape }}</p>
-              <div class="xo-faq__actions">
+              <div class="xo-topics__actions">
                 {%- if whatsapp_url != blank and s.whatsapp_label != blank -%}
                   <a
-                    class="xo-btn xo-btn--secondary xo-btn--sm"
+                    class="xo-btn xo-btn--solid xo-btn--sm"
                     href="{{ whatsapp_url }}"
                     target="_blank"
                     rel="noopener"
@@ -73,11 +153,18 @@
         {%- endif -%}
       </div>
 
-      <div class="xo-faq__list">
-        {{ items }}
+      <div class="xo-topics__panels">
+        {{ panels }}
       </div>
-    </div>
+    </xo-tabs>
   </div>
+
+  {%- if use_tabs -%}
+    <script
+      src="{{ 'xo-tabs.js' | asset_url }}"
+      type="module"
+    ></script>
+  {%- endif -%}
 
   {%- if s.structured_data -%}
     {%- unless request.design_mode -%}
@@ -87,60 +174,91 @@
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-faq__inner {
+  .xo-topics__grid {
     display: grid;
-    gap: var(--xo-space-6);
+    gap: var(--xo-space-7);
   }
 
-  .xo-faq__intro .xo-heading {
+  .xo-topics__side {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-content: start;
+  }
+
+  .xo-topics__side .xo-heading {
     margin-block-end: 0;
   }
 
-  .xo-faq__contact {
+  .xo-topics__tabs {
     display: grid;
-    gap: var(--xo-space-3);
-    margin-block-start: var(--xo-space-6);
-    padding-block-start: var(--xo-space-5);
-    border-block-start: 1px solid var(--xo-line);
+    gap: var(--xo-space-2);
   }
 
-  .xo-faq__actions {
+  .xo-topics__tabs [role='tab'] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-4);
+    min-block-size: 3.25rem;
+    padding: 0 1.125rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--xo-fg);
+    font: inherit;
+    font-weight: 600;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .xo-topics__tabs [aria-selected='true'] {
+    border-color: var(--xo-fg);
+    background: var(--xo-fg);
+    color: var(--xo-bg);
+  }
+
+  .xo-topics__count {
+    font-size: var(--xo-text-sm);
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+  }
+
+  .xo-topics__contact {
+    display: grid;
+    gap: var(--xo-space-3);
+    padding-block-start: var(--xo-space-5);
+    border-block-start: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-topics__actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--xo-space-3) var(--xo-space-4);
+    gap: var(--xo-space-3) var(--xo-space-5);
   }
 
-  .xo-faq__actions .xo-link {
+  .xo-topics__actions .xo-link {
     display: inline-flex;
     align-items: center;
     min-block-size: var(--xo-tap-target);
   }
 
-  .xo-faq__item {
-    border-block-end: 1px solid var(--xo-line-strong);
-  }
-
-  .xo-faq__item:first-child {
-    border-block-start: 1px solid var(--xo-line-strong);
-  }
-
-  .xo-faq__question {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--xo-space-4);
-    min-block-size: 4rem;
-    padding-block: var(--xo-space-4);
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .xo-faq__question::-webkit-details-marker {
+  .xo-topics__panel[hidden] {
     display: none;
   }
 
-  .xo-faq__title {
+  .xo-qa {
+    display: grid;
+    gap: var(--xo-space-3);
+    padding-block: var(--xo-space-6);
+    border-block-start: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-topics__panel .xo-qa:last-child {
+    border-block-end: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-qa__q {
     margin: 0;
     color: var(--xo-fg);
     font-family: var(--xo-font-display);
@@ -150,36 +268,27 @@
     line-height: 1.3;
   }
 
-  .xo-faq__icon {
-    color: var(--xo-highlight);
-    transition: transform var(--xo-duration) var(--xo-ease);
-  }
-
-  .xo-faq__item[open] .xo-faq__icon {
-    transform: rotate(45deg);
-  }
-
-  .xo-faq__answer {
-    max-inline-size: var(--xo-measure);
-    padding-block-end: var(--xo-space-5);
+  .xo-qa__a {
+    max-inline-size: 40rem;
     color: var(--xo-muted);
     line-height: 1.65;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .xo-faq__icon {
-      transition: none;
+  @media (min-width: 700px) {
+    .xo-qa {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: var(--xo-space-6);
     }
   }
 
   @media (min-width: 990px) {
-    .xo-faq__inner {
-      grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-      gap: var(--xo-space-9);
+    .xo-topics__grid {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: 4.5rem;
       align-items: start;
     }
 
-    .xo-faq__intro {
+    .xo-topics__side {
       position: sticky;
       inset-block-start: calc(var(--header-height, 4.5rem) + var(--xo-space-6));
     }
@@ -194,8 +303,9 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
-  "max_blocks": 20,
+  "max_blocks": 24,
   "settings": [
+    { "type": "paragraph", "content": "t:xo.info.faq_topics" },
     {
       "type": "select",
       "id": "tone",
@@ -208,7 +318,6 @@
       ],
       "default": "surface"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "FAQ" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -249,6 +358,13 @@
   ],
   "blocks": [
     {
+      "type": "topic",
+      "name": "t:xo.names.topic",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "The product" }
+      ]
+    },
+    {
       "type": "question",
       "name": "t:xo.names.question",
       "settings": [
@@ -282,6 +398,10 @@
       "name": "t:xo.names.faq",
       "blocks": [
         {
+          "type": "topic",
+          "settings": { "title": "The product" }
+        },
+        {
           "type": "question",
           "settings": {
             "question": "What is shilajit?",
@@ -304,6 +424,10 @@
             "answer": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
             "requires": "none"
           }
+        },
+        {
+          "type": "topic",
+          "settings": { "title": "Orders and delivery" }
         },
         {
           "type": "question",
