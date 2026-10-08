@@ -67,7 +67,11 @@
       "sold_out": "Sold out",
       "add": "Add to cart",
       "add_label": "Add {{ title }} to cart",
-      "choose_product": "Choose a product in this section's settings to show its sizes. Shoppers do not see this section until a product is chosen."
+      "choose_product": "Choose a product in this section's settings to show its sizes. Shoppers do not see this section until a product is chosen.",
+      "choose_size": "Choose your size",
+      "add_size": "Add {{ size }} to cart",
+      "size_detail": "{{ weight }} g, about {{ days }} days",
+      "weight": "{{ weight }} g"
     },
     "lab": {
       "batch": "Batch",
@@ -81,17 +85,30 @@
       "arsenic": "Arsenic",
       "mercury": "Mercury",
       "cadmium": "Cadmium",
-      "empty": "No lab report is saved in the store's data yet. Shoppers do not see this section until one is added."
+      "empty": "No lab report is saved in the store's data yet. Shoppers do not see this section until one is added.",
+      "product": "Product",
+      "metals_ppm": "Heavy metals, parts per million"
     },
     "compare": {
       "caption": "{{ ours }} compared with {{ others }}",
-      "feature": "Feature"
+      "feature": "Feature",
+      "vs": "vs"
     },
     "journal": {
       "empty": "This blog has no posts yet. Shoppers do not see this section until a post is published."
     },
     "editor": {
       "draft": "Draft wording: please check this section before launch, then turn off \"Draft reminder\" in its settings. Shoppers never see this note."
+    },
+    "trust": {
+      "label": "Why shop with Xomoashro"
+    },
+    "faq": {
+      "topics": "Topics",
+      "count": {
+        "one": "1 question",
+        "other": "{{ count }} questions"
+      }
     }
   },
   "accessibility": {

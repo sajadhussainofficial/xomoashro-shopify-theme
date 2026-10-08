@@ -88,41 +88,134 @@
             "icon": "whatsapp",
             "requires": "whatsapp"
           }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "text": "100% resin, no fillers",
+            "icon": "drop",
+            "requires": "none"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "text": "[days]-day money-back guarantee",
+            "icon": "shield",
+            "requires": "guarantee"
+          }
         }
       },
       "block_order": [
         "item_1",
         "item_2",
         "item_3",
-        "item_4"
+        "item_4",
+        "item_5",
+        "item_6"
       ],
       "settings": {
-        "tone": "surface"
+        "tone": "ink",
+        "move": true,
+        "speed": 45
       }
     },
     "problem": {
       "type": "xo-problem",
+      "blocks": {
+        "found_1": {
+          "type": "found",
+          "settings": {
+            "text": "Fake or diluted resin"
+          }
+        },
+        "found_2": {
+          "type": "found",
+          "settings": {
+            "text": "Fillers and binders that are not always stated"
+          }
+        },
+        "found_3": {
+          "type": "found",
+          "settings": {
+            "text": "A source that is often not stated"
+          }
+        },
+        "promise_1": {
+          "type": "promise",
+          "settings": {
+            "text": "Pure resin with nothing added"
+          }
+        },
+        "promise_2": {
+          "type": "promise",
+          "settings": {
+            "text": "Sourced directly from local collectors"
+          }
+        },
+        "promise_3": {
+          "type": "promise",
+          "settings": {
+            "text": "From Chitral and Gilgit-Baltistan"
+          }
+        }
+      },
+      "block_order": [
+        "found_1",
+        "found_2",
+        "found_3",
+        "promise_1",
+        "promise_2",
+        "promise_3"
+      ],
       "settings": {
-        "tone": "ink",
-        "eyebrow": "Why we started",
-        "heading": "We found that most shilajit on the market was <em>fake or diluted</em>",
-        "text": "<p>So we set out to offer a trusted alternative: pure resin, sourced directly, with nothing added.</p>",
+        "draft": true,
+        "tone": "bone",
+        "heading": "We found that most shilajit on the market was <em>fake or diluted.</em>",
+        "found_title": "What we found",
+        "promise_title": "What we do",
         "button_label": "Our source",
-        "overlay": 55,
-        "button_link": "/pages/our-source",
-        "image": "shopify://shop_images/xomoashro-himalayan-peaks-dark-sky.webp"
+        "button_link": "/pages/our-source"
       }
     },
     "bundles": {
       "type": "xo-course-bundles",
+      "blocks": {
+        "assurance_1": {
+          "type": "assurance",
+          "settings": {
+            "text": "Cash on delivery",
+            "icon": "cash",
+            "requires": "none"
+          }
+        },
+        "assurance_2": {
+          "type": "assurance",
+          "settings": {
+            "text": "Delivery across Pakistan",
+            "icon": "truck",
+            "requires": "none"
+          }
+        },
+        "assurance_3": {
+          "type": "assurance",
+          "settings": {
+            "text": "[days]-day money-back guarantee",
+            "icon": "shield",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "assurance_1",
+        "assurance_2",
+        "assurance_3"
+      ],
       "settings": {
         "tone": "surface",
-        "eyebrow": "Choose your size",
-        "heading": "Pure Himalayan Aftabi Shilajit",
-        "lead": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>",
+        "text": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>",
         "button_label": "Add to cart",
         "show_per_gram": true,
-        "note": "Cash on delivery available across Pakistan.",
         "anchor": "sizes"
       }
     },
@@ -188,11 +281,10 @@
       ],
       "settings": {
         "tone": "bone",
-        "eyebrow": "About our product",
         "heading": "An ancient remedy for <em>everyday well-being</em>",
         "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
         "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
-        "image": "shopify://shop_images/xomoashro-shilajit-jar-with-raw-resin.webp"
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-square.webp"
       }
     },
     "stats": {
@@ -298,10 +390,11 @@
         "reason_6"
       ],
       "settings": {
-        "tone": "surface",
-        "eyebrow": "Why Xomoashro",
+        "tone": "ink",
         "heading": "Why choose <em>Xomoashro</em>",
-        "lead": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>"
+        "lead": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all"
       }
     },
     "timeline": {
@@ -350,12 +443,13 @@
     "lab": {
       "type": "xo-lab-proof",
       "settings": {
-        "tone": "ink",
-        "eyebrow": "Lab tested",
-        "heading": "See the <em>report</em> for yourself",
+        "tone": "bone",
+        "heading": "See the report <em>for yourself</em>",
         "lead": "<p>These are the lab results for the batch on sale now. Open the full report to see every figure.</p>",
         "button_label": "View the lab report",
         "page_label": "All lab reports",
+        "sheet_title": "Certificate of analysis",
+        "product_name": "Pure Himalayan Aftabi Shilajit",
         "show_metals": true,
         "page_link": "/pages/lab-reports",
         "anchor": "lab-report"
@@ -393,13 +487,12 @@
       ],
       "settings": {
         "tone": "bone",
-        "eyebrow": "Our story",
-        "heading": "Born in the <em>Himalayas</em>",
+        "heading": "Born in the Himalayas",
         "text": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>",
+        "drop_cap": true,
         "button_label": "Read our story",
-        "media_first": true,
         "button_link": "/pages/our-source",
-        "image": "shopify://shop_images/xomoashro-himalayan-mountain-range.webp"
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock.webp"
       }
     },
     "purity": {
@@ -408,29 +501,45 @@
         "test_1": {
           "type": "test",
           "settings": {
+            "tab_label": "Dissolve it",
             "title": "It dissolves fully",
-            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>"
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>",
+            "drawing": "glass",
+            "show_colour": true,
+            "colour_label": "The colour to expect"
           }
         },
         "test_2": {
           "type": "test",
           "settings": {
+            "tab_label": "Warm it",
             "title": "It softens with warmth",
-            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>"
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>",
+            "drawing": "warmth",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
           }
         },
         "test_3": {
           "type": "test",
           "settings": {
+            "tab_label": "Look at it",
             "title": "It is dark and glossy",
-            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>"
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>",
+            "drawing": "gloss",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
           }
         },
         "test_4": {
           "type": "test",
           "settings": {
+            "tab_label": "Smell it",
             "title": "It smells earthy",
-            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>"
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>",
+            "drawing": "smell",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
           }
         }
       },
@@ -442,8 +551,7 @@
       ],
       "settings": {
         "draft": true,
-        "tone": "surface",
-        "eyebrow": "Check it yourself",
+        "tone": "bone",
         "heading": "Four ways to check shilajit <em>at home</em>",
         "lead": "<p>Simple checks people commonly use to tell real resin from imitations.</p>",
         "footnote": "These checks are a guide only. They do not replace a lab report."
@@ -518,12 +626,12 @@
       "settings": {
         "draft": true,
         "tone": "bone",
-        "eyebrow": "Compare",
         "heading": "Know what you are <em>buying</em>",
         "lead": "<p>Shilajit quality varies a lot. Here is what we commit to.</p>",
         "ours_heading": "Xomoashro",
         "others_heading": "Typical market shilajit",
-        "footnote": "A general comparison. It does not refer to any specific brand."
+        "footnote": "A general comparison. It does not refer to any specific brand.",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-cutout.webp"
       }
     },
     "reviews": {
@@ -562,10 +670,13 @@
         "review_3"
       ],
       "settings": {
-        "tone": "surface",
-        "eyebrow": "Reviews",
+        "tone": "ink",
         "heading": "What our customers <em>say</em>",
         "lead": "<p>Trusted by customers across Pakistan.</p>",
+        "buy_heading": "Try it for yourself",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp",
         "anchor": "reviews"
       }
     },
@@ -602,18 +713,23 @@
       "settings": {
         "draft": true,
         "tone": "bone",
-        "eyebrow": "How to use",
         "heading": "Three steps, <em>once a day</em>",
         "button_label": "Read the full guide",
         "footnote": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.",
-        "media_first": false,
         "button_link": "/pages/how-to-use",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-portrait.webp",
         "anchor": "how-to-use"
       }
     },
     "faq": {
       "type": "xo-faq",
       "blocks": {
+        "topic_1": {
+          "type": "topic",
+          "settings": {
+            "title": "The product"
+          }
+        },
         "question_1": {
           "type": "question",
           "settings": {
@@ -636,6 +752,12 @@
             "question": "Are there any side effects?",
             "answer": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
             "requires": "none"
+          }
+        },
+        "topic_2": {
+          "type": "topic",
+          "settings": {
+            "title": "Orders and delivery"
           }
         },
         "question_4": {
@@ -664,16 +786,17 @@
         }
       },
       "block_order": [
+        "topic_1",
         "question_1",
         "question_2",
         "question_3",
+        "topic_2",
         "question_4",
         "question_5",
         "question_6"
       ],
       "settings": {
         "tone": "surface",
-        "eyebrow": "FAQ",
         "heading": "Frequently asked <em>questions</em>",
         "contact_heading": "Still have questions?",
         "whatsapp_label": "Chat on WhatsApp",
@@ -686,12 +809,10 @@
       "type": "xo-featured-journal",
       "settings": {
         "count": 3,
-        "tone": "bone",
-        "eyebrow": "Journal",
+        "tone": "ink",
         "heading": "Learn more about <em>shilajit</em>",
         "link_label": "All articles",
-        "show_date": true,
-        "show_excerpt": true
+        "read_label": "Read the article"
       }
     },
     "partners": {
@@ -701,7 +822,6 @@
           "type": "partner",
           "settings": {
             "title": "Wholesale",
-            "text": "Become a Xomoashro distributor and stock our shilajit.",
             "link": "/pages/wholesale"
           }
         },
@@ -709,7 +829,6 @@
           "type": "partner",
           "settings": {
             "title": "Ambassador programme",
-            "text": "Become a Xomoashro ambassador and explore new opportunities.",
             "link": "/pages/ambassador"
           }
         },
@@ -717,7 +836,6 @@
           "type": "partner",
           "settings": {
             "title": "Affiliates",
-            "text": "Recommend Xomoashro and apply to join our affiliate programme.",
             "link": "/pages/affiliate"
           }
         }
@@ -729,9 +847,10 @@
       ],
       "settings": {
         "tone": "ink",
-        "eyebrow": "Work with us",
+        "overlay": 65,
         "heading": "Partner with Xomoashro",
-        "lead": "<p>Grow with us as a distributor, ambassador or affiliate.</p>"
+        "lead": "<p>Grow with us as a distributor, ambassador or affiliate.</p>",
+        "image": "shopify://shop_images/xomoashro-mountain-peaks-at-sunset.webp"
       }
     }
   },
