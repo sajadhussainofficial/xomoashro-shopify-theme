@@ -280,7 +280,7 @@
         "benefit_6"
       ],
       "settings": {
-        "tone": "bone",
+        "tone": "surface",
         "heading": "An ancient remedy for <em>everyday well-being</em>",
         "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
         "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
@@ -551,7 +551,7 @@
       ],
       "settings": {
         "draft": true,
-        "tone": "bone",
+        "tone": "surface",
         "heading": "Four ways to check shilajit <em>at home</em>",
         "lead": "<p>Simple checks people commonly use to tell real resin from imitations.</p>",
         "footnote": "These checks are a guide only. They do not replace a lab report."
