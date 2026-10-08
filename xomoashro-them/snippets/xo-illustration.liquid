@@ -1,0 +1,27 @@
+{%- doc -%}
+  A simple line drawing in the text colour, used beside instructions.
+
+  @param {string} name - `glass` (resin dissolving in water), `warmth` (resin softening), `gloss` (a glossy piece of resin) or `smell` (a jar with its smell rising)
+  @param {string} [class] - Extra class names
+
+  @example
+  {% render 'xo-illustration', name: 'glass' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_ill_class = 'xo-illustration'
+  if class != blank
+    assign xo_ill_class = xo_ill_class | append: ' ' | append: class
+  endif
+-%}
+
+{%- case name -%}
+  {%- when 'glass' -%}
+    <svg class="{{ xo_ill_class }}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M52 74h56l-5 46a8 8 0 0 1-8 7H65a8 8 0 0 1-8-7z" fill="var(--xo-resin-gold, #C98A2B)" stroke="none"/><path d="M55 100h50l-2 20a8 8 0 0 1-8 7H65a8 8 0 0 1-8-7z" fill="var(--xo-resin-red, #7A3516)" stroke="none" opacity="0.75"/><path d="M48 42h64l-9 78a8 8 0 0 1-8 7H65a8 8 0 0 1-8-7z"/><path d="M68 92c7-8 15 6 24-2M70 108c8-6 13 6 21 0" stroke="#F5F1EA"/><circle cx="80" cy="24" r="7" fill="currentColor" stroke="none"/><path d="M80 34v10" stroke-dasharray="1 5"/></svg>
+  {%- when 'warmth' -%}
+    <svg class="{{ xo_ill_class }}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M30 104c0-12 12-20 26-20 10 0 14 6 24 6s14-6 24-6c14 0 26 8 26 20s-12 22-50 22-50-10-50-22z" fill="currentColor" stroke="none"/><path d="M58 60c-7-9 7-13 0-22M80 56c-7-9 7-13 0-22M102 60c-7-9 7-13 0-22"/></svg>
+  {%- when 'gloss' -%}
+    <svg class="{{ xo_ill_class }}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M40 108 54 58l40-18 30 34-8 42-46 14z" fill="currentColor" stroke="none"/><path d="M64 68l22-10M98 66l10 12M60 92l-4 12" stroke="#F5F1EA" stroke-width="3"/></svg>
+  {%- when 'smell' -%}
+    <svg class="{{ xo_ill_class }}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="48" y="78" width="64" height="14" rx="4" fill="currentColor" stroke="none"/><path d="M52 92h56v30a8 8 0 0 1-8 8H60a8 8 0 0 1-8-8z"/><path d="M62 62c-7-9 7-13 0-22M80 58c-7-9 7-13 0-22M98 62c-7-9 7-13 0-22"/></svg>
+{%- endcase -%}

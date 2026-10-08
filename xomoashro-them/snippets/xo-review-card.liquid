@@ -1,0 +1,40 @@
+{%- doc -%}
+  One testimonial card: the quote, then the person's photo or initial, name and description.
+  Outputs nothing when the quote is empty.
+
+  @param {object} block - A `review` block with `quote`, `name`, `role` and `image` settings
+
+  @example
+  {% render 'xo-review-card', block: block %}
+{%- enddoc -%}
+
+{%- if block.settings.quote != blank -%}
+  <figure
+    class="xo-wall__card"
+    {{ block.shopify_attributes }}
+  >
+    <blockquote class="xo-rte">{{ block.settings.quote }}</blockquote>
+    {%- if block.settings.name != blank -%}
+      <figcaption>
+        {%- if block.settings.image != blank -%}
+          <span class="xo-wall__avatar">
+            {%- render 'xo-image', image: block.settings.image, sizes: '48px', widths: '48, 96, 144', max_width: 144, decorative: true -%}
+          </span>
+        {%- else -%}
+          <span
+            class="xo-wall__avatar"
+            aria-hidden="true"
+          >
+            {{- block.settings.name | strip | slice: 0 | upcase -}}
+          </span>
+        {%- endif -%}
+        <span class="xo-wall__who">
+          <strong>{{ block.settings.name | escape }}</strong>
+          {%- if block.settings.role != blank -%}
+            <span>{{ block.settings.role | escape }}</span>
+          {%- endif -%}
+        </span>
+      </figcaption>
+    {%- endif -%}
+  </figure>
+{%- endif -%}

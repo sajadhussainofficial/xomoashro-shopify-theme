@@ -310,6 +310,12 @@
   border-radius: var(--style-border-radius-buttons-secondary, var(--xo-radius-pill));
 }
 
+.xo-btn--solid {
+  --xo-btn-bg: var(--xo-fg);
+  --xo-btn-fg: var(--xo-bg);
+  --xo-btn-border: var(--xo-fg);
+}
+
 .xo-btn--quiet {
   --xo-btn-bg: transparent;
   --xo-btn-fg: var(--xo-fg);
@@ -346,8 +352,13 @@
 }
 
 @media (hover: hover) {
-  .xo-btn:not([disabled], [aria-disabled='true'], .xo-btn--secondary, .xo-btn--quiet):hover {
+  .xo-btn:not([disabled], [aria-disabled='true'], .xo-btn--secondary, .xo-btn--quiet, .xo-btn--solid):hover {
     --xo-btn-bg: color-mix(in srgb, var(--color-primary-button-background, var(--xo-accent)) 88%, #000);
+  }
+
+  .xo-btn--solid:not([disabled], [aria-disabled='true']):hover {
+    --xo-btn-bg: color-mix(in srgb, var(--xo-fg) 82%, var(--xo-bg));
+    --xo-btn-border: var(--xo-btn-bg);
   }
 
   .xo-tone-accent .xo-btn:not([disabled], [aria-disabled='true'], .xo-btn--secondary, .xo-btn--quiet):hover {

@@ -1,0 +1,24 @@
+{%- doc -%}
+  One question with its answer shown open. Outputs nothing when the question is
+  empty, or when its answer depends on a store fact that is not set.
+
+  @param {object} block - A `question` block with `question`, `answer` and `requires` settings
+
+  @example
+  {% render 'xo-faq-entry', block: block %}
+{%- enddoc -%}
+
+{%- if block.settings.question != blank -%}
+  {%- capture xo_answer -%}
+    {%- render 'xo-fact-text', text: block.settings.answer, requires: block.settings.requires -%}
+  {%- endcapture -%}
+  {%- if xo_answer != blank -%}
+    <article
+      class="xo-qa"
+      {{ block.shopify_attributes }}
+    >
+      <h3 class="xo-qa__q">{{ block.settings.question | escape }}</h3>
+      <div class="xo-qa__a xo-rte">{{ xo_answer }}</div>
+    </article>
+  {%- endif -%}
+{%- endif -%}
