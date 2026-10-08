@@ -1,153 +1,170 @@
 {%- liquid
   assign s = section.settings
   assign reviews = section.blocks | where: 'type', 'review'
+  assign half = reviews.size | plus: 1 | divided_by: 2
 -%}
 
 {%- if section.blocks.size > 0 -%}
   <div
-    class="xo-reviews xo-section xo-tone-{{ s.tone }}"
+    class="xo-wall xo-section xo-tone-{{ s.tone }}"
     {% if s.anchor != blank %}
       id="{{ s.anchor | handleize }}"
       data-xo-anchor
     {% endif %}
   >
     <div class="xo-container">
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
-
       {%- for block in section.blocks -%}
         {%- if block.type == '@app' -%}
-          <div class="xo-reviews__app">{% render block %}</div>
+          <div class="xo-wall__app">{% render block %}</div>
         {%- endif -%}
       {%- endfor -%}
 
-      {%- if reviews.size > 0 -%}
-        <ul
-          class="xo-grid xo-reviews__list"
-          role="list"
-          style="--xo-cols-md: 2; --xo-cols-lg: 3;"
-        >
-          {%- for block in reviews -%}
-            {%- if block.settings.quote == blank -%}
-              {%- continue -%}
-            {%- endif -%}
-            <li
-              class="xo-reviews__item"
-              data-xo-reveal
-              style="--xo-reveal-order: {{ forloop.index0 | modulo: 3 }};"
-              {{ block.shopify_attributes }}
-            >
-              <figure class="xo-card xo-review">
-                {%- render 'xo-icon', name: 'quote', size: 28, class: 'xo-review__mark' -%}
-                <blockquote class="xo-review__quote xo-rte">{{ block.settings.quote }}</blockquote>
-                {%- if block.settings.name != blank -%}
-                  <figcaption class="xo-review__person">
-                    {%- if block.settings.image != blank -%}
-                      <span class="xo-review__avatar">
-                        {%- render 'xo-image', image: block.settings.image, sizes: '48px', widths: '48, 96, 144', max_width: 144, decorative: true -%}
-                      </span>
-                    {%- else -%}
-                      <span
-                        class="xo-review__avatar"
-                        aria-hidden="true"
-                      >
-                        {{- block.settings.name | strip | slice: 0 | upcase -}}
-                      </span>
-                    {%- endif -%}
-                    <span>
-                      <span class="xo-review__name">{{ block.settings.name | escape }}</span>
-                      {%- if block.settings.role != blank -%}
-                        <span class="xo-review__role">{{ block.settings.role | escape }}</span>
-                      {%- endif -%}
-                    </span>
-                  </figcaption>
-                {%- endif -%}
-              </figure>
-            </li>
+      <div class="xo-wall__grid">
+        <div class="xo-wall__col">
+          {%- render 'xo-section-heading', heading: s.heading, lead: s.lead, rule: false -%}
+          {%- if s.image != blank -%}
+            <div class="xo-media xo-wall__pic">
+              {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 33vw, 100vw' -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="xo-wall__col">
+          {%- for block in reviews limit: half -%}
+            {%- render 'xo-review-card', block: block -%}
           {%- endfor -%}
-        </ul>
-      {%- endif -%}
+        </div>
+
+        <div class="xo-wall__col xo-wall__col--drop">
+          {%- for block in reviews offset: half -%}
+            {%- render 'xo-review-card', block: block -%}
+          {%- endfor -%}
+
+          {%- if s.buy_heading != blank or s.button_link != blank -%}
+            <div class="xo-wall__buy">
+              {%- if s.buy_heading != blank -%}
+                <p class="xo-feature__title">{{ s.buy_heading | escape }}</p>
+              {%- endif -%}
+              {%- if s.button_link != blank -%}
+                {%- render 'xo-button', label: s.button_label, url: s.button_link -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
     </div>
   </div>
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-reviews__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .xo-wall__app {
+    margin-block-end: var(--xo-space-7);
   }
 
-  .xo-reviews__app {
-    margin-block-end: var(--xo-space-6);
-  }
-
-  .xo-reviews__item {
+  .xo-wall__grid {
     display: grid;
+    gap: var(--xo-space-5);
   }
 
-  .xo-review {
-    grid-template-rows: auto 1fr auto;
-    gap: var(--xo-space-4);
+  .xo-wall__col {
+    display: grid;
+    gap: var(--xo-space-5);
+    align-content: start;
+  }
+
+  .xo-wall__col .xo-heading {
+    margin-block-end: var(--xo-space-2);
+  }
+
+  .xo-wall__pic {
+    aspect-ratio: 4 / 3;
+  }
+
+  .xo-wall__pic .xo-img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-wall__card {
+    display: grid;
+    gap: var(--xo-space-5);
     margin: 0;
+    padding: 1.75rem;
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
   }
 
-  .xo-review__mark {
-    color: var(--xo-highlight);
-  }
-
-  .xo-review__quote {
+  .xo-wall__card blockquote {
     margin: 0;
     padding: 0;
     border: 0;
     color: var(--xo-fg);
-    font-size: var(--xo-text-base);
+    font-size: 1.0625rem;
     font-style: normal;
     line-height: 1.6;
   }
 
-  .xo-review__person {
+  .xo-wall__card figcaption {
     display: flex;
     align-items: center;
     gap: var(--xo-space-3);
-    padding-block-start: var(--xo-space-4);
-    border-block-start: 1px solid var(--xo-line);
   }
 
-  .xo-review__avatar {
+  .xo-wall__avatar {
     display: grid;
     flex: none;
     place-items: center;
     overflow: hidden;
     inline-size: 3rem;
     block-size: 3rem;
-    border-radius: 50%;
-    background: var(--xo-bg);
     border: 1px solid var(--xo-line-strong);
-    color: var(--xo-highlight);
-    font-family: var(--xo-font-display);
+    border-radius: 50%;
+    color: var(--xo-fg);
     font-weight: 600;
   }
 
-  .xo-review__avatar img {
+  .xo-wall__avatar .xo-img {
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
   }
 
-  .xo-review__name,
-  .xo-review__role {
-    display: block;
+  .xo-wall__who {
+    display: grid;
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
     line-height: 1.35;
   }
 
-  .xo-review__name {
+  .xo-wall__who strong {
     color: var(--xo-fg);
+    font-size: var(--xo-text-base);
     font-weight: 600;
   }
 
-  .xo-review__role {
-    color: var(--xo-muted);
-    font-size: var(--xo-text-sm);
+  .xo-wall__buy {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+    padding: 1.75rem;
+    border: 1px dashed var(--xo-line-strong);
+    border-radius: var(--xo-radius-card);
+  }
+
+  @media (min-width: 990px) {
+    .xo-wall__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .xo-wall__pic {
+      aspect-ratio: 4 / 5;
+    }
+
+    .xo-wall__col--drop {
+      margin-block-start: 5rem;
+    }
   }
 {% endstylesheet %}
 
@@ -172,9 +189,8 @@
         { "value": "ink", "label": "t:xo.options.ink" },
         { "value": "accent", "label": "t:xo.options.accent" }
       ],
-      "default": "surface"
+      "default": "ink"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Reviews" },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -188,6 +204,16 @@
       "label": "t:xo.labels.lead",
       "default": "<p>Trusted by customers across Pakistan.</p>"
     },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
+    { "type": "header", "content": "t:xo.labels.buy_header" },
+    {
+      "type": "text",
+      "id": "buy_heading",
+      "label": "t:xo.labels.buy_heading",
+      "default": "Try it for yourself"
+    },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Shop Shilajit" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link", "default": "/collections/all" },
     { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
   ],
   "blocks": [
