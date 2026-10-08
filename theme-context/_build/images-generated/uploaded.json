@@ -70,5 +70,45 @@
     "height": 900,
     "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
     "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-phone.webp"
+  },
+  "xomoashro-shilajit-jar-cutout.webp": {
+    "id": "gid://shopify/MediaImage/41681264115884",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-cutout.webp?v=1791491967",
+    "width": 492,
+    "height": 424,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-cutout.webp"
+  },
+  "xomoashro-shilajit-jar-on-mountain-rock-square.webp": {
+    "id": "gid://shopify/MediaImage/41681266180268",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-on-mountain-rock-square.webp?v=1791491983",
+    "width": 760,
+    "height": 760,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-square.webp"
+  },
+  "xomoashro-shilajit-jar-on-mountain-rock-portrait.webp": {
+    "id": "gid://shopify/MediaImage/41681267851436",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-on-mountain-rock-portrait.webp?v=1791491996",
+    "width": 794,
+    "height": 992,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-portrait.webp"
+  },
+  "xomoashro-mountain-peaks-at-sunset.webp": {
+    "id": "gid://shopify/MediaImage/41681270800556",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-mountain-peaks-at-sunset.webp?v=1791492009",
+    "width": 1586,
+    "height": 400,
+    "alt": "Snow-capped mountain peaks at sunset",
+    "setting": "shopify://shop_images/xomoashro-mountain-peaks-at-sunset.webp"
+  },
+  "xomoashro-shilajit-jar-on-black-stone.webp": {
+    "id": "gid://shopify/MediaImage/41681328373932",
+    "url": "https://cdn.shopify.com/s/files/1/0779/3534/5836/files/xomoashro-shilajit-jar-on-black-stone.webp?v=1791492686",
+    "width": 840,
+    "height": 1050,
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a black reflective surface with pieces of raw shilajit and bay leaves",
+    "setting": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp"
   }
 }

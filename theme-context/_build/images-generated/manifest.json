@@ -52,5 +52,35 @@
     "alt": "Taimoor Khan, professional boxer and Xomoashro customer",
     "use": "Home: reviews",
     "made_from": "wordpress-site/assets/images/Taimoor.png, unchanged"
+  },
+  {
+    "file": "xomoashro-shilajit-jar-on-mountain-rock-square.webp",
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "use": "Home: benefits (circle around the jar), sizes (until the product has photos)",
+    "made_from": "wordpress-site/assets/salajit.png, square crop"
+  },
+  {
+    "file": "xomoashro-shilajit-jar-on-mountain-rock-portrait.webp",
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind",
+    "use": "Home: reviews, how to use",
+    "made_from": "wordpress-site/assets/salajit.png, tall crop"
+  },
+  {
+    "file": "xomoashro-mountain-peaks-at-sunset.webp",
+    "alt": "Snow-capped mountain peaks at sunset",
+    "use": "Home: partner band background",
+    "made_from": "wordpress-site/assets/salajit.png, top band"
+  },
+  {
+    "file": "xomoashro-shilajit-jar-cutout.webp",
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit",
+    "use": "Home: comparison card",
+    "made_from": "wordpress-site/assets/images/Photo-11-removebg-preview.png, cropped to the jar, transparent background"
+  },
+  {
+    "file": "xomoashro-shilajit-jar-on-black-stone.webp",
+    "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a black reflective surface with pieces of raw shilajit and bay leaves",
+    "use": "Home: reviews",
+    "made_from": "wordpress-site/assets/images/product_shot-1.png, the real bottle cut out and placed on black (compose-hero-concepts.mjs), tall crop"
   }
 ]
