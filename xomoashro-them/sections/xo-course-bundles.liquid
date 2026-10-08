@@ -1,277 +1,395 @@
 {%- liquid
   assign s = section.settings
   assign product = s.product
+  assign current = product.selected_or_first_available_variant
   assign first_per_gram = 0
-  assign add_fallback = 'xo.bundles.add' | t
+  assign heading = s.heading
   if product != blank
     assign first_variant = product.variants.first
     assign first_weight = first_variant.metafields.custom.net_weight_g.value
     if first_weight != blank and first_weight > 0
       assign first_per_gram = first_variant.price | divided_by: first_weight
     endif
+    if heading == blank
+      assign heading = product.title | escape
+    endif
+  endif
+
+  assign add_fallback = 'xo.bundles.add' | t
+  assign button_text = s.button_label | default: add_fallback
+  if product != blank and product.has_only_default_variant == false
+    assign button_text = 'xo.bundles.add_size' | t: size: current.title
+  endif
+
+  assign media_url = ''
+  assign media_image = current.featured_media.preview_image | default: product.featured_media.preview_image
+  if media_image != blank
+    assign media_url = media_image | image_url: width: 100
   endif
 -%}
 
 {%- if product != blank or request.design_mode -%}
   <div
-    class="xo-bundles xo-section xo-tone-{{ s.tone }}"
+    class="xo-buy xo-section xo-tone-{{ s.tone }}"
     {% if s.anchor != blank %}
       id="{{ s.anchor | handleize }}"
       data-xo-anchor
     {% endif %}
   >
-    <div class="xo-container">
-      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, align: 'center' -%}
-
-      {%- if product != blank -%}
-        <ul
-          class="xo-bundles__list"
-          role="list"
-          style="--xo-bundle-count: {{ product.variants.size | at_most: 3 }};"
-        >
-          {%- for variant in product.variants -%}
-            {%- liquid
-              assign weight = variant.metafields.custom.net_weight_g.value
-              assign supply_days = variant.metafields.custom.supply_days.value
-              assign best_for = variant.metafields.custom.best_for.value
-              assign badge = variant.metafields.custom.badge.value
-              capture per_gram
-                render 'xo-per-gram-price', variant: variant
-              endcapture
-
-              assign saving = 0
-              if first_per_gram > 0 and weight != blank and weight > 0 and forloop.first == false
-                assign this_per_gram = variant.price | divided_by: weight
-                assign saving = first_per_gram | minus: this_per_gram | times: 100.0 | divided_by: first_per_gram | round
-              endif
-
-              assign card_title = variant.title
-              if product.has_only_default_variant
-                assign card_title = product.title
-              endif
-
-              assign media_image = variant.featured_media.preview_image | default: product.featured_media.preview_image
-              assign media_url = ''
-              if media_image != blank
-                assign media_url = media_image | image_url: width: 100
-              endif
-            -%}
-            <li
-              class="xo-bundle{% if badge != blank %} xo-bundle--featured{% endif %}"
-              data-xo-reveal
-              style="--xo-reveal-order: {{ forloop.index0 }};"
-            >
-              {%- if badge != blank -%}
-                <p class="xo-bundle__badge">{{ badge | escape }}</p>
-              {%- endif -%}
-              <h3 class="xo-h3 xo-bundle__title">{{ card_title | escape }}</h3>
-              {%- if supply_days != blank -%}
-                <p class="xo-bundle__supply">{{ 'xo.bundles.supply' | t: days: supply_days }}</p>
-              {%- endif -%}
-
-              <p class="xo-bundle__price">
-                <span class="xo-bundle__amount">{{ variant.price | money }}</span>
-                {%- if variant.compare_at_price > variant.price -%}
-                  <s class="xo-bundle__compare">
-                    <span class="xo-visually-hidden">{{ 'xo.bundles.regular_price' | t }}</span>
-                    {{- variant.compare_at_price | money -}}
-                  </s>
-                {%- endif -%}
-              </p>
-
-              <ul
-                class="xo-bundle__facts"
-                role="list"
-              >
-                {%- if per_gram != blank and s.show_per_gram -%}
-                  <li>{{ 'xo.bundles.per_gram' | t: price: per_gram }}</li>
-                {%- endif -%}
-                {%- if saving > 0 -%}
-                  <li class="xo-bundle__saving">{{ 'xo.bundles.saving' | t: percent: saving }}</li>
-                {%- endif -%}
-                {%- if best_for != blank -%}
-                  <li>{{ 'xo.bundles.best_for' | t: text: best_for }}</li>
-                {%- endif -%}
-              </ul>
-
-              {%- if variant.available -%}
-                <product-form-component
-                  class="xo-bundle__form"
-                  id="XoBundle-{{ section.id }}-{{ variant.id }}"
-                  data-section-id="{{ section.id }}"
-                  data-product-id="{{ product.id }}"
-                  on:submit="/handleSubmit"
-                >
-                  <div
-                    class="xo-visually-hidden"
-                    aria-live="assertive"
-                    role="status"
-                    aria-atomic="true"
-                    ref="liveRegion"
-                  ></div>
-                  {%- form 'product', product, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                    <input
-                      type="hidden"
-                      name="id"
-                      ref="variantId"
-                      value="{{ variant.id }}"
-                    >
-                    <input
-                      type="hidden"
-                      name="quantity"
-                      value="{{ variant.quantity_rule.min | default: 1 }}"
-                    >
-                    <add-to-cart-component
-                      ref="addToCartButtonContainer"
-                      data-product-variant-media="{{ media_url }}"
-                      data-add-to-cart-animation="{{ settings.add_to_cart_animation }}"
-                    >
-                      <button
-                        class="xo-btn xo-btn--block{% if badge == blank %} xo-btn--secondary{% endif %}"
-                        type="submit"
-                        name="add"
-                        ref="addToCartButton"
-                        on:click="/handleClick"
-                        aria-label="{{ 'xo.bundles.add_label' | t: title: card_title }}"
-                      >
-                        <span>{{ s.button_label | default: add_fallback | escape }}</span>
-                      </button>
-                    </add-to-cart-component>
-                  {%- endform -%}
-                </product-form-component>
-              {%- else -%}
-                <button
-                  class="xo-btn xo-btn--block xo-btn--secondary"
-                  type="button"
-                  disabled
-                >
-                  {{- 'xo.bundles.sold_out' | t -}}
-                </button>
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-
-        {%- if s.note != blank -%}
-          <p class="xo-footnote xo-bundles__note">{{ s.note | escape }}</p>
+    <div class="xo-container xo-buy__grid">
+      <div class="xo-media xo-buy__media">
+        {%- if s.image != blank -%}
+          {%- render 'xo-image', image: s.image, sizes: '(min-width: 990px) 45vw, 100vw' -%}
+        {%- elsif product.featured_media != blank -%}
+          {%- render 'xo-image', image: product.featured_media.preview_image, sizes: '(min-width: 990px) 45vw, 100vw' -%}
+        {%- else -%}
+          <div class="xo-art xo-buy__art">
+            {{- 'xo-art-mountains.svg' | inline_asset_content -}}
+          </div>
         {%- endif -%}
-      {%- else -%}
-        <p class="xo-editor-note">{{ 'xo.bundles.choose_product' | t }}</p>
-      {%- endif -%}
+      </div>
+
+      <div class="xo-buy__panel">
+        {%- if heading != blank -%}
+          <h2 class="xo-h2">{{ heading }}</h2>
+        {%- endif -%}
+        {%- if s.text != blank -%}
+          <div class="xo-lead xo-muted xo-rte">{{ s.text }}</div>
+        {%- endif -%}
+
+        {%- if product != blank -%}
+          <product-form-component
+            class="xo-buy__form"
+            id="XoBuy-{{ section.id }}"
+            data-section-id="{{ section.id }}"
+            data-product-id="{{ product.id }}"
+            on:submit="/handleSubmit"
+          >
+            <div
+              class="xo-visually-hidden"
+              aria-live="assertive"
+              role="status"
+              aria-atomic="true"
+              ref="liveRegion"
+            ></div>
+            {%- form 'product', product, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+              <input
+                type="hidden"
+                name="id"
+                ref="variantId"
+                value="{{ current.id }}"
+              >
+              <input
+                type="hidden"
+                name="quantity"
+                value="{{ current.quantity_rule.min | default: 1 }}"
+              >
+
+              {%- if product.has_only_default_variant -%}
+                <p class="xo-buy__single">{{ current.price | money }}</p>
+              {%- else -%}
+                <xo-size-picker>
+                  <fieldset class="xo-buy__options">
+                    <legend>{{ 'xo.bundles.choose_size' | t }}</legend>
+                    {%- for variant in product.variants -%}
+                      {%- liquid
+                        assign weight = variant.metafields.custom.net_weight_g.value
+                        assign supply_days = variant.metafields.custom.supply_days.value
+                        assign badge = variant.metafields.custom.badge.value
+
+                        assign detail = ''
+                        if weight != blank and supply_days != blank
+                          assign detail = 'xo.bundles.size_detail' | t: weight: weight, days: supply_days
+                        elsif weight != blank
+                          assign detail = 'xo.bundles.weight' | t: weight: weight
+                        elsif supply_days != blank
+                          assign detail = 'xo.bundles.supply' | t: days: supply_days
+                        endif
+
+                        capture per_gram
+                          render 'xo-per-gram-price', variant: variant
+                        endcapture
+
+                        assign saving = 0
+                        if first_per_gram > 0 and weight != blank and weight > 0 and forloop.first == false
+                          assign this_per_gram = variant.price | divided_by: weight
+                          assign saving = first_per_gram | minus: this_per_gram | times: 100.0 | divided_by: first_per_gram | round
+                        endif
+                      -%}
+                      <label class="xo-buy__option">
+                        <input
+                          type="radio"
+                          name="xo-size-{{ section.id }}"
+                          value="{{ variant.id }}"
+                          data-label="{{ 'xo.bundles.add_size' | t: size: variant.title | escape }}"
+                          {% if variant.id == current.id %}
+                            checked
+                          {% endif %}
+                          {% unless variant.available %}
+                            disabled
+                          {% endunless %}
+                        >
+                        <span class="xo-buy__name">
+                          {{- variant.title | escape -}}
+                          {%- if variant.available == false -%}
+                            <small>{{ 'xo.bundles.sold_out' | t }}</small>
+                          {%- elsif detail != blank -%}
+                            <small>{{ detail }}</small>
+                          {%- endif -%}
+                        </span>
+                        <span class="xo-buy__price">
+                          {{- variant.price | money -}}
+                          {%- if saving > 0 -%}
+                            <small class="xo-buy__save">{{ 'xo.bundles.saving' | t: percent: saving }}</small>
+                          {%- elsif per_gram != blank and s.show_per_gram -%}
+                            <small>{{ 'xo.bundles.per_gram' | t: price: per_gram }}</small>
+                          {%- endif -%}
+                        </span>
+                        {%- if badge != blank -%}
+                          <span class="xo-buy__tag">{{ badge | escape }}</span>
+                        {%- endif -%}
+                      </label>
+                    {%- endfor -%}
+                  </fieldset>
+                </xo-size-picker>
+              {%- endif -%}
+
+              <add-to-cart-component
+                ref="addToCartButtonContainer"
+                data-product-variant-media="{{ media_url }}"
+                data-add-to-cart-animation="{{ settings.add_to_cart_animation }}"
+              >
+                <button
+                  class="xo-btn xo-btn--block"
+                  type="submit"
+                  name="add"
+                  ref="addToCartButton"
+                  on:click="/handleClick"
+                  {% unless current.available %}
+                    disabled
+                  {% endunless %}
+                >
+                  <span data-xo-buy-label>
+                    {%- if current.available -%}
+                      {{- button_text | escape -}}
+                    {%- else -%}
+                      {{- 'xo.bundles.sold_out' | t -}}
+                    {%- endif -%}
+                  </span>
+                </button>
+              </add-to-cart-component>
+            {%- endform -%}
+          </product-form-component>
+        {%- else -%}
+          <p class="xo-editor-note">{{ 'xo.bundles.choose_product' | t }}</p>
+        {%- endif -%}
+
+        {%- capture assurances -%}
+          {%- for block in section.blocks -%}
+            {%- capture line -%}
+              {%- render 'xo-fact-text', text: block.settings.text, requires: block.settings.requires -%}
+            {%- endcapture -%}
+            {%- if line != blank -%}
+              <li {{ block.shopify_attributes }}>
+                {%- if block.settings.icon != 'none' -%}
+                  {%- render 'xo-icon', name: block.settings.icon, size: 18 -%}
+                {%- endif -%}
+                <span>{{ line | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if assurances != blank -%}
+          <ul
+            class="xo-buy__assure"
+            role="list"
+          >
+            {{ assurances }}
+          </ul>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 {%- endif -%}
 
-{% stylesheet %}
-  .xo-bundles__list {
-    display: grid;
-    gap: var(--xo-space-4);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (min-width: 750px) {
-    .xo-bundles__list {
-      grid-template-columns: repeat(var(--xo-bundle-count, 3), minmax(0, 24rem));
-      justify-content: center;
-      align-items: stretch;
-      gap: var(--xo-space-5);
+{% javascript %}
+  // Picking a size sets the variant the add-to-cart form sends, and names it on the button.
+  class XoSizePicker extends HTMLElement {
+    connectedCallback() {
+      this.addEventListener('change', (event) => {
+        const input = event.target;
+        if (!(input instanceof HTMLInputElement) || input.type !== 'radio') return;
+        const form = this.closest('form');
+        const variantInput = form?.querySelector('input[name="id"]');
+        if (variantInput) variantInput.value = input.value;
+        const label = form?.querySelector('[data-xo-buy-label]');
+        if (label && input.dataset.label) label.textContent = input.dataset.label;
+      });
     }
   }
 
-  .xo-bundle {
-    position: relative;
+  if (!customElements.get('xo-size-picker')) customElements.define('xo-size-picker', XoSizePicker);
+{% endjavascript %}
+
+{% stylesheet %}
+  .xo-buy__grid {
     display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
-    gap: var(--xo-space-3);
-    padding: var(--xo-space-6) var(--xo-space-5) var(--xo-space-5);
-    border: 1px solid var(--xo-line-strong);
-    border-radius: var(--xo-radius-card);
-    background: var(--xo-surface);
+    gap: var(--xo-space-6);
   }
 
-  .xo-bundle--featured {
-    border: 2px solid var(--xo-accent);
+  .xo-buy__media {
+    aspect-ratio: 4 / 3;
   }
 
-  .xo-bundle__badge {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: var(--xo-space-5);
-    margin: 0;
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--xo-radius-pill);
-    background: var(--xo-accent);
-    color: var(--xo-on-accent);
-    font-size: var(--xo-text-xs);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transform: translateY(-50%);
+  .xo-buy__media .xo-img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
   }
 
-  .xo-bundle__supply {
-    margin: 0;
-    color: var(--xo-muted);
-    font-size: var(--xo-text-sm);
+  .xo-buy__art {
+    block-size: 100%;
+    border: 0;
   }
 
-  .xo-bundle__price {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--xo-space-2);
-    margin: var(--xo-space-2) 0 0;
-  }
-
-  .xo-bundle__amount {
-    color: var(--xo-fg);
-    font-family: var(--xo-font-display);
-    font-size: var(--xo-text-h2);
-    font-weight: var(--xo-font-display-weight);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .xo-bundle__compare {
-    color: var(--xo-muted);
-    font-size: var(--xo-text-base);
-  }
-
-  .xo-bundle__facts {
+  .xo-buy__panel {
     display: grid;
-    gap: var(--xo-space-1);
-    align-content: start;
+    gap: var(--xo-space-5);
+    align-content: center;
+  }
+
+  .xo-buy__form {
+    display: grid;
+    gap: var(--xo-space-5);
+  }
+
+  .xo-buy__form form {
+    display: grid;
+    gap: var(--xo-space-5);
+  }
+
+  .xo-buy__options {
+    display: grid;
+    gap: 0.625rem;
     margin: 0;
     padding: 0;
-    color: var(--xo-muted);
-    font-size: var(--xo-text-sm);
-    line-height: 1.5;
-    list-style: none;
+    border: 0;
   }
 
-  .xo-bundle__saving {
+  .xo-buy__options legend {
+    margin-block-end: var(--xo-space-3);
+    padding: 0;
+    color: var(--xo-fg);
+    font-weight: 600;
+  }
+
+  .xo-buy__option {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.875rem;
+    align-items: center;
+    padding: 1rem 1.125rem;
+    border: 1.5px solid var(--xo-line-strong);
+    border-radius: 12px;
+    color: var(--xo-fg);
+    cursor: pointer;
+  }
+
+  .xo-buy__option:has(input:checked) {
+    border-color: var(--xo-fg);
+    background: var(--xo-bg);
+    box-shadow: inset 0 0 0 1px var(--xo-fg);
+  }
+
+  .xo-buy__option:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .xo-buy__option:has(input:focus-visible) {
+    outline: 2px solid var(--xo-fg);
+    outline-offset: 3px;
+  }
+
+  .xo-buy__option input {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+    margin: 0;
+    accent-color: var(--xo-fg);
+  }
+
+  .xo-buy__name,
+  .xo-buy__price {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .xo-buy__price {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-buy__option small {
+    display: block;
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+    font-weight: 500;
+  }
+
+  .xo-buy__option small.xo-buy__save {
     color: var(--xo-success);
     font-weight: 600;
   }
 
-  .xo-tone-ink .xo-bundle__saving,
-  .xo-tone-accent .xo-bundle__saving {
+  .xo-buy__tag {
+    position: absolute;
+    inset-block-start: -0.625rem;
+    inset-inline-end: 1rem;
+    padding: 0.125rem 0.625rem;
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-fg);
+    color: var(--xo-bg);
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+
+  .xo-buy__single {
+    margin: 0;
     color: var(--xo-fg);
+    font-size: var(--xo-text-h3);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
-  .xo-bundle__form {
-    display: block;
-    margin-block-start: var(--xo-space-3);
+  .xo-buy__assure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2) var(--xo-space-5);
+    margin: 0;
+    padding: 0;
+    color: var(--xo-muted);
+    font-size: var(--xo-text-sm);
+    font-weight: 500;
+    list-style: none;
   }
 
-  .xo-bundle__form add-to-cart-component {
-    display: block;
+  .xo-buy__assure li {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
   }
 
-  .xo-bundles__note {
-    text-align: center;
+  @media (min-width: 990px) {
+    .xo-buy__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(3rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .xo-buy__media {
+      aspect-ratio: 1 / 1;
+    }
   }
 {% endstylesheet %}
 
@@ -283,9 +401,11 @@
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
+  "max_blocks": 4,
   "settings": [
     { "type": "paragraph", "content": "t:xo.info.bundles" },
     { "type": "product", "id": "product", "label": "t:xo.labels.product" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image", "info": "t:xo.info.bundles_image" },
     {
       "type": "select",
       "id": "tone",
@@ -296,33 +416,105 @@
         { "value": "ink", "label": "t:xo.options.ink" },
         { "value": "accent", "label": "t:xo.options.accent" }
       ],
-      "default": "bone"
+      "default": "surface"
     },
-    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Choose your size" },
     {
       "type": "inline_richtext",
       "id": "heading",
       "label": "t:xo.labels.heading",
-      "default": "Pure Himalayan Aftabi Shilajit"
+      "info": "t:xo.info.bundles_heading"
     },
     {
       "type": "richtext",
-      "id": "lead",
-      "label": "t:xo.labels.lead",
+      "id": "text",
+      "label": "t:xo.labels.text",
       "default": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>"
     },
-    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Add to cart" },
-    { "type": "checkbox", "id": "show_per_gram", "label": "t:xo.labels.show_per_gram", "default": true },
     {
       "type": "text",
-      "id": "note",
-      "label": "t:xo.labels.footnote",
-      "default": "Cash on delivery available across Pakistan."
+      "id": "button_label",
+      "label": "t:xo.labels.button_label",
+      "info": "t:xo.info.bundles_button",
+      "default": "Add to cart"
     },
+    { "type": "checkbox", "id": "show_per_gram", "label": "t:xo.labels.show_per_gram", "default": true },
     { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
   ],
+  "blocks": [
+    {
+      "type": "assurance",
+      "name": "t:xo.names.assurance",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:xo.labels.text",
+          "info": "t:xo.info.fact_text",
+          "default": "Cash on delivery"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "none", "label": "t:xo.options.icon_none" },
+            { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "truck", "label": "t:xo.options.icon_truck" },
+            { "value": "cash", "label": "t:xo.options.icon_cash" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "drop", "label": "t:xo.options.icon_drop" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "sun", "label": "t:xo.options.icon_sun" },
+            { "value": "clock", "label": "t:xo.options.icon_clock" },
+            { "value": "bolt", "label": "t:xo.options.icon_bolt" },
+            { "value": "target", "label": "t:xo.options.icon_target" },
+            { "value": "heart", "label": "t:xo.options.icon_heart" },
+            { "value": "strength", "label": "t:xo.options.icon_strength" },
+            { "value": "users", "label": "t:xo.options.icon_users" },
+            { "value": "chat", "label": "t:xo.options.icon_chat" },
+            { "value": "whatsapp", "label": "t:xo.options.icon_whatsapp" },
+            { "value": "jar", "label": "t:xo.options.icon_jar" },
+            { "value": "star", "label": "t:xo.options.icon_star" }
+          ],
+          "default": "cash"
+        },
+        {
+          "type": "select",
+          "id": "requires",
+          "label": "t:xo.labels.requires",
+          "info": "t:xo.info.requires",
+          "options": [
+            { "value": "none", "label": "t:xo.options.requires_none" },
+            { "value": "free_shipping", "label": "t:xo.options.requires_free_shipping" },
+            { "value": "guarantee", "label": "t:xo.options.requires_guarantee" },
+            { "value": "delivery", "label": "t:xo.options.requires_delivery" },
+            { "value": "whatsapp", "label": "t:xo.options.requires_whatsapp" }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
   "presets": [
-    { "name": "t:xo.names.bundles" }
+    {
+      "name": "t:xo.names.bundles",
+      "blocks": [
+        {
+          "type": "assurance",
+          "settings": { "text": "Cash on delivery", "icon": "cash", "requires": "none" }
+        },
+        {
+          "type": "assurance",
+          "settings": { "text": "Delivery across Pakistan", "icon": "truck", "requires": "none" }
+        },
+        {
+          "type": "assurance",
+          "settings": { "text": "[days]-day money-back guarantee", "icon": "shield", "requires": "guarantee" }
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
