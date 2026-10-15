@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Affiliate programme",
+    "handle": "affiliate",
+    "templateSuffix": "affiliate",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Affiliate Programme | Xomoashro"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Join the Xomoashro affiliate programme: share your referral link and earn on the orders you refer."
+      }
+    ]
+  }
+}

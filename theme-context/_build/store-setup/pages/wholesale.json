@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Wholesale",
+    "handle": "wholesale",
+    "templateSuffix": "wholesale",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Wholesale Shilajit | Xomoashro"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Stock Xomoashro Himalayan shilajit in your pharmacy, health store or online shop. Apply for wholesale prices."
+      }
+    ]
+  }
+}

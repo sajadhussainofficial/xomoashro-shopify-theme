@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Track your order",
+    "handle": "track-order",
+    "templateSuffix": "track-order",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Track Your Order | Xomoashro"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Check the status of your Xomoashro order online, or send us your order number for an update."
+      }
+    ]
+  }
+}

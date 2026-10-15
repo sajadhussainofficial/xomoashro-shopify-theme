@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Ambassador programme",
+    "handle": "ambassador",
+    "templateSuffix": "ambassador",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Ambassador Programme | Xomoashro"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Become a Xomoashro ambassador and share pure Himalayan shilajit with your community."
+      }
+    ]
+  }
+}

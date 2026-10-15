@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "How to use",
+    "handle": "how-to-use",
+    "templateSuffix": "how-to-use",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "How to Take Shilajit | Xomoashro"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "How to take shilajit resin in three simple steps, with storage tips and safety advice."
+      }
+    ]
+  }
+}

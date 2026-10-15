@@ -12,6 +12,13 @@ Two checks were not run, because you did not give permission for store writes:
 
 Every design was previewed through your existing Contact page with `?view=`, for example `/pages/contact?view=about`.
 
+**Update, same day: pages created.** At your request ("Yes Create Pages"), the 8 missing pages were created in the store with `store-setup/page-create.graphql` and the files in `store-setup/pages/`:
+- About us, Our source, How to use, Lab reports, Wholesale, Ambassador programme, Affiliate programme, Track your order.
+- Each is published, with an empty content box (the sections carry the content) and its Google title and description.
+- Contact already existed and was left alone.
+
+All 9 addresses now return 200 on the preview, each showing its own design. Customers still cannot see them while the store is password protected. On the live store they show the new designs once P10 is pushed live.
+
 ## 2. The pages
 
 | Page | Address after P12 | What is on it |
@@ -86,7 +93,7 @@ Not proven by the TEST rows: the newest-first order, which sorts real reports by
 - **B6, Affiliate:** an app (Shopify Collabs, UpPromote) or keep the form.
 - **B3, Lab reports:** saving the first report fills the table automatically.
 - **B4, Phone number:** to show on Contact.
-- **P12:** creates the 9 page records from `_build/pages/*.json` (title, address, design, search title and description) and the redirects from the old addresses.
+- **P12:** the page records now exist. P12 still adds the redirects from the old addresses.
 - **Store name:** still "https://xomoashro.com/"; please change it to "Xomoashro".
 
 ## 8. Next
