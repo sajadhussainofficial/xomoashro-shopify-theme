@@ -9,6 +9,28 @@
  */
 {
   "xo": {
+    "product": {
+      "add_with_price": "Add to cart · {{ price }}",
+      "whatsapp_order": "Order on WhatsApp",
+      "whatsapp_message": "Hello, I would like to order {{ title }}{{ variant }}. {{ url }}",
+      "opens_new_tab": "(opens in a new tab)",
+      "rating": {
+        "one": "{{ rating }} out of {{ max }}, {{ count }} review",
+        "other": "{{ rating }} out of {{ max }}, {{ count }} reviews"
+      },
+      "save": "Save {{ percent }}%",
+      "batch": "Batch {{ batch }}",
+      "tested_by_on": "Tested by {{ lab }} on {{ date }}",
+      "tested_by": "Tested by {{ lab }}",
+      "view_report": "View report",
+      "lab_row_note": "The batch number and lab report show here once they are saved on the product.",
+      "region": "Region",
+      "altitude": "Harvest altitude",
+      "altitude_value": "{{ feet }} ft",
+      "fulvic": "Fulvic acid: {{ percent }}%",
+      "days_value": "About {{ days }} days",
+      "on_this_page": "On this page"
+    },
     "cart": {
       "title": "Your cart",
       "item_count": {

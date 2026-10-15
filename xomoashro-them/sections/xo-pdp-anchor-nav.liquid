@@ -1,0 +1,142 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_nav_fallback = 'xo.product.on_this_page' | t
+-%}
+
+<script
+  src="{{ 'xo-product.js' | asset_url }}"
+  type="module"
+></script>
+
+{%- if section.blocks.size > 0 -%}
+  <xo-jump-nav class="xo-jump xo-tone-{{ s.tone }}">
+    <nav
+      class="xo-container xo-jump__nav"
+      aria-label="{{ s.label | default: xo_nav_fallback | escape }}"
+    >
+      <ul
+        class="xo-jump__list"
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- if block.settings.label != blank and block.settings.anchor != blank -%}
+            <li {{ block.shopify_attributes }}>
+              <a
+                class="xo-jump__link"
+                href="#{{ block.settings.anchor | handleize }}"
+              >
+                {{- block.settings.label | escape -}}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </xo-jump-nav>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-jump {
+    position: sticky;
+    top: var(--header-height, 0px);
+    z-index: 3;
+    display: block;
+    border-block: 1px solid var(--xo-line);
+  }
+
+  .xo-jump[hidden] {
+    display: none;
+  }
+
+  .xo-jump__list {
+    display: flex;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: var(--xo-space-3) 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .xo-jump__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .xo-jump__link {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.5rem;
+    padding: 0 var(--xo-space-4);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    color: var(--xo-fg);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--xo-duration) var(--xo-ease), color var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-jump__link:hover,
+  .xo-jump__link[aria-current='true'] {
+    background: var(--xo-fg);
+    color: var(--xo-bg);
+    border-color: var(--xo-fg);
+  }
+
+  :root:has(.xo-jump:not([hidden])) [data-xo-anchor] {
+    scroll-margin-block-start: calc(var(--header-height, 4.5rem) + 4.25rem + var(--xo-space-4));
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.jump_nav",
+  "tag": "section",
+  "class": "xo-jump-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "max_blocks": 8,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.jump_nav" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:xo.labels.nav_label",
+      "default": "On this page"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "t:xo.names.jump_link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Details" },
+        { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor_target", "info": "t:xo.info.anchor_target", "default": "details" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.jump_nav",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Details", "anchor": "details" } },
+        { "type": "link", "settings": { "label": "Lab report", "anchor": "lab-report" } },
+        { "type": "link", "settings": { "label": "Reviews", "anchor": "reviews" } },
+        { "type": "link", "settings": { "label": "Questions", "anchor": "faq" } },
+        { "type": "link", "settings": { "label": "Safety", "anchor": "safety" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

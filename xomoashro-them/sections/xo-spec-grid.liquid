@@ -1,0 +1,224 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_product = product
+  if xo_product == blank and s.product != blank
+    assign xo_product = s.product
+  endif
+  assign xo_variant = xo_product.selected_or_first_available_variant
+  assign xo_fields = xo_product.metafields.custom
+
+  capture xo_cards
+    for block in section.blocks
+      assign bset = block.settings
+      assign xo_value = ''
+      case bset.source
+        when 'net_weight'
+          assign xo_weight = xo_variant.metafields.custom.net_weight_g.value
+          if xo_weight != blank
+            assign xo_weight_round = xo_weight | round
+            if xo_weight_round == xo_weight
+              assign xo_weight = xo_weight_round
+            endif
+            assign xo_value = 'xo.bundles.weight' | t: weight: xo_weight
+          endif
+        when 'supply_days'
+          assign xo_days = xo_variant.metafields.custom.supply_days.value
+          if xo_days != blank
+            assign xo_value = 'xo.product.days_value' | t: days: xo_days
+          endif
+        when 'origin_region'
+          assign xo_value = xo_fields.origin_region.value
+        when 'altitude_ft'
+          assign xo_altitude = xo_fields.altitude_ft.value
+          if xo_altitude != blank
+            assign xo_value = 'xo.product.altitude_value' | t: feet: xo_altitude
+          endif
+        when 'fulvic_percent'
+          assign xo_fulvic = xo_fields.fulvic_percent.value
+          if xo_fulvic != blank
+            assign xo_value = xo_fulvic | append: '%'
+          endif
+        when 'lab_name'
+          assign xo_value = xo_fields.lab_name.value
+        when 'batch_number'
+          assign xo_value = xo_fields.batch_number.value
+      endcase
+      assign xo_value = xo_value | default: bset.value | append: ''
+      if bset.label != blank and xo_value != blank
+        echo '<div class="xo-spec" '
+        echo block.shopify_attributes
+        echo '><dt class="xo-spec__label">'
+        if bset.icon != 'none'
+          render 'xo-icon', name: bset.icon, size: 18
+        endif
+        echo bset.label | escape
+        echo '</dt><dd class="xo-spec__value">'
+        echo xo_value | escape
+        echo '</dd></div>'
+      endif
+    endfor
+  endcapture
+-%}
+
+{%- if xo_cards != blank -%}
+  <div
+    class="xo-specs xo-section xo-tone-{{ s.tone }}"
+    {% if s.anchor != blank %}
+      id="{{ s.anchor | handleize }}"
+      data-xo-anchor
+    {% endif %}
+  >
+    <div class="xo-container">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+      <dl class="xo-specs__grid">{{ xo_cards }}</dl>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-specs__grid {
+    display: grid;
+    gap: var(--xo-space-3);
+    margin: var(--xo-space-6) 0 0;
+  }
+
+  @media (min-width: 600px) {
+    .xo-specs__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-specs__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .xo-spec {
+    display: grid;
+    gap: var(--xo-space-2);
+    align-content: start;
+    padding: var(--xo-space-5);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  .xo-spec__label {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-spec__label .xo-icon {
+    color: var(--xo-fg);
+  }
+
+  .xo-spec__value {
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    line-height: 1.25;
+    letter-spacing: -0.012em;
+    color: var(--xo-fg);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.spec_grid",
+  "tag": "section",
+  "class": "xo-spec-grid-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.spec_grid" },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:xo.labels.product",
+      "info": "t:xo.info.spec_product"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "surface"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "The details" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "What is in <em>the jar</em>" },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor", "default": "details" }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "t:xo.names.spec",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Form" },
+        {
+          "type": "select",
+          "id": "source",
+          "label": "t:xo.labels.spec_source",
+          "info": "t:xo.info.spec_source",
+          "options": [
+            { "value": "none", "label": "t:xo.options.source_text" },
+            { "value": "net_weight", "label": "t:xo.options.source_net_weight" },
+            { "value": "supply_days", "label": "t:xo.options.source_supply_days" },
+            { "value": "origin_region", "label": "t:xo.options.source_origin_region" },
+            { "value": "altitude_ft", "label": "t:xo.options.source_altitude" },
+            { "value": "fulvic_percent", "label": "t:xo.options.source_fulvic" },
+            { "value": "lab_name", "label": "t:xo.options.source_lab" },
+            { "value": "batch_number", "label": "t:xo.options.source_batch" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "value", "label": "t:xo.labels.spec_value", "info": "t:xo.info.spec_value", "default": "Resin" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "none", "label": "t:xo.options.icon_none" },
+            { "value": "drop", "label": "t:xo.options.icon_drop" },
+            { "value": "jar", "label": "t:xo.options.icon_jar" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "pin", "label": "t:xo.options.icon_pin" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "clock", "label": "t:xo.options.icon_clock" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.spec_grid",
+      "blocks": [
+        { "type": "spec", "settings": { "label": "Form", "source": "none", "value": "Resin", "icon": "drop" } },
+        { "type": "spec", "settings": { "label": "Net weight", "source": "net_weight", "value": "", "icon": "jar" } },
+        { "type": "spec", "settings": { "label": "Origin", "source": "origin_region", "value": "Chitral and Gilgit-Baltistan", "icon": "pin" } },
+        { "type": "spec", "settings": { "label": "Harvest altitude", "source": "altitude_ft", "value": "Above 16,000 ft", "icon": "mountain" } },
+        { "type": "spec", "settings": { "label": "Fillers", "source": "none", "value": "None", "icon": "leaf" } },
+        { "type": "spec", "settings": { "label": "Fulvic acid", "source": "fulvic_percent", "value": "", "icon": "flask" } },
+        { "type": "spec", "settings": { "label": "Lab tested by", "source": "lab_name", "value": "", "icon": "shield" } },
+        { "type": "spec", "settings": { "label": "Days of supply", "source": "supply_days", "value": "", "icon": "clock" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
