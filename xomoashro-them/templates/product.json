@@ -6,322 +6,652 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
-      "type": "product-information",
+      "type": "xo-main-product",
       "blocks": {
-        "disclosures_g9mWze": {
-          "type": "disclosures",
-          "name": "t:names.disclosures",
+        "heading": {
+          "type": "xo-product-heading",
           "settings": {
-            "heading": "Disclosures",
-            "heading_preset": "h5",
-            "open_by_default": false,
-            "icon": "caret",
-            "disclosure_heading_preset": "h6",
-            "text_color": "",
-            "dividers": true,
-            "divider_color": "{{ settings.color_palette.color2 }}",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "show_pills": true,
+            "guarantee_pill": "[days]-day money-back guarantee",
+            "lab_pill": "Lab tested",
+            "badge_1_icon": "drop",
+            "badge_1": "100% resin",
+            "badge_2_icon": "mountain",
+            "badge_2": "Above 16,000 ft",
+            "badge_3_icon": "cash",
+            "badge_3": "Cash on delivery"
+          }
         },
-        "media-gallery": {
-          "type": "_product-media-gallery",
+        "price": {
+          "type": "xo-per-gram-price",
+          "settings": {
+            "show_per_gram": true,
+            "show_supply": true
+          }
+        },
+        "sizes": {
+          "type": "xo-variant-cards",
+          "settings": {
+            "heading": "Choose your size",
+            "show_saving": true,
+            "show_badge": true
+          }
+        },
+        "note": {
+          "type": "xo-beginner-note",
+          "settings": {
+            "icon": "leaf",
+            "text": "New to shilajit? Start with one jar and a small daily amount."
+          }
+        },
+        "buy": {
+          "type": "xo-buy-box",
+          "settings": {
+            "show_quantity": true,
+            "show_whatsapp": true,
+            "whatsapp_label": "Order on WhatsApp",
+            "quote_1": "Xomoashro's shilajit is top-notch! The quality is impressive, and their delivery is quick and reliable.",
+            "quote_1_name": "Asad",
+            "quote_2": "Xomoashro's shilajit is a game-changer! The quality is outstanding, and their fast delivery makes it a hassle-free experience.",
+            "quote_2_name": "Taimoor Khan, professional international boxer",
+            "quote_3": "I'm delighted with the high-quality shilajit from Xomoashro.",
+            "quote_3_name": "Abdullah, cricketer"
+          }
+        },
+        "reassure": {
+          "type": "xo-delivery-icons",
+          "settings": {
+            "row_1_icon": "truck",
+            "row_1": "Delivered in [delivery] days across Pakistan",
+            "row_2_icon": "cash",
+            "row_2": "Cash on delivery: pay when it arrives",
+            "row_3_icon": "shield",
+            "row_3": "[days]-day money-back guarantee"
+          }
+        },
+        "lab": {
+          "type": "xo-batch-lab-row",
+          "settings": {
+            "link_label": "View report"
+          }
+        },
+        "about": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "About this shilajit",
+            "icon": "jar",
+            "source": "description",
+            "text": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>",
+            "open": true,
+            "anchor": ""
+          }
+        },
+        "benefits": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "Benefits",
+            "icon": "leaf",
+            "source": "none",
+            "text": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. People have traditionally taken it for:</p><ul><li>Strength, recovery and endurance</li><li>Steady daily energy</li><li>Focus and mental clarity</li><li>General well-being and vitality</li></ul><p>Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.</p>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "how_to_use": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "How to use",
+            "icon": "clock",
+            "source": "how_to_use",
+            "text": "<ol><li><strong>Take a pea-sized amount.</strong> Scoop a small portion of resin with a clean, dry spoon.</li><li><strong>Dissolve it.</strong> Stir it into warm water, milk or tea until it has dissolved.</li><li><strong>Drink once a day.</strong> Start small and keep to the amount on the label.</li></ol>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "inside": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "What's inside",
+            "icon": "drop",
+            "source": "inside",
+            "text": "<p>100% Himalayan shilajit resin. No fillers, binders or flavourings.</p><p>Shilajit naturally contains fulvic acid and trace minerals.</p>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "sourcing": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "Sourcing",
+            "icon": "mountain",
+            "source": "sourcing",
+            "text": "<p>Sourced from the Himalayan regions of Chitral and Gilgit-Baltistan, above 16,000 ft, direct from local collectors.</p>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "safety": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "Safety",
+            "icon": "shield",
+            "source": "safety",
+            "text": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "shipping": {
+          "type": "xo-metafield-accordion",
+          "settings": {
+            "heading": "Shipping and returns",
+            "icon": "truck",
+            "source": "none",
+            "text": "<p>Delivered in [delivery] days across Pakistan. Pay in cash when your order arrives.</p><p>Covered by our [days]-day money-back guarantee.</p>",
+            "open": false,
+            "anchor": ""
+          }
+        },
+        "gallery": {
+          "type": "xo-product-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
-            "media_columns": "two",
-            "image_gap": 4,
-            "large_first_image": false,
-            "slideshow_controls_style": "counter",
+            "aspect_ratio": "1",
+            "media_fit": "cover",
+            "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
-            "thumbnail_width": 44,
-            "thumbnail_radius": 0,
-            "aspect_ratio": "adapt",
-            "constrain_to_viewport": true,
-            "media_fit": "contain",
-            "media_radius": 0,
-            "extend_media": false,
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
+            "icons_style": "arrow",
             "zoom": true,
+            "hide_variants": false,
             "video_loop": false,
-            "hide_variants": true,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "product-details": {
-          "type": "_product-details",
-          "static": true,
-          "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "details_position": "flex-start",
-            "gap": 28,
-            "sticky_details_desktop": true,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_icgrde": {
-              "type": "group",
-              "name": "t:names.header",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "text_xrnftG": {
-                  "type": "text",
-                  "name": "t:names.product_title",
-                  "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "price_tVjtKg": {
-                  "type": "price",
-                  "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "paragraph",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "text_color": "",
-                    "padding-block-start": 4,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_xrnftG",
-                "price_tVjtKg"
-              ]
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "divider_color": "{{ settings.color_palette.color2 }}",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "variant_picker_R3rGDr": {
-              "type": "variant-picker",
-              "settings": {
-                "variant_style": "buttons",
-                "show_swatches": false,
-                "option_label_text_color": "",
-                "variant_style_class": "default",
-                "custom_variant_background": "{{ settings.color_palette.background }}",
-                "custom_variant_text": "{{ settings.color_palette.foreground }}",
-                "custom_variant_border": "{{ settings.color_palette.foreground }}",
-                "selected_variant_style_class": "default",
-                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
-                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
-                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
-                "alignment": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "buy_buttons_eYQEYi": {
-              "type": "buy-buttons",
-              "settings": {
-                "stacking": true,
-                "text_color": "",
-                "show_pickup_availability": false,
-                "gift_card_form": true,
-                "recipient_button_style": "default",
-                "recipient_button_background": "{{ settings.color_palette.background }}",
-                "recipient_button_text": "{{ settings.color_palette.foreground }}",
-                "recipient_button_border": "{{ settings.color_palette.foreground }}",
-                "selected_recipient_button_style": "default",
-                "selected_recipient_button_background": "{{ settings.color_palette.foreground }}",
-                "selected_recipient_button_text": "{{ settings.color_palette.background }}",
-                "selected_recipient_button_border": "{{ settings.color_palette.foreground }}",
-                "input_style": "default",
-                "input_background_color": "{{ settings.color_palette.background }}",
-                "input_text_color": "{{ settings.color_palette.foreground }}",
-                "input_border_color": "{{ settings.color_palette.foreground }}",
-                "border_width": 1,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "quantity": {
-                  "type": "quantity",
-                  "static": true,
-                  "settings": {
-                    "input_style": "default",
-                    "input_background_color": "{{ settings.color_palette.background }}",
-                    "input_text_color": "{{ settings.color_palette.foreground }}",
-                    "input_border_color": "{{ settings.color_palette.foreground }}",
-                    "border_width": 1,
-                    "border_radius": 0
-                  },
-                  "blocks": {}
-                },
-                "add-to-cart": {
-                  "type": "add-to-cart",
-                  "static": true,
-                  "settings": {
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}"
-                  },
-                  "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "accelerated-checkout",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                }
-              },
-              "block_order": []
-            },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "t:names.product_description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "group_icgrde",
-            "divider_VJhene",
-            "variant_picker_R3rGDr",
-            "buy_buttons_eYQEYi",
-            "text_aEtTtq"
-          ]
+            "media_radius": 14,
+            "thumbnail_radius": 8
+          }
         }
       },
       "block_order": [
-        "disclosures_g9mWze"
+        "heading",
+        "price",
+        "sizes",
+        "note",
+        "buy",
+        "reassure",
+        "lab",
+        "about",
+        "benefits",
+        "how_to_use",
+        "inside",
+        "sourcing",
+        "safety",
+        "shipping"
       ],
       "settings": {
-        "content_width": "content-center-aligned",
-        "desktop_media_position": "left",
-        "equal_columns": false,
-        "limit_details_width": false,
-        "gap": 48,
-        "enable_sticky_add_to_cart": true,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "tone": "bone",
+        "sticky_media": true,
+        "show_sticky_bar": true,
+        "sticky_on_desktop": false
+      }
+    },
+    "jump": {
+      "type": "xo-pdp-anchor-nav",
+      "blocks": {
+        "link_details": {
+          "type": "link",
+          "settings": {
+            "label": "Details",
+            "anchor": "details"
+          }
+        },
+        "link_lab": {
+          "type": "link",
+          "settings": {
+            "label": "Lab report",
+            "anchor": "lab-report"
+          }
+        },
+        "link_reviews": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "anchor": "reviews"
+          }
+        },
+        "link_faq": {
+          "type": "link",
+          "settings": {
+            "label": "Questions",
+            "anchor": "faq"
+          }
+        },
+        "link_safety": {
+          "type": "link",
+          "settings": {
+            "label": "Safety",
+            "anchor": "safety"
+          }
+        }
+      },
+      "block_order": [
+        "link_details",
+        "link_lab",
+        "link_reviews",
+        "link_faq",
+        "link_safety"
+      ],
+      "settings": {
+        "tone": "bone",
+        "label": "On this page"
+      }
+    },
+    "details": {
+      "type": "xo-spec-grid",
+      "blocks": {
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "label": "Form",
+            "source": "none",
+            "value": "Resin",
+            "icon": "drop"
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "label": "Net weight",
+            "source": "net_weight",
+            "value": "",
+            "icon": "jar"
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "label": "Origin",
+            "source": "origin_region",
+            "value": "Chitral and Gilgit-Baltistan",
+            "icon": "pin"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Harvest altitude",
+            "source": "altitude_ft",
+            "value": "Above 16,000 ft",
+            "icon": "mountain"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Fillers",
+            "source": "none",
+            "value": "None",
+            "icon": "leaf"
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "label": "Fulvic acid",
+            "source": "fulvic_percent",
+            "value": "",
+            "icon": "flask"
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "label": "Lab tested by",
+            "source": "lab_name",
+            "value": "",
+            "icon": "shield"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Days of supply",
+            "source": "supply_days",
+            "value": "",
+            "icon": "clock"
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6",
+        "spec_7",
+        "spec_8"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "The details",
+        "heading": "What is in <em>the jar</em>",
+        "lead": "",
+        "anchor": "details"
+      }
+    },
+    "lab": {
+      "type": "xo-lab-proof",
+      "settings": {
+        "tone": "bone",
+        "heading": "See the report <em>for yourself</em>",
+        "lead": "<p>These are the lab results for the batch on sale now. Open the full report to see every figure.</p>",
+        "button_label": "View the lab report",
+        "page_label": "All lab reports",
+        "sheet_title": "Certificate of analysis",
+        "product_name": "Pure Himalayan Aftabi Shilajit",
+        "show_metals": true,
+        "page_link": "/pages/lab-reports",
+        "anchor": "lab-report"
+      }
+    },
+    "stats": {
+      "type": "xo-stats-band",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "16,000+",
+            "label": "Feet, harvest altitude",
+            "requires": "none"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "85+",
+            "label": "Trace minerals found in shilajit",
+            "requires": "none"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "Resin, no fillers",
+            "requires": "none"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "value": "[days] days",
+            "label": "Money-back guarantee",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "settings": {
+        "tone": "ink",
+        "heading": "Xomoashro in numbers"
+      }
+    },
+    "comparison": {
+      "type": "xo-comparison-table",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Form",
+            "ours": "Pure resin",
+            "others": "Often powder or capsules",
+            "requires": "none"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Fillers or binders",
+            "ours": "None",
+            "others": "Not always stated",
+            "requires": "none"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Source",
+            "ours": "Chitral and Gilgit-Baltistan, direct from collectors",
+            "others": "Often not stated",
+            "requires": "none"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Payment",
+            "ours": "Cash on delivery",
+            "others": "Varies",
+            "requires": "none"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Guarantee",
+            "ours": "[days]-day money-back",
+            "others": "Varies",
+            "requires": "guarantee"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Support",
+            "ours": "Help from our team on WhatsApp",
+            "others": "Varies",
+            "requires": "whatsapp"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "heading": "Know what you are <em>buying</em>",
+        "lead": "<p>Shilajit quality varies a lot. Here is what we commit to.</p>",
+        "ours_heading": "Xomoashro",
+        "others_heading": "Typical market shilajit",
+        "footnote": "A general comparison. It does not refer to any specific brand.",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-cutout.webp"
+      }
+    },
+    "reviews": {
+      "type": "xo-reviews-wall",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>I'm delighted with the high-quality shilajit from Xomoashro. Their product has noticeably improved my well-being, and the prompt delivery service adds to the overall positive experience. Xomoashro is my go-to for top-tier shilajit and reliable service.</p>",
+            "name": "Abdullah",
+            "role": "Cricketer",
+            "image": "shopify://shop_images/xomoashro-customer-abdullah.webp"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is top-notch! The quality is impressive, and their delivery is quick and reliable. I highly recommend their product for anyone seeking premium shilajit.</p>",
+            "name": "Asad",
+            "role": "Customer"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is a game-changer! The quality is outstanding, and their fast delivery makes it a hassle-free experience. Highly recommend for anyone looking for a reliable and effective supplement.</p>",
+            "name": "Taimoor Khan",
+            "role": "Professional international boxer",
+            "image": "shopify://shop_images/xomoashro-customer-taimoor-khan.webp"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "tone": "ink",
+        "heading": "What our customers <em>say</em>",
+        "lead": "<p>Trusted by customers across Pakistan.</p>",
+        "buy_heading": "Try it for yourself",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp",
+        "anchor": "reviews"
+      }
+    },
+    "faq": {
+      "type": "xo-faq",
+      "blocks": {
+        "topic_1": {
+          "type": "topic",
+          "settings": {
+            "title": "The product"
+          }
+        },
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What is shilajit?",
+            "answer": "<p>Shilajit is a natural mineral resin that forms over centuries in high mountain rock, including the Himalayas. It contains fulvic acid, humic acid and trace minerals, and has been used in traditional medicine for centuries.</p>",
+            "requires": "none"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take shilajit?",
+            "answer": "<p>Take a pea-sized amount of resin, dissolve it in warm water, milk or tea, and drink it once a day. Start small and keep to the amount on the label.</p>",
+            "requires": "none"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Are there any side effects?",
+            "answer": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
+            "requires": "none"
+          }
+        },
+        "topic_2": {
+          "type": "topic",
+          "settings": {
+            "title": "Orders and delivery"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are delivered within [delivery] working days across Pakistan.</p>",
+            "requires": "delivery"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I pay cash on delivery?",
+            "answer": "<p>Yes. You can pay in cash when your order arrives, anywhere in Pakistan.</p>",
+            "requires": "none"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a money-back guarantee?",
+            "answer": "<p>Yes. Every order is covered by our [days]-day money-back guarantee. Message us on WhatsApp or email [email] and we will help.</p>",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "topic_1",
+        "question_1",
+        "question_2",
+        "question_3",
+        "topic_2",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "heading": "Frequently asked <em>questions</em>",
+        "contact_heading": "Still have questions?",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hello, I have a question about Xomoashro shilajit.",
+        "structured_data": true,
+        "anchor": "faq"
+      }
+    },
+    "precautions": {
+      "type": "xo-precautions",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Start with a small amount and keep to the amount on the label."
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Some people may notice an upset stomach. Stop and speak to your doctor if you feel unwell."
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Keep out of reach of children. Store with the lid closed in a cool, dry place."
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Safety",
+        "heading": "Before you take it",
+        "note": "Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
+        "anchor": "safety"
       }
     },
     "product_recommendations_qggXJq": {
@@ -464,11 +794,20 @@
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
+      },
+      "disabled": true
     }
   },
   "order": [
     "main",
+    "jump",
+    "details",
+    "lab",
+    "stats",
+    "comparison",
+    "reviews",
+    "faq",
+    "precautions",
     "product_recommendations_qggXJq"
   ]
 }

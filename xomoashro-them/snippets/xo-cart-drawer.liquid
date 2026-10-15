@@ -166,8 +166,9 @@
 {%- endif -%}
 
 {% stylesheet %}
-  .xo-cart-drawer {
-    --theme-drawer-width: min(27rem, 100vw);
+  .xo-cart-drawer.theme-drawer__dialog {
+    border-inline-start: 0;
+    box-shadow: -1.5rem 0 3rem -1.5rem rgb(11 11 13 / 0.22);
   }
 
   .xo-cart-drawer__inner {

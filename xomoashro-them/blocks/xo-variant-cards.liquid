@@ -1,0 +1,350 @@
+{%- liquid
+  assign product_resource = closest.product
+  assign bs = block.settings
+
+  assign xo_single_option = false
+  if product_resource.options.size == 1
+    assign xo_single_option = true
+  endif
+
+  assign xo_first_per_gram = 0
+  assign xo_first_variant = product_resource.variants.first
+  assign xo_first_weight = xo_first_variant.metafields.custom.net_weight_g.value
+  if xo_first_weight != blank and xo_first_weight > 0
+    assign xo_first_per_gram = xo_first_variant.price | divided_by: xo_first_weight
+  endif
+  assign fieldset_index = 0
+-%}
+
+{%- unless product_resource.has_only_default_variant -%}
+  <variant-picker
+    class="xo-cards"
+    data-section-id="{{ section.id }}"
+    data-product-id="{{ product_resource.id }}"
+    data-product-handle="{{ product_resource.handle }}"
+    data-product-title="{{ product_resource.title | escape }}"
+    data-block-id="{{ block.id }}"
+    data-product-url="{{ product_resource.url }}"
+    ref="mainVariantPicker"
+    {% if product.id == product_resource.id %}
+      data-template-product-match="true"
+    {% endif %}
+    {{ block.shopify_attributes }}
+  >
+    <form class="xo-cards__form">
+      {%- for product_option in product_resource.options_with_values -%}
+        {%- if product_option.values.size == 1 -%}
+          <p class="xo-cards__single">
+            {{- product_option.name | escape }}: <strong>{{ product_option.selected_value | escape }}</strong>
+          </p>
+        {%- else -%}
+          <fieldset
+            class="xo-cards__set{% if xo_single_option %} xo-cards__set--rich{% endif %}"
+            data-fieldset-index="{{ fieldset_index }}"
+            ref="fieldsets[]"
+          >
+            <legend class="xo-cards__legend">
+              {%- if xo_single_option and bs.heading != blank -%}
+                {{- bs.heading | escape -}}
+              {%- else -%}
+                {{- product_option.name | escape -}}
+              {%- endif -%}
+            </legend>
+            <div class="xo-cards__grid">
+              {%- for product_option_value in product_option.values -%}
+                {%- liquid
+                  assign xo_v = product_option_value.variant
+                  assign xo_weight = ''
+                  assign xo_days = ''
+                  assign xo_badge = ''
+                  assign xo_best = ''
+                  assign xo_saving = 0
+                  if xo_single_option and xo_v
+                    assign xo_weight = xo_v.metafields.custom.net_weight_g.value
+                    assign xo_days = xo_v.metafields.custom.supply_days.value
+                    assign xo_badge = xo_v.metafields.custom.badge.value
+                    assign xo_best = xo_v.metafields.custom.best_for.value
+                    if xo_weight != blank
+                      assign xo_weight_round = xo_weight | round
+                      if xo_weight_round == xo_weight
+                        assign xo_weight = xo_weight_round
+                      endif
+                    endif
+                    if xo_first_per_gram > 0 and xo_weight != blank and xo_weight > 0 and xo_v.id != xo_first_variant.id
+                      assign xo_this_per_gram = xo_v.price | divided_by: xo_weight
+                      assign xo_saving = xo_first_per_gram | minus: xo_this_per_gram | times: 100.0 | divided_by: xo_first_per_gram | round
+                    endif
+                  endif
+                -%}
+                <label class="xo-card-option{% if product_option_value.available == false %} xo-card-option--unavailable{% endif %}">
+                  <input
+                    class="xo-card-option__input"
+                    type="radio"
+                    name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+                    value="{{ product_option_value | escape }}"
+                    aria-label="{{ product_option_value.name | escape }}{% if product_option_value.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}"
+                    {% if product_option_value.available == false %}
+                      aria-disabled="true"
+                    {% endif %}
+                    data-previous-checked="false"
+                    data-fieldset-index="{{ fieldset_index }}"
+                    data-input-index="{{ forloop.index0 }}"
+                    data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+                    data-option-name="{{ product_option.name | escape }}"
+                    data-option-value-id="{{ product_option_value.id }}"
+                    data-option-available="{{ product_option_value.available }}"
+                    data-connected-product-url="{{ product_option_value.product_url }}"
+                    {% if xo_v.id %}
+                      data-variant-id="{{ xo_v.id }}"
+                    {% endif %}
+                    {% if product_option_value.selected %}
+                      data-current-checked="true"
+                      checked
+                    {% else %}
+                      data-current-checked="false"
+                    {% endif %}
+                  >
+                  {%- if xo_badge != blank and bs.show_badge -%}
+                    <span class="xo-card-option__badge">{{ xo_badge | escape }}</span>
+                  {%- endif -%}
+                  <span class="xo-card-option__name">{{ product_option_value | escape }}</span>
+                  {%- if xo_single_option and xo_v -%}
+                    {%- if xo_weight != blank or xo_days != blank -%}
+                      <span class="xo-card-option__detail">
+                        {%- if xo_weight != blank and xo_days != blank -%}
+                          {{ 'xo.bundles.size_detail' | t: weight: xo_weight, days: xo_days }}
+                        {%- elsif xo_weight != blank -%}
+                          {{ 'xo.bundles.weight' | t: weight: xo_weight }}
+                        {%- else -%}
+                          {{ 'xo.bundles.supply' | t: days: xo_days }}
+                        {%- endif -%}
+                      </span>
+                    {%- endif -%}
+                    <span class="xo-card-option__price">{{ xo_v.price | money }}</span>
+                    {%- if xo_saving > 0 and bs.show_saving -%}
+                      <span class="xo-card-option__saving">{{ 'xo.bundles.saving' | t: percent: xo_saving }}</span>
+                    {%- endif -%}
+                    {%- if xo_best != blank -%}
+                      <span class="xo-card-option__best">{{ 'xo.bundles.best_for' | t: text: xo_best }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- if product_option_value.available == false -%}
+                    <span class="xo-card-option__soldout">{{ 'products.product.sold_out' | t }}</span>
+                  {%- endif -%}
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+          {%- assign fieldset_index = fieldset_index | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <script type="application/json">
+        {{ product_resource.selected_or_first_available_variant | json }}
+      </script>
+    </form>
+  </variant-picker>
+{%- endunless -%}
+
+{% stylesheet %}
+  .xo-cards {
+    display: block;
+  }
+
+  .xo-cards__form {
+    display: grid;
+    gap: var(--xo-space-4);
+  }
+
+  .xo-cards__set {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+
+  .xo-cards__legend,
+  .xo-cards__single {
+    margin: 0 0 var(--xo-space-3);
+    padding: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    color: var(--xo-fg);
+  }
+
+  .xo-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    gap: var(--xo-space-2);
+  }
+
+  .xo-card-option {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 2px;
+    min-block-size: var(--xo-tap-target);
+    padding: var(--xo-space-4) var(--xo-space-3) var(--xo-space-3);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: calc(var(--xo-radius-card) * 0.8);
+    background: var(--xo-surface);
+    font-family: var(--xo-font-body);
+    color: var(--xo-fg);
+    cursor: pointer;
+    transition: border-color var(--xo-duration) var(--xo-ease), box-shadow var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-cards__set:not(.xo-cards__set--rich) .xo-card-option {
+    place-items: center;
+    padding: var(--xo-space-3);
+  }
+
+  .xo-card-option:hover {
+    border-color: var(--xo-fg);
+  }
+
+  .xo-card-option:has(:checked) {
+    border-color: var(--xo-fg);
+    box-shadow: inset 0 0 0 1px var(--xo-fg);
+  }
+
+  .xo-card-option:has(:focus-visible) {
+    outline: 2px solid var(--xo-fg);
+    outline-offset: 3px;
+  }
+
+  .xo-card-option__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .xo-card-option__badge {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: var(--xo-space-3);
+    translate: 0 -50%;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .xo-card-option__name {
+    font-size: var(--xo-text-base);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .xo-card-option__detail,
+  .xo-card-option__best {
+    font-size: var(--xo-text-xs);
+    line-height: 1.4;
+    color: var(--xo-muted);
+  }
+
+  .xo-card-option__price {
+    margin-block-start: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-card-option__saving {
+    font-size: var(--xo-text-xs);
+    font-weight: 700;
+    color: var(--xo-success);
+  }
+
+  .xo-card-option--unavailable {
+    color: var(--xo-muted);
+    border-style: dashed;
+  }
+
+  .xo-card-option--unavailable .xo-card-option__name {
+    text-decoration: line-through;
+  }
+
+  .xo-card-option__soldout {
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+  }
+
+  @media (max-width: 599px) {
+    .xo-cards__set--rich .xo-cards__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--xo-space-3);
+    }
+
+    .xo-cards__set--rich .xo-card-option {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: var(--xo-space-3);
+      align-items: center;
+      padding: var(--xo-space-4);
+    }
+
+    .xo-cards__set--rich .xo-card-option__name,
+    .xo-cards__set--rich .xo-card-option__detail,
+    .xo-cards__set--rich .xo-card-option__best {
+      grid-column: 1;
+    }
+
+    .xo-cards__set--rich .xo-card-option__name {
+      grid-row: 1;
+    }
+
+    .xo-cards__set--rich .xo-card-option__detail {
+      grid-row: 2;
+    }
+
+    .xo-cards__set--rich .xo-card-option__price {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0;
+      justify-self: end;
+      font-size: var(--xo-text-base);
+    }
+
+    .xo-cards__set--rich .xo-card-option__saving,
+    .xo-cards__set--rich .xo-card-option__soldout {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: end;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.variant_cards",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.variant_cards" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:xo.labels.heading",
+      "default": "Choose your size"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_saving",
+      "label": "t:xo.labels.show_saving",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "t:xo.labels.show_badge",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.variant_cards" }]
+}
+{% endschema %}

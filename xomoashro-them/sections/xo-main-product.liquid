@@ -1,0 +1,130 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<script
+  src="{{ 'xo-product.js' | asset_url }}"
+  type="module"
+></script>
+
+<xo-product-sync
+  class="xo-pdp xo-section xo-section--tight xo-tone-{{ s.tone }}{% if s.sticky_media %} xo-pdp--sticky-media{% endif %}"
+  data-product-id="{{ product.id }}"
+>
+  <div class="xo-container xo-pdp__grid">
+    <div class="xo-pdp__media">
+      {% content_for 'block', type: 'xo-product-gallery', id: 'gallery' %}
+    </div>
+    <div class="xo-pdp__info">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+
+  {%- if s.show_sticky_bar -%}
+    {% render 'xo-sticky-atc', product: product, desktop: s.sticky_on_desktop %}
+  {%- endif -%}
+
+  <script
+    type="application/ld+json"
+    data-xo-sync="product-jsonld"
+  >
+    {% render 'xo-product-jsonld', product: product %}
+  </script>
+</xo-product-sync>
+
+{% stylesheet %}
+  .xo-pdp {
+    display: block;
+    padding-block-start: var(--xo-space-5);
+  }
+
+  .xo-pdp__grid {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-items: start;
+  }
+
+  .xo-pdp__media {
+    min-inline-size: 0;
+  }
+
+  .xo-pdp__info {
+    display: grid;
+    gap: var(--xo-space-5);
+    align-content: start;
+    min-inline-size: 0;
+  }
+
+  .xo-pdp__info > :empty {
+    display: none;
+  }
+
+  @media (min-width: 990px) {
+    .xo-pdp {
+      padding-block-start: var(--xo-space-7);
+    }
+
+    .xo-pdp__grid {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: var(--xo-space-8);
+    }
+
+    .xo-pdp--sticky-media .xo-pdp__media {
+      position: sticky;
+      top: calc(var(--header-height, 4.5rem) + var(--xo-space-5));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.main_product",
+  "tag": "section",
+  "class": "xo-main-product-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "blocks": [
+    { "type": "xo-product-heading" },
+    { "type": "xo-per-gram-price" },
+    { "type": "xo-variant-cards" },
+    { "type": "xo-beginner-note" },
+    { "type": "xo-buy-box" },
+    { "type": "xo-delivery-icons" },
+    { "type": "xo-batch-lab-row" },
+    { "type": "xo-metafield-accordion" },
+    { "type": "@app" }
+  ],
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.main_product" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_media",
+      "label": "t:xo.labels.sticky_media",
+      "default": true
+    },
+    { "type": "header", "content": "t:xo.labels.sticky_bar_header" },
+    {
+      "type": "checkbox",
+      "id": "show_sticky_bar",
+      "label": "t:xo.labels.show_sticky_bar",
+      "info": "t:xo.info.sticky_bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_on_desktop",
+      "label": "t:xo.labels.sticky_on_desktop",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

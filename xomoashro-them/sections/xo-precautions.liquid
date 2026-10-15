@@ -1,0 +1,158 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div
+  class="xo-precautions xo-section xo-section--tight xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container xo-container--narrow">
+    <div class="xo-precautions__box">
+      <div class="xo-precautions__head">
+        <span class="xo-precautions__icon">{%- render 'xo-icon', name: 'shield', size: 22 -%}</span>
+        {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, size: 'h3', rule: false -%}
+      </div>
+      {%- if section.blocks.size > 0 -%}
+        <ul
+          class="xo-precautions__list"
+          role="list"
+        >
+          {%- for block in section.blocks -%}
+            {%- if block.settings.text != blank -%}
+              <li
+                class="xo-precautions__item"
+                {{ block.shopify_attributes }}
+              >
+                {%- render 'xo-icon', name: 'check', size: 16 -%}
+                <span>{{ block.settings.text | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      {%- if s.note != blank -%}
+        <p class="xo-small xo-muted xo-precautions__note">{{ s.note | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-precautions__box {
+    display: grid;
+    gap: var(--xo-space-5);
+    padding: var(--xo-space-5);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  @media (min-width: 750px) {
+    .xo-precautions__box {
+      padding: var(--xo-space-6) var(--xo-space-7);
+    }
+  }
+
+  .xo-precautions__head {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-4);
+  }
+
+  .xo-precautions__head .xo-heading {
+    margin: 0;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-precautions__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border-radius: 50%;
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+  }
+
+  .xo-precautions__list {
+    display: grid;
+    gap: var(--xo-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-precautions__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--xo-space-3);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    line-height: 1.55;
+    color: var(--xo-fg);
+  }
+
+  .xo-precautions__item .xo-icon {
+    flex: none;
+    margin-block-start: 0.3rem;
+  }
+
+  .xo-precautions__note {
+    padding-block-start: var(--xo-space-4);
+    border-block-start: 1px solid var(--xo-line);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.precautions",
+  "tag": "section",
+  "class": "xo-precautions-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Safety" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Before you take it" },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "t:xo.labels.small_print",
+      "default": "Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease."
+    },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor", "default": "safety" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:xo.names.precaution",
+      "settings": [
+        { "type": "text", "id": "text", "label": "t:xo.labels.text", "default": "Keep to the amount on the label." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.precautions",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition." } },
+        { "type": "item", "settings": { "text": "Start with a small amount and keep to the amount on the label." } },
+        { "type": "item", "settings": { "text": "Some people may notice an upset stomach. Stop and speak to your doctor if you feel unwell." } },
+        { "type": "item", "settings": { "text": "Keep out of reach of children. Store with the lid closed in a cool, dry place." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

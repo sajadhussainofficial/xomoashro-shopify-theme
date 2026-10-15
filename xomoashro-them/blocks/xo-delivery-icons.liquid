@@ -1,0 +1,149 @@
+{%- liquid
+  assign bs = block.settings
+  capture xo_rows
+    for i in (1..3)
+      assign xo_text_key = 'row_' | append: i
+      assign xo_icon_key = 'row_' | append: i | append: '_icon'
+      assign xo_text = bs[xo_text_key]
+      if xo_text == blank
+        continue
+      endif
+      assign xo_requires = 'none'
+      if xo_text contains '[amount]'
+        assign xo_requires = 'free_shipping'
+      elsif xo_text contains '[days]'
+        assign xo_requires = 'guarantee'
+      elsif xo_text contains '[delivery]'
+        assign xo_requires = 'delivery'
+      endif
+      capture xo_line
+        render 'xo-fact-text', text: xo_text, requires: xo_requires
+      endcapture
+      if xo_line != blank
+        echo '<li class="xo-reassure__row"><span class="xo-reassure__icon">'
+        render 'xo-icon', name: bs[xo_icon_key], size: 18
+        echo '</span><span>'
+        echo xo_line | escape
+        echo '</span></li>'
+      endif
+    endfor
+  endcapture
+-%}
+
+{%- if xo_rows != blank -%}
+  <ul
+    class="xo-reassure"
+    role="list"
+    {{ block.shopify_attributes }}
+  >
+    {{- xo_rows -}}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-reassure {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-block: 1px solid var(--xo-line);
+  }
+
+  .xo-reassure__row {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-3);
+    padding-block: var(--xo-space-3);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--xo-fg);
+  }
+
+  .xo-reassure__row + .xo-reassure__row {
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-reassure__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    border-radius: 50%;
+    background: var(--xo-surface);
+    border: 1px solid var(--xo-line);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.delivery_icons",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.delivery_icons" },
+    {
+      "type": "select",
+      "id": "row_1_icon",
+      "label": "t:xo.labels.row_1_icon",
+      "options": [
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "clock", "label": "t:xo.options.icon_clock" },
+        { "value": "chat", "label": "t:xo.options.icon_chat" },
+        { "value": "check-circle", "label": "t:xo.options.icon_check_circle" }
+      ],
+      "default": "truck"
+    },
+    {
+      "type": "text",
+      "id": "row_1",
+      "label": "t:xo.labels.row_1",
+      "default": "Delivered in [delivery] days across Pakistan"
+    },
+    {
+      "type": "select",
+      "id": "row_2_icon",
+      "label": "t:xo.labels.row_2_icon",
+      "options": [
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "clock", "label": "t:xo.options.icon_clock" },
+        { "value": "chat", "label": "t:xo.options.icon_chat" },
+        { "value": "check-circle", "label": "t:xo.options.icon_check_circle" }
+      ],
+      "default": "cash"
+    },
+    {
+      "type": "text",
+      "id": "row_2",
+      "label": "t:xo.labels.row_2",
+      "default": "Cash on delivery: pay when it arrives"
+    },
+    {
+      "type": "select",
+      "id": "row_3_icon",
+      "label": "t:xo.labels.row_3_icon",
+      "options": [
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "clock", "label": "t:xo.options.icon_clock" },
+        { "value": "chat", "label": "t:xo.options.icon_chat" },
+        { "value": "check-circle", "label": "t:xo.options.icon_check_circle" }
+      ],
+      "default": "shield"
+    },
+    {
+      "type": "text",
+      "id": "row_3",
+      "label": "t:xo.labels.row_3",
+      "default": "[days]-day money-back guarantee"
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.delivery_icons" }]
+}
+{% endschema %}

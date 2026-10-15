@@ -1,0 +1,60 @@
+{%- liquid
+  assign bs = block.settings
+-%}
+
+{%- if bs.text != blank -%}
+  <p
+    class="xo-beginner"
+    {{ block.shopify_attributes }}
+  >
+    {%- render 'xo-icon', name: bs.icon, size: 18 -%}
+    <span>{{ bs.text | escape }}</span>
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-beginner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+    color: var(--xo-muted);
+  }
+
+  .xo-beginner .xo-icon {
+    flex: none;
+    margin-block-start: 0.1rem;
+    color: var(--xo-fg);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.beginner_note",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:xo.labels.icon",
+      "options": [
+        { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+        { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
+        { "value": "chat", "label": "t:xo.options.icon_chat" },
+        { "value": "jar", "label": "t:xo.options.icon_jar" }
+      ],
+      "default": "leaf"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "New to shilajit? Start with one jar and a small daily amount."
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.beginner_note" }]
+}
+{% endschema %}

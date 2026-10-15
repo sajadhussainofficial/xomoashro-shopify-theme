@@ -10,9 +10,9 @@ The single record of progress. The runner updates this file at the start and end
 | 4 | [P04](phases/P04-announcement-bar.md) | Announcement bar | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P04-report.md) |
 | 5 | [P05](phases/P05-footer.md) | Footer | P02 | - | done | 2026-10-06 | 2026-10-06 | [report](reports/P05-report.md) |
 | 6 | [P01](phases/P01-store-setup-and-data-model.md) | Store setup and data model | P00 | B7 | done | 2026-10-06 | 2026-10-06 | [report](reports/P01-report.md) |
-| 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | awaiting merge | 2026-10-15 | 2026-10-15 | [report](reports/P06-report.md) |
+| 7 | [P06](phases/P06-cart-drawer-and-cart-page.md) | Cart drawer and cart page | P02, P01 | B7 | done | 2026-10-15 | 2026-10-15 | [report](reports/P06-report.md) |
 | 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | done | 2026-10-07 | 2026-10-07 | [report](reports/P07-report.md) |
-| 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | not started | | | |
+| 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | awaiting merge | 2026-10-15 | 2026-10-16 | [report](reports/P08-report.md) |
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | P02, P08 | - | not started | | | |
 | 11 | [P10](phases/P10-content-pages.md) | Content pages | P02, P07, P01 | - | not started | | | |
 | 12 | [P11](phases/P11-blog-and-article.md) | Journal: blog and article | P02 | - | not started | | | |
@@ -70,3 +70,5 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-15 P06 started on branch `phase/P06-cart-drawer-and-cart-page`. B21 answered: create a test product now; the owner replaces it with the real product later. B9 (shipping fee and free-delivery amount) still open: the progress bar is built and stays hidden until the amount is saved.
 - 2026-10-15 P06 built. Test product "TEST – do not buy" created and published to the Online Store (3 sizes, placeholder prices). New cart drawer and cart page on Horizon's cart engine: add, quantity, remove and empty work without reload; free delivery bar, suggestion and order note tested with temporary settings (removed after). Check out creates the Shopify checkout; its page is behind the store password in the test browser, so the owner is asked to try it once. Homepage fixes found while testing: weights "30 g" not "30.0 g"; benefits and purity sections no longer overflow when the drawer squeezes the page. Waiting for the owner to push, open and merge.
 - 2026-10-15 Found that "Xomoashro (working copy)" #158632640684 is now the live theme (published by the owner). P06 was not pushed to it; it waits for the owner's approval.
+- 2026-10-15 P06 merged by the owner (pull request #10). P08 started on branch `phase/P08-product-page`, first fixing the owner's P06 feedback (gap and border between the page and the cart drawer). B1, B2, B3, B18 and the phone number in B4 still open: P08 runs on their defaults.
+- 2026-10-16 P08 built: product page on Horizon's product engine (size cards, price per gram, buy box with WhatsApp ordering, fold-out details, phone sticky bar, structured data) and the sections below it. Rich Results Test passes (code test). Theme Editor click-through left for the owner. Found: the store name is set to "https://xomoashro.com/" and shows in every page title; owner asked to change it. Waiting for the owner to push, open and merge.

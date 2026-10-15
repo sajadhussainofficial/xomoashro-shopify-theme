@@ -1,0 +1,76 @@
+{%- doc -%}
+  Product structured data (schema.org JSON-LD) for the selected size: name,
+  pictures, description, brand, SKU and one offer in the store currency with
+  availability. The rating is added only when the reviews app has saved a real
+  rating on the product. Output goes inside a `<script type="application/ld+json">`.
+
+  @param {object} product - The product
+
+  @example
+  <script type="application/ld+json">{% render 'xo-product-jsonld', product: product %}</script>
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_variant = product.selected_or_first_available_variant
+  assign xo_url = request.origin | append: product.url
+  assign xo_offer_url = xo_url | append: '?variant=' | append: xo_variant.id
+  assign xo_price = xo_variant.price | divided_by: 100.0 | round: 2
+  assign xo_brand = product.vendor | default: shop.name
+  assign xo_sku = xo_variant.sku | default: product.selected_or_first_available_variant.id
+  assign xo_name = product.title
+  unless product.has_only_default_variant
+    assign xo_name = product.title | append: ' – ' | append: xo_variant.title
+  endunless
+  if xo_variant.available
+    assign xo_availability = 'https://schema.org/InStock'
+  else
+    assign xo_availability = 'https://schema.org/OutOfStock'
+  endif
+  assign xo_description = product.description | strip_html | strip_newlines | strip
+  if xo_description == blank
+    assign xo_description = product.title
+  endif
+  assign xo_rating = product.metafields.reviews.rating.value
+  assign xo_rating_count = product.metafields.reviews.rating_count.value | default: 0
+  assign xo_image_count = 0
+-%}
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": {{ xo_url | append: '#product' | json }},
+  "name": {{ xo_name | json }},
+  "url": {{ xo_offer_url | json }},
+  "sku": {{ xo_sku | append: '' | json }},
+  "description": {{ xo_description | truncate: 5000 | json }},
+  "brand": { "@type": "Brand", "name": {{ xo_brand | json }} },
+  "image": [
+    {%- if xo_variant.featured_image -%}
+      {{ xo_variant.featured_image | image_url: width: 1600 | prepend: 'https:' | json }}
+      {%- assign xo_image_count = 1 -%}
+    {%- endif -%}
+    {%- for xo_media in product.media limit: 6 -%}
+      {%- if xo_media.media_type == 'image' and xo_media.id != xo_variant.featured_media.id -%}
+        {%- if xo_image_count > 0 %},{% endif -%}
+        {{ xo_media.preview_image | image_url: width: 1600 | prepend: 'https:' | json }}
+        {%- assign xo_image_count = xo_image_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ],
+  {%- if xo_rating != blank and xo_rating_count > 0 %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ xo_rating.rating | json }},
+    "bestRating": {{ xo_rating.scale_max | json }},
+    "worstRating": {{ xo_rating.scale_min | json }},
+    "ratingCount": {{ xo_rating_count | json }}
+  },
+  {%- endif %}
+  "offers": {
+    "@type": "Offer",
+    "url": {{ xo_offer_url | json }},
+    "price": {{ xo_price | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "availability": {{ xo_availability | json }},
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
