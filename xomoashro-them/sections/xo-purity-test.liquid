@@ -92,6 +92,10 @@
 {%- endif -%}
 
 {% stylesheet %}
+  .xo-checks {
+    container: xo-checks / inline-size;
+  }
+
   .xo-checks__grid {
     display: grid;
     gap: var(--xo-space-5);
@@ -195,7 +199,7 @@
     background: linear-gradient(to right, #C98A2B, #7A3516);
   }
 
-  @media (min-width: 700px) {
+  @container xo-checks (min-width: 680px) {
     .xo-checks__panel {
       grid-template-columns: auto minmax(0, 1fr);
       gap: var(--xo-space-7);
@@ -204,7 +208,7 @@
     }
   }
 
-  @media (min-width: 990px) {
+  @container xo-checks (min-width: 960px) {
     .xo-checks__grid {
       grid-template-columns: 17rem minmax(0, 1fr);
       gap: var(--xo-space-7);

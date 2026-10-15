@@ -1,0 +1,137 @@
+{
+  "input": {
+    "title": "TEST – do not buy",
+    "handle": "test-do-not-buy",
+    "status": "ACTIVE",
+    "vendor": "Xomoashro",
+    "productType": "Test",
+    "tags": [
+      "test-product",
+      "delete-before-launch"
+    ],
+    "descriptionHtml": "<p>Test product used to check the new theme (cart, product page, size picker). Not for sale. It will be replaced by the real product and deleted before launch.</p>",
+    "productOptions": [
+      {
+        "name": "Size",
+        "position": 1,
+        "values": [
+          {
+            "name": "1 jar"
+          },
+          {
+            "name": "2 jars"
+          },
+          {
+            "name": "3 jars"
+          }
+        ]
+      }
+    ],
+    "files": [
+      {
+        "id": "gid://shopify/MediaImage/41681266180268",
+        "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a dark rock with pieces of raw shilajit and green leaves, snow-capped mountains and a low sun behind"
+      },
+      {
+        "id": "gid://shopify/MediaImage/41681328373932",
+        "alt": "Jar of Xomoashro Pure Himalayan Shilajit on a black reflective surface with pieces of raw shilajit and bay leaves"
+      },
+      {
+        "id": "gid://shopify/MediaImage/41681264115884",
+        "alt": "Jar of Xomoashro Pure Himalayan Shilajit"
+      }
+    ],
+    "variants": [
+      {
+        "optionValues": [
+          {
+            "optionName": "Size",
+            "name": "1 jar"
+          }
+        ],
+        "price": "1000.00",
+        "sku": "TEST-1JAR",
+        "inventoryItem": {
+          "tracked": false,
+          "requiresShipping": true
+        },
+        "metafields": [
+          {
+            "namespace": "custom",
+            "key": "net_weight_g",
+            "type": "number_decimal",
+            "value": "30"
+          },
+          {
+            "namespace": "custom",
+            "key": "supply_days",
+            "type": "number_integer",
+            "value": "30"
+          }
+        ]
+      },
+      {
+        "optionValues": [
+          {
+            "optionName": "Size",
+            "name": "2 jars"
+          }
+        ],
+        "price": "1900.00",
+        "sku": "TEST-2JAR",
+        "inventoryItem": {
+          "tracked": false,
+          "requiresShipping": true
+        },
+        "metafields": [
+          {
+            "namespace": "custom",
+            "key": "net_weight_g",
+            "type": "number_decimal",
+            "value": "60"
+          },
+          {
+            "namespace": "custom",
+            "key": "supply_days",
+            "type": "number_integer",
+            "value": "60"
+          },
+          {
+            "namespace": "custom",
+            "key": "badge",
+            "type": "single_line_text_field",
+            "value": "Most popular"
+          }
+        ]
+      },
+      {
+        "optionValues": [
+          {
+            "optionName": "Size",
+            "name": "3 jars"
+          }
+        ],
+        "price": "2700.00",
+        "sku": "TEST-3JAR",
+        "inventoryItem": {
+          "tracked": false,
+          "requiresShipping": true
+        },
+        "metafields": [
+          {
+            "namespace": "custom",
+            "key": "net_weight_g",
+            "type": "number_decimal",
+            "value": "90"
+          },
+          {
+            "namespace": "custom",
+            "key": "supply_days",
+            "type": "number_integer",
+            "value": "90"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{%- doc -%}
+  The cart's lines inside the cart form, with the hidden item count that
+  Horizon's cart script reads after each update.
+
+  @param {string} [context] - `drawer` or `page`. Defaults to `page`
+
+  @example
+  {% render 'xo-cart-lines', context: 'drawer' %}
+{%- enddoc -%}
+
+<span
+  class="xo-visually-hidden"
+  ref="cartItemCount"
+  aria-hidden="true"
+>
+  {{- cart.item_count -}}
+</span>
+<form
+  action="{{ routes.cart_url }}"
+  class="cart-form xo-cart-form"
+  id="cart-form"
+  method="post"
+>
+  <ul
+    class="xo-cart-lines"
+    role="list"
+    aria-label="{{ 'xo.cart.lines_label' | t }}"
+  >
+    {%- for item in cart.items -%}
+      {%- render 'xo-cart-line', item: item, context: context -%}
+    {%- endfor -%}
+  </ul>
+</form>
+
+{% stylesheet %}
+  .xo-cart-lines {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+{% endstylesheet %}

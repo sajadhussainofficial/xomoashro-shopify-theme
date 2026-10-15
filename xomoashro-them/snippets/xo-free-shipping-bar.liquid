@@ -1,0 +1,113 @@
+{%- doc -%}
+  Free delivery progress for the cart drawer and cart page. Compares the cart
+  total with the free delivery amount in the store facts (shop metafield
+  `custom.free_shipping_threshold`, a number in the store currency).
+  Outputs nothing when the amount is not set or the cart is empty.
+
+  @param {number} [threshold] - Amount in the store currency that replaces the store fact, for testing
+
+  @example
+  {% render 'xo-free-shipping-bar' %}
+{%- enddoc -%}
+
+{%- liquid
+  capture xo_fsb_amount
+    render 'xo-shop-facts', fact: 'free_shipping_threshold', override: threshold
+  endcapture
+  assign xo_fsb_amount = xo_fsb_amount | strip
+-%}
+
+{%- if xo_fsb_amount != blank and cart.item_count > 0 -%}
+  {%- liquid
+    assign xo_fsb_goal = xo_fsb_amount | times: 100 | round
+    assign xo_fsb_total = cart.total_price
+    assign xo_fsb_remaining = xo_fsb_goal | minus: xo_fsb_total
+    assign xo_fsb_percent = 100
+    if xo_fsb_goal > 0 and xo_fsb_remaining > 0
+      assign xo_fsb_percent = xo_fsb_total | times: 100 | divided_by: xo_fsb_goal | at_most: 100
+    endif
+    assign xo_fsb_left = xo_fsb_remaining | at_least: 0 | money_without_trailing_zeros
+  -%}
+  <div
+    class="xo-ship{% if xo_fsb_remaining <= 0 %} xo-ship--done{% endif %}"
+    data-xo-free-shipping
+  >
+    <p class="xo-ship__text">
+      {%- if xo_fsb_remaining > 0 -%}
+        {%- render 'xo-icon', name: 'truck', size: 18 -%}
+        <span>{{ 'xo.cart.free_shipping_remaining_html' | t: amount: xo_fsb_left }}</span>
+      {%- else -%}
+        {%- render 'xo-icon', name: 'check-circle', size: 18 -%}
+        <span>{{ 'xo.cart.free_shipping_done' | t }}</span>
+      {%- endif -%}
+    </p>
+    <div
+      class="xo-ship__track"
+      aria-hidden="true"
+    >
+      <span
+        class="xo-ship__fill"
+        style="--xo-ship-progress: {{ xo_fsb_percent }}%;"
+      ></span>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-ship {
+    display: grid;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-ship__text {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.4;
+    color: var(--xo-fg);
+  }
+
+  .xo-ship__text strong {
+    font-weight: 700;
+  }
+
+  .xo-ship__text .xo-icon {
+    flex: none;
+    color: var(--xo-fg);
+  }
+
+  .xo-ship--done .xo-ship__text .xo-icon {
+    color: var(--xo-success);
+  }
+
+  .xo-ship__track {
+    position: relative;
+    block-size: 6px;
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-line);
+    overflow: hidden;
+  }
+
+  .xo-ship__fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--xo-ship-progress, 0%);
+    border-radius: inherit;
+    background: var(--xo-fg);
+    transition: inline-size var(--xo-duration-slow) var(--xo-ease);
+  }
+
+  .xo-ship--done .xo-ship__fill {
+    background: var(--xo-success);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-ship__fill {
+      transition: none;
+    }
+  }
+{% endstylesheet %}

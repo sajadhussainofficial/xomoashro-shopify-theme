@@ -97,11 +97,19 @@
                         assign supply_days = variant.metafields.custom.supply_days.value
                         assign badge = variant.metafields.custom.badge.value
 
+                        assign weight_label = weight
+                        if weight != blank
+                          assign weight_round = weight | round
+                          if weight_round == weight
+                            assign weight_label = weight_round
+                          endif
+                        endif
+
                         assign detail = ''
                         if weight != blank and supply_days != blank
-                          assign detail = 'xo.bundles.size_detail' | t: weight: weight, days: supply_days
+                          assign detail = 'xo.bundles.size_detail' | t: weight: weight_label, days: supply_days
                         elsif weight != blank
-                          assign detail = 'xo.bundles.weight' | t: weight: weight
+                          assign detail = 'xo.bundles.weight' | t: weight: weight_label
                         elsif supply_days != blank
                           assign detail = 'xo.bundles.supply' | t: days: supply_days
                         endif

@@ -62,6 +62,10 @@
 {%- endif -%}
 
 {% stylesheet %}
+  .xo-orbit {
+    container: xo-orbit / inline-size;
+  }
+
   .xo-orbit__ring {
     display: grid;
     gap: var(--xo-space-6);
@@ -121,7 +125,7 @@
     color: var(--xo-fg);
   }
 
-  @media (max-width: 989px) {
+  @container xo-orbit (max-width: 959px) {
     .xo-orbit__ring {
       gap: 0;
     }
@@ -141,7 +145,7 @@
     text-align: center;
   }
 
-  @media (min-width: 990px) {
+  @container xo-orbit (min-width: 960px) {
     .xo-orbit__ring {
       grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem) minmax(0, 1fr);
       gap: var(--xo-space-8);

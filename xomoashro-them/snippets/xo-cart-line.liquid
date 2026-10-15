@@ -1,0 +1,480 @@
+{%- doc -%}
+  One line in the cart drawer or on the cart page. Keeps every hook Horizon's
+  cart script uses: the row ref and keys, the quantity selector, the remove
+  handler, the error refs and the line price text component.
+
+  @param {object} item - The cart line item
+  @param {string} [context] - `drawer` or `page`. Defaults to `page`
+
+  @example
+  {% render 'xo-cart-line', item: item, context: 'drawer' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_line = item.index | plus: 1
+  assign xo_can_update = item.instructions.can_update_quantity | default: true, allow_false: true
+  assign xo_can_remove = item.instructions.can_remove | default: true, allow_false: true
+
+  if settings.currency_code_enabled_cart_items
+    assign xo_line_price = item.final_line_price | money_with_currency
+    assign xo_unit_price = item.final_price | money_with_currency
+  else
+    assign xo_line_price = item.final_line_price | money
+    assign xo_unit_price = item.final_price | money
+  endif
+
+  assign xo_was_price = 0
+  if item.variant.compare_at_price > item.original_price
+    assign xo_was_price = item.variant.compare_at_price | times: item.quantity
+  elsif item.original_line_price > item.final_line_price
+    assign xo_was_price = item.original_line_price
+  endif
+
+  assign xo_weight = item.variant.metafields.custom.net_weight_g.value
+  assign xo_weight_label = ''
+  if xo_weight != blank
+    assign xo_weight_round = xo_weight | round
+    if xo_weight_round == xo_weight
+      assign xo_weight = xo_weight_round
+    endif
+    assign xo_weight_label = 'xo.bundles.weight' | t: weight: xo_weight
+  endif
+
+  assign xo_has_properties = false
+  for property in item.properties
+    assign xo_first_char = property.first | slice: 0
+    if property.last != blank and xo_first_char != '_'
+      assign xo_has_properties = true
+      break
+    endif
+  endfor
+-%}
+
+<li
+  id="CartItem-{{ item.key }}"
+  class="xo-cart-line xo-cart-line--{{ context | default: 'page' }}{% if item.parent_relationship.parent != null %} xo-cart-line--nested{% endif %}"
+  ref="cartItemRows[]"
+  data-key="{{ item.key }}"
+  data-parent-key="{{ item.parent_relationship.parent.key }}"
+>
+  <a
+    class="xo-cart-line__media"
+    href="{{ item.url }}"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    {%- if item.image -%}
+      {{-
+        item.image
+        | image_url: width: 240
+        | image_tag: widths: '96, 160, 240', sizes: '(min-width: 750px) 112px, 88px', loading: 'lazy', alt: '', class: 'xo-cart-line__image'
+      -}}
+    {%- else -%}
+      {%- render 'xo-icon', name: 'jar', size: 28 -%}
+    {%- endif -%}
+  </a>
+
+  <div class="xo-cart-line__body">
+    <div class="xo-cart-line__top">
+      <div class="xo-cart-line__info">
+        <a
+          class="xo-cart-line__title"
+          href="{{ item.url }}"
+          {% if item.parent_relationship.parent != null %}
+            aria-label="{{ 'accessibility.nested_product' | t: product_title: item.product.title, parent_title: item.parent_relationship.parent.title | escape }}"
+          {% endif %}
+        >
+          {{- item.product.title -}}
+        </a>
+
+        {%- if item.product.has_only_default_variant == false or xo_weight_label != blank -%}
+          <p class="xo-cart-line__meta">
+            {%- if item.product.has_only_default_variant == false and item.item_components.size == 0 -%}
+              {%- for option in item.options_with_values -%}
+                <span>
+                  <span class="xo-visually-hidden">{{ option.name }}:</span>
+                  {{- option.value -}}
+                </span>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if xo_weight_label != blank -%}
+              <span>{{ xo_weight_label }}</span>
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+
+        {%- if item.item_components.size != 0 -%}
+          <ul
+            class="xo-cart-line__parts"
+            role="list"
+          >
+            {%- for component in item.item_components -%}
+              <li>
+                {{- component.title -}}
+                {%- if component.quantity > 1 %} × {{ component.quantity }}{% endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if xo_has_properties -%}
+          <dl class="xo-cart-line__properties">
+            {%- for property in item.properties -%}
+              {%- assign xo_first_char = property.first | slice: 0 -%}
+              {%- if property.last != blank and xo_first_char != '_' -%}
+                <div>
+                  <dt>{{ property.first }}:</dt>
+                  <dd>
+                    {%- if property.last contains '/uploads/' -%}
+                      <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                    {%- else -%}
+                      {{ property.last }}
+                    {%- endif -%}
+                  </dd>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+
+        {%- if item.selling_plan_allocation -%}
+          <p class="xo-cart-line__meta">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+        {%- endif -%}
+
+        {%- if item.line_level_discount_allocations.size > 0 -%}
+          <ul
+            class="xo-cart-line__discounts"
+            role="list"
+          >
+            {%- for discount in item.line_level_discount_allocations -%}
+              <li>
+                {%- render 'xo-icon', name: 'check', size: 14 -%}
+                <bdi>{{ discount.discount_application.title | escape }}</bdi>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if item.quantity > 1 -%}
+          <p class="xo-cart-line__each">{{ 'xo.cart.each' | t: price: xo_unit_price }}</p>
+        {%- endif -%}
+
+        {%- if item.unit_price_measurement -%}
+          {%- assign xo_measure_price = item.unit_price | money -%}
+          <div class="xo-cart-line__each">
+            {%- render 'unit-price', price: xo_measure_price, measurement: item.unit_price_measurement -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <p class="xo-cart-line__price">
+        {%- if xo_was_price > 0 -%}
+          <span class="xo-visually-hidden">{{ 'content.price_regular' | t }}</span>
+          <s class="xo-cart-line__was"><bdi>{{ xo_was_price | money }}</bdi></s>
+          <span class="xo-visually-hidden">{{ 'content.price_sale' | t }}</span>
+        {%- endif -%}
+        <text-component value="{{ xo_line_price | strip_html }}">
+          <bdi>{{- xo_line_price -}}</bdi>
+        </text-component>
+      </p>
+    </div>
+
+    <div class="xo-cart-line__actions">
+      {%- render 'quantity-selector',
+        product: item.product,
+        variant: item.variant,
+        in_cart_quantity: item.quantity,
+        line_index: item.index,
+        class: 'xo-qty',
+        can_update_quantity: xo_can_update
+      -%}
+      <button
+        class="xo-cart-line__remove"
+        type="button"
+        on:click="/onLineItemRemove/{{ xo_line }}"
+        aria-label="{{ 'xo.cart.remove_label' | t: title: item.title | escape }}"
+        {% if xo_can_remove == false %}
+          hidden
+        {% endif %}
+      >
+        {{- 'xo.cart.remove' | t -}}
+      </button>
+    </div>
+
+    <div
+      class="xo-cart-line__error hidden"
+      ref="cartItemErrorContainer-{{ xo_line }}"
+    >
+      <p
+        class="xo-cart-line__error-text"
+        role="alert"
+      >
+        <small ref="cartItemError-{{ xo_line }}"></small>
+      </p>
+    </div>
+  </div>
+</li>
+
+{% stylesheet %}
+  .xo-cart-line {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    align-items: start;
+    padding-block: var(--xo-space-5);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-cart-line:first-child {
+    padding-block-start: 0;
+  }
+
+  .xo-cart-line:last-child {
+    border-block-end: 0;
+  }
+
+  .xo-cart-line--nested {
+    margin-inline-start: var(--xo-space-6);
+    padding-block-start: 0;
+  }
+
+  .xo-cart-line:has(+ .xo-cart-line--nested) {
+    border-block-end: 0;
+  }
+
+  @media (min-width: 750px) {
+    .xo-cart-line--page {
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: var(--xo-space-5);
+    }
+  }
+
+  .xo-cart-line__media {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    border-radius: calc(var(--xo-radius-card) * 0.7);
+    background: var(--xo-surface);
+    border: 1px solid var(--xo-line);
+    color: var(--xo-muted);
+    overflow: hidden;
+  }
+
+  .xo-cart-line__image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-cart-line__body {
+    display: grid;
+    gap: var(--xo-space-3);
+    min-inline-size: 0;
+  }
+
+  .xo-cart-line__top {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-cart-line__info {
+    display: grid;
+    gap: var(--xo-space-1);
+    min-inline-size: 0;
+  }
+
+  .xo-cart-line__title {
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--xo-fg);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .xo-cart-line__title:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .xo-cart-line__meta,
+  .xo-cart-line__each,
+  .xo-cart-line__parts,
+  .xo-cart-line__properties,
+  .xo-cart-line__discounts {
+    margin: 0;
+    padding: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.45;
+    color: var(--xo-muted);
+  }
+
+  .xo-cart-line__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-1) var(--xo-space-2);
+  }
+
+  .xo-cart-line__meta > span + span::before {
+    content: '·';
+    margin-inline-end: var(--xo-space-2);
+  }
+
+  .xo-cart-line__parts {
+    list-style: none;
+  }
+
+  .xo-cart-line__properties div {
+    display: flex;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-cart-line__properties dd {
+    margin: 0;
+  }
+
+  .xo-cart-line__discounts {
+    display: grid;
+    gap: var(--xo-space-1);
+    list-style: none;
+    color: var(--xo-success);
+  }
+
+  .xo-cart-line__discounts li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-cart-line__price {
+    display: grid;
+    justify-items: end;
+    align-content: start;
+    gap: 2px;
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--xo-fg);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-cart-line__was {
+    font-size: var(--xo-text-sm);
+    font-weight: 400;
+    color: var(--xo-muted);
+  }
+
+  .xo-cart-line__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-cart-line__actions .quantity-selector-wrapper {
+    flex: none;
+  }
+
+  .xo-cart-line .xo-qty.quantity-selector {
+    --quantity-selector-width: 7.25rem;
+
+    flex: none;
+    inline-size: var(--quantity-selector-width);
+    block-size: 2.75rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    background: transparent;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-cart-line .xo-qty :is(.quantity-minus, .quantity-plus) {
+    inline-size: 2.75rem;
+    block-size: 100%;
+    color: var(--xo-fg);
+  }
+
+  .xo-cart-line .xo-qty input {
+    color: var(--xo-fg);
+    font-weight: 600;
+  }
+
+  .xo-cart-line .xo-qty :is(.quantity-minus, .quantity-plus):disabled {
+    opacity: 0.35;
+  }
+
+  .xo-cart-line__remove {
+    min-block-size: var(--xo-tap-target);
+    padding: 0 var(--xo-space-1);
+    border: 0;
+    background: none;
+    color: var(--xo-muted);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+
+  .xo-cart-line__remove:hover {
+    color: var(--xo-fg);
+  }
+
+  .xo-cart-line__error-text {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-error);
+  }
+
+  .cart-items-disabled .xo-cart-line__actions {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .xo-cart-line.removing {
+    animation: xo-cart-line-out var(--xo-duration-slow) var(--xo-ease) forwards;
+    overflow: hidden;
+  }
+
+  .xo-cart-line.adding {
+    animation: xo-cart-line-in var(--xo-duration-slow) var(--xo-ease);
+  }
+
+  @keyframes xo-cart-line-out {
+    from {
+      opacity: 1;
+      max-block-size: var(--row-height, 12rem);
+    }
+
+    to {
+      opacity: 0;
+      max-block-size: 0;
+      padding-block: 0;
+      border-block-end-width: 0;
+    }
+  }
+
+  @keyframes xo-cart-line-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-cart-line.removing,
+    .xo-cart-line.adding {
+      animation: none;
+    }
+  }
+{% endstylesheet %}
