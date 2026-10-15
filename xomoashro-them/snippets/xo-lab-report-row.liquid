@@ -1,0 +1,98 @@
+{%- doc -%}
+  One row of the lab reports table: batch, test date, lab, fulvic acid,
+  heavy metals and a link to the report. Empty values show a dash.
+
+  @param {string} batch - Batch number
+  @param {string} [test_date] - Test date
+  @param {string} [lab] - Laboratory name
+  @param {number} [fulvic] - Fulvic acid percentage
+  @param {number} [lead] - Lead in ppm
+  @param {number} [arsenic] - Arsenic in ppm
+  @param {number} [mercury] - Mercury in ppm
+  @param {number} [cadmium] - Cadmium in ppm
+  @param {string} [report_url] - Link to the report file
+
+  @example
+  {% render 'xo-lab-report-row', batch: report.batch.value, test_date: report.test_date.value, lab: report.lab.value %}
+{%- enddoc -%}
+
+{%- liquid
+  capture xo_metals
+    if lead != blank
+      echo '<li>'
+      echo 'xo.labs.lead' | t: value: lead
+      echo '</li>'
+    endif
+    if arsenic != blank
+      echo '<li>'
+      echo 'xo.labs.arsenic' | t: value: arsenic
+      echo '</li>'
+    endif
+    if mercury != blank
+      echo '<li>'
+      echo 'xo.labs.mercury' | t: value: mercury
+      echo '</li>'
+    endif
+    if cadmium != blank
+      echo '<li>'
+      echo 'xo.labs.cadmium' | t: value: cadmium
+      echo '</li>'
+    endif
+  endcapture
+-%}
+
+<tr data-batch="{{ batch | downcase | escape }}">
+  <td data-label="{{ 'xo.labs.batch' | t }}">
+    <strong>{{ batch | escape }}</strong>
+  </td>
+  <td data-label="{{ 'xo.labs.tested_on' | t }}">
+    {%- if test_date != blank -%}
+      <time datetime="{{ test_date | date: '%Y-%m-%d' }}">{{ test_date | date: '%-d %B %Y' }}</time>
+    {%- else -%}
+      —
+    {%- endif -%}
+  </td>
+  <td data-label="{{ 'xo.labs.lab' | t }}">{{ lab | default: '—' | escape }}</td>
+  <td data-label="{{ 'xo.labs.fulvic' | t }}">
+    {%- if fulvic != blank -%}{{ fulvic }}%{%- else -%}—{%- endif -%}
+  </td>
+  <td data-label="{{ 'xo.labs.metals' | t }}">
+    {%- if xo_metals != blank -%}
+      <ul class="xo-lab-row__metals">
+        {{- xo_metals -}}
+      </ul>
+    {%- else -%}
+      —
+    {%- endif -%}
+  </td>
+  <td data-label="{{ 'xo.labs.report' | t }}">
+    {%- if report_url != blank -%}
+      <a
+        class="xo-link xo-lab-row__link"
+        href="{{ report_url }}"
+        target="_blank"
+        rel="noopener"
+      >
+        {{- 'xo.product.view_report' | t -}}
+        <span class="xo-visually-hidden">{{ 'xo.labs.for_batch' | t: batch: batch }} {{ 'xo.product.opens_new_tab' | t }}</span>
+      </a>
+    {%- else -%}
+      —
+    {%- endif -%}
+  </td>
+</tr>
+
+{% stylesheet %}
+  .xo-lab-row__metals {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-lab-row__link {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+{% endstylesheet %}
