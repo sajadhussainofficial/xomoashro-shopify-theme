@@ -213,6 +213,7 @@
       ],
       "settings": {
         "tone": "surface",
+        "product": "test-do-not-buy",
         "text": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care.</p>",
         "button_label": "Add to cart",
         "show_per_gram": true,
