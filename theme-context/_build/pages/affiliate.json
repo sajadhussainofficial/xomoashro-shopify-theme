@@ -1,0 +1,13 @@
+{
+  "title": "Affiliate programme",
+  "handle": "affiliate",
+  "template_suffix": "affiliate",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Affiliate Programme | Xomoashro",
+    "description": "Join the Xomoashro affiliate programme: share your referral link and earn on the orders you refer."
+  },
+  "redirect_from": "/affiliate-registration/",
+  "note": "Page copy lives in templates/page.affiliate.json; the page body stays empty."
+}

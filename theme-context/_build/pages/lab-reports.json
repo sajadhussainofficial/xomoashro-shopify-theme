@@ -1,0 +1,13 @@
+{
+  "title": "Lab reports",
+  "handle": "lab-reports",
+  "template_suffix": "lab-reports",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Lab Reports | Xomoashro Shilajit",
+    "description": "Laboratory reports for each Xomoashro batch: fulvic acid and heavy metal results, searchable by batch number."
+  },
+  "redirect_from": null,
+  "note": "Page copy lives in templates/page.lab-reports.json; the page body stays empty."
+}

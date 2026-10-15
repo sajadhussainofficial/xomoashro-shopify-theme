@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Order help",
+        "heading": "Track your <em>order</em>",
+        "lead": "<p>Check your order online, or send us your order number and we will tell you where it is.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": ""
+      }
+    },
+    "track": {
+      "type": "xo-track-order",
+      "settings": {
+        "tone": "bone",
+        "account_heading": "See your orders online",
+        "account_text": "<p>Sign in with the email you ordered with. We send you a one-time code, so there is no password to remember.</p>",
+        "account_button": "View my orders",
+        "form_heading": "Ask about an order",
+        "form_text": "<p>Send us your order number and we will reply with its status and tracking details.</p>",
+        "form_name": "Order status enquiry",
+        "button_label": "Send enquiry",
+        "success_message": "Thank you. We will reply with your order status soon.",
+        "whatsapp_heading": "Faster on WhatsApp",
+        "whatsapp_text": "<p>Message us with your order number and we will check it for you.</p>",
+        "whatsapp_button": "Ask on WhatsApp",
+        "whatsapp_message": "Hello, I would like an update on my order. My order number is "
+      }
+    },
+    "faq": {
+      "type": "xo-faq",
+      "blocks": {
+        "topic_2": {
+          "type": "topic",
+          "settings": {
+            "title": "Orders and delivery"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are delivered within [delivery] working days across Pakistan.</p>",
+            "requires": "delivery"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I pay cash on delivery?",
+            "answer": "<p>Yes. You can pay in cash when your order arrives, anywhere in Pakistan.</p>",
+            "requires": "none"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a money-back guarantee?",
+            "answer": "<p>Yes. Every order is covered by our [days]-day money-back guarantee. Message us on WhatsApp or email [email] and we will help.</p>",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "topic_2",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "heading": "Frequently asked <em>questions</em>",
+        "contact_heading": "Still have questions?",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hello, I have a question about Xomoashro shilajit.",
+        "structured_data": true,
+        "anchor": "faq"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "track",
+    "faq"
+  ]
+}

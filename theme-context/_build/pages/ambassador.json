@@ -1,0 +1,13 @@
+{
+  "title": "Ambassador programme",
+  "handle": "ambassador",
+  "template_suffix": "ambassador",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Ambassador Programme | Xomoashro",
+    "description": "Become a Xomoashro ambassador and share pure Himalayan shilajit with your community."
+  },
+  "redirect_from": "/become-brand-ambassadar/",
+  "note": "Page copy lives in templates/page.ambassador.json; the page body stays empty."
+}

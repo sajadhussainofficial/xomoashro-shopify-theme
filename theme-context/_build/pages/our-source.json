@@ -1,0 +1,13 @@
+{
+  "title": "Our source",
+  "handle": "our-source",
+  "template_suffix": "our-source",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Our Source | Shilajit from Chitral and Gilgit-Baltistan",
+    "description": "Where our shilajit comes from: collected above 16,000 ft in Chitral and Gilgit-Baltistan, bought directly from local collectors."
+  },
+  "redirect_from": null,
+  "note": "Page copy lives in templates/page.our-source.json; the page body stays empty."
+}

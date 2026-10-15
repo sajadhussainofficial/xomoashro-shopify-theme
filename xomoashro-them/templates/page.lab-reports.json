@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Lab reports",
+        "heading": "Our <em>lab reports</em>",
+        "lead": "<p>When a batch is tested, its laboratory report is published here with the batch number, so you can match it to your jar.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": ""
+      }
+    },
+    "reports": {
+      "type": "xo-lab-reports",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "By batch",
+        "heading": "Find your <em>batch</em>",
+        "lead": "",
+        "note": "Values are as printed on each laboratory report. ppm means parts per million.",
+        "empty_heading": "Reports will be published here",
+        "empty_text": "<p>Our laboratory reports will appear on this page as soon as they are ready. Questions in the meantime? Message us on WhatsApp.</p>",
+        "anchor": "reports"
+      }
+    },
+    "guide": {
+      "type": "xo-rich-text",
+      "settings": {
+        "tone": "surface",
+        "align": "start",
+        "compact": true,
+        "eyebrow": "How to read a report",
+        "heading": "What the numbers <em>mean</em>",
+        "text": "<p>Each report lists the batch number, the laboratory that tested it and the test date.</p><p>Fulvic acid is shown as a percentage. Heavy metals (lead, arsenic, mercury and cadmium) are shown in parts per million (ppm): lower is better.</p>",
+        "signature": "",
+        "button_label": "",
+        "button_link": "",
+        "anchor": ""
+      }
+    },
+    "purity": {
+      "type": "xo-purity-test",
+      "blocks": {
+        "test_1": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Dissolve it",
+            "title": "It dissolves fully",
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>",
+            "drawing": "glass",
+            "show_colour": true,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_2": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Warm it",
+            "title": "It softens with warmth",
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>",
+            "drawing": "warmth",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_3": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Look at it",
+            "title": "It is dark and glossy",
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>",
+            "drawing": "gloss",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_4": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Smell it",
+            "title": "It smells earthy",
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>",
+            "drawing": "smell",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        }
+      },
+      "block_order": [
+        "test_1",
+        "test_2",
+        "test_3",
+        "test_4"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "heading": "Four ways to check shilajit <em>at home</em>",
+        "lead": "<p>Simple checks people commonly use to tell real resin from imitations.</p>",
+        "footnote": "These checks are a guide only. They do not replace a lab report."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "reports",
+    "guide",
+    "purity"
+  ]
+}

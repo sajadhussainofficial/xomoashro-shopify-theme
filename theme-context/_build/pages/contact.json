@@ -1,0 +1,13 @@
+{
+  "title": "Contact",
+  "handle": "contact",
+  "template_suffix": "contact",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Contact Xomoashro",
+    "description": "Questions about our shilajit, your order or wholesale? Message us on WhatsApp or send us a message."
+  },
+  "redirect_from": "/contact-us/",
+  "note": "Page copy lives in templates/page.contact.json; the page body stays empty."
+}

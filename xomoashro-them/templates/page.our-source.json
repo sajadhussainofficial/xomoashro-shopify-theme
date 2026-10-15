@@ -1,0 +1,282 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Our source",
+        "heading": "From the high Himalayas to <em>your home</em>",
+        "lead": "<p>Our shilajit is collected in Chitral and Gilgit-Baltistan, above 16,000 ft, by local collectors we work with directly.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-square.webp"
+      }
+    },
+    "source": {
+      "type": "xo-source-story",
+      "blocks": {
+        "fact_1": {
+          "type": "fact",
+          "settings": {
+            "label": "Regions",
+            "value": "Chitral and Gilgit-Baltistan"
+          }
+        },
+        "fact_2": {
+          "type": "fact",
+          "settings": {
+            "label": "Altitude",
+            "value": "Above 16,000 ft"
+          }
+        },
+        "fact_3": {
+          "type": "fact",
+          "settings": {
+            "label": "Sourcing",
+            "value": "Direct from local collectors"
+          }
+        }
+      },
+      "block_order": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ],
+      "settings": {
+        "tone": "bone",
+        "heading": "Born in the Himalayas",
+        "text": "<p>Born in the Himalayan regions of Chitral and Gilgit-Baltistan, Xomoashro was created to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended.</p>",
+        "drop_cap": true,
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock.webp"
+      }
+    },
+    "regions": {
+      "type": "xo-media-text",
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "icon": "pin",
+            "title": "Chitral",
+            "text": "High valleys of the Hindu Kush in Khyber Pakhtunkhwa"
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "icon": "pin",
+            "title": "Gilgit-Baltistan",
+            "text": "Home of the Karakoram and western Himalaya"
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "icon": "users",
+            "title": "Direct from collectors",
+            "text": "No middlemen between the mountain and our jars"
+          }
+        }
+      },
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3"
+      ],
+      "settings": {
+        "tone": "bone",
+        "image": "shopify://shop_images/xomoashro-mountain-peaks-at-sunset.webp",
+        "image_position": "left",
+        "eyebrow": "Where it comes from",
+        "heading": "Two regions, <em>one standard</em>",
+        "text": "<p>Shilajit forms slowly in high mountain rock. We source it from two Himalayan regions of northern Pakistan and buy directly from the people who collect it.</p>",
+        "button_label": "",
+        "button_link": "",
+        "anchor": ""
+      }
+    },
+    "purity": {
+      "type": "xo-purity-test",
+      "blocks": {
+        "test_1": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Dissolve it",
+            "title": "It dissolves fully",
+            "text": "<p>Real resin dissolves in warm water or milk and turns it golden to reddish-brown, without gritty residue.</p>",
+            "drawing": "glass",
+            "show_colour": true,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_2": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Warm it",
+            "title": "It softens with warmth",
+            "text": "<p>Resin turns soft and sticky when warmed in your hand and firms up again when cold.</p>",
+            "drawing": "warmth",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_3": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Look at it",
+            "title": "It is dark and glossy",
+            "text": "<p>Resin is dark brown to black with a glossy, tar-like look. It is not a dry powder.</p>",
+            "drawing": "gloss",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        },
+        "test_4": {
+          "type": "test",
+          "settings": {
+            "tab_label": "Smell it",
+            "title": "It smells earthy",
+            "text": "<p>Expect a strong, earthy smell and a bitter taste. A sweet or perfumed smell is a warning sign.</p>",
+            "drawing": "smell",
+            "show_colour": false,
+            "colour_label": "The colour to expect"
+          }
+        }
+      },
+      "block_order": [
+        "test_1",
+        "test_2",
+        "test_3",
+        "test_4"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "surface",
+        "heading": "Four ways to check shilajit <em>at home</em>",
+        "lead": "<p>Simple checks people commonly use to tell real resin from imitations.</p>",
+        "footnote": "These checks are a guide only. They do not replace a lab report."
+      }
+    },
+    "lab": {
+      "type": "xo-lab-proof",
+      "settings": {
+        "tone": "bone",
+        "heading": "See the report <em>for yourself</em>",
+        "lead": "<p>These are the lab results for the batch on sale now. Open the full report to see every figure.</p>",
+        "button_label": "View the lab report",
+        "page_label": "All lab reports",
+        "sheet_title": "Certificate of analysis",
+        "product_name": "Pure Himalayan Aftabi Shilajit",
+        "show_metals": true,
+        "page_link": "/pages/lab-reports",
+        "anchor": "lab-report"
+      }
+    },
+    "comparison": {
+      "type": "xo-comparison-table",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Form",
+            "ours": "Pure resin",
+            "others": "Often powder or capsules",
+            "requires": "none"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Fillers or binders",
+            "ours": "None",
+            "others": "Not always stated",
+            "requires": "none"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Source",
+            "ours": "Chitral and Gilgit-Baltistan, direct from collectors",
+            "others": "Often not stated",
+            "requires": "none"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Payment",
+            "ours": "Cash on delivery",
+            "others": "Varies",
+            "requires": "none"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Guarantee",
+            "ours": "[days]-day money-back",
+            "others": "Varies",
+            "requires": "guarantee"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Support",
+            "ours": "Help from our team on WhatsApp",
+            "others": "Varies",
+            "requires": "whatsapp"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "heading": "Know what you are <em>buying</em>",
+        "lead": "<p>Shilajit quality varies a lot. Here is what we commit to.</p>",
+        "ours_heading": "Xomoashro",
+        "others_heading": "Typical market shilajit",
+        "footnote": "A general comparison. It does not refer to any specific brand.",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-cutout.webp"
+      }
+    },
+    "cta": {
+      "type": "xo-rich-text",
+      "settings": {
+        "tone": "surface",
+        "align": "center",
+        "compact": true,
+        "eyebrow": "",
+        "heading": "Taste the difference of <em>real resin</em>",
+        "text": "<p>Choose your jar and pay in cash when it arrives.</p>",
+        "signature": "",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all",
+        "anchor": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "source",
+    "regions",
+    "purity",
+    "lab",
+    "comparison",
+    "cta"
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "About Xomoashro",
+        "heading": "Pure shilajit from the <em>Himalayas</em>",
+        "lead": "<p>At Xomoashro, we offer pure shilajit sourced from the peaks of the Himalayas: a natural resin valued for centuries in traditional wellness.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock.webp"
+      }
+    },
+    "story": {
+      "type": "xo-rich-text",
+      "settings": {
+        "tone": "bone",
+        "align": "start",
+        "compact": false,
+        "eyebrow": "Our story",
+        "heading": "Born in <em>Chitral and Gilgit-Baltistan</em>",
+        "text": "<p>Xomoashro was created in the Himalayan regions of Chitral and Gilgit-Baltistan to bring Pakistan the pure, authentic shilajit our mountains are known for.</p><p>When we found that much of the shilajit on the market was fake or diluted, we set out to offer a trusted alternative.</p><p>By working directly with ethical local collectors, we deliver shilajit that is pure, safe and honest, exactly as nature intended. Today, customers across Pakistan trust Xomoashro for real Himalayan shilajit.</p>",
+        "signature": "The Xomoashro team",
+        "button_label": "",
+        "button_link": "",
+        "anchor": ""
+      }
+    },
+    "mission": {
+      "type": "xo-media-text",
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "icon": "drop",
+            "title": "100% resin",
+            "text": "No fillers, additives or binders"
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "icon": "mountain",
+            "title": "Direct from local collectors",
+            "text": "Chitral and Gilgit-Baltistan, above 16,000 ft"
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "icon": "users",
+            "title": "Help when you need it",
+            "text": "Clear instructions and help from our team on WhatsApp"
+          }
+        }
+      },
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3"
+      ],
+      "settings": {
+        "tone": "surface",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp",
+        "image_position": "right",
+        "eyebrow": "Our mission",
+        "heading": "Rediscover health through <em>Himalayan shilajit</em>",
+        "text": "<p>We believe everyone deserves a healthy, energised and balanced life. Shilajit, known locally as salajeet, is a natural mineral resin collected high in the Himalayas, with deep roots in Ayurvedic tradition.</p><p>Our mission is to reconnect people with this traditional resin, so it can become part of a daily routine inspired by ancient wisdom and modern well-being.</p>",
+        "button_label": "Contact us",
+        "button_link": "/pages/contact",
+        "anchor": ""
+      }
+    },
+    "benefits": {
+      "type": "xo-benefits-grid",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "strength",
+            "title": "Strength and recovery",
+            "text": "<p>Naturally contains 85+ trace minerals and fulvic acid. Traditionally used to support strength, recovery and endurance.</p>"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sun",
+            "title": "Active lifestyle",
+            "text": "<p>Many people take shilajit as part of a training routine to support stamina and recovery.</p>"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Everyday wellness",
+            "text": "<p>Contains natural antioxidants. Traditionally used to support general well-being and vitality.</p>"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "clock",
+            "title": "Healthy ageing",
+            "text": "<p>A long-standing part of Ayurvedic tradition for vitality in later years.</p>"
+          }
+        },
+        "benefit_5": {
+          "type": "benefit",
+          "settings": {
+            "icon": "bolt",
+            "title": "Natural energy",
+            "text": "<p>Fulvic acid is studied for its role in nutrient absorption. Many people take shilajit for steady daily energy.</p>"
+          }
+        },
+        "benefit_6": {
+          "type": "benefit",
+          "settings": {
+            "icon": "target",
+            "title": "Focus and clarity",
+            "text": "<p>Traditionally taken to support focus and mental clarity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "benefit_5",
+        "benefit_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "heading": "An ancient remedy for <em>everyday well-being</em>",
+        "lead": "<p>Shilajit is a natural mineral resin with a long history in Ayurvedic tradition. Here is what people have taken it for.</p>",
+        "footnote": "Based on traditional use. Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-square.webp"
+      }
+    },
+    "why": {
+      "type": "xo-why",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "Authentic",
+            "text": "<p>Directly sourced from trusted Himalayan collectors and carefully processed for natural purity.</p>"
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "Genuine Himalayan shilajit",
+            "text": "<p>Collected from the pristine regions of Chitral and Gilgit-Baltistan.</p>"
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "100% pure resin",
+            "text": "<p>No fillers, additives or binders. Just concentrated shilajit resin in its purest form.</p>"
+          }
+        },
+        "reason_4": {
+          "type": "reason",
+          "settings": {
+            "title": "Nationwide delivery",
+            "text": "<p>Reliable shipping across Pakistan with tracking support.</p>"
+          }
+        },
+        "reason_5": {
+          "type": "reason",
+          "settings": {
+            "title": "Guided support",
+            "text": "<p>Clear instructions, and help from our team on WhatsApp, so you get the most from your shilajit.</p>"
+          }
+        },
+        "reason_6": {
+          "type": "reason",
+          "settings": {
+            "title": "Customer promise",
+            "text": "<p>We are committed to resolving concerns quickly. Your trust matters most.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "reason_4",
+        "reason_5",
+        "reason_6"
+      ],
+      "settings": {
+        "tone": "ink",
+        "heading": "Why choose <em>Xomoashro</em>",
+        "lead": "<p>Xomoashro brings pure, authentic Aftabi Shilajit from the Himalayas to homes across Pakistan. Easy to use, fairly priced, and sourced with care.</p>",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all"
+      }
+    },
+    "reviews": {
+      "type": "xo-reviews-wall",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>I'm delighted with the high-quality shilajit from Xomoashro. Their product has noticeably improved my well-being, and the prompt delivery service adds to the overall positive experience. Xomoashro is my go-to for top-tier shilajit and reliable service.</p>",
+            "name": "Abdullah",
+            "role": "Cricketer",
+            "image": "shopify://shop_images/xomoashro-customer-abdullah.webp"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is top-notch! The quality is impressive, and their delivery is quick and reliable. I highly recommend their product for anyone seeking premium shilajit.</p>",
+            "name": "Asad",
+            "role": "Customer"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "<p>Xomoashro's shilajit is a game-changer! The quality is outstanding, and their fast delivery makes it a hassle-free experience. Highly recommend for anyone looking for a reliable and effective supplement.</p>",
+            "name": "Taimoor Khan",
+            "role": "Professional international boxer",
+            "image": "shopify://shop_images/xomoashro-customer-taimoor-khan.webp"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "tone": "ink",
+        "heading": "What our customers <em>say</em>",
+        "lead": "<p>Trusted by customers across Pakistan.</p>",
+        "buy_heading": "Try it for yourself",
+        "button_label": "Shop Shilajit",
+        "button_link": "/collections/all",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp",
+        "anchor": "reviews"
+      }
+    },
+    "partners": {
+      "type": "xo-cta-partners",
+      "blocks": {
+        "partner_1": {
+          "type": "partner",
+          "settings": {
+            "title": "Wholesale",
+            "link": "/pages/wholesale"
+          }
+        },
+        "partner_2": {
+          "type": "partner",
+          "settings": {
+            "title": "Ambassador programme",
+            "link": "/pages/ambassador"
+          }
+        },
+        "partner_3": {
+          "type": "partner",
+          "settings": {
+            "title": "Affiliates",
+            "link": "/pages/affiliate"
+          }
+        }
+      },
+      "block_order": [
+        "partner_1",
+        "partner_2",
+        "partner_3"
+      ],
+      "settings": {
+        "tone": "ink",
+        "overlay": 65,
+        "heading": "Partner with Xomoashro",
+        "lead": "<p>Grow with us as a distributor, ambassador or affiliate.</p>",
+        "image": "shopify://shop_images/xomoashro-mountain-peaks-at-sunset.webp"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "mission",
+    "benefits",
+    "why",
+    "reviews",
+    "partners"
+  ]
+}
