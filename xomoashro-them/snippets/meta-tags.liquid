@@ -17,6 +17,12 @@
   name="theme-color"
   content=""
 >
+{%- if template.name == 'search' %}
+  <meta
+    name="robots"
+    content="noindex, follow"
+  >
+{%- endif %}
 
 {%- liquid
   assign og_title = page_title | default: shop.name

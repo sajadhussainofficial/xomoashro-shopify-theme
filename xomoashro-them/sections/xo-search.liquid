@@ -1,0 +1,283 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_terms = search.terms | escape
+  assign xo_shop_url = routes.all_products_collection_url
+  if collections.all.products_count == 1
+    assign xo_shop_url = collections.all.products.first.url
+  endif
+  assign xo_journal_url = blogs.journal.url | default: blogs.news.url
+-%}
+
+<div class="xo-search xo-section xo-section--tight xo-tone-{{ s.tone }}">
+  <div class="xo-container">
+    <header class="xo-search__head">
+      <h1 class="xo-h2">
+        {%- if search.performed -%}
+          {{ 'xo.search.results_for' | t: terms: xo_terms }}
+        {%- else -%}
+          {{ s.heading | escape }}
+        {%- endif -%}
+      </h1>
+      <form
+        class="xo-searchbar"
+        action="{{ routes.search_url }}"
+        method="get"
+        role="search"
+      >
+        <label
+          class="xo-visually-hidden"
+          for="XoSearchInput-{{ section.id }}"
+        >
+          {{- 'xo.search.label' | t -}}
+        </label>
+        <input
+          class="xo-field__control xo-searchbar__input"
+          id="XoSearchInput-{{ section.id }}"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'xo.search.placeholder' | t }}"
+          autocomplete="off"
+        >
+        <input
+          type="hidden"
+          name="options[prefix]"
+          value="last"
+        >
+        <button
+          class="xo-btn xo-btn--solid"
+          type="submit"
+        >
+          {%- render 'xo-icon', name: 'search', size: 18 -%}
+          <span>{{ 'xo.search.submit' | t }}</span>
+        </button>
+      </form>
+      {%- if search.performed and search.results_count > 0 -%}
+        <p class="xo-small xo-muted">{{ 'xo.search.count' | t: count: search.results_count }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if search.performed and search.results_count > 0 -%}
+      {%- paginate search.results by s.per_page -%}
+        {%- assign xo_products = search.results | where: 'object_type', 'product' -%}
+        {%- if xo_products.size > 0 -%}
+          <section
+            class="xo-search__group"
+            aria-labelledby="XoSearchProducts-{{ section.id }}"
+          >
+            <h2
+              class="xo-eyebrow"
+              id="XoSearchProducts-{{ section.id }}"
+            >
+              {{- 'xo.search.products' | t -}}
+            </h2>
+            <ul
+              class="xo-card-grid"
+              role="list"
+            >
+              {%- for item in xo_products -%}
+                <li class="xo-card-grid__item">
+                  {% render 'xo-product-card', product: item, form_suffix: section.id, eager: forloop.first %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </section>
+        {%- endif -%}
+
+        {%- capture xo_rows -%}
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'article' or item.object_type == 'page' -%}
+              <li class="xo-search__row">
+                <p class="xo-search__type">
+                  {%- if item.object_type == 'article' -%}
+                    {{ 'xo.search.type_article' | t }}
+                  {%- else -%}
+                    {{ 'xo.search.type_page' | t }}
+                  {%- endif -%}
+                </p>
+                <h3 class="xo-search__title">
+                  <a href="{{ item.url }}">{{ item.title | escape }}</a>
+                </h3>
+                {%- assign xo_excerpt = item.excerpt | default: item.content | strip_html | strip_newlines | truncatewords: 26 -%}
+                {%- if xo_excerpt != blank -%}
+                  <p class="xo-search__excerpt">{{ xo_excerpt }}</p>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if xo_rows != blank -%}
+          <section
+            class="xo-search__group"
+            aria-labelledby="XoSearchPages-{{ section.id }}"
+          >
+            <h2
+              class="xo-eyebrow"
+              id="XoSearchPages-{{ section.id }}"
+            >
+              {{- 'xo.search.articles_pages' | t -}}
+            </h2>
+            <ul
+              class="xo-search__rows"
+              role="list"
+            >
+              {{ xo_rows }}
+            </ul>
+          </section>
+        {%- endif -%}
+
+        {% render 'xo-pagination', paginate: paginate %}
+      {%- endpaginate -%}
+    {%- else -%}
+      <div class="xo-search__empty">
+        {%- if search.performed -%}
+          <p class="xo-lead">{{ 'xo.search.none' | t: terms: xo_terms }}</p>
+        {%- endif -%}
+        {%- if s.empty_text != blank -%}
+          <p class="xo-text xo-muted">{{ s.empty_text | escape }}</p>
+        {%- endif -%}
+        <div class="xo-search__links">
+          <a
+            class="xo-btn"
+            href="{{ xo_shop_url }}"
+          >
+            {{- 'xo.cart.empty_button' | t -}}
+          </a>
+          {%- if xo_journal_url != blank -%}
+            <a
+              class="xo-btn xo-btn--secondary"
+              href="{{ xo_journal_url }}"
+            >
+              {{- 'xo.search.read_journal' | t -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-search__head {
+    display: grid;
+    gap: var(--xo-space-4);
+    max-inline-size: 46rem;
+    margin-block-end: var(--xo-space-7);
+  }
+
+  .xo-search__group + .xo-search__group {
+    margin-block-start: var(--xo-space-8);
+  }
+
+  .xo-search__group > .xo-eyebrow {
+    margin-block-end: var(--xo-space-5);
+  }
+
+  .xo-search__rows {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-search__row {
+    position: relative;
+    display: grid;
+    gap: var(--xo-space-1);
+    padding-block: var(--xo-space-5);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-search__type {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-search__title {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-lead);
+    font-weight: 600;
+  }
+
+  .xo-search__title a {
+    color: var(--xo-fg);
+    text-decoration: none;
+  }
+
+  .xo-search__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .xo-search__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .xo-search__excerpt {
+    margin: 0;
+    max-inline-size: var(--xo-measure);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.55;
+    color: var(--xo-muted);
+  }
+
+  .xo-search__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--xo-space-4);
+  }
+
+  .xo-search__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-3);
+    margin-block-start: var(--xo-space-2);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.search",
+  "tag": "section",
+  "class": "xo-search-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "default": "Search" },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "t:xo.labels.empty_text",
+      "default": "Try another word, or start with our shilajit and the journal."
+    },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:xo.labels.per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}
