@@ -459,6 +459,11 @@
     display: none;
   }
 
+  .xo-header__nav-link:is(:hover, :focus-visible),
+  .xo-header__dropdown[open] > .xo-header__nav-link {
+    color: var(--xo-fg);
+  }
+
   .xo-header__nav-link::after {
     content: '';
     position: absolute;
@@ -672,6 +677,11 @@
     text-decoration: none;
     cursor: pointer;
     list-style: none;
+  }
+
+  .xo-drawer__nav-link:is(:hover, :focus-visible),
+  .xo-drawer__group[open] > .xo-drawer__nav-link {
+    color: var(--xo-fg);
   }
 
   .xo-drawer__nav-link::-webkit-details-marker {
