@@ -1,0 +1,139 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_heading = s.heading
+  if xo_heading == blank
+    assign xo_heading = page.title | escape
+  endif
+  assign xo_has_image = false
+  if s.image != blank
+    assign xo_has_image = true
+  endif
+-%}
+
+<div class="xo-page-hero xo-section xo-section--tight xo-tone-{{ s.tone }}{% if xo_has_image %} xo-page-hero--image{% endif %}">
+  <div class="xo-container xo-page-hero__inner">
+    <div class="xo-page-hero__text">
+      {%- if s.eyebrow != blank -%}
+        <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h1 class="xo-h1 xo-page-hero__title">{{ xo_heading }}</h1>
+      {%- if s.lead != blank -%}
+        <div class="xo-lead xo-muted xo-rte xo-page-hero__lead">{{ s.lead }}</div>
+      {%- endif -%}
+      {%- if s.button_label != blank or s.button_2_label != blank -%}
+        <div class="xo-page-hero__actions">
+          {%- render 'xo-button', label: s.button_label, url: s.button_link, style: s.button_style, icon: 'arrow-right' -%}
+          {%- render 'xo-button', label: s.button_2_label, url: s.button_2_link, style: 'secondary' -%}
+        </div>
+      {%- endif -%}
+    </div>
+    {%- if xo_has_image -%}
+      <div class="xo-page-hero__media">
+        {%- render 'xo-image',
+          image: s.image,
+          sizes: '(min-width: 990px) 45vw, 100vw',
+          widths: '540, 750, 990, 1280, 1600',
+          priority: true,
+          class: 'xo-page-hero__image'
+        -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-page-hero__inner {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-items: center;
+  }
+
+  .xo-page-hero__text {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+    max-inline-size: 46rem;
+  }
+
+  .xo-page-hero__title {
+    text-wrap: balance;
+  }
+
+  .xo-page-hero__lead p {
+    margin: 0;
+  }
+
+  .xo-page-hero__lead p + p {
+    margin-block-start: var(--xo-space-3);
+  }
+
+  .xo-page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-3);
+    margin-block-start: var(--xo-space-2);
+  }
+
+  .xo-page-hero__media {
+    border-radius: var(--xo-radius-card);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .xo-page-hero__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 990px) {
+    .xo-page-hero--image .xo-page-hero__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: var(--xo-space-8);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.page_hero",
+  "tag": "section",
+  "class": "xo-page-hero-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.page_hero" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "info": "t:xo.info.page_heading" },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
+    { "type": "header", "content": "t:xo.labels.buttons_header" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:xo.labels.button_style",
+      "options": [
+        { "value": "primary", "label": "t:xo.options.button_primary" },
+        { "value": "solid", "label": "t:xo.options.button_solid" },
+        { "value": "secondary", "label": "t:xo.options.button_secondary" }
+      ],
+      "default": "solid"
+    },
+    { "type": "text", "id": "button_2_label", "label": "t:xo.labels.button_2_label" },
+    { "type": "url", "id": "button_2_link", "label": "t:xo.labels.button_2_link" }
+  ],
+  "presets": [{ "name": "t:xo.names.page_hero" }]
+}
+{% endschema %}

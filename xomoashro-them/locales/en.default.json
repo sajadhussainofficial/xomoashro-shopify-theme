@@ -9,6 +9,46 @@
  */
 {
   "xo": {
+    "forms": {
+      "yes": "Yes",
+      "optional": "(optional)",
+      "required_note": "Fields marked * are required.",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message"
+    },
+    "contact": {
+      "whatsapp": "WhatsApp",
+      "chat_now": "Chat now",
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location",
+      "hours": "Hours"
+    },
+    "track": {
+      "order_number": "Order number",
+      "order_hint": "You will find it in your order confirmation, for example #1001."
+    },
+    "labs": {
+      "search_label": "Search by batch number",
+      "search_placeholder": "For example XO-2401",
+      "caption": "Lab reports by batch",
+      "batch": "Batch",
+      "tested_on": "Tested on",
+      "lab": "Laboratory",
+      "fulvic": "Fulvic acid",
+      "metals": "Heavy metals",
+      "report": "Report",
+      "no_match": "No batch matches that number. Check the number on your jar, or message us on WhatsApp.",
+      "match_one": "1 report matches",
+      "match_other": "[count] reports match",
+      "lead": "Lead {{ value }} ppm",
+      "arsenic": "Arsenic {{ value }} ppm",
+      "mercury": "Mercury {{ value }} ppm",
+      "cadmium": "Cadmium {{ value }} ppm",
+      "for_batch": "for batch {{ batch }}"
+    },
     "card": {
       "sale": "Sale",
       "from": "From {{ price }}",

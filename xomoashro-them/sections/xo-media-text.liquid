@@ -1,0 +1,207 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div
+  class="xo-media-text xo-section xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container xo-media-text__inner xo-media-text__inner--{{ s.image_position }}">
+    <div class="xo-media-text__media">
+      {%- render 'xo-image',
+        image: s.image,
+        sizes: '(min-width: 990px) 50vw, 100vw',
+        widths: '540, 750, 990, 1280, 1600',
+        class: 'xo-media-text__image'
+      -%}
+    </div>
+    <div class="xo-media-text__text">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, rule: false -%}
+      {%- if s.text != blank -%}
+        <div class="xo-text xo-rte xo-media-text__body">{{ s.text }}</div>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul
+          class="xo-media-text__points"
+          role="list"
+        >
+          {%- for block in section.blocks -%}
+            <li
+              class="xo-media-text__point"
+              {{ block.shopify_attributes }}
+            >
+              <span class="xo-media-text__icon">{%- render 'xo-icon', name: block.settings.icon, size: 20 -%}</span>
+              <span>
+                {%- if block.settings.title != blank -%}
+                  <strong>{{ block.settings.title | escape }}</strong>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <span class="xo-muted">{{ block.settings.text | escape }}</span>
+                {%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      {%- if s.button_label != blank -%}
+        <div>
+          {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-media-text__inner {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-items: center;
+  }
+
+  @media (min-width: 990px) {
+    .xo-media-text__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--xo-space-8);
+    }
+
+    .xo-media-text__inner--right .xo-media-text__media {
+      order: 2;
+    }
+  }
+
+  .xo-media-text__media {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--xo-radius-card);
+    overflow: hidden;
+    background: var(--xo-surface);
+  }
+
+  .xo-media-text__media img,
+  .xo-media-text__media svg {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-media-text__text {
+    display: grid;
+    gap: var(--xo-space-5);
+    justify-items: start;
+  }
+
+  .xo-media-text__text .xo-heading {
+    margin: 0;
+  }
+
+  .xo-media-text__body > * {
+    margin: 0;
+  }
+
+  .xo-media-text__body > * + * {
+    margin-block-start: var(--xo-space-3);
+  }
+
+  .xo-media-text__points {
+    display: grid;
+    gap: var(--xo-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-media-text__point {
+    display: flex;
+    gap: var(--xo-space-3);
+    align-items: flex-start;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    line-height: 1.5;
+  }
+
+  .xo-media-text__point > span:last-child {
+    display: grid;
+    gap: 2px;
+  }
+
+  .xo-media-text__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.media_text",
+  "tag": "section",
+  "class": "xo-media-text-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "bone"
+    },
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:xo.labels.image_position",
+      "options": [
+        { "value": "left", "label": "t:xo.options.left" },
+        { "value": "right", "label": "t:xo.options.right" }
+      ],
+      "default": "left"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Our mission" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Rediscover health through <em>Himalayan shilajit</em>" },
+    { "type": "richtext", "id": "text", "label": "t:xo.labels.text", "default": "<p>Share what drives you.</p>" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "t:xo.names.point",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:xo.labels.icon",
+          "options": [
+            { "value": "check-circle", "label": "t:xo.options.icon_check_circle" },
+            { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+            { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+            { "value": "drop", "label": "t:xo.options.icon_drop" },
+            { "value": "users", "label": "t:xo.options.icon_users" },
+            { "value": "shield", "label": "t:xo.options.icon_shield" },
+            { "value": "flask", "label": "t:xo.options.icon_flask" },
+            { "value": "pin", "label": "t:xo.options.icon_pin" },
+            { "value": "heart", "label": "t:xo.options.icon_heart" }
+          ],
+          "default": "check-circle"
+        },
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "Point" },
+        { "type": "text", "id": "text", "label": "t:xo.labels.text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.media_text" }]
+}
+{% endschema %}
