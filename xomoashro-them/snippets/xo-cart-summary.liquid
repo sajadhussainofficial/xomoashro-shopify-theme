@@ -1,0 +1,418 @@
+{%- doc -%}
+  Cart summary for the drawer and the cart page: order note, discount code,
+  totals, cash on delivery note, checkout button and trust lines. The note and
+  discount use Horizon's `cart-note` and `cart-discount-component`, and the
+  total keeps the `cartTotal` ref, so updates work without a reload.
+
+  @param {string} section_id - Section the discount component re-renders (`cart-drawer-section` in the drawer)
+  @param {string} [context] - `drawer` or `page`. Defaults to `page`
+  @param {boolean} [show_trust] - Show the trust lines under the checkout button. Defaults to true
+
+  @example
+  {% render 'xo-cart-summary', section_id: 'cart-drawer-section', context: 'drawer' %}
+{%- enddoc -%}
+
+{%- liquid
+  if settings.currency_code_enabled_cart_total
+    assign xo_total = cart.total_price | money_with_currency
+  else
+    assign xo_total = cart.total_price | money
+  endif
+
+  assign xo_codes = cart.cart_level_discount_applications | where: 'type', 'discount_code' | map: 'title'
+  for item in cart.items
+    for allocation in item.line_level_discount_allocations
+      if allocation.discount_application.type == 'discount_code'
+        assign xo_codes = item.line_level_discount_allocations | slice: forloop.index0 | map: 'discount_application' | map: 'title' | concat: xo_codes
+      endif
+    endfor
+  endfor
+  assign xo_codes = xo_codes | uniq
+-%}
+
+<div class="xo-cart-summary xo-cart-summary--{{ context | default: 'page' }}">
+  {%- if settings.show_cart_note or settings.show_add_discount_code -%}
+    <div class="xo-cart-extras">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="xo-cart-extra">
+          <details
+            class="xo-cart-extra__details"
+            {% if settings.cart_note_open_by_default or cart.note != blank %}
+              open
+            {% endif %}
+          >
+            <summary class="xo-cart-extra__summary">
+              <span>{{ 'xo.cart.note' | t }}</span>
+              {%- render 'xo-icon', name: 'plus', size: 16, class: 'xo-cart-extra__icon' -%}
+            </summary>
+            <div class="xo-cart-extra__body">
+              <label
+                for="cart-note"
+                class="xo-visually-hidden"
+              >
+                {{- 'xo.cart.note' | t -}}
+              </label>
+              <textarea
+                form="cart-form"
+                on:input="/updateCartNote"
+                id="cart-note"
+                class="xo-field__control xo-cart-extra__note"
+                name="note"
+                rows="3"
+                data-skip-node-update
+              >{{ cart.note }}</textarea>
+            </div>
+          </details>
+        </cart-note>
+      {%- endif -%}
+
+      {%- if settings.show_add_discount_code -%}
+        <div class="xo-cart-extra">
+          <details
+            class="xo-cart-extra__details"
+            {% if xo_codes.size > 0 %}
+              open
+            {% endif %}
+          >
+            <summary class="xo-cart-extra__summary">
+              <span>{{ 'xo.cart.discount' | t }}</span>
+              {%- render 'xo-icon', name: 'plus', size: 16, class: 'xo-cart-extra__icon' -%}
+            </summary>
+            <div class="xo-cart-extra__body">
+              <cart-discount-component data-section-id="{{ section_id }}">
+                <form
+                  class="xo-cart-discount__form"
+                  on:submit="/applyDiscount"
+                  onsubmit="return false;"
+                >
+                  <label
+                    for="cart-discount"
+                    class="xo-visually-hidden"
+                  >
+                    {{- 'accessibility.discount' | t -}}
+                  </label>
+                  <input
+                    id="cart-discount"
+                    class="xo-field__control xo-cart-discount__input"
+                    type="text"
+                    name="discount"
+                    placeholder="{{ 'content.discount_code' | t }}"
+                    autocomplete="off"
+                    required
+                    data-skip-node-update
+                  >
+                  <button
+                    type="submit"
+                    class="xo-btn xo-btn--secondary xo-btn--sm"
+                  >
+                    {{- 'actions.apply' | t -}}
+                  </button>
+                </form>
+                <div
+                  class="xo-cart-discount__error hidden"
+                  role="alert"
+                  ref="cartDiscountError"
+                >
+                  <small
+                    class="hidden"
+                    ref="cartDiscountErrorDiscountCode"
+                  >
+                    {{- 'content.discount_code_error' | t -}}
+                  </small>
+                  <small
+                    class="hidden"
+                    ref="cartDiscountErrorShipping"
+                  >
+                    {{- 'content.shipping_discount_error' | t -}}
+                  </small>
+                </div>
+                <ul
+                  class="xo-cart-discount__codes"
+                  role="list"
+                >
+                  {%- for discount_code in xo_codes -%}
+                    <li
+                      class="cart-discount__pill xo-cart-discount__pill"
+                      data-discount-code="{{ discount_code | escape }}"
+                    >
+                      <bdi>{{ discount_code }}</bdi>
+                      <button
+                        type="button"
+                        class="xo-cart-discount__remove"
+                        on:click="/removeDiscount"
+                        aria-label="{{ 'actions.remove_discount' | t: code: discount_code | escape }}"
+                      >
+                        {%- render 'xo-icon', name: 'close', size: 14 -%}
+                      </button>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </cart-discount-component>
+            </div>
+          </details>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <dl class="xo-cart-totals">
+    {%- if cart.cart_level_discount_applications.size > 0 -%}
+      <div class="xo-cart-totals__row">
+        <dt>{{ 'xo.cart.subtotal' | t }}</dt>
+        <dd>{{ cart.items_subtotal_price | money }}</dd>
+      </div>
+      {%- for discount in cart.cart_level_discount_applications -%}
+        <div class="xo-cart-totals__row xo-cart-totals__row--discount">
+          <dt><bdi>{{ discount.title | escape }}</bdi></dt>
+          <dd>-{{ discount.total_allocated_amount | money }}</dd>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+    <div class="xo-cart-totals__row xo-cart-totals__row--total">
+      <dt>{{ 'xo.cart.total' | t }}</dt>
+      <dd>
+        <text-component
+          ref="cartTotal"
+          value="{{ xo_total | strip_html }}"
+          data-cart-subtotal
+        >
+          <bdi>{{- xo_total -}}</bdi>
+        </text-component>
+      </dd>
+    </div>
+  </dl>
+  <p class="xo-cart-summary__tax">{% render 'tax-info', has_discounts_enabled: settings.show_add_discount_code %}</p>
+
+  {%- if settings.xo_cart_cod_note != blank -%}
+    <p class="xo-cart-cod">
+      {%- render 'xo-icon', name: 'cash', size: 20 -%}
+      <span>{{ settings.xo_cart_cod_note | escape }}</span>
+    </p>
+  {%- endif -%}
+
+  <div class="xo-cart-summary__ctas">
+    <button
+      type="submit"
+      id="checkout"
+      class="xo-btn xo-btn--block xo-cart-summary__checkout"
+      name="checkout"
+      form="cart-form"
+      {% if cart == empty %}
+        disabled
+      {% endif %}
+    >
+      {{- 'content.checkout' | t -}}
+    </button>
+    {%- if additional_checkout_buttons and settings.show_accelerated_checkout_buttons -%}
+      <div class="xo-cart-summary__express">
+        {{ content_for_additional_checkout_buttons }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if show_trust != false -%}
+    {%- render 'xo-cart-trust' -%}
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .xo-cart-summary {
+    display: grid;
+    gap: var(--xo-space-4);
+    inline-size: 100%;
+    font-family: var(--xo-font-body);
+    color: var(--xo-fg);
+  }
+
+  .xo-cart-extras {
+    display: grid;
+    border-block: 1px solid var(--xo-line);
+  }
+
+  .xo-cart-extra + .xo-cart-extra {
+    border-block-start: 1px solid var(--xo-line);
+  }
+
+  .xo-cart-extra {
+    display: block;
+  }
+
+  .xo-cart-extra__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+    min-block-size: var(--xo-tap-target);
+    padding-block: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    line-height: 1.3;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .xo-cart-extra__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .xo-cart-extra__icon {
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-cart-extra__details[open] .xo-cart-extra__icon {
+    transform: rotate(45deg);
+  }
+
+  .xo-cart-extra__body {
+    display: grid;
+    gap: var(--xo-space-2);
+    padding-block-end: var(--xo-space-4);
+  }
+
+  textarea.xo-field__control.xo-cart-extra__note {
+    min-block-size: 5.5rem;
+  }
+
+  .xo-cart-discount__form {
+    display: flex;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-cart-discount__input {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .xo-cart-discount__error {
+    font-size: var(--xo-text-sm);
+    color: var(--xo-error);
+  }
+
+  .xo-cart-discount__codes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-cart-discount__codes:empty {
+    display: none;
+  }
+
+  .xo-cart-discount__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-1);
+    padding: var(--xo-space-1) var(--xo-space-1) var(--xo-space-1) var(--xo-space-3);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-cart-discount__remove {
+    display: grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--xo-fg);
+    cursor: pointer;
+  }
+
+  .xo-cart-totals {
+    display: grid;
+    gap: var(--xo-space-2);
+    margin: 0;
+  }
+
+  .xo-cart-totals__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+    font-size: var(--xo-text-sm);
+    line-height: 1.4;
+  }
+
+  .xo-cart-totals__row dt,
+  .xo-cart-totals__row dd {
+    margin: 0;
+  }
+
+  .xo-cart-totals__row dd {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .xo-cart-totals__row--discount {
+    color: var(--xo-success);
+  }
+
+  .xo-cart-totals__row--total {
+    font-size: var(--xo-text-base);
+    font-weight: 700;
+  }
+
+  .xo-cart-totals__row--total dd {
+    font-size: var(--xo-text-h4);
+    letter-spacing: -0.01em;
+  }
+
+  .xo-cart-summary__tax {
+    margin: calc(var(--xo-space-2) * -1) 0 0;
+    font-size: var(--xo-text-xs);
+    line-height: 1.5;
+    color: var(--xo-muted);
+  }
+
+  .xo-cart-summary__tax small {
+    font-size: inherit;
+  }
+
+  .xo-cart-summary__tax a {
+    color: inherit;
+  }
+
+  .xo-cart-cod {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-3);
+    margin: 0;
+    padding: var(--xo-space-3) var(--xo-space-4);
+    border-radius: calc(var(--xo-radius-card) * 0.7);
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .xo-cart-cod .xo-icon {
+    flex: none;
+  }
+
+  .xo-cart-summary__ctas {
+    display: grid;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-cart-summary__checkout {
+    min-block-size: 3.5rem;
+    font-size: var(--xo-text-base);
+  }
+
+  .xo-cart-summary__checkout:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .xo-cart-summary__express:empty {
+    display: none;
+  }
+{% endstylesheet %}

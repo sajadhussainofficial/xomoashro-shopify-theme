@@ -1,0 +1,76 @@
+{%- doc -%}
+  Trust lines for the cart (Theme settings > Cart, three lines with icons).
+  Fills [days], [amount] and [delivery] from the store facts and hides a line
+  whose fact is not set.
+
+  @example
+  {% render 'xo-cart-trust' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_trust_texts = settings.xo_cart_trust_1 | append: '||' | append: settings.xo_cart_trust_2 | append: '||' | append: settings.xo_cart_trust_3 | split: '||'
+  assign xo_trust_icons = settings.xo_cart_trust_1_icon | append: '||' | append: settings.xo_cart_trust_2_icon | append: '||' | append: settings.xo_cart_trust_3_icon | split: '||'
+  capture xo_trust_items
+    for xo_trust_text in xo_trust_texts
+      if xo_trust_text == blank
+        continue
+      endif
+      assign xo_requires = 'none'
+      if xo_trust_text contains '[amount]'
+        assign xo_requires = 'free_shipping'
+      elsif xo_trust_text contains '[days]'
+        assign xo_requires = 'guarantee'
+      elsif xo_trust_text contains '[delivery]'
+        assign xo_requires = 'delivery'
+      endif
+      capture xo_trust_line
+        render 'xo-fact-text', text: xo_trust_text, requires: xo_requires
+      endcapture
+      if xo_trust_line != blank
+        assign xo_trust_icon = xo_trust_icons[forloop.index0]
+        echo '<li class="xo-cart-trust__item">'
+        if xo_trust_icon != blank and xo_trust_icon != 'none'
+          render 'xo-icon', name: xo_trust_icon, size: 18
+        endif
+        echo '<span>'
+        echo xo_trust_line | escape
+        echo '</span></li>'
+      endif
+    endfor
+  endcapture
+-%}
+{%- if xo_trust_items != blank -%}
+  <ul
+    class="xo-cart-trust"
+    role="list"
+  >
+    {{- xo_trust_items -}}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-cart-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--xo-space-2) var(--xo-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-cart-trust__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-1);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--xo-muted);
+  }
+
+  .xo-cart-trust__item .xo-icon {
+    flex: none;
+    color: var(--xo-fg);
+  }
+{% endstylesheet %}

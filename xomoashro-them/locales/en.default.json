@@ -9,6 +9,35 @@
  */
 {
   "xo": {
+    "cart": {
+      "title": "Your cart",
+      "item_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      },
+      "status": {
+        "one": "{{ count }} item in your cart. Total {{ total }}.",
+        "other": "{{ count }} items in your cart. Total {{ total }}."
+      },
+      "status_empty": "Your cart is empty.",
+      "lines_label": "Items in your cart",
+      "remove": "Remove",
+      "remove_label": "Remove {{ title }}",
+      "each": "{{ price }} each",
+      "free_shipping_remaining_html": "Add <strong>{{ amount }}</strong> more for free delivery",
+      "free_shipping_done": "You have free delivery",
+      "note": "Add a note to your order",
+      "discount": "Have a discount code?",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "summary_heading": "Order summary",
+      "continue": "Continue shopping",
+      "empty_text": "Choose your jar of shilajit and it will show here.",
+      "empty_button": "Shop Shilajit",
+      "upsell_heading": "You might also like",
+      "upsell_add": "Add",
+      "upsell_add_label": "Add {{ title }} to cart"
+    },
     "footer": {
       "social": "Follow Xomoashro",
       "empty_column": "Nothing to show yet. This column is hidden on the store until it has content.",

@@ -10,6 +10,21 @@
 {
   "xo": {
     "settings": {
+      "cart_header": "Xomoashro cart",
+      "cart_intro": "These lines show in the cart drawer and on the cart page. The free delivery bar uses the free delivery amount in your store facts and stays hidden until that amount is set.",
+      "cart_cod_note": "Cash on delivery note",
+      "cart_cod_note_info": "Shown above the checkout button. Leave empty to hide it.",
+      "cart_trust_1_icon": "Trust line 1 icon",
+      "cart_trust_1": "Trust line 1",
+      "cart_trust_2_icon": "Trust line 2 icon",
+      "cart_trust_2": "Trust line 2",
+      "cart_trust_3_icon": "Trust line 3 icon",
+      "cart_trust_3": "Trust line 3",
+      "cart_trust_info": "Use [days], [amount] or [delivery] to fill in your store facts. A line that needs a fact you have not set stays hidden. Leave a line empty to hide it.",
+      "cart_upsell_header": "Cart suggestion",
+      "cart_upsell_product": "Suggested product",
+      "cart_upsell_info": "Shown in the cart with an Add button. Hidden when it is already in the cart or sold out.",
+      "cart_upsell_heading": "Suggestion heading",
       "group": "Xomoashro",
       "intro": "Brand colours and shapes used by every Xomoashro section. The main accent colour is the primary button colour under Buttons.",
       "colors_header": "Colours",
@@ -31,6 +46,7 @@
       "overlay": "Overlays"
     },
     "names": {
+      "main_cart": "Cart page",
       "footer": "Footer",
       "footer_brand": "Brand",
       "footer_links": "Link column",
@@ -78,6 +94,7 @@
       "topic": "Topic"
     },
     "labels": {
+      "show_continue": "Show continue shopping link",
       "bottom_bar": "Bottom bar",
       "copyright_name": "Copyright name",
       "copyright_text": "Text after the copyright",
@@ -234,6 +251,7 @@
       "drawing_smell": "Jar and its smell"
     },
     "info": {
+      "main_cart": "The cart page uses the same lines, summary, free delivery bar and suggestion as the cart drawer. Edit those in Theme settings > Cart.",
       "show_policies": "Lists the policies saved in Settings > Policies. Nothing shows until at least one policy is saved.",
       "footer_logo": "Leave empty to use the built-in Xomoashro logo. Use a light logo when the footer is dark.",
       "social_links": "Only filled-in links show. Paste the full profile address.",

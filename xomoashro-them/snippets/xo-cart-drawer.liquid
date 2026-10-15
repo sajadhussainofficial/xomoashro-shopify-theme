@@ -1,0 +1,284 @@
+{%- doc -%}
+  The Xomoashro cart drawer. Keeps the structure and hooks of Horizon's
+  `cart-drawer` snippet (theme drawer, cart drawer component, empty cart
+  template, hydration key, `.cart-drawer__content` and `.cart-drawer__summary`),
+  so opening, updates without reload, focus and Escape all come from Horizon.
+
+  @param {boolean} [render_wrapper] - Wrap in the section element the Section Rendering API replaces. Defaults to true
+
+  @example
+  {% render 'xo-cart-drawer', render_wrapper: true %}
+{%- enddoc -%}
+
+{%- liquid
+  assign render_wrapper = render_wrapper | default: true, allow_false: true
+-%}
+
+{%- if settings.cart_type == 'drawer' and template.name != 'cart' -%}
+  {%- if render_wrapper -%}
+    <div
+      id="shopify-section-cart-drawer-section"
+      class="shopify-section"
+    >
+  {%- endif -%}
+
+  <script
+    type="module"
+    src="{{ 'cart-drawer.js' | asset_url }}"
+    fetchpriority="low"
+  ></script>
+  <script
+    type="module"
+    src="{{ 'component-cart-items.js' | asset_url }}"
+    fetchpriority="low"
+  ></script>
+  <script
+    type="module"
+    src="{{ 'component-cart-quantity-selector.js' | asset_url }}"
+    fetchpriority="low"
+  ></script>
+  {%- if settings.show_cart_note -%}
+    <script
+      type="module"
+      src="{{ 'cart-note.js' | asset_url }}"
+      fetchpriority="low"
+    ></script>
+  {%- endif -%}
+
+  {%- liquid
+    assign xo_drawer_total = cart.total_price | money | strip_html
+    if cart.empty?
+      assign xo_drawer_status = 'xo.cart.status_empty' | t
+    else
+      assign xo_drawer_status = 'xo.cart.status' | t: count: cart.item_count, total: xo_drawer_total
+    endif
+  -%}
+
+  {%- capture xo_drawer_empty -%}
+    <div class="cart-drawer__content xo-cart-drawer__content xo-cart-drawer__content--empty">
+      {% render 'xo-cart-empty', heading_id: 'cart-drawer-heading', context: 'drawer' %}
+    </div>
+  {%- endcapture -%}
+
+  <theme-drawer
+    id="cart-drawer"
+    data-skip-node-update
+  >
+    <dialog
+      ref="panel"
+      class="theme-drawer__dialog xo-cart-drawer xo-tone-bone"
+      aria-labelledby="cart-drawer-heading"
+      cart-summary-sticky="true"
+    >
+      <cart-drawer-component
+        {% if settings.auto_open_cart_drawer %}
+          auto-open
+        {% endif %}
+      >
+        <template id="empty-cart-template">
+          {{- xo_drawer_empty -}}
+        </template>
+
+        <div
+          class="cart-drawer__inner xo-cart-drawer__inner{% if cart.empty? %} cart-drawer--empty{% endif %}"
+          data-hydration-key="cart-drawer-inner"
+        >
+          <div class="xo-cart-drawer__header">
+            {%- unless cart.empty? -%}
+              <h2
+                class="xo-cart-drawer__title"
+                id="cart-drawer-heading"
+              >
+                {{- 'xo.cart.title' | t }}
+                <span class="xo-cart-drawer__count">{{ 'xo.cart.item_count' | t: count: cart.item_count }}</span>
+              </h2>
+            {%- endunless -%}
+            <button
+              type="button"
+              class="xo-cart-drawer__close"
+              on:click="#cart-drawer/close"
+              aria-label="{{ 'actions.close' | t }}"
+            >
+              {%- render 'xo-icon', name: 'close', size: 20 -%}
+            </button>
+          </div>
+
+          <p
+            class="xo-visually-hidden"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {{- xo_drawer_status -}}
+          </p>
+
+          {%- unless cart.empty? -%}
+            {%- capture xo_drawer_ship -%}
+              {%- render 'xo-free-shipping-bar' -%}
+            {%- endcapture -%}
+            {%- if xo_drawer_ship != blank -%}
+              <div class="xo-cart-drawer__ship">{{ xo_drawer_ship }}</div>
+            {%- endif -%}
+          {%- endunless -%}
+
+          {%- capture xo_drawer_children -%}
+            {%- if cart.empty? -%}
+              {{ xo_drawer_empty }}
+            {%- else -%}
+              <div
+                class="cart-drawer__content xo-cart-drawer__content"
+                aria-label="{{ 'accessibility.cart' | t }}"
+              >
+                <div class="cart-drawer__items xo-cart-drawer__items">
+                  {% render 'xo-cart-lines', context: 'drawer' %}
+                </div>
+                {%- capture xo_drawer_upsell -%}
+                  {%- render 'xo-cart-upsell', section_id: 'cart-drawer-section', context: 'drawer' -%}
+                {%- endcapture -%}
+                {%- if xo_drawer_upsell != blank -%}
+                  <div class="xo-cart-drawer__upsell">{{ xo_drawer_upsell }}</div>
+                {%- endif -%}
+                {%- capture xo_drawer_trust -%}
+                  {%- render 'xo-cart-trust' -%}
+                {%- endcapture -%}
+                {%- if xo_drawer_trust != blank -%}
+                  <div class="xo-cart-drawer__trust">{{ xo_drawer_trust }}</div>
+                {%- endif -%}
+                <div class="cart-drawer__summary xo-cart-drawer__summary">
+                  {% render 'xo-cart-summary', section_id: 'cart-drawer-section', context: 'drawer', show_trust: false %}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endcapture -%}
+          {% render 'cart-items-component',
+            children: xo_drawer_children,
+            is_drawer: true,
+            section_id: 'cart-drawer-section'
+          %}
+        </div>
+      </cart-drawer-component>
+    </dialog>
+  </theme-drawer>
+
+  {%- if render_wrapper -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-cart-drawer {
+    --theme-drawer-width: min(27rem, 100vw);
+  }
+
+  .xo-cart-drawer__inner {
+    background: var(--xo-bg);
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+  }
+
+  .xo-cart-drawer__header {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+    padding: var(--xo-space-4) var(--xo-space-5);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .cart-drawer--empty .xo-cart-drawer__header {
+    border-block-end-color: transparent;
+  }
+
+  .xo-cart-drawer__title {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    color: var(--xo-fg);
+  }
+
+  .xo-cart-drawer__count {
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--xo-muted);
+  }
+
+  .xo-cart-drawer__close {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: var(--xo-tap-target);
+    block-size: var(--xo-tap-target);
+    margin-inline-start: auto;
+    padding: 0;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--xo-fg);
+    cursor: pointer;
+    transition: background-color var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-cart-drawer__close:hover {
+    background: var(--xo-surface);
+  }
+
+  .xo-cart-drawer__ship {
+    flex: none;
+    padding: var(--xo-space-4) var(--xo-space-5);
+    border-block-end: 1px solid var(--xo-line);
+    background: var(--xo-surface);
+  }
+
+  .xo-cart-drawer .cart-drawer__content {
+    background: transparent;
+  }
+
+  .xo-cart-drawer .cart-drawer__items {
+    padding: var(--xo-space-5);
+  }
+
+  .xo-cart-drawer__upsell {
+    padding: 0 var(--xo-space-5) var(--xo-space-5);
+  }
+
+  .xo-cart-drawer__trust {
+    margin-block-start: auto;
+    padding: 0 var(--xo-space-5) var(--xo-space-4);
+  }
+
+  .xo-cart-drawer .cart-drawer__summary {
+    align-items: stretch;
+    gap: 0;
+    padding: var(--xo-space-4) var(--xo-space-5) var(--xo-space-5);
+    border-block-start: 1px solid var(--xo-line);
+    background: var(--xo-surface);
+    mask-image: none;
+  }
+
+  .xo-cart-drawer__trust + .cart-drawer__summary {
+    margin-block-start: 0;
+  }
+
+  .xo-cart-drawer .xo-cart-summary {
+    gap: var(--xo-space-3);
+  }
+
+  .xo-cart-drawer .xo-cart-cod {
+    padding-block: var(--xo-space-2);
+  }
+
+  .xo-cart-drawer__content--empty {
+    justify-content: center;
+    padding: var(--xo-space-5);
+  }
+{% endstylesheet %}

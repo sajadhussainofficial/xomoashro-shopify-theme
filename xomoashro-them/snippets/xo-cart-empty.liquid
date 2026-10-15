@@ -1,0 +1,92 @@
+{%- doc -%}
+  Empty cart message with a button to the product. The button goes to the
+  link set in Theme settings > Cart; when that is left at "all products" and
+  the store sells one product, it goes straight to that product.
+
+  @param {string} heading_id - Id for the heading, so the drawer or page can point its label at it
+  @param {string} [context] - `drawer` or `page`. Defaults to `page`
+
+  @example
+  {% render 'xo-cart-empty', heading_id: 'cart-drawer-heading', context: 'drawer' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_empty_context = context | default: 'page'
+  assign xo_empty_url = settings.empty_cart_button_link
+  if xo_empty_url == blank or xo_empty_url == routes.all_products_collection_url or xo_empty_url == '/collections/all'
+    if collections.all.products_count == 1
+      assign xo_empty_url = collections.all.products.first.url
+    endif
+  endif
+  assign xo_empty_url = xo_empty_url | default: routes.all_products_collection_url
+-%}
+
+<div
+  class="xo-cart-empty xo-cart-empty--{{ xo_empty_context }}"
+  {% if xo_empty_context == 'drawer' %}
+    data-cart-drawer-empty
+  {% endif %}
+>
+  <span class="xo-cart-empty__icon">
+    {%- render 'xo-icon', name: 'bag', size: 26 -%}
+  </span>
+  {%- if xo_empty_context == 'drawer' -%}
+    <h2
+      class="xo-h3 xo-cart-empty__title"
+      id="{{ heading_id }}"
+    >
+      {{- 'content.your_cart_is_empty' | t -}}
+    </h2>
+  {%- else -%}
+    <h1
+      class="xo-h2 xo-cart-empty__title"
+      id="{{ heading_id }}"
+    >
+      {{- 'content.your_cart_is_empty' | t -}}
+    </h1>
+  {%- endif -%}
+  <p class="xo-text xo-muted xo-cart-empty__text">{{ 'xo.cart.empty_text' | t }}</p>
+  <a
+    class="xo-btn xo-cart-empty__button"
+    href="{{ xo_empty_url }}"
+  >
+    {{- 'xo.cart.empty_button' | t -}}
+    {%- render 'xo-icon', name: 'arrow-right', size: 18 -%}
+  </a>
+  {%- if shop.customer_accounts_enabled and customer == null -%}
+    <p class="xo-small xo-muted xo-cart-empty__login">{{ 'actions.log_in_html' | t: link: routes.account_login_url }}</p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .xo-cart-empty {
+    display: grid;
+    justify-items: center;
+    gap: var(--xo-space-4);
+    padding-block: var(--xo-space-7);
+    text-align: center;
+  }
+
+  .xo-cart-empty__icon {
+    display: grid;
+    place-items: center;
+    inline-size: 4rem;
+    block-size: 4rem;
+    border-radius: 50%;
+    background: var(--xo-surface);
+    border: 1px solid var(--xo-line);
+    color: var(--xo-fg);
+  }
+
+  .xo-cart-empty__text {
+    max-inline-size: 30ch;
+  }
+
+  .xo-cart-empty__button {
+    margin-block-start: var(--xo-space-2);
+  }
+
+  .xo-cart-empty__login a {
+    color: inherit;
+  }
+{% endstylesheet %}

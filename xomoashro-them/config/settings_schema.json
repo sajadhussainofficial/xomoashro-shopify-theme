@@ -1645,6 +1645,236 @@
       },
       {
         "type": "header",
+        "content": "t:xo.settings.cart_header"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:xo.settings.cart_intro"
+      },
+      {
+        "type": "text",
+        "id": "xo_cart_cod_note",
+        "label": "t:xo.settings.cart_cod_note",
+        "info": "t:xo.settings.cart_cod_note_info",
+        "default": "Pay in cash when your order arrives."
+      },
+      {
+        "type": "select",
+        "id": "xo_cart_trust_1_icon",
+        "label": "t:xo.settings.cart_trust_1_icon",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:xo.options.icon_none"
+          },
+          {
+            "value": "check-circle",
+            "label": "t:xo.options.icon_check_circle"
+          },
+          {
+            "value": "shield",
+            "label": "t:xo.options.icon_shield"
+          },
+          {
+            "value": "truck",
+            "label": "t:xo.options.icon_truck"
+          },
+          {
+            "value": "cash",
+            "label": "t:xo.options.icon_cash"
+          },
+          {
+            "value": "drop",
+            "label": "t:xo.options.icon_drop"
+          },
+          {
+            "value": "leaf",
+            "label": "t:xo.options.icon_leaf"
+          },
+          {
+            "value": "mountain",
+            "label": "t:xo.options.icon_mountain"
+          },
+          {
+            "value": "clock",
+            "label": "t:xo.options.icon_clock"
+          },
+          {
+            "value": "chat",
+            "label": "t:xo.options.icon_chat"
+          },
+          {
+            "value": "whatsapp",
+            "label": "t:xo.options.icon_whatsapp"
+          },
+          {
+            "value": "jar",
+            "label": "t:xo.options.icon_jar"
+          },
+          {
+            "value": "star",
+            "label": "t:xo.options.icon_star"
+          }
+        ],
+        "default": "truck"
+      },
+      {
+        "type": "text",
+        "id": "xo_cart_trust_1",
+        "label": "t:xo.settings.cart_trust_1",
+        "default": "Delivery across Pakistan"
+      },
+      {
+        "type": "select",
+        "id": "xo_cart_trust_2_icon",
+        "label": "t:xo.settings.cart_trust_2_icon",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:xo.options.icon_none"
+          },
+          {
+            "value": "check-circle",
+            "label": "t:xo.options.icon_check_circle"
+          },
+          {
+            "value": "shield",
+            "label": "t:xo.options.icon_shield"
+          },
+          {
+            "value": "truck",
+            "label": "t:xo.options.icon_truck"
+          },
+          {
+            "value": "cash",
+            "label": "t:xo.options.icon_cash"
+          },
+          {
+            "value": "drop",
+            "label": "t:xo.options.icon_drop"
+          },
+          {
+            "value": "leaf",
+            "label": "t:xo.options.icon_leaf"
+          },
+          {
+            "value": "mountain",
+            "label": "t:xo.options.icon_mountain"
+          },
+          {
+            "value": "clock",
+            "label": "t:xo.options.icon_clock"
+          },
+          {
+            "value": "chat",
+            "label": "t:xo.options.icon_chat"
+          },
+          {
+            "value": "whatsapp",
+            "label": "t:xo.options.icon_whatsapp"
+          },
+          {
+            "value": "jar",
+            "label": "t:xo.options.icon_jar"
+          },
+          {
+            "value": "star",
+            "label": "t:xo.options.icon_star"
+          }
+        ],
+        "default": "drop"
+      },
+      {
+        "type": "text",
+        "id": "xo_cart_trust_2",
+        "label": "t:xo.settings.cart_trust_2",
+        "default": "100% resin, no fillers"
+      },
+      {
+        "type": "select",
+        "id": "xo_cart_trust_3_icon",
+        "label": "t:xo.settings.cart_trust_3_icon",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:xo.options.icon_none"
+          },
+          {
+            "value": "check-circle",
+            "label": "t:xo.options.icon_check_circle"
+          },
+          {
+            "value": "shield",
+            "label": "t:xo.options.icon_shield"
+          },
+          {
+            "value": "truck",
+            "label": "t:xo.options.icon_truck"
+          },
+          {
+            "value": "cash",
+            "label": "t:xo.options.icon_cash"
+          },
+          {
+            "value": "drop",
+            "label": "t:xo.options.icon_drop"
+          },
+          {
+            "value": "leaf",
+            "label": "t:xo.options.icon_leaf"
+          },
+          {
+            "value": "mountain",
+            "label": "t:xo.options.icon_mountain"
+          },
+          {
+            "value": "clock",
+            "label": "t:xo.options.icon_clock"
+          },
+          {
+            "value": "chat",
+            "label": "t:xo.options.icon_chat"
+          },
+          {
+            "value": "whatsapp",
+            "label": "t:xo.options.icon_whatsapp"
+          },
+          {
+            "value": "jar",
+            "label": "t:xo.options.icon_jar"
+          },
+          {
+            "value": "star",
+            "label": "t:xo.options.icon_star"
+          }
+        ],
+        "default": "shield"
+      },
+      {
+        "type": "text",
+        "id": "xo_cart_trust_3",
+        "label": "t:xo.settings.cart_trust_3",
+        "default": "[days]-day money-back guarantee",
+        "info": "t:xo.settings.cart_trust_info"
+      },
+      {
+        "type": "header",
+        "content": "t:xo.settings.cart_upsell_header"
+      },
+      {
+        "type": "product",
+        "id": "xo_cart_upsell_product",
+        "label": "t:xo.settings.cart_upsell_product",
+        "info": "t:xo.settings.cart_upsell_info"
+      },
+      {
+        "type": "text",
+        "id": "xo_cart_upsell_heading",
+        "label": "t:xo.settings.cart_upsell_heading",
+        "default": "You might also like"
+      },
+      {
+        "type": "header",
         "content": "t:content.product_media"
       },
       {
