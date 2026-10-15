@@ -1,0 +1,21 @@
+mutation CreateTestProduct($input: ProductSetInput!) {
+  productSet(synchronous: true, input: $input) {
+    product {
+      id
+      handle
+      status
+      variants(first: 5) {
+        nodes {
+          id
+          title
+          price
+        }
+      }
+    }
+    userErrors {
+      field
+      message
+      code
+    }
+  }
+}
