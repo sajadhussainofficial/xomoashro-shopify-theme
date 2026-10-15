@@ -1,0 +1,157 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_collection = collection
+  if xo_collection == blank
+    assign xo_collection = collections.all
+  endif
+  assign xo_cols = s.columns
+  if xo_collection.products_count < xo_cols
+    assign xo_cols = xo_collection.products_count | at_least: 2
+  endif
+  assign xo_cols_md = xo_cols | at_most: 3
+  assign xo_title = s.heading
+  if xo_title == blank
+    assign xo_title = xo_collection.title | escape
+  endif
+-%}
+
+{%- paginate xo_collection.products by s.per_page -%}
+  <div class="xo-collection xo-section xo-section--tight xo-tone-{{ s.tone }}">
+    <div class="xo-container">
+      <header class="xo-collection__head">
+        {%- if s.eyebrow != blank -%}
+          <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h1 class="xo-h1 xo-collection__title">{{ xo_title }}</h1>
+        {%- if s.show_description and xo_collection.description != blank -%}
+          <div class="xo-lead xo-muted xo-rte xo-collection__text">{{ xo_collection.description }}</div>
+        {%- endif -%}
+        {%- if s.show_count and xo_collection.products_count > 1 -%}
+          <p class="xo-small xo-muted">{{ 'xo.collection.count' | t: count: xo_collection.products_count }}</p>
+        {%- endif -%}
+      </header>
+
+      {%- if xo_collection.products_count == 0 -%}
+        <div class="xo-collection__empty">
+          <p class="xo-lead">{{ 'xo.collection.empty' | t }}</p>
+          <a
+            class="xo-btn xo-btn--secondary"
+            href="{{ routes.root_url }}"
+          >
+            {{- 'xo.collection.back_home' | t -}}
+          </a>
+        </div>
+      {%- elsif xo_collection.products_count == 1 and s.feature_single -%}
+        <div class="xo-collection__feature">
+          {%- for product in xo_collection.products -%}
+            {% render 'xo-product-card',
+              product: product,
+              layout: 'feature',
+              form_suffix: section.id,
+              heading_level: 'h2',
+              pitch: s.pitch,
+              eager: true
+            %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <ul
+          class="xo-card-grid"
+          role="list"
+          style="--xo-cols-lg: {{ xo_cols }}; --xo-cols-md: {{ xo_cols_md }};"
+        >
+          {%- for product in xo_collection.products -%}
+            <li class="xo-card-grid__item">
+              {%- liquid
+                assign xo_eager = false
+                if forloop.index <= 2 and paginate.current_page == 1
+                  assign xo_eager = true
+                endif
+              -%}
+              {% render 'xo-product-card', product: product, form_suffix: section.id, eager: xo_eager %}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% render 'xo-pagination', paginate: paginate %}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endpaginate -%}
+
+{% stylesheet %}
+  .xo-collection__head {
+    display: grid;
+    gap: var(--xo-space-3);
+    max-inline-size: 46rem;
+    margin-block-end: var(--xo-space-7);
+  }
+
+  .xo-collection__text p {
+    margin: 0;
+  }
+
+  .xo-collection__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--xo-space-4);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.main_collection",
+  "tag": "section",
+  "class": "xo-main-collection-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.main_collection" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Pure Himalayan Shilajit" },
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "info": "t:xo.info.collection_heading" },
+    { "type": "checkbox", "id": "show_description", "label": "t:xo.labels.show_description", "default": true },
+    { "type": "checkbox", "id": "show_count", "label": "t:xo.labels.show_count", "default": true },
+    { "type": "header", "content": "t:xo.labels.grid_header" },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:xo.labels.per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:xo.labels.columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    { "type": "header", "content": "t:xo.labels.single_header" },
+    {
+      "type": "checkbox",
+      "id": "feature_single",
+      "label": "t:xo.labels.feature_single",
+      "info": "t:xo.info.feature_single",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "pitch",
+      "label": "t:xo.labels.pitch",
+      "default": "<p>A potent mineral resin formed in the high-altitude Himalayan mountains, sourced above 16,000 ft and prepared with care. Pay in cash when your order arrives.</p>"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,476 @@
+{%- doc -%}
+  Product card used on the catalog, search results and anywhere a product is
+  listed: photo, title, one-line benefit, rating (only when real), price, price
+  per gram, badge and quick add. Quick add uses Horizon's product form, so the
+  cart drawer opens with the item. Products with several sizes get a size list.
+
+  The one-line benefit is the product's subtitle (standard field
+  `descriptors.subtitle`), or else the start of its description.
+
+  @param {object} product - The product
+  @param {string} [layout] - `grid` (default) or `feature`, a wide card used when a list has one product
+  @param {string} [form_suffix] - Unique text for the quick-add form id when the same product appears twice on a page
+  @param {string} [heading_level] - `h2` or `h3` (default)
+  @param {string} [pitch] - Extra rich text for the feature card
+  @param {boolean} [show_quick_add] - Defaults to true
+  @param {boolean} [eager] - Load the photo straight away (first card on the page)
+
+  @example
+  {% render 'xo-product-card', product: product, form_suffix: section.id %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_layout = layout | default: 'grid'
+  assign xo_heading = heading_level | default: 'h3'
+  assign xo_quick = show_quick_add | default: true, allow_false: true
+  assign xo_variant = product.selected_or_first_available_variant
+  assign xo_image = product.featured_media.preview_image
+
+  assign xo_benefit = product.metafields.descriptors.subtitle.value
+  if xo_benefit == blank
+    assign xo_benefit = product.description | strip_html | strip_newlines | truncatewords: 14
+  endif
+
+  assign xo_on_sale = false
+  if product.compare_at_price_min > product.price_min
+    assign xo_on_sale = true
+  endif
+
+  capture xo_per_gram
+    render 'xo-per-gram-price', variant: xo_variant
+  endcapture
+
+  assign xo_rating = product.metafields.reviews.rating.value
+  assign xo_rating_count = product.metafields.reviews.rating_count.value | default: 0
+
+  assign xo_form_id = 'XoCardForm-' | append: form_suffix | append: '-' | append: product.id
+  assign xo_sizes = product.variants.size
+
+  if xo_layout == 'feature'
+    assign xo_sizes_attr = '(min-width: 990px) 50vw, 100vw'
+    assign xo_widths = '400, 600, 800, 1000, 1200, 1500'
+  else
+    assign xo_sizes_attr = '(min-width: 990px) 25vw, (min-width: 600px) 45vw, 92vw'
+    assign xo_widths = '300, 400, 500, 600, 800'
+  endif
+  if eager
+    assign xo_loading = 'eager'
+  else
+    assign xo_loading = 'lazy'
+  endif
+-%}
+
+<article class="xo-pcard xo-pcard--{{ xo_layout }}">
+  <a
+    class="xo-pcard__media"
+    href="{{ product.url }}"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    {%- if xo_image -%}
+      {{-
+        xo_image
+        | image_url: width: 1500
+        | image_tag: widths: xo_widths, sizes: xo_sizes_attr, loading: xo_loading, alt: '', class: 'xo-pcard__image'
+      -}}
+    {%- else -%}
+      <span class="xo-pcard__placeholder">{%- render 'xo-icon', name: 'jar', size: 40 -%}</span>
+    {%- endif -%}
+    {%- if product.available == false -%}
+      <span class="xo-pcard__badge xo-pcard__badge--muted">{{ 'products.product.sold_out' | t }}</span>
+    {%- elsif xo_on_sale -%}
+      <span class="xo-pcard__badge">{{ 'xo.card.sale' | t }}</span>
+    {%- endif -%}
+  </a>
+
+  <div class="xo-pcard__body">
+    <{{ xo_heading }} class="xo-pcard__title">
+      <a href="{{ product.url }}">{{ product.title | escape }}</a>
+    </{{ xo_heading }}>
+
+    {%- if xo_benefit != blank -%}
+      <p class="xo-pcard__benefit">{{ xo_benefit | escape }}</p>
+    {%- endif -%}
+
+    {%- if xo_layout == 'feature' and pitch != blank -%}
+      <div class="xo-pcard__pitch xo-rte">{{ pitch }}</div>
+    {%- endif -%}
+
+    {%- if xo_rating != blank and xo_rating_count > 0 -%}
+      {%- liquid
+        assign xo_rating_value = xo_rating.rating | round: 1
+        assign xo_rating_max = xo_rating.scale_max | default: 5
+        assign xo_rating_percent = xo_rating.rating | times: 100.0 | divided_by: xo_rating_max
+      -%}
+      <p class="xo-pcard__rating">
+        <span
+          class="xo-stars"
+          style="--xo-stars: {{ xo_rating_percent }}%;"
+          aria-hidden="true"
+        ></span>
+        <span>{{ 'xo.product.rating' | t: rating: xo_rating_value, max: xo_rating_max, count: xo_rating_count }}</span>
+      </p>
+    {%- endif -%}
+
+    <div class="xo-pcard__prices">
+      <p class="xo-pcard__price">
+        {%- if product.price_varies -%}
+          {%- assign xo_price_min = product.price_min | money -%}
+          {{ 'xo.card.from' | t: price: xo_price_min }}
+        {%- else -%}
+          {{ product.price_min | money }}
+        {%- endif -%}
+        {%- if xo_on_sale -%}
+          <span class="xo-visually-hidden">{{ 'content.price_regular' | t }}</span>
+          <s class="xo-pcard__was">{{ product.compare_at_price_min | money }}</s>
+        {%- endif -%}
+      </p>
+      {%- if xo_per_gram != blank -%}
+        <p class="xo-pcard__per-gram">{{ 'xo.bundles.per_gram' | t: price: xo_per_gram }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if xo_quick -%}
+      {%- if product.available -%}
+        <product-form-component
+          class="xo-pcard__form"
+          data-product-id="{{ product.id }}"
+          on:submit="/handleSubmit"
+        >
+          <div
+            class="xo-visually-hidden"
+            aria-live="assertive"
+            role="status"
+            aria-atomic="true"
+            ref="liveRegion"
+          ></div>
+          {%- form 'product', product, id: xo_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form', class: 'xo-pcard__quick' -%}
+            {%- if xo_sizes > 1 -%}
+              <label
+                class="xo-visually-hidden"
+                for="{{ xo_form_id }}-size"
+              >
+                {{- 'xo.card.choose_size' | t: title: product.title -}}
+              </label>
+              <select
+                id="{{ xo_form_id }}-size"
+                class="xo-pcard__select"
+                name="id"
+                ref="variantId"
+              >
+                {%- for xo_option in product.variants -%}
+                  <option
+                    value="{{ xo_option.id }}"
+                    {% if xo_option.id == xo_variant.id %}
+                      selected
+                    {% endif %}
+                    {% unless xo_option.available %}
+                      disabled
+                    {% endunless %}
+                  >
+                    {{- xo_option.title | escape }} · {{ xo_option.price | money_without_trailing_zeros -}}
+                    {%- unless xo_option.available %} ({{ 'products.product.sold_out' | t }}){% endunless -%}
+                  </option>
+                {%- endfor -%}
+              </select>
+            {%- else -%}
+              <input
+                type="hidden"
+                name="id"
+                ref="variantId"
+                value="{{ xo_variant.id }}"
+              >
+            {%- endif -%}
+            <input
+              type="hidden"
+              name="quantity"
+              value="1"
+            >
+            <add-to-cart-component
+              class="xo-pcard__add-wrap"
+              ref="addToCartButtonContainer"
+              data-add-to-cart-animation="false"
+            >
+              <button
+                class="xo-btn {% if xo_layout == 'feature' %}xo-pcard__add--main{% else %}xo-btn--solid xo-btn--sm{% endif %} xo-pcard__add"
+                type="submit"
+                name="add"
+                ref="addToCartButton"
+                on:click="/handleClick"
+                aria-label="{{ 'xo.bundles.add_label' | t: title: product.title | escape }}"
+              >
+                {{- 'products.product.add_to_cart' | t -}}
+              </button>
+            </add-to-cart-component>
+          {%- endform -%}
+        </product-form-component>
+      {%- else -%}
+        <button
+          class="xo-btn xo-btn--secondary xo-btn--sm xo-pcard__add"
+          type="button"
+          disabled
+        >
+          {{- 'products.product.sold_out' | t -}}
+        </button>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if xo_layout == 'feature' -%}
+      <a
+        class="xo-link xo-pcard__details"
+        href="{{ product.url }}"
+      >
+        {{- 'xo.card.view_details' | t -}}
+      </a>
+    {%- endif -%}
+  </div>
+</article>
+
+{% stylesheet %}
+  .xo-pcard {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: var(--xo-space-4);
+    min-inline-size: 0;
+    font-family: var(--xo-font-body);
+    color: var(--xo-fg);
+  }
+
+  .xo-pcard__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 1;
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+    overflow: hidden;
+  }
+
+  .xo-pcard__image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform var(--xo-duration-slow) var(--xo-ease);
+  }
+
+  .xo-pcard:hover .xo-pcard__image {
+    transform: scale(1.03);
+  }
+
+  .xo-pcard__placeholder {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    color: var(--xo-muted);
+  }
+
+  .xo-pcard__badge {
+    position: absolute;
+    inset-block-start: var(--xo-space-3);
+    inset-inline-start: var(--xo-space-3);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+    font-size: var(--xo-text-xs);
+    font-weight: 700;
+  }
+
+  .xo-pcard__badge--muted {
+    background: var(--xo-bg);
+    color: var(--xo-fg);
+    border: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-pcard__body {
+    display: grid;
+    gap: var(--xo-space-2);
+    align-content: start;
+  }
+
+  .xo-pcard__title {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .xo-pcard__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .xo-pcard__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .xo-pcard__title a:focus-visible {
+    outline: none;
+  }
+
+  .xo-pcard:has(.xo-pcard__title a:focus-visible) {
+    outline: 2px solid var(--xo-fg);
+    outline-offset: 4px;
+    border-radius: var(--xo-radius-card);
+  }
+
+  .xo-pcard__benefit {
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+    color: var(--xo-muted);
+  }
+
+  .xo-pcard--grid .xo-pcard__benefit {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .xo-pcard__rating {
+    display: flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-size: var(--xo-text-xs);
+  }
+
+  .xo-pcard__prices {
+    display: grid;
+    gap: 2px;
+  }
+
+  .xo-pcard__price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    align-items: baseline;
+    margin: 0;
+    font-size: var(--xo-text-base);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-pcard__was {
+    font-size: var(--xo-text-sm);
+    font-weight: 400;
+    color: var(--xo-muted);
+  }
+
+  .xo-pcard__per-gram {
+    margin: 0;
+    font-size: var(--xo-text-xs);
+    color: var(--xo-muted);
+  }
+
+  .xo-pcard__form,
+  .xo-pcard__add,
+  .xo-pcard__details,
+  .xo-pcard__select,
+  .xo-pcard__rating {
+    position: relative;
+    z-index: 1;
+  }
+
+  .xo-pcard__form {
+    display: block;
+    margin-block-start: var(--xo-space-2);
+  }
+
+  .xo-pcard__quick {
+    display: grid;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-pcard__select {
+    inline-size: 100%;
+    min-block-size: var(--xo-tap-target);
+    padding: 0 2.25rem 0 var(--xo-space-4);
+    border: 1px solid var(--xo-control-border);
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.5'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E") no-repeat right 1rem center;
+    color: var(--xo-fg);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    appearance: none;
+  }
+
+  .xo-pcard__add-wrap {
+    display: flex;
+  }
+
+  .xo-pcard__add {
+    inline-size: 100%;
+  }
+
+  .xo-pcard--feature {
+    grid-template-rows: none;
+    gap: var(--xo-space-6);
+    align-items: center;
+  }
+
+  @media (min-width: 990px) {
+    .xo-pcard--feature {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: var(--xo-space-8);
+    }
+  }
+
+  .xo-pcard--feature .xo-pcard__body {
+    gap: var(--xo-space-3);
+    max-inline-size: 32rem;
+  }
+
+  .xo-pcard--feature .xo-pcard__title {
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h2);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .xo-pcard--feature .xo-pcard__benefit {
+    font-size: var(--xo-text-lead);
+  }
+
+  .xo-pcard--feature .xo-pcard__price {
+    font-size: var(--xo-text-h4);
+  }
+
+  .xo-pcard--feature .xo-pcard__form {
+    margin-block-start: var(--xo-space-3);
+  }
+
+  .xo-pcard--feature .xo-pcard__quick {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 600px) {
+    .xo-pcard--feature .xo-pcard__quick {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  .xo-pcard__add--main {
+    min-block-size: 3.25rem;
+  }
+
+  .xo-pcard__details {
+    justify-self: start;
+    margin-block-start: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-pcard__image {
+      transition: none;
+    }
+  }
+{% endstylesheet %}

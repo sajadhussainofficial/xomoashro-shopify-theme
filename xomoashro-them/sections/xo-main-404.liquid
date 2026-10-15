@@ -1,0 +1,132 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_shop_url = routes.all_products_collection_url
+  if collections.all.products_count == 1
+    assign xo_shop_url = collections.all.products.first.url
+  endif
+-%}
+
+<div class="xo-404 xo-section xo-tone-{{ s.tone }}">
+  <div class="xo-container xo-container--narrow xo-404__inner">
+    <p class="xo-404__code" aria-hidden="true">404</p>
+    {%- if s.eyebrow != blank -%}
+      <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 class="xo-h1 xo-404__title">{{ s.heading }}</h1>
+    {%- if s.text != blank -%}
+      <div class="xo-lead xo-muted xo-rte">{{ s.text }}</div>
+    {%- endif -%}
+
+    <form
+      class="xo-searchbar xo-404__form"
+      action="{{ routes.search_url }}"
+      method="get"
+      role="search"
+    >
+      <label
+        class="xo-visually-hidden"
+        for="Xo404Search-{{ section.id }}"
+      >
+        {{- 'xo.search.label' | t -}}
+      </label>
+      <input
+        class="xo-field__control xo-searchbar__input"
+        id="Xo404Search-{{ section.id }}"
+        type="search"
+        name="q"
+        placeholder="{{ 'xo.search.placeholder' | t }}"
+      >
+      <button
+        class="xo-btn xo-btn--solid"
+        type="submit"
+      >
+        {%- render 'xo-icon', name: 'search', size: 18 -%}
+        <span>{{ 'xo.search.submit' | t }}</span>
+      </button>
+    </form>
+
+    <div class="xo-404__actions">
+      <a
+        class="xo-btn"
+        href="{{ xo_shop_url }}"
+      >
+        {{- s.shop_label | escape -}}
+        {%- render 'xo-icon', name: 'arrow-right', size: 18 -%}
+      </a>
+      <a
+        class="xo-btn xo-btn--secondary"
+        href="{{ routes.root_url }}"
+      >
+        {{- s.home_label | escape -}}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-404__inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--xo-space-4);
+    text-align: center;
+  }
+
+  .xo-404__code {
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: clamp(5rem, 3rem + 10vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    color: var(--xo-heading-soft);
+  }
+
+  .xo-404__title {
+    max-inline-size: 18ch;
+  }
+
+  .xo-404__form {
+    inline-size: min(100%, 32rem);
+    margin-block-start: var(--xo-space-3);
+  }
+
+  .xo-404__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--xo-space-3);
+    margin-block-start: var(--xo-space-2);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.main_404",
+  "tag": "section",
+  "class": "xo-404-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Page not found" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "This path leads <em>nowhere</em>" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "<p>The page you are looking for has moved or no longer exists. Search below, or head to our shilajit.</p>"
+    },
+    { "type": "text", "id": "shop_label", "label": "t:xo.labels.shop_button", "default": "Shop Shilajit" },
+    { "type": "text", "id": "home_label", "label": "t:xo.labels.home_button", "default": "Back to home" }
+  ]
+}
+{% endschema %}
