@@ -708,3 +708,58 @@ svg.xo-img {
     }
   }
 }
+
+/* Shared by catalog, search, 404 and product pages */
+
+.xo-stars {
+  --xo-star-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z'/%3E%3C/svg%3E");
+
+  inline-size: 5.5rem;
+  block-size: 1.1rem;
+  background: linear-gradient(90deg, var(--xo-fg) var(--xo-stars), var(--xo-line-strong) var(--xo-stars));
+  mask: var(--xo-star-shape) left / 1.1rem 1.1rem repeat-x;
+}
+
+.xo-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--xo-space-6) var(--xo-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 750px) {
+  .xo-card-grid {
+    grid-template-columns: repeat(var(--xo-cols-md, 3), minmax(0, 1fr));
+    gap: var(--xo-space-7) var(--xo-space-5);
+  }
+}
+
+@media (min-width: 990px) {
+  .xo-card-grid {
+    grid-template-columns: repeat(var(--xo-cols-lg, 3), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  .xo-card-grid .xo-pcard__select {
+    font-size: var(--xo-text-xs);
+    padding-inline-start: var(--xo-space-3);
+  }
+}
+
+.xo-card-grid__item {
+  display: grid;
+}
+
+.xo-searchbar {
+  display: flex;
+  gap: var(--xo-space-2);
+}
+
+.xo-searchbar .xo-searchbar__input {
+  flex: 1;
+  min-inline-size: 0;
+  border-radius: var(--xo-radius-pill);
+}

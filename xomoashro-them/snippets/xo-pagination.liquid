@@ -1,0 +1,118 @@
+{%- doc -%}
+  Page links for a paginated list. Plain links, so search engines can follow
+  them. Outputs nothing when there is only one page.
+
+  @param {object} paginate - The `paginate` object from a `{% paginate %}` tag
+
+  @example
+  {% render 'xo-pagination', paginate: paginate %}
+{%- enddoc -%}
+
+{%- if paginate.pages > 1 -%}
+  <nav
+    class="xo-pages"
+    aria-label="{{ 'xo.pagination.label' | t }}"
+  >
+    <ul
+      class="xo-pages__list"
+      role="list"
+    >
+      {%- if paginate.previous -%}
+        <li>
+          <a
+            class="xo-pages__link xo-pages__link--step"
+            href="{{ paginate.previous.url }}"
+            rel="prev"
+          >
+            {%- render 'xo-icon', name: 'arrow-right', size: 16, class: 'xo-pages__back' -%}
+            <span class="xo-visually-hidden">{{ 'xo.pagination.previous' | t }}</span>
+          </a>
+        </li>
+      {%- endif -%}
+      {%- for part in paginate.parts -%}
+        <li>
+          {%- if part.is_link -%}
+            <a
+              class="xo-pages__link"
+              href="{{ part.url }}"
+            >
+              <span class="xo-visually-hidden">{{ 'xo.pagination.page' | t }}</span>
+              {{- part.title -}}
+            </a>
+          {%- elsif part.title == paginate.current_page -%}
+            <span
+              class="xo-pages__link xo-pages__link--current"
+              aria-current="page"
+            >
+              <span class="xo-visually-hidden">{{ 'xo.pagination.page' | t }}</span>
+              {{- part.title -}}
+            </span>
+          {%- else -%}
+            <span class="xo-pages__gap">{{ part.title }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+      {%- if paginate.next -%}
+        <li>
+          <a
+            class="xo-pages__link xo-pages__link--step"
+            href="{{ paginate.next.url }}"
+            rel="next"
+          >
+            {%- render 'xo-icon', name: 'arrow-right', size: 16 -%}
+            <span class="xo-visually-hidden">{{ 'xo.pagination.next' | t }}</span>
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+  </nav>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-pages {
+    margin-block-start: var(--xo-space-7);
+  }
+
+  .xo-pages__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-pages__link,
+  .xo-pages__gap {
+    display: grid;
+    place-items: center;
+    min-inline-size: var(--xo-tap-target);
+    block-size: var(--xo-tap-target);
+    padding: 0 var(--xo-space-2);
+    border-radius: var(--xo-radius-pill);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    color: var(--xo-fg);
+    text-decoration: none;
+  }
+
+  .xo-pages__link {
+    border: 1px solid var(--xo-line-strong);
+  }
+
+  .xo-pages__link:hover {
+    border-color: var(--xo-fg);
+  }
+
+  .xo-pages__link--current {
+    background: var(--xo-fg);
+    border-color: var(--xo-fg);
+    color: var(--xo-bg);
+  }
+
+  .xo-pages__back {
+    transform: scaleX(-1);
+  }
+{% endstylesheet %}
