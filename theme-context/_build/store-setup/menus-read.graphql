@@ -1,0 +1,14 @@
+query Menus {
+  menus(first: 10) {
+    nodes {
+      id
+      handle
+      title
+      items {
+        title
+        type
+        url
+      }
+    }
+  }
+}
