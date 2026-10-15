@@ -1,0 +1,317 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_form_id = 'XoContactForm-' | append: section.id
+  assign xo_error_id = xo_form_id | append: '-errors'
+  capture xo_wa_url
+    render 'xo-shop-facts', fact: 'whatsapp_url', message: s.whatsapp_message
+  endcapture
+  assign xo_wa_url = xo_wa_url | strip
+  capture xo_wa_number
+    render 'xo-shop-facts', fact: 'whatsapp_number'
+  endcapture
+  assign xo_wa_number = xo_wa_number | strip
+  assign xo_wa_display = '+' | append: xo_wa_number
+  if xo_wa_number.size == 12
+    assign xo_wa_cc = xo_wa_number | slice: 0, 2
+    assign xo_wa_a = xo_wa_number | slice: 2, 3
+    assign xo_wa_b = xo_wa_number | slice: 5, 7
+    assign xo_wa_display = '+' | append: xo_wa_cc | append: ' ' | append: xo_wa_a | append: ' ' | append: xo_wa_b
+  endif
+  capture xo_email
+    render 'xo-shop-facts', fact: 'support_email'
+  endcapture
+  assign xo_email = xo_email | strip
+  assign xo_phone_digits = s.phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
+-%}
+
+<div class="xo-contact xo-section xo-section--tight xo-tone-{{ s.tone }}">
+  <div class="xo-container xo-contact__inner">
+    <div class="xo-contact__info">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, level: s.heading_level, rule: false -%}
+
+      <ul
+        class="xo-contact__methods"
+        role="list"
+      >
+        {%- if xo_wa_url != blank -%}
+          <li class="xo-contact__method xo-contact__method--main">
+            <span class="xo-contact__icon">{%- render 'xo-icon', name: 'whatsapp', size: 22 -%}</span>
+            <div>
+              <p class="xo-contact__label">{{ 'xo.contact.whatsapp' | t }}</p>
+              <p class="xo-contact__value">{{ xo_wa_display }}</p>
+              <p class="xo-small xo-muted">{{ s.whatsapp_note | escape }}</p>
+            </div>
+            <a
+              class="xo-btn xo-btn--solid xo-btn--sm"
+              href="{{ xo_wa_url }}"
+              target="_blank"
+              rel="noopener"
+            >
+              {{- 'xo.contact.chat_now' | t -}}
+              <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if s.phone != blank -%}
+          <li class="xo-contact__method">
+            <span class="xo-contact__icon">{%- render 'xo-icon', name: 'phone', size: 20 -%}</span>
+            <div>
+              <p class="xo-contact__label">{{ 'xo.contact.phone' | t }}</p>
+              <a
+                class="xo-contact__value"
+                href="tel:{{ xo_phone_digits }}"
+                >{{ s.phone | escape }}</a
+              >
+            </div>
+          </li>
+        {%- endif -%}
+        {%- if xo_email != blank -%}
+          <li class="xo-contact__method">
+            <span class="xo-contact__icon">{%- render 'xo-icon', name: 'mail', size: 20 -%}</span>
+            <div>
+              <p class="xo-contact__label">{{ 'xo.contact.email' | t }}</p>
+              <a
+                class="xo-contact__value"
+                href="mailto:{{ xo_email }}"
+                >{{ xo_email }}</a
+              >
+            </div>
+          </li>
+        {%- endif -%}
+        {%- if s.address != blank -%}
+          <li class="xo-contact__method">
+            <span class="xo-contact__icon">{%- render 'xo-icon', name: 'pin', size: 20 -%}</span>
+            <div>
+              <p class="xo-contact__label">{{ 'xo.contact.location' | t }}</p>
+              <p class="xo-contact__value">{{ s.address | escape }}</p>
+            </div>
+          </li>
+        {%- endif -%}
+        {%- if s.hours != blank -%}
+          <li class="xo-contact__method">
+            <span class="xo-contact__icon">{%- render 'xo-icon', name: 'clock', size: 20 -%}</span>
+            <div>
+              <p class="xo-contact__label">{{ 'xo.contact.hours' | t }}</p>
+              <p class="xo-contact__value">{{ s.hours | escape }}</p>
+            </div>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    <div class="xo-form-card xo-contact__card">
+      <h2 class="xo-h4">{{ s.form_heading | escape }}</h2>
+      {%- form 'contact', id: xo_form_id, class: 'xo-form' -%}
+        <input
+          type="hidden"
+          name="contact[Form]"
+          value="{{ s.form_name | escape }}"
+        >
+        {%- if form.posted_successfully? -%}
+          <p
+            class="xo-form__message xo-form__message--success"
+            role="status"
+            tabindex="-1"
+            autofocus
+          >
+            {%- render 'xo-icon', name: 'check-circle', size: 20 -%}
+            <span>{{ s.success_message | escape }}</span>
+          </p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <div
+            class="xo-form__message xo-form__message--error"
+            id="{{ xo_error_id }}"
+            role="alert"
+          >
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <p class="xo-small xo-muted xo-form__legend">{{ 'xo.forms.required_note' | t }}</p>
+        <div class="xo-form__fields">
+          {%- liquid
+            assign xo_id_name = xo_form_id | append: '-name'
+            assign xo_id_email = xo_form_id | append: '-email'
+            assign xo_id_phone = xo_form_id | append: '-phone'
+            assign xo_id_message = xo_form_id | append: '-message'
+            assign xo_label_name = 'xo.forms.name' | t
+            assign xo_label_email = 'xo.forms.email' | t
+            assign xo_label_phone = 'xo.forms.phone' | t
+            assign xo_label_message = 'xo.forms.message' | t
+          -%}
+          <div class="xo-form__field xo-form__field--half">
+            {% render 'xo-form-field', id: xo_id_name, label: xo_label_name, role: 'name', required: true %}
+          </div>
+          <div class="xo-form__field xo-form__field--half">
+            {% render 'xo-form-field', id: xo_id_phone, label: xo_label_phone, role: 'phone' %}
+          </div>
+          <div class="xo-form__field xo-form__field--full">
+            {% render 'xo-form-field',
+              id: xo_id_email,
+              label: xo_label_email,
+              role: 'email',
+              required: true,
+              invalid: form.errors,
+              error_id: xo_error_id
+            %}
+          </div>
+          <div class="xo-form__field xo-form__field--full">
+            {% render 'xo-form-field', id: xo_id_message, label: xo_label_message, role: 'message', required: true %}
+          </div>
+        </div>
+        <button
+          class="xo-btn xo-btn--solid xo-form__submit"
+          type="submit"
+        >
+          {{- s.button_label | escape -}}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-contact__inner {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-items: start;
+  }
+
+  @media (min-width: 990px) {
+    .xo-contact__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--xo-space-8);
+    }
+  }
+
+  .xo-contact__info {
+    display: grid;
+    gap: var(--xo-space-5);
+  }
+
+  .xo-contact__info .xo-heading {
+    margin: 0;
+  }
+
+  .xo-contact__methods {
+    display: grid;
+    gap: var(--xo-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-contact__method {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--xo-space-4);
+    padding: var(--xo-space-4);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+  }
+
+  .xo-contact__method--main {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    background: var(--xo-surface);
+    border-color: var(--xo-line-strong);
+  }
+
+  @media (max-width: 479px) {
+    .xo-contact__method--main {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .xo-contact__method--main .xo-btn {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .xo-contact__method p {
+    margin: 0;
+  }
+
+  .xo-contact__icon {
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: 50%;
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+  }
+
+  .xo-contact__label {
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-contact__value {
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-base);
+    font-weight: 600;
+    color: var(--xo-fg);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  a.xo-contact__value:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .xo-contact__card {
+    display: grid;
+    gap: var(--xo-space-4);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.contact",
+  "tag": "section",
+  "class": "xo-contact-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.contact" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Contact" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "We are here to <em>help</em>" },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "label": "t:xo.labels.heading_level",
+      "options": [
+        { "value": "h1", "label": "t:xo.options.level_h1" },
+        { "value": "h2", "label": "t:xo.options.level_h2" }
+      ],
+      "default": "h1"
+    },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "text", "id": "whatsapp_note", "label": "t:xo.labels.whatsapp_note", "default": "The quickest way to reach us." },
+    { "type": "text", "id": "whatsapp_message", "label": "t:xo.labels.whatsapp_message", "default": "Hello, I have a question about Xomoashro shilajit." },
+    { "type": "text", "id": "phone", "label": "t:xo.labels.phone", "info": "t:xo.info.contact_phone" },
+    { "type": "text", "id": "address", "label": "t:xo.labels.address", "default": "Islamabad, Pakistan" },
+    { "type": "text", "id": "hours", "label": "t:xo.labels.hours" },
+    { "type": "header", "content": "t:xo.labels.form_header" },
+    { "type": "text", "id": "form_heading", "label": "t:xo.labels.heading", "default": "Send us a message" },
+    { "type": "text", "id": "form_name", "label": "t:xo.labels.form_name", "info": "t:xo.info.form_name", "default": "Contact page message" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Send message" },
+    { "type": "text", "id": "success_message", "label": "t:xo.labels.success_message", "default": "Thank you. We will reply as soon as we can." }
+  ],
+  "presets": [{ "name": "t:xo.names.contact" }]
+}
+{% endschema %}

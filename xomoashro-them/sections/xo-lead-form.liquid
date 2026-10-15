@@ -1,0 +1,241 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_form_id = 'XoLeadForm-' | append: section.id
+  assign xo_has_email = false
+  for block in section.blocks
+    if block.settings.role == 'email'
+      assign xo_has_email = true
+    endif
+  endfor
+-%}
+
+<div
+  class="xo-lead xo-section xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container xo-lead__inner">
+    <div class="xo-lead__intro">
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead, rule: false -%}
+      {%- if s.note != blank -%}
+        <div class="xo-small xo-muted xo-rte xo-lead__note">{{ s.note }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="xo-form-card">
+      {%- form 'contact', id: xo_form_id, class: 'xo-form' -%}
+        <input
+          type="hidden"
+          name="contact[Form]"
+          value="{{ s.form_name | escape }}"
+        >
+
+        {%- if form.posted_successfully? -%}
+          <p
+            class="xo-form__message xo-form__message--success"
+            role="status"
+            tabindex="-1"
+            autofocus
+          >
+            {%- render 'xo-icon', name: 'check-circle', size: 20 -%}
+            <span>{{ s.success_message | escape }}</span>
+          </p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <div
+            class="xo-form__message xo-form__message--error"
+            id="{{ xo_form_id }}-errors"
+            role="alert"
+          >
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <p class="xo-small xo-muted xo-form__legend">{{ 'xo.forms.required_note' | t }}</p>
+
+        <div class="xo-form__fields">
+          {%- unless xo_has_email -%}
+            {%- assign xo_email_id = xo_form_id | append: '-email' -%}
+            {%- assign xo_email_label = 'xo.forms.email' | t -%}
+            {%- assign xo_error_id = xo_form_id | append: '-errors' -%}
+            {% render 'xo-form-field',
+              id: xo_email_id,
+              label: xo_email_label,
+              role: 'email',
+              required: true,
+              invalid: form.errors,
+              error_id: xo_error_id
+            %}
+          {%- endunless -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign xo_field_id = xo_form_id | append: '-' | append: block.id
+              assign xo_required = block.settings.required
+              if block.settings.role == 'email'
+                assign xo_required = true
+              endif
+              assign xo_invalid = false
+              if block.settings.role == 'email' and form.errors
+                assign xo_invalid = true
+              endif
+              assign xo_error_id = xo_form_id | append: '-errors'
+            -%}
+            <div
+              class="xo-form__field xo-form__field--{{ block.settings.width }}"
+              {{ block.shopify_attributes }}
+            >
+              {% render 'xo-form-field',
+                id: xo_field_id,
+                label: block.settings.label,
+                role: block.settings.role,
+                type: block.settings.type,
+                required: xo_required,
+                placeholder: block.settings.placeholder,
+                options: block.settings.options,
+                hint: block.settings.hint,
+                invalid: xo_invalid,
+                error_id: xo_error_id
+              %}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <button
+          class="xo-btn xo-btn--solid xo-form__submit"
+          type="submit"
+        >
+          {{- s.button_label | escape -}}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-lead__inner {
+    display: grid;
+    gap: var(--xo-space-6);
+    align-items: start;
+  }
+
+  @media (min-width: 990px) {
+    .xo-lead__inner {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: var(--xo-space-8);
+    }
+
+    .xo-lead__intro {
+      position: sticky;
+      top: calc(var(--header-height, 4.5rem) + var(--xo-space-5));
+    }
+  }
+
+  .xo-lead__intro {
+    display: grid;
+    gap: var(--xo-space-4);
+  }
+
+  .xo-lead__intro .xo-heading {
+    margin: 0;
+  }
+
+  .xo-lead__note > * {
+    margin: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.lead_form",
+  "tag": "section",
+  "class": "xo-lead-form-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "max_blocks": 14,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.lead_form" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Apply" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Send us your <em>details</em>" },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "richtext", "id": "note", "label": "t:xo.labels.small_print" },
+    { "type": "text", "id": "form_name", "label": "t:xo.labels.form_name", "info": "t:xo.info.form_name", "default": "Enquiry" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Send" },
+    { "type": "text", "id": "success_message", "label": "t:xo.labels.success_message", "default": "Thank you. We have your details and will be in touch soon." },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor", "default": "apply" }
+  ],
+  "blocks": [
+    {
+      "type": "field",
+      "name": "t:xo.names.form_field",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:xo.labels.label", "default": "Field" },
+        {
+          "type": "select",
+          "id": "role",
+          "label": "t:xo.labels.field_role",
+          "info": "t:xo.info.field_role",
+          "options": [
+            { "value": "custom", "label": "t:xo.options.role_custom" },
+            { "value": "name", "label": "t:xo.options.role_name" },
+            { "value": "email", "label": "t:xo.options.role_email" },
+            { "value": "phone", "label": "t:xo.options.role_phone" },
+            { "value": "message", "label": "t:xo.options.role_message" }
+          ],
+          "default": "custom"
+        },
+        {
+          "type": "select",
+          "id": "type",
+          "label": "t:xo.labels.field_type",
+          "options": [
+            { "value": "text", "label": "t:xo.options.type_text" },
+            { "value": "tel", "label": "t:xo.options.type_tel" },
+            { "value": "number", "label": "t:xo.options.type_number" },
+            { "value": "url", "label": "t:xo.options.type_url" },
+            { "value": "select", "label": "t:xo.options.type_select" },
+            { "value": "textarea", "label": "t:xo.options.type_textarea" },
+            { "value": "checkbox", "label": "t:xo.options.type_checkbox" }
+          ],
+          "default": "text"
+        },
+        { "type": "checkbox", "id": "required", "label": "t:xo.labels.required", "default": false },
+        { "type": "text", "id": "placeholder", "label": "t:xo.labels.placeholder" },
+        { "type": "textarea", "id": "options", "label": "t:xo.labels.choices", "info": "t:xo.info.choices" },
+        { "type": "text", "id": "hint", "label": "t:xo.labels.hint" },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "t:xo.labels.field_width",
+          "options": [
+            { "value": "half", "label": "t:xo.options.width_half" },
+            { "value": "full", "label": "t:xo.options.width_full" }
+          ],
+          "default": "half"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.lead_form",
+      "blocks": [
+        { "type": "field", "settings": { "label": "Full name", "role": "name", "required": true } },
+        { "type": "field", "settings": { "label": "Email", "role": "email", "required": true } },
+        { "type": "field", "settings": { "label": "Phone", "role": "phone", "required": true } },
+        { "type": "field", "settings": { "label": "Message", "role": "message", "width": "full" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
