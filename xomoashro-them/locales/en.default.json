@@ -9,6 +9,45 @@
  */
 {
   "xo": {
+    "card": {
+      "sale": "Sale",
+      "from": "From {{ price }}",
+      "choose_size": "Choose a size of {{ title }}",
+      "view_details": "View full details"
+    },
+    "collection": {
+      "count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "empty": "There is nothing here yet.",
+      "back_home": "Back to home"
+    },
+    "search": {
+      "results_for": "Results for “{{ terms }}”",
+      "label": "Search the store",
+      "placeholder": "Search shilajit, guides and more",
+      "submit": "Search",
+      "count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      },
+      "products": "Products",
+      "articles_pages": "Journal and pages",
+      "type_article": "Journal",
+      "type_page": "Page",
+      "none": "Nothing matched “{{ terms }}”.",
+      "read_journal": "Read the journal"
+    },
+    "pagination": {
+      "label": "Pages",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page"
+    },
+    "password": {
+      "email_placeholder": "Your email address"
+    },
     "product": {
       "add_with_price": "Add to cart · {{ price }}",
       "whatsapp_order": "Order on WhatsApp",
