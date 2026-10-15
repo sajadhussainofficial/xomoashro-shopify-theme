@@ -109,7 +109,7 @@ Theme Editor → Cart page section: background tone, heading, "Continue shopping
 - **B9:** free delivery amount and shipping fee. Save the amount in Settings → Custom data → Shop → "Free delivery from (PKR)" and the bar appears.
 - **Check out:** your one check from section 4.
 - **B1/B2:** real product details and prices replace the test product.
-- **Live theme:** this work is pushed only to the unpublished working copy. Publishing still waits for your "yes, publish".
+- **Live theme:** "Xomoashro (working copy)" (#158632640684) is now your live theme; you published it. P06 is **not** pushed to it. It runs only on the local preview and the development theme. It goes live when you say "yes, push P06 live", or after the merge if you prefer.
 
 ## 8. Next
 
