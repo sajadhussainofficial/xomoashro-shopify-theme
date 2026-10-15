@@ -1,0 +1,273 @@
+{%- liquid
+  assign product = closest.product
+  assign bs = block.settings
+
+  capture xo_guarantee_pill
+    render 'xo-fact-text', text: bs.guarantee_pill, requires: 'guarantee'
+  endcapture
+
+  assign xo_has_lab = false
+  if product.metafields.custom.lab_report != blank or product.metafields.custom.lab_name != blank
+    assign xo_has_lab = true
+  endif
+
+  assign xo_rating = product.metafields.reviews.rating.value
+  assign xo_rating_count = product.metafields.reviews.rating_count.value | default: 0
+-%}
+
+<div
+  class="xo-pdp-head"
+  {{ block.shopify_attributes }}
+>
+  {%- if bs.show_pills -%}
+    {%- if xo_guarantee_pill != blank or xo_has_lab and bs.lab_pill != blank -%}
+      <ul
+        class="xo-pdp-head__pills"
+        role="list"
+      >
+        {%- if xo_guarantee_pill != blank -%}
+          <li class="xo-pdp-head__pill">
+            {%- render 'xo-icon', name: 'shield', size: 14 -%}
+            <span>{{ xo_guarantee_pill | escape }}</span>
+          </li>
+        {%- endif -%}
+        {%- if xo_has_lab and bs.lab_pill != blank -%}
+          <li class="xo-pdp-head__pill">
+            {%- render 'xo-icon', name: 'flask', size: 14 -%}
+            <span>{{ bs.lab_pill | escape }}</span>
+          </li>
+        {%- endif -%}
+      </ul>
+    {%- endif -%}
+  {%- endif -%}
+
+  <h1 class="xo-h2 xo-pdp-head__title">{{ product.title | escape }}</h1>
+
+  {%- if xo_rating != blank and xo_rating_count > 0 -%}
+    {%- liquid
+      assign xo_rating_value = xo_rating.rating | round: 1
+      assign xo_rating_max = xo_rating.scale_max | default: 5
+      assign xo_rating_percent = xo_rating.rating | times: 100.0 | divided_by: xo_rating_max
+    -%}
+    <a
+      class="xo-pdp-head__rating"
+      href="#reviews"
+    >
+      <span
+        class="xo-pdp-head__stars"
+        style="--xo-stars: {{ xo_rating_percent }}%;"
+        aria-hidden="true"
+      ></span>
+      <span>{{ 'xo.product.rating' | t: rating: xo_rating_value, max: xo_rating_max, count: xo_rating_count }}</span>
+    </a>
+  {%- endif -%}
+
+  {%- capture xo_badges -%}
+    {%- for i in (1..3) -%}
+      {%- liquid
+        assign xo_badge_text_key = 'badge_' | append: i
+        assign xo_badge_icon_key = 'badge_' | append: i | append: '_icon'
+        assign xo_badge_text = bs[xo_badge_text_key]
+        assign xo_badge_icon = bs[xo_badge_icon_key]
+      -%}
+      {%- if xo_badge_text != blank -%}
+        <li class="xo-pdp-head__badge">
+          <span class="xo-pdp-head__badge-icon">
+            {%- render 'xo-icon', name: xo_badge_icon, size: 20 -%}
+          </span>
+          <span>{{ xo_badge_text | escape }}</span>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if xo_badges != blank -%}
+    <ul
+      class="xo-pdp-head__badges"
+      role="list"
+    >
+      {{- xo_badges -}}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .xo-pdp-head {
+    display: grid;
+    gap: var(--xo-space-3);
+  }
+
+  .xo-pdp-head__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-pdp-head__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-1);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--xo-fg);
+  }
+
+  .xo-pdp-head__title {
+    overflow-wrap: anywhere;
+  }
+
+  .xo-pdp-head__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    justify-self: start;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-fg);
+    text-decoration: none;
+  }
+
+  .xo-pdp-head__stars {
+    --xo-star-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z'/%3E%3C/svg%3E");
+
+    inline-size: 5.5rem;
+    block-size: 1.1rem;
+    background: linear-gradient(90deg, var(--xo-fg) var(--xo-stars), var(--xo-line-strong) var(--xo-stars));
+    mask: var(--xo-star-shape) left / 1.1rem 1.1rem repeat-x;
+  }
+
+  .xo-pdp-head__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-3) var(--xo-space-5);
+    margin: var(--xo-space-2) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-pdp-head__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--xo-fg);
+  }
+
+  .xo-pdp-head__badge-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border: 1px solid var(--xo-line-strong);
+    border-radius: 50%;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.product_heading",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_pills",
+      "label": "t:xo.labels.show_pills",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_pill",
+      "label": "t:xo.labels.guarantee_pill",
+      "info": "t:xo.info.guarantee_pill",
+      "default": "[days]-day money-back guarantee"
+    },
+    {
+      "type": "text",
+      "id": "lab_pill",
+      "label": "t:xo.labels.lab_pill",
+      "info": "t:xo.info.lab_pill",
+      "default": "Lab tested"
+    },
+    { "type": "header", "content": "t:xo.labels.badges_header" },
+    {
+      "type": "select",
+      "id": "badge_1_icon",
+      "label": "t:xo.labels.badge_1_icon",
+      "options": [
+        { "value": "drop", "label": "t:xo.options.icon_drop" },
+        { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "jar", "label": "t:xo.options.icon_jar" },
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "flask", "label": "t:xo.options.icon_flask" }
+      ],
+      "default": "drop"
+    },
+    {
+      "type": "text",
+      "id": "badge_1",
+      "label": "t:xo.labels.badge_1",
+      "default": "100% resin"
+    },
+    {
+      "type": "select",
+      "id": "badge_2_icon",
+      "label": "t:xo.labels.badge_2_icon",
+      "options": [
+        { "value": "drop", "label": "t:xo.options.icon_drop" },
+        { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "jar", "label": "t:xo.options.icon_jar" },
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "flask", "label": "t:xo.options.icon_flask" }
+      ],
+      "default": "mountain"
+    },
+    {
+      "type": "text",
+      "id": "badge_2",
+      "label": "t:xo.labels.badge_2",
+      "default": "Above 16,000 ft"
+    },
+    {
+      "type": "select",
+      "id": "badge_3_icon",
+      "label": "t:xo.labels.badge_3_icon",
+      "options": [
+        { "value": "drop", "label": "t:xo.options.icon_drop" },
+        { "value": "mountain", "label": "t:xo.options.icon_mountain" },
+        { "value": "cash", "label": "t:xo.options.icon_cash" },
+        { "value": "leaf", "label": "t:xo.options.icon_leaf" },
+        { "value": "shield", "label": "t:xo.options.icon_shield" },
+        { "value": "jar", "label": "t:xo.options.icon_jar" },
+        { "value": "truck", "label": "t:xo.options.icon_truck" },
+        { "value": "flask", "label": "t:xo.options.icon_flask" }
+      ],
+      "default": "cash"
+    },
+    {
+      "type": "text",
+      "id": "badge_3",
+      "label": "t:xo.labels.badge_3",
+      "default": "Cash on delivery"
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.product_heading" }]
+}
+{% endschema %}

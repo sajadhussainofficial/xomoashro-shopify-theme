@@ -1,0 +1,183 @@
+{%- doc -%}
+  Add-to-cart bar that slides up once the main Add to cart button has scrolled
+  out of view. Uses Horizon's `sticky-add-to-cart` element, which presses the
+  main button so the chosen size and quantity are the ones added. While the bar
+  shows, `assets/xo-overlays.js` counts it (`data-xo-bottom-bar`) in
+  `--xo-bottom-offset`, so the floating WhatsApp button moves up.
+
+  @param {object} product - The product
+  @param {boolean} [desktop] - Also show it on computers. Defaults to false
+
+  @example
+  {% render 'xo-sticky-atc', product: product %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_variant = product.selected_or_first_available_variant
+  assign xo_image = xo_variant.featured_image | default: product.featured_image
+  if settings.currency_code_enabled_product_pages
+    assign xo_price = xo_variant.price | money_with_currency
+  else
+    assign xo_price = xo_variant.price | money
+  endif
+-%}
+
+<sticky-add-to-cart
+  class="xo-sticky-atc{% if desktop %} xo-sticky-atc--desktop{% endif %}"
+  data-variant-available="{{ xo_variant.available }}"
+  data-product-id="{{ product.id }}"
+  data-current-variant-id="{{ xo_variant.id }}"
+  data-initial-quantity="1"
+  data-default-variant-title="{{ 'products.product.default_title' | t }}"
+>
+  <div
+    class="xo-sticky-atc__bar xo-tone-ink"
+    data-xo-bottom-bar="1"
+    data-stuck="false"
+    ref="stickyBar"
+    role="region"
+    aria-label="{{ 'products.product.sticky_add_to_cart' | t }}"
+  >
+    {%- if xo_image -%}
+      {{-
+        xo_image
+        | image_url: width: 120
+        | image_tag: loading: 'lazy', alt: '', class: 'xo-sticky-atc__image', srcset: null, sizes: null, ref: 'productImage'
+      -}}
+    {%- endif -%}
+    <div class="xo-sticky-atc__info">
+      <p class="xo-sticky-atc__title">{{ product.title | escape }}</p>
+      <p class="xo-sticky-atc__meta">
+        {%- unless product.has_only_default_variant -%}
+          <span class="xo-sticky-atc__variant">{{ xo_variant.title | escape }}</span>
+        {%- endunless -%}
+        <span class="xo-sticky-atc__price">{{ xo_price }}</span>
+      </p>
+    </div>
+    <button
+      type="button"
+      class="xo-btn xo-btn--sm xo-sticky-atc__button"
+      ref="addToCartButton"
+      on:click="/handleAddToCartClick"
+      {% unless xo_variant.available %}
+        disabled
+      {% endunless %}
+    >
+      <span>
+        {%- if xo_variant.available -%}
+          {{- 'products.product.add_to_cart' | t -}}
+        {%- else -%}
+          {{- 'products.product.sold_out' | t -}}
+        {%- endif -%}
+      </span>
+      <span
+        ref="quantityDisplay"
+        style="display: none;"
+      >
+        {{- ' (' -}}
+        <span ref="quantityNumber">1</span>
+        {{- ')' -}}
+      </span>
+    </button>
+  </div>
+</sticky-add-to-cart>
+
+{% stylesheet %}
+  .xo-sticky-atc {
+    display: contents;
+  }
+
+  .xo-sticky-atc__bar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--xo-layer-sticky-bar, 40);
+    display: none;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--xo-space-3);
+    padding: var(--xo-space-3) var(--xo-gutter) calc(var(--xo-space-3) + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -0.5rem 1.5rem rgb(11 11 13 / 0.18);
+    translate: 0 110%;
+    transition: translate var(--xo-duration-slow) var(--xo-ease), display var(--xo-duration-slow) allow-discrete;
+  }
+
+  .xo-sticky-atc__bar[data-stuck='true'] {
+    display: grid;
+    translate: 0 0;
+
+    @starting-style {
+      translate: 0 110%;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-sticky-atc:not(.xo-sticky-atc--desktop) .xo-sticky-atc__bar {
+      display: none;
+    }
+
+    .xo-sticky-atc--desktop .xo-sticky-atc__bar {
+      inset-inline: auto var(--xo-space-5);
+      inset-block-end: var(--xo-space-5);
+      inline-size: min(30rem, 100% - var(--xo-space-7));
+      border-radius: var(--xo-radius-card);
+      padding: var(--xo-space-3) var(--xo-space-4);
+    }
+  }
+
+  .xo-sticky-atc__image {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: calc(var(--xo-radius-card) * 0.5);
+    object-fit: cover;
+  }
+
+  .xo-sticky-atc__info {
+    min-inline-size: 0;
+  }
+
+  .xo-sticky-atc__title,
+  .xo-sticky-atc__meta {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .xo-sticky-atc__title {
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-sticky-atc__meta {
+    display: flex;
+    gap: var(--xo-space-2);
+    font-size: var(--xo-text-xs);
+    color: var(--xo-muted);
+  }
+
+  .xo-sticky-atc__price {
+    font-weight: 700;
+    color: var(--xo-fg);
+  }
+
+  .xo-sticky-atc__button {
+    --xo-btn-bg: var(--color-primary-button-background, var(--xo-accent));
+    --xo-btn-fg: var(--color-primary-button-text, var(--xo-on-accent));
+
+    white-space: nowrap;
+  }
+
+  .xo-sticky-atc__button:disabled {
+    opacity: 0.55;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-sticky-atc__bar,
+    .xo-sticky-atc__bar[data-stuck='true'] {
+      transition: none;
+    }
+  }
+{% endstylesheet %}

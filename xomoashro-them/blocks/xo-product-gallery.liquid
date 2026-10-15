@@ -1,0 +1,161 @@
+{%- doc -%}
+  Product photos for the Xomoashro product page. Uses Horizon's media gallery
+  (carousel, thumbnails, swipe, zoom, video), so the picture follows the chosen
+  size. Rendered as a static block by `sections/xo-main-product.liquid`.
+
+  @example
+  {% content_for 'block', type: 'xo-product-gallery', id: 'gallery' %}
+{%- enddoc -%}
+
+<div class="xo-gallery">
+  {%- render 'product-media-gallery-content',
+    media_presentation: 'carousel',
+    block_settings: block.settings,
+    block_id: block.id,
+    block_shopify_attributes: block.shopify_attributes,
+    block: block,
+    section: section
+  -%}
+</div>
+
+{% stylesheet %}
+  .xo-gallery {
+    --xo-gallery-radius: var(--xo-radius-card);
+  }
+
+  .xo-gallery .product-media-container {
+    border-radius: var(--xo-gallery-radius);
+    background: var(--xo-surface);
+    overflow: hidden;
+  }
+
+  .xo-gallery :is(.slideshow-controls__thumbnail, .slideshow-control) {
+    border-radius: calc(var(--xo-gallery-radius) * 0.6);
+  }
+
+  .xo-gallery .slideshow-controls__thumbnail[aria-selected='true'] {
+    outline: 1.5px solid var(--xo-fg);
+    outline-offset: 2px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.product_gallery",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "t:xo.labels.aspect_ratio",
+      "options": [
+        { "value": "1", "label": "t:xo.options.square" },
+        { "value": "1/1.25", "label": "t:xo.options.portrait" },
+        { "value": "adapt", "label": "t:xo.options.adapt" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "t:xo.labels.media_fit",
+      "options": [
+        { "value": "cover", "label": "t:xo.options.fill" },
+        { "value": "contain", "label": "t:xo.options.fit" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_controls_style",
+      "label": "t:xo.labels.desktop_controls",
+      "options": [
+        { "value": "thumbnails", "label": "t:xo.options.thumbnails" },
+        { "value": "dots", "label": "t:xo.options.dots" },
+        { "value": "counter", "label": "t:xo.options.counter" }
+      ],
+      "default": "thumbnails"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_mobile_controls_style",
+      "label": "t:xo.labels.mobile_controls",
+      "options": [
+        { "value": "dots", "label": "t:xo.options.dots" },
+        { "value": "counter", "label": "t:xo.options.counter" },
+        { "value": "thumbnails", "label": "t:xo.options.thumbnails" }
+      ],
+      "default": "dots"
+    },
+    {
+      "type": "select",
+      "id": "thumbnail_position",
+      "label": "t:xo.labels.thumbnail_position",
+      "options": [
+        { "value": "bottom", "label": "t:xo.options.bottom" },
+        { "value": "left", "label": "t:xo.options.left" }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "thumbnail_width",
+      "label": "t:xo.labels.thumbnail_width",
+      "min": 48,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "t:xo.labels.arrows",
+      "options": [
+        { "value": "arrow", "label": "t:xo.options.arrow" },
+        { "value": "chevron", "label": "t:xo.options.chevron" }
+      ],
+      "default": "arrow"
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom",
+      "label": "t:xo.labels.zoom",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants",
+      "label": "t:xo.labels.hide_variants",
+      "info": "t:xo.info.hide_variants",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "t:xo.labels.video_loop",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "media_radius",
+      "label": "t:xo.labels.corner_radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "thumbnail_radius",
+      "label": "t:xo.labels.thumbnail_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    }
+  ]
+}
+{% endschema %}

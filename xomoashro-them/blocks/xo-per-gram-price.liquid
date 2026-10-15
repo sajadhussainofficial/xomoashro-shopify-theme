@@ -1,0 +1,145 @@
+{%- liquid
+  assign product = closest.product
+  assign xo_variant = product.selected_or_first_available_variant
+  assign bs = block.settings
+
+  if settings.currency_code_enabled_product_pages
+    assign xo_price = xo_variant.price | money_with_currency
+    assign xo_was = xo_variant.compare_at_price | money_with_currency
+  else
+    assign xo_price = xo_variant.price | money
+    assign xo_was = xo_variant.compare_at_price | money
+  endif
+
+  assign xo_on_sale = false
+  if xo_variant.compare_at_price > xo_variant.price
+    assign xo_on_sale = true
+    assign xo_save_percent = xo_variant.compare_at_price | minus: xo_variant.price | times: 100.0 | divided_by: xo_variant.compare_at_price | round
+  endif
+
+  capture xo_per_gram
+    if bs.show_per_gram
+      render 'xo-per-gram-price', variant: xo_variant
+    endif
+  endcapture
+
+  assign xo_days = ''
+  if bs.show_supply
+    assign xo_days = xo_variant.metafields.custom.supply_days.value
+  endif
+-%}
+
+<product-price
+  class="xo-pdp-price"
+  data-block-id="{{ block.id }}"
+  data-product-id="{{ product.id }}"
+  {{ block.shopify_attributes }}
+>
+  <div
+    class="xo-pdp-price__inner"
+    ref="priceContainer"
+  >
+    <p class="xo-pdp-price__main">
+      {%- if xo_on_sale -%}
+        <span class="xo-visually-hidden">{{ 'content.price_sale' | t }}</span>
+      {%- endif -%}
+      <span class="xo-pdp-price__now">{{ xo_price }}</span>
+      {%- if xo_on_sale -%}
+        <span class="xo-visually-hidden">{{ 'content.price_regular' | t }}</span>
+        <s class="xo-pdp-price__was">{{ xo_was }}</s>
+        <span class="xo-pdp-price__save">{{ 'xo.product.save' | t: percent: xo_save_percent }}</span>
+      {%- endif -%}
+    </p>
+    {%- if xo_per_gram != blank or xo_days != blank -%}
+      <p class="xo-pdp-price__meta">
+        {%- if xo_per_gram != blank -%}
+          <span>{{ 'xo.bundles.per_gram' | t: price: xo_per_gram }}</span>
+        {%- endif -%}
+        {%- if xo_days != blank -%}
+          <span>{{ 'xo.bundles.supply' | t: days: xo_days }}</span>
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+</product-price>
+
+{% stylesheet %}
+  .xo-pdp-price {
+    display: block;
+  }
+
+  .xo-pdp-price__inner {
+    display: grid;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-pdp-price__main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--xo-space-2) var(--xo-space-3);
+    margin: 0;
+    font-family: var(--xo-font-body);
+    color: var(--xo-fg);
+  }
+
+  .xo-pdp-price__now {
+    font-size: var(--xo-text-h3);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .xo-pdp-price__was {
+    font-size: var(--xo-text-base);
+    color: var(--xo-muted);
+  }
+
+  .xo-pdp-price__save {
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--xo-radius-pill);
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+    font-size: var(--xo-text-xs);
+    font-weight: 700;
+  }
+
+  .xo-pdp-price__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-1) var(--xo-space-2);
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  .xo-pdp-price__meta > span + span::before {
+    content: '·';
+    margin-inline-end: var(--xo-space-2);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.product_price",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.product_price" },
+    {
+      "type": "checkbox",
+      "id": "show_per_gram",
+      "label": "t:xo.labels.show_per_gram",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_supply",
+      "label": "t:xo.labels.show_supply",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.product_price" }]
+}
+{% endschema %}

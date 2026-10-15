@@ -1,0 +1,114 @@
+{%- liquid
+  assign product = closest.product
+  assign bs = block.settings
+  assign xo_lab_fields = product.metafields.custom
+  assign xo_batch = xo_lab_fields.batch_number.value
+  assign xo_lab = xo_lab_fields.lab_name.value
+  assign xo_date = xo_lab_fields.lab_test_date.value
+  assign xo_report = xo_lab_fields.lab_report.value
+
+  assign xo_parts = ''
+  if xo_batch != blank
+    assign xo_batch_text = 'xo.product.batch' | t: batch: xo_batch
+    assign xo_parts = xo_parts | append: xo_batch_text | append: '||'
+  endif
+  if xo_lab != blank and xo_date != blank
+    assign xo_date_text = xo_date | date: '%-d %B %Y'
+    assign xo_lab_text = 'xo.product.tested_by_on' | t: lab: xo_lab, date: xo_date_text
+    assign xo_parts = xo_parts | append: xo_lab_text | append: '||'
+  elsif xo_lab != blank
+    assign xo_lab_text = 'xo.product.tested_by' | t: lab: xo_lab
+    assign xo_parts = xo_parts | append: xo_lab_text | append: '||'
+  endif
+  assign xo_parts = xo_parts | split: '||'
+  assign xo_link_fallback = 'xo.product.view_report' | t
+-%}
+
+{%- if xo_parts.size > 0 or xo_report != blank -%}
+  <div
+    class="xo-labrow"
+    {{ block.shopify_attributes }}
+  >
+    <span class="xo-labrow__icon">{%- render 'xo-icon', name: 'flask', size: 20 -%}</span>
+    <p class="xo-labrow__text">
+      {%- for xo_part in xo_parts -%}
+        <span>{{ xo_part | escape }}</span>
+      {%- endfor -%}
+    </p>
+    {%- if xo_report != blank -%}
+      <a
+        class="xo-link xo-labrow__link"
+        href="{{ xo_report.url }}"
+        target="_blank"
+        rel="noopener"
+      >
+        {{- bs.link_label | default: xo_link_fallback | escape -}}
+        <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+{%- elsif request.design_mode -%}
+  <p
+    class="xo-editor-note"
+    {{ block.shopify_attributes }}
+  >
+    {{ 'xo.product.lab_row_note' | t }}
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-labrow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--xo-space-3);
+    padding: var(--xo-space-3) var(--xo-space-4);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+    font-family: var(--xo-font-body);
+  }
+
+  .xo-labrow__icon {
+    color: var(--xo-fg);
+  }
+
+  .xo-labrow__text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--xo-space-2);
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    line-height: 1.45;
+    color: var(--xo-fg);
+  }
+
+  .xo-labrow__text > span + span::before {
+    content: '·';
+    margin-inline-end: var(--xo-space-2);
+    color: var(--xo-muted);
+  }
+
+  .xo-labrow__link {
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.batch_lab_row",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.batch_lab_row" },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:xo.labels.link_label",
+      "default": "View report"
+    }
+  ],
+  "presets": [{ "name": "t:xo.names.batch_lab_row" }]
+}
+{% endschema %}
