@@ -1,0 +1,130 @@
+{%- doc -%}
+  "Shop Shilajit" box shown inside an article. The same settings drive the box
+  after a chosen paragraph and the box at the end. When no product is chosen,
+  the store's only product is used (or the catalog when there are several).
+
+  @param {object} settings - The block settings of `xo-article-product-cta`
+  @param {string} [placement] - `inline` or `end`
+
+  @example
+  {% render 'xo-article-cta', settings: block.settings, placement: 'end' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_product = settings.product
+  if xo_product == blank and collections.all.products_count == 1
+    assign xo_product = collections.all.products.first
+  endif
+  if xo_product != blank
+    assign xo_url = xo_product.url
+    assign xo_image = xo_product.featured_image
+  else
+    assign xo_url = routes.all_products_collection_url
+  endif
+  assign xo_placement = placement | default: 'end'
+-%}
+
+<aside
+  class="xo-acta xo-acta--{{ xo_placement }} xo-tone-ink"
+  aria-label="{{ settings.heading | escape }}"
+>
+  {%- if xo_image -%}
+    <a
+      class="xo-acta__media"
+      href="{{ xo_url }}"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      {{- xo_image | image_url: width: 320 | image_tag: widths: '120, 200, 320', sizes: '120px', loading: 'lazy', alt: '' -}}
+    </a>
+  {%- endif -%}
+  <div class="xo-acta__body">
+    {%- if settings.eyebrow != blank -%}
+      <p class="xo-acta__eyebrow">{{ settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    <p class="xo-acta__heading">{{ settings.heading | escape }}</p>
+    {%- if settings.text != blank -%}
+      <p class="xo-acta__text">{{ settings.text | escape }}</p>
+    {%- endif -%}
+  </div>
+  <a
+    class="xo-btn xo-acta__button"
+    href="{{ xo_url }}"
+  >
+    {{- settings.button_label | escape -}}
+    {%- render 'xo-icon', name: 'arrow-right', size: 18 -%}
+  </a>
+</aside>
+
+{% stylesheet %}
+  .xo-acta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    align-items: center;
+    margin-block: var(--xo-space-6);
+    padding: var(--xo-space-5);
+    border-radius: var(--xo-radius-card);
+    font-family: var(--xo-font-body);
+  }
+
+  @media (min-width: 600px) {
+    .xo-acta {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: var(--xo-space-5);
+    }
+
+    .xo-acta:not(:has(.xo-acta__media)) {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+
+  .xo-acta__media {
+    display: block;
+    inline-size: 5.5rem;
+    aspect-ratio: 1;
+    border-radius: calc(var(--xo-radius-card) * 0.7);
+    overflow: hidden;
+  }
+
+  .xo-acta__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-acta__body {
+    display: grid;
+    gap: var(--xo-space-1);
+  }
+
+  .xo-acta__eyebrow {
+    margin: 0;
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-acta__heading {
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    line-height: 1.25;
+    color: var(--xo-fg);
+  }
+
+  .xo-acta__text {
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+    color: var(--xo-muted);
+  }
+
+  .xo-acta__button {
+    justify-self: start;
+    white-space: nowrap;
+  }
+{% endstylesheet %}

@@ -2,7 +2,7 @@
   assign s = section.settings
   assign blog = s.blog
   if blog == blank
-    assign blog = blogs.journal
+    assign blog = blogs.guides
   endif
   assign article_count = blog.articles_count | default: 0 | plus: 0
 -%}

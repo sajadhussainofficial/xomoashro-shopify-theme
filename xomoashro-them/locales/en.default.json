@@ -9,6 +9,46 @@
  */
 {
   "xo": {
+    "forms": {
+      "yes": "Yes",
+      "optional": "(optional)",
+      "required_note": "Fields marked * are required.",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message"
+    },
+    "contact": {
+      "whatsapp": "WhatsApp",
+      "chat_now": "Chat now",
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location",
+      "hours": "Hours"
+    },
+    "track": {
+      "order_number": "Order number",
+      "order_hint": "You will find it in your order confirmation, for example #1001."
+    },
+    "labs": {
+      "search_label": "Search by batch number",
+      "search_placeholder": "For example XO-2401",
+      "caption": "Lab reports by batch",
+      "batch": "Batch",
+      "tested_on": "Tested on",
+      "lab": "Laboratory",
+      "fulvic": "Fulvic acid",
+      "metals": "Heavy metals",
+      "report": "Report",
+      "no_match": "No batch matches that number. Check the number on your jar, or message us on WhatsApp.",
+      "match_one": "1 report matches",
+      "match_other": "[count] reports match",
+      "lead": "Lead {{ value }} ppm",
+      "arsenic": "Arsenic {{ value }} ppm",
+      "mercury": "Mercury {{ value }} ppm",
+      "cadmium": "Cadmium {{ value }} ppm",
+      "for_batch": "for batch {{ batch }}"
+    },
     "card": {
       "sale": "Sale",
       "from": "From {{ price }}",
@@ -33,11 +73,11 @@
         "other": "{{ count }} results"
       },
       "products": "Products",
-      "articles_pages": "Journal and pages",
-      "type_article": "Journal",
+      "articles_pages": "Blog and pages",
+      "type_article": "Blog",
       "type_page": "Page",
       "none": "Nothing matched “{{ terms }}”.",
-      "read_journal": "Read the journal"
+      "read_journal": "Read the blog"
     },
     "pagination": {
       "label": "Pages",
@@ -185,6 +225,28 @@
       "vs": "vs"
     },
     "journal": {
+      "reading_time": {
+        "one": "{{ count }} min read",
+        "other": "{{ count }} min read"
+      },
+      "topics": "Topics",
+      "all_topics": "All",
+      "cta_hidden": "The shop box is hidden. Choose a paragraph number or tick \"Also show at the end\".",
+      "toc_note": "The table of contents appears when the article has at least two H2 headings.",
+      "written_by": "Written by",
+      "link_copied": "Link copied",
+      "copy_link": "Copy link",
+      "home": "Home",
+      "by": "By {{ author }}",
+      "breadcrumb": "Breadcrumb",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "comment_moderated": "Thank you. Your comment will appear once it has been approved.",
+      "comment_posted": "Thank you. Your comment has been posted.",
+      "comment": "Comment",
+      "post_comment": "Post comment",
       "empty": "This blog has no posts yet. Shoppers do not see this section until a post is published."
     },
     "editor": {

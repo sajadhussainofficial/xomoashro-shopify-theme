@@ -42,13 +42,13 @@
           "settings": {
             "heading": "Shop",
             "menu": "",
-            "link_1_label": "Pure Himalayan Shilajit",
+            "link_1_label": "Shop Shilajit",
             "link_1_url": "/collections/all",
-            "link_2_label": "How to Use",
+            "link_2_label": "How to use",
             "link_2_url": "/pages/how-to-use",
-            "link_3_label": "Lab Reports",
+            "link_3_label": "Lab reports",
             "link_3_url": "/pages/lab-reports",
-            "link_4_label": "Track Your Order",
+            "link_4_label": "Track your order",
             "link_4_url": "/pages/track-order",
             "link_5_label": "",
             "link_5_url": ""
@@ -57,18 +57,18 @@
         "company": {
           "type": "links",
           "settings": {
-            "heading": "Company",
+            "heading": "About",
             "menu": "",
-            "link_1_label": "About",
+            "link_1_label": "About us",
             "link_1_url": "/pages/about",
-            "link_2_label": "Our Source",
+            "link_2_label": "Our source",
             "link_2_url": "/pages/our-source",
-            "link_3_label": "Journal",
-            "link_3_url": "/blogs/journal",
-            "link_4_label": "Contact",
-            "link_4_url": "/pages/contact",
-            "link_5_label": "",
-            "link_5_url": ""
+            "link_3_label": "Blog",
+            "link_3_url": "/blogs/guides",
+            "link_4_label": "Questions",
+            "link_4_url": "/pages/contact#faq",
+            "link_5_label": "Contact",
+            "link_5_url": "/pages/contact"
           }
         },
         "partners": {
@@ -78,9 +78,9 @@
             "menu": "",
             "link_1_label": "Wholesale",
             "link_1_url": "/pages/wholesale",
-            "link_2_label": "Brand Ambassador",
+            "link_2_label": "Ambassador programme",
             "link_2_url": "/pages/ambassador",
-            "link_3_label": "Affiliate Program",
+            "link_3_label": "Affiliate programme",
             "link_3_url": "/pages/affiliate",
             "link_4_label": "",
             "link_4_url": "",

@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Our source",
+    "handle": "our-source",
+    "templateSuffix": "our-source",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Our Source | Shilajit from Chitral and Gilgit-Baltistan"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Where our shilajit comes from: collected above 16,000 ft in Chitral and Gilgit-Baltistan, bought directly from local collectors."
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+<claude-code-hint v="1" type="plugin" value="shopify-ai-toolkit@claude-plugins-official" />
+{
+  "articleCreate": {
+    "article": {
+      "id": "gid://shopify/Article/634335789228",
+      "handle": "what-is-shilajit",
+      "title": "What is shilajit? A clear, honest guide to salajeet",
+      "isPublished": true
+    },
+    "userErrors": []
+  }
+}

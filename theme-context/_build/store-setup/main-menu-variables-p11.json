@@ -1,0 +1,62 @@
+{
+  "id": "gid://shopify/Menu/249589563564",
+  "title": "Main menu",
+  "handle": "main-menu",
+  "items": [
+    {
+      "title": "Shop",
+      "type": "CATALOG",
+      "items": []
+    },
+    {
+      "title": "How to use",
+      "type": "PAGE",
+      "resourceId": "gid://shopify/Page/142061994156",
+      "items": []
+    },
+    {
+      "title": "Blog",
+      "type": "BLOG",
+      "resourceId": "gid://shopify/Blog/100614832300",
+      "items": []
+    },
+    {
+      "title": "About",
+      "type": "PAGE",
+      "resourceId": "gid://shopify/Page/142061928620",
+      "items": [
+        {
+          "title": "Our source",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/142061961388",
+          "items": []
+        },
+        {
+          "title": "Lab reports",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/142062026924",
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "type": "PAGE",
+      "resourceId": "gid://shopify/Page/123222917292",
+      "items": [
+        {
+          "title": "Track your order",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/142062157996",
+          "items": []
+        },
+        {
+          "title": "Wholesale",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/142062059692",
+          "items": []
+        }
+      ]
+    }
+  ]
+}

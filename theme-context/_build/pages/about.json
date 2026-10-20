@@ -1,0 +1,13 @@
+{
+  "title": "About us",
+  "handle": "about",
+  "template_suffix": "about",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "About Xomoashro | Pure Himalayan Shilajit",
+    "description": "Our story: pure shilajit from Chitral and Gilgit-Baltistan, sourced directly from local collectors and delivered across Pakistan."
+  },
+  "redirect_from": "/about-us/",
+  "note": "Page copy lives in templates/page.about.json; the page body stays empty."
+}

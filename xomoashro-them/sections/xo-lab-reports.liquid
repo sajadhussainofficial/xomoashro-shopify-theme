@@ -1,0 +1,273 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_keys = ''
+  for entry in metaobjects.lab_report.values
+    assign xo_stamp = entry.test_date.value | date: '%Y%m%d' | default: '00000000'
+    assign xo_keys = xo_keys | append: xo_stamp | append: ':' | append: entry.system.handle | append: ','
+  endfor
+  assign xo_keys = xo_keys | split: ',' | sort | reverse
+  assign xo_count = xo_keys.size
+-%}
+
+<script
+  src="{{ 'xo-lab-search.js' | asset_url }}"
+  type="module"
+></script>
+
+<div
+  class="xo-labs xo-section xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container">
+    {%- if xo_count > 0 -%}
+      {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+      <xo-lab-search
+        class="xo-labs__wrap"
+        data-one-label="{{ 'xo.labs.match_one' | t }}"
+        data-other-label="{{ 'xo.labs.match_other' | t }}"
+      >
+        {%- if xo_count > 1 -%}
+          <div class="xo-labs__search">
+            <label
+              class="xo-field__label"
+              for="XoLabSearch-{{ section.id }}"
+            >
+              {{- 'xo.labs.search_label' | t -}}
+            </label>
+            <input
+              class="xo-field__control xo-labs__input"
+              id="XoLabSearch-{{ section.id }}"
+              type="search"
+              placeholder="{{ 'xo.labs.search_placeholder' | t }}"
+              autocomplete="off"
+              data-xo-lab-input
+            >
+          </div>
+        {%- endif -%}
+
+        <table class="xo-labs__table">
+          <caption class="xo-visually-hidden">{{ 'xo.labs.caption' | t }}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{{ 'xo.labs.batch' | t }}</th>
+              <th scope="col">{{ 'xo.labs.tested_on' | t }}</th>
+              <th scope="col">{{ 'xo.labs.lab' | t }}</th>
+              <th scope="col">{{ 'xo.labs.fulvic' | t }}</th>
+              <th scope="col">{{ 'xo.labs.metals' | t }}</th>
+              <th scope="col"><span class="xo-visually-hidden">{{ 'xo.labs.report' | t }}</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for xo_key in xo_keys -%}
+              {%- liquid
+                assign xo_handle = xo_key | split: ':' | last
+                assign report = metaobjects.lab_report[xo_handle]
+                assign xo_file = report.report_file.value
+              -%}
+              {% render 'xo-lab-report-row',
+                batch: report.batch.value,
+                test_date: report.test_date.value,
+                lab: report.lab.value,
+                fulvic: report.fulvic_percent.value,
+                lead: report.lead_ppm.value,
+                arsenic: report.arsenic_ppm.value,
+                mercury: report.mercury_ppm.value,
+                cadmium: report.cadmium_ppm.value,
+                report_url: xo_file.url
+              %}
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <p
+          class="xo-labs__none"
+          data-xo-lab-none
+          hidden
+        >
+          {{ 'xo.labs.no_match' | t }}
+        </p>
+        <p
+          class="xo-visually-hidden"
+          role="status"
+          aria-live="polite"
+          data-xo-lab-status
+        ></p>
+      </xo-lab-search>
+      {%- if s.note != blank -%}
+        <p class="xo-small xo-muted xo-labs__note">{{ s.note | escape }}</p>
+      {%- endif -%}
+    {%- else -%}
+      <div class="xo-labs__empty">
+        <span class="xo-labs__empty-icon">{%- render 'xo-icon', name: 'flask', size: 28 -%}</span>
+        <h2 class="xo-h3">{{ s.empty_heading | escape }}</h2>
+        {%- if s.empty_text != blank -%}
+          <div class="xo-text xo-muted xo-rte">{{ s.empty_text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-labs__wrap {
+    display: grid;
+    gap: var(--xo-space-5);
+  }
+
+  .xo-labs__search {
+    display: grid;
+    gap: var(--xo-space-2);
+    max-inline-size: 24rem;
+  }
+
+  .xo-labs__input {
+    border-radius: var(--xo-radius-pill);
+  }
+
+  .xo-labs__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+  }
+
+  .xo-labs__table th {
+    padding: var(--xo-space-3) var(--xo-space-4);
+    border-block-end: 1px solid var(--xo-line-strong);
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-align: start;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-labs__table td {
+    padding: var(--xo-space-4);
+    border-block-end: 1px solid var(--xo-line);
+    vertical-align: top;
+  }
+
+  @media (max-width: 749px) {
+    .xo-labs__table thead {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .xo-labs__table,
+    .xo-labs__table tbody,
+    .xo-labs__table tr,
+    .xo-labs__table td {
+      display: block;
+    }
+
+    .xo-labs__table tr {
+      display: grid;
+      gap: var(--xo-space-2);
+      margin-block-end: var(--xo-space-3);
+      padding: var(--xo-space-4);
+      border: 1px solid var(--xo-line);
+      border-radius: var(--xo-radius-card);
+      background: var(--xo-surface);
+    }
+
+    .xo-labs__table tr[hidden] {
+      display: none;
+    }
+
+    .xo-labs__table td {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      gap: var(--xo-space-3);
+      padding: 0;
+      border: 0;
+    }
+
+    .xo-labs__table td::before {
+      content: attr(data-label);
+      font-size: var(--xo-text-xs);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--xo-muted);
+    }
+  }
+
+  .xo-labs__none {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    color: var(--xo-muted);
+  }
+
+  .xo-labs__note {
+    margin-block-start: var(--xo-space-4);
+  }
+
+  .xo-labs__empty {
+    display: grid;
+    justify-items: center;
+    gap: var(--xo-space-3);
+    max-inline-size: 36rem;
+    margin-inline: auto;
+    padding: var(--xo-space-7) var(--xo-space-5);
+    border: 1px dashed var(--xo-line-strong);
+    border-radius: var(--xo-radius-card);
+    text-align: center;
+  }
+
+  .xo-labs__empty .xo-rte > * {
+    margin: 0;
+  }
+
+  .xo-labs__empty-icon {
+    display: grid;
+    place-items: center;
+    inline-size: 4rem;
+    block-size: 4rem;
+    border-radius: 50%;
+    background: var(--xo-surface);
+    border: 1px solid var(--xo-line);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.lab_reports",
+  "tag": "section",
+  "class": "xo-lab-reports-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.lab_reports" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Every batch" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Lab reports by <em>batch</em>" },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "text", "id": "note", "label": "t:xo.labels.small_print", "default": "Values are as printed on each laboratory report. ppm means parts per million." },
+    { "type": "header", "content": "t:xo.labels.empty_header" },
+    { "type": "text", "id": "empty_heading", "label": "t:xo.labels.heading", "default": "Reports will be published here" },
+    {
+      "type": "richtext",
+      "id": "empty_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Our laboratory reports will appear on this page as soon as they are ready. Questions in the meantime? Message us on WhatsApp.</p>"
+    },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor", "default": "reports" }
+  ],
+  "presets": [{ "name": "t:xo.names.lab_reports" }]
+}
+{% endschema %}

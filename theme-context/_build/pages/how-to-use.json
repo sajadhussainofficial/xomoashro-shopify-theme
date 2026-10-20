@@ -1,0 +1,13 @@
+{
+  "title": "How to use",
+  "handle": "how-to-use",
+  "template_suffix": "how-to-use",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "How to Take Shilajit | Xomoashro",
+    "description": "How to take shilajit resin in three simple steps, with storage tips and safety advice."
+  },
+  "redirect_from": null,
+  "note": "Page copy lives in templates/page.how-to-use.json; the page body stays empty."
+}

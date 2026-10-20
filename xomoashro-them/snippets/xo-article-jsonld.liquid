@@ -1,0 +1,72 @@
+{%- doc -%}
+  Structured data for a journal article: the article itself (BlogPosting) and
+  its breadcrumb trail. Output goes inside a `<script type="application/ld+json">`.
+
+  @param {object} article - The article
+  @param {object} blog - The article's blog
+  @param {string} [publisher] - Publisher name. Defaults to "Xomoashro"
+
+  @example
+  <script type="application/ld+json">{% render 'xo-article-jsonld', article: article, blog: blog %}</script>
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_origin = request.origin
+  assign xo_url = xo_origin | append: article.url
+  assign xo_publisher = publisher | default: 'Xomoashro'
+  assign xo_author = article.author | default: xo_publisher
+  assign xo_description = article.excerpt_or_content | strip_html | split: ' ' | join: ' ' | truncate: 300
+  assign xo_words = article.content | replace: '<', ' <' | strip_html | split: ' ' | size
+  if settings.logo != blank
+    assign xo_logo = settings.logo | image_url: width: 600 | prepend: 'https:'
+  else
+    assign xo_logo = 'xo-logo.svg' | asset_url | prepend: 'https:'
+  endif
+  if xo_author == xo_publisher
+    assign xo_author_type = 'Organization'
+  else
+    assign xo_author_type = 'Person'
+  endif
+-%}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": {{ xo_url | append: '#article' | json }},
+      "mainEntityOfPage": {{ xo_url | json }},
+      "url": {{ xo_url | json }},
+      "headline": {{ article.title | truncate: 110 | json }},
+      "description": {{ xo_description | json }},
+      {%- if article.image %}
+      "image": [{{ article.image | image_url: width: 1600 | prepend: 'https:' | json }}],
+      {%- endif %}
+      "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+      "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+      "author": {
+        "@type": {{ xo_author_type | json }},
+        "name": {{ xo_author | json }},
+        "url": {{ xo_origin | append: '/pages/about' | json }}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ xo_publisher | json }},
+        "logo": { "@type": "ImageObject", "url": {{ xo_logo | json }} }
+      },
+      {%- if article.tags.size > 0 %}
+      "keywords": {{ article.tags | join: ', ' | json }},
+      {%- endif %}
+      "articleSection": {{ blog.title | json }},
+      "wordCount": {{ xo_words }},
+      "inLanguage": {{ request.locale.iso_code | json }}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": {{ 'xo.journal.home' | t | json }}, "item": {{ xo_origin | append: '/' | json }} },
+        { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ xo_origin | append: blog.url | json }} },
+        { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ xo_url | json }} }
+      ]
+    }
+  ]
+}

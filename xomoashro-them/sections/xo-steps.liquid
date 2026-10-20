@@ -1,0 +1,168 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div
+  class="xo-steps xo-section xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container">
+    {%- render 'xo-section-heading', eyebrow: s.eyebrow, heading: s.heading, lead: s.lead -%}
+    {%- if section.blocks.size > 0 -%}
+      <ol
+        class="xo-steps__list"
+        style="--xo-steps-count: {{ section.blocks.size | at_most: 4 }};"
+      >
+        {%- for block in section.blocks -%}
+          <li
+            class="xo-steps__item"
+            {{ block.shopify_attributes }}
+          >
+            <span
+              class="xo-steps__number"
+              aria-hidden="true"
+              >{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span
+            >
+            <h3 class="xo-steps__title">{{ block.settings.title | escape }}</h3>
+            {%- if block.settings.text != blank -%}
+              <div class="xo-steps__text xo-rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+    {%- endif -%}
+    {%- if s.button_label != blank -%}
+      <div class="xo-steps__actions">
+        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: s.button_style, icon: 'arrow-right' -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-steps__list {
+    display: grid;
+    gap: var(--xo-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+  }
+
+  @media (min-width: 750px) {
+    .xo-steps__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 990px) {
+    .xo-steps__list {
+      grid-template-columns: repeat(var(--xo-steps-count, 3), minmax(0, 1fr));
+    }
+  }
+
+  .xo-steps__item {
+    display: grid;
+    align-content: start;
+    gap: var(--xo-space-3);
+    padding: var(--xo-space-5);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  .xo-steps__number {
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h3);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--xo-heading-soft);
+  }
+
+  .xo-steps__title {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-lead);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .xo-steps__text {
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.6;
+    color: var(--xo-muted);
+  }
+
+  .xo-steps__text p {
+    margin: 0;
+  }
+
+  .xo-steps__actions {
+    margin-block-start: var(--xo-space-6);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.steps",
+  "tag": "section",
+  "class": "xo-steps-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "surface"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "How it works" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Three simple <em>steps</em>" },
+    { "type": "richtext", "id": "lead", "label": "t:xo.labels.lead" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:xo.labels.button_style",
+      "options": [
+        { "value": "primary", "label": "t:xo.options.button_primary" },
+        { "value": "solid", "label": "t:xo.options.button_solid" },
+        { "value": "secondary", "label": "t:xo.options.button_secondary" }
+      ],
+      "default": "solid"
+    },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "t:xo.names.step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:xo.labels.title", "default": "Step" },
+        { "type": "richtext", "id": "text", "label": "t:xo.labels.text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:xo.names.steps",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Apply" } },
+        { "type": "step", "settings": { "title": "We get in touch" } },
+        { "type": "step", "settings": { "title": "Get started" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

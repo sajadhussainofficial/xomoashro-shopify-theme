@@ -1,0 +1,173 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "How to use",
+        "heading": "How to take <em>shilajit</em>",
+        "lead": "<p>Shilajit resin is simple to take. Here is how to make it part of your day.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": ""
+      }
+    },
+    "steps": {
+      "type": "xo-how-to-use",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Take a pea-sized amount",
+            "text": "<p>Scoop a small portion of resin with a clean, dry spoon.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Dissolve it",
+            "text": "<p>Stir it into warm water, milk or tea until it has dissolved.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Drink once a day",
+            "text": "<p>Start small and keep to the amount on the label.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "draft": true,
+        "tone": "bone",
+        "heading": "Three steps, <em>once a day</em>",
+        "button_label": "",
+        "footnote": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.",
+        "button_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-portrait.webp",
+        "anchor": "how-to-use"
+      }
+    },
+    "tips": {
+      "type": "xo-rich-text",
+      "settings": {
+        "tone": "surface",
+        "align": "start",
+        "compact": true,
+        "eyebrow": "Good to know",
+        "heading": "Small habits, <em>better results</em>",
+        "text": "<p>Use a clean, dry spoon each time so moisture does not get into the jar. Keep the lid closed and store the jar in a cool, dry place.</p><p>Resin can harden in cold weather and soften in heat. This is normal: warm it slightly or let it rest at room temperature before scooping.</p>",
+        "signature": "",
+        "button_label": "",
+        "button_link": "",
+        "anchor": ""
+      }
+    },
+    "faq": {
+      "type": "xo-faq",
+      "blocks": {
+        "topic_1": {
+          "type": "topic",
+          "settings": {
+            "title": "The product"
+          }
+        },
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What is shilajit?",
+            "answer": "<p>Shilajit is a natural mineral resin that forms over centuries in high mountain rock, including the Himalayas. It contains fulvic acid, humic acid and trace minerals, and has been used in traditional medicine for centuries.</p>",
+            "requires": "none"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take shilajit?",
+            "answer": "<p>Take a pea-sized amount of resin, dissolve it in warm water, milk or tea, and drink it once a day. Start small and keep to the amount on the label.</p>",
+            "requires": "none"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Are there any side effects?",
+            "answer": "<p>Most people tolerate shilajit well at the recommended amount. Some may notice an upset stomach. Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</p>",
+            "requires": "none"
+          }
+        }
+      },
+      "block_order": [
+        "topic_1",
+        "question_1",
+        "question_2",
+        "question_3"
+      ],
+      "settings": {
+        "tone": "bone",
+        "heading": "Frequently asked <em>questions</em>",
+        "contact_heading": "Still have questions?",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hello, I have a question about Xomoashro shilajit.",
+        "structured_data": true,
+        "anchor": "faq"
+      }
+    },
+    "precautions": {
+      "type": "xo-precautions",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Start with a small amount and keep to the amount on the label."
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Some people may notice an upset stomach. Stop and speak to your doctor if you feel unwell."
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Keep out of reach of children. Store with the lid closed in a cool, dry place."
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Safety",
+        "heading": "Before you take it",
+        "note": "Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.",
+        "anchor": "safety"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "tips",
+    "faq",
+    "precautions"
+  ]
+}

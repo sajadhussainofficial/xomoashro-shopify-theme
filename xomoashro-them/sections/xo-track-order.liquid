@@ -1,0 +1,222 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_form_id = 'XoOrderForm-' | append: section.id
+  assign xo_error_id = xo_form_id | append: '-errors'
+  capture xo_wa_url
+    render 'xo-shop-facts', fact: 'whatsapp_url', message: s.whatsapp_message
+  endcapture
+  assign xo_wa_url = xo_wa_url | strip
+-%}
+
+<div class="xo-track xo-section xo-section--tight xo-tone-{{ s.tone }}">
+  <div class="xo-container">
+    <div class="xo-track__grid">
+      {%- if shop.customer_accounts_enabled -%}
+        <div class="xo-form-card xo-track__card">
+          <span class="xo-track__icon">{%- render 'xo-icon', name: 'user', size: 22 -%}</span>
+          <h2 class="xo-h4">{{ s.account_heading | escape }}</h2>
+          {%- if s.account_text != blank -%}
+            <div class="xo-text xo-muted xo-rte">{{ s.account_text }}</div>
+          {%- endif -%}
+          <a
+            class="xo-btn xo-btn--solid"
+            href="{{ routes.account_url }}"
+          >
+            {{- s.account_button | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
+
+      <div class="xo-form-card xo-track__card">
+        <span class="xo-track__icon">{%- render 'xo-icon', name: 'truck', size: 22 -%}</span>
+        <h2 class="xo-h4">{{ s.form_heading | escape }}</h2>
+        {%- if s.form_text != blank -%}
+          <div class="xo-text xo-muted xo-rte">{{ s.form_text }}</div>
+        {%- endif -%}
+        {%- form 'contact', id: xo_form_id, class: 'xo-form' -%}
+          <input
+            type="hidden"
+            name="contact[Form]"
+            value="{{ s.form_name | escape }}"
+          >
+          {%- if form.posted_successfully? -%}
+            <p
+              class="xo-form__message xo-form__message--success"
+              role="status"
+              tabindex="-1"
+              autofocus
+            >
+              {%- render 'xo-icon', name: 'check-circle', size: 20 -%}
+              <span>{{ s.success_message | escape }}</span>
+            </p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div
+              class="xo-form__message xo-form__message--error"
+              id="{{ xo_error_id }}"
+              role="alert"
+            >
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+          <div class="xo-form__fields">
+            {%- liquid
+              assign xo_id_order = xo_form_id | append: '-order'
+              assign xo_id_email = xo_form_id | append: '-email'
+              assign xo_id_phone = xo_form_id | append: '-phone'
+              assign xo_label_order = 'xo.track.order_number' | t
+              assign xo_label_email = 'xo.forms.email' | t
+              assign xo_label_phone = 'xo.forms.phone' | t
+              assign xo_hint_order = 'xo.track.order_hint' | t
+            -%}
+            <div class="xo-form__field xo-form__field--full">
+              {% render 'xo-form-field',
+                id: xo_id_order,
+                label: xo_label_order,
+                key: 'Order number',
+                required: true,
+                placeholder: '#1001',
+                hint: xo_hint_order
+              %}
+            </div>
+            <div class="xo-form__field xo-form__field--half">
+              {% render 'xo-form-field',
+                id: xo_id_email,
+                label: xo_label_email,
+                role: 'email',
+                required: true,
+                invalid: form.errors,
+                error_id: xo_error_id
+              %}
+            </div>
+            <div class="xo-form__field xo-form__field--half">
+              {% render 'xo-form-field', id: xo_id_phone, label: xo_label_phone, role: 'phone' %}
+            </div>
+          </div>
+          <button
+            class="xo-btn xo-btn--solid xo-form__submit"
+            type="submit"
+          >
+            {{- s.button_label | escape -}}
+          </button>
+        {%- endform -%}
+      </div>
+
+      {%- if xo_wa_url != blank -%}
+        <div class="xo-form-card xo-track__card xo-track__card--ink xo-tone-ink">
+          <span class="xo-track__icon">{%- render 'xo-icon', name: 'whatsapp', size: 22 -%}</span>
+          <h2 class="xo-h4">{{ s.whatsapp_heading | escape }}</h2>
+          {%- if s.whatsapp_text != blank -%}
+            <div class="xo-text xo-muted xo-rte">{{ s.whatsapp_text }}</div>
+          {%- endif -%}
+          <a
+            class="xo-btn xo-btn--secondary"
+            href="{{ xo_wa_url }}"
+            target="_blank"
+            rel="noopener"
+          >
+            {%- render 'xo-icon', name: 'whatsapp', size: 18 -%}
+            <span>{{ s.whatsapp_button | escape }}</span>
+            <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-track__grid {
+    display: grid;
+    gap: var(--xo-space-4);
+    align-items: start;
+  }
+
+  @media (min-width: 990px) {
+    .xo-track__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: var(--xo-space-5);
+    }
+  }
+
+  .xo-track__card {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+  }
+
+  .xo-track__card .xo-form {
+    inline-size: 100%;
+  }
+
+  .xo-track__card .xo-rte > * {
+    margin: 0;
+  }
+
+  .xo-track__icon {
+    display: grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border-radius: 50%;
+    border: 1px solid var(--xo-line-strong);
+    color: var(--xo-fg);
+  }
+
+  .xo-track__card--ink {
+    border-color: transparent;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.track_order",
+  "tag": "section",
+  "class": "xo-track-order-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.track_order" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "header", "content": "t:xo.labels.account_header" },
+    { "type": "text", "id": "account_heading", "label": "t:xo.labels.heading", "default": "See your orders online" },
+    {
+      "type": "richtext",
+      "id": "account_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Sign in with the email you ordered with. We send you a one-time code, so there is no password to remember.</p>"
+    },
+    { "type": "text", "id": "account_button", "label": "t:xo.labels.button_label", "default": "View my orders" },
+    { "type": "header", "content": "t:xo.labels.form_header" },
+    { "type": "text", "id": "form_heading", "label": "t:xo.labels.heading", "default": "Ask about an order" },
+    {
+      "type": "richtext",
+      "id": "form_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Send us your order number and we will reply with its status and tracking details.</p>"
+    },
+    { "type": "text", "id": "form_name", "label": "t:xo.labels.form_name", "info": "t:xo.info.form_name", "default": "Order status enquiry" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Send enquiry" },
+    { "type": "text", "id": "success_message", "label": "t:xo.labels.success_message", "default": "Thank you. We will reply with your order status soon." },
+    { "type": "header", "content": "t:xo.labels.whatsapp_header" },
+    { "type": "text", "id": "whatsapp_heading", "label": "t:xo.labels.heading", "default": "Faster on WhatsApp" },
+    {
+      "type": "richtext",
+      "id": "whatsapp_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Message us with your order number and we will check it for you.</p>"
+    },
+    { "type": "text", "id": "whatsapp_button", "label": "t:xo.labels.button_label", "default": "Ask on WhatsApp" },
+    { "type": "text", "id": "whatsapp_message", "label": "t:xo.labels.whatsapp_message", "default": "Hello, I would like an update on my order. My order number is " }
+  ],
+  "presets": [{ "name": "t:xo.names.track_order" }]
+}
+{% endschema %}

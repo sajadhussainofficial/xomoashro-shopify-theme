@@ -1,0 +1,212 @@
+{%- doc -%}
+  One field of a Shopify contact form, with a visible label, a required marker
+  and error state. Values sent in `contact[...]` appear in the message the store
+  receives under the field's name.
+
+  @param {string} id - Unique id for the input
+  @param {string} label - Visible label
+  @param {string} [role] - `name`, `email`, `phone`, `message` or `custom` (default)
+  @param {string} [key] - Name shown in the store's message for custom fields. Defaults to the label
+  @param {string} [type] - `text` (default), `email`, `tel`, `number`, `url`, `select`, `textarea` or `checkbox`
+  @param {boolean} [required] - Mark the field as required
+  @param {string} [placeholder] - Placeholder text
+  @param {string} [options] - Choices for a `select`, one per line or separated by commas
+  @param {string} [hint] - Short help text under the field
+  @param {boolean} [invalid] - Show the field as having an error (used for the email field after a failed send)
+  @param {string} [error_id] - Id of the error message the field points to
+
+  @example
+  {% render 'xo-form-field', id: 'Form-email', label: 'Email', role: 'email', type: 'email', required: true %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_role = role | default: 'custom'
+  assign xo_type = type | default: 'text'
+  case xo_role
+    when 'name'
+      assign xo_name = 'contact[name]'
+      assign xo_auto = 'name'
+    when 'email'
+      assign xo_name = 'contact[email]'
+      assign xo_type = 'email'
+      assign xo_auto = 'email'
+    when 'phone'
+      assign xo_name = 'contact[phone]'
+      assign xo_type = 'tel'
+      assign xo_auto = 'tel'
+    when 'message'
+      assign xo_name = 'contact[body]'
+      assign xo_type = 'textarea'
+      assign xo_auto = 'off'
+    else
+      assign xo_key = key | default: label | strip
+      assign xo_name = 'contact[' | append: xo_key | append: ']'
+      assign xo_auto = 'off'
+  endcase
+  assign xo_hint_id = id | append: '-hint'
+  assign xo_described = ''
+  if hint != blank
+    assign xo_described = xo_hint_id
+  endif
+  if invalid and error_id != blank
+    assign xo_described = xo_described | append: ' ' | append: error_id | strip
+  endif
+  assign xo_options = options | newline_to_br | replace: '<br />', ',' | split: ','
+-%}
+
+<div class="xo-field xo-form-field xo-form-field--{{ xo_type }}">
+  {%- if xo_type == 'checkbox' -%}
+    <label
+      class="xo-form-field__check"
+      for="{{ id }}"
+    >
+      <input
+        type="checkbox"
+        id="{{ id }}"
+        name="{{ xo_name | escape }}"
+        value="{{ 'xo.forms.yes' | t }}"
+        {% if required %}
+          required
+        {% endif %}
+        {% if xo_described != blank %}
+          aria-describedby="{{ xo_described }}"
+        {% endif %}
+      >
+      <span>
+        {{- label | escape -}}
+        {%- if required %}<span class="xo-form-field__required" aria-hidden="true"> *</span>{% endif -%}
+      </span>
+    </label>
+  {%- else -%}
+    <label
+      class="xo-field__label"
+      for="{{ id }}"
+    >
+      {{- label | escape -}}
+      {%- if required -%}
+        <span
+          class="xo-form-field__required"
+          aria-hidden="true"
+        >
+          *</span
+        >
+      {%- else -%}
+        <span class="xo-form-field__optional">{{ 'xo.forms.optional' | t }}</span>
+      {%- endif -%}
+    </label>
+    {%- if xo_type == 'textarea' -%}
+      <textarea
+        class="xo-field__control"
+        id="{{ id }}"
+        name="{{ xo_name | escape }}"
+        rows="5"
+        {% if placeholder != blank %}
+          placeholder="{{ placeholder | escape }}"
+        {% endif %}
+        {% if required %}
+          required
+        {% endif %}
+        {% if xo_described != blank %}
+          aria-describedby="{{ xo_described }}"
+        {% endif %}
+      ></textarea>
+    {%- elsif xo_type == 'select' -%}
+      <select
+        class="xo-field__control xo-form-field__select"
+        id="{{ id }}"
+        name="{{ xo_name | escape }}"
+        {% if required %}
+          required
+        {% endif %}
+        {% if xo_described != blank %}
+          aria-describedby="{{ xo_described }}"
+        {% endif %}
+      >
+        <option value="">{{ placeholder | default: '—' | escape }}</option>
+        {%- for xo_option in xo_options -%}
+          {%- assign xo_option_text = xo_option | strip -%}
+          {%- if xo_option_text != blank -%}
+            <option value="{{ xo_option_text | escape }}">{{ xo_option_text | escape }}</option>
+          {%- endif -%}
+        {%- endfor -%}
+      </select>
+    {%- else -%}
+      <input
+        class="xo-field__control"
+        id="{{ id }}"
+        type="{{ xo_type }}"
+        name="{{ xo_name | escape }}"
+        autocomplete="{{ xo_auto }}"
+        {% if xo_type == 'email' %}
+          autocapitalize="off"
+          spellcheck="false"
+        {% endif %}
+        {% if placeholder != blank %}
+          placeholder="{{ placeholder | escape }}"
+        {% endif %}
+        {% if required %}
+          required
+        {% endif %}
+        {% if invalid %}
+          aria-invalid="true"
+        {% endif %}
+        {% if xo_described != blank %}
+          aria-describedby="{{ xo_described }}"
+        {% endif %}
+      >
+    {%- endif -%}
+  {%- endif -%}
+  {%- if hint != blank -%}
+    <p
+      class="xo-form-field__hint"
+      id="{{ xo_hint_id }}"
+    >
+      {{ hint | escape }}
+    </p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .xo-form-field__required {
+    color: var(--xo-error);
+    font-weight: 700;
+  }
+
+  .xo-form-field__optional {
+    margin-inline-start: var(--xo-space-2);
+    font-weight: 400;
+    color: var(--xo-muted);
+  }
+
+  .xo-form-field__select {
+    padding-inline-end: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.5'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+  }
+
+  .xo-form-field__hint {
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-xs);
+    color: var(--xo-muted);
+  }
+
+  .xo-form-field__check {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--xo-space-3);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .xo-form-field__check input {
+    flex: none;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin-block-start: 0.1rem;
+    accent-color: var(--xo-fg);
+  }
+{% endstylesheet %}

@@ -1,0 +1,128 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div
+  class="xo-richtext xo-section{% if s.compact %} xo-section--tight{% endif %} xo-tone-{{ s.tone }}"
+  {% if s.anchor != blank %}
+    id="{{ s.anchor | handleize }}"
+    data-xo-anchor
+  {% endif %}
+>
+  <div class="xo-container xo-container--narrow xo-richtext__inner xo-richtext__inner--{{ s.align }}">
+    {%- if s.eyebrow != blank -%}
+      <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if s.heading != blank -%}
+      <h2 class="xo-h2 xo-richtext__heading">{{ s.heading }}</h2>
+    {%- endif -%}
+    {%- if s.text != blank -%}
+      <div class="xo-text xo-rte xo-richtext__text">{{ s.text }}</div>
+    {%- endif -%}
+    {%- if s.signature != blank -%}
+      <p class="xo-richtext__signature">{{ s.signature | escape }}</p>
+    {%- endif -%}
+    {%- if s.button_label != blank -%}
+      <div class="xo-richtext__actions">
+        {%- render 'xo-button', label: s.button_label, url: s.button_link, style: 'secondary', icon: 'arrow-right' -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-richtext__inner {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+  }
+
+  .xo-richtext__inner--center {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .xo-richtext__text {
+    font-size: var(--xo-text-lead);
+    line-height: 1.7;
+  }
+
+  .xo-richtext__text > * {
+    margin: 0;
+  }
+
+  .xo-richtext__text > * + * {
+    margin-block-start: var(--xo-space-4);
+  }
+
+  .xo-richtext__signature {
+    margin: var(--xo-space-2) 0 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    color: var(--xo-fg);
+  }
+
+  .xo-richtext__signature::before {
+    content: '';
+    display: block;
+    inline-size: 3rem;
+    block-size: 1px;
+    margin-block-end: var(--xo-space-3);
+    background: var(--xo-line-strong);
+  }
+
+  .xo-richtext__inner--center .xo-richtext__signature::before {
+    margin-inline: auto;
+  }
+
+  .xo-richtext__actions {
+    margin-block-start: var(--xo-space-2);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.rich_text",
+  "tag": "section",
+  "class": "xo-rich-text-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" },
+        { "value": "ink", "label": "t:xo.options.ink" }
+      ],
+      "default": "bone"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "t:xo.labels.alignment",
+      "options": [
+        { "value": "start", "label": "t:xo.options.align_start" },
+        { "value": "center", "label": "t:xo.options.align_center" }
+      ],
+      "default": "start"
+    },
+    { "type": "checkbox", "id": "compact", "label": "t:xo.labels.compact", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "Our story" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:xo.labels.heading", "default": "Born in the <em>Himalayas</em>" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Tell your story here.</p>"
+    },
+    { "type": "text", "id": "signature", "label": "t:xo.labels.signature", "info": "t:xo.info.signature" },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label" },
+    { "type": "url", "id": "button_link", "label": "t:xo.labels.button_link" },
+    { "type": "text", "id": "anchor", "label": "t:xo.labels.anchor", "info": "t:xo.info.anchor" }
+  ],
+  "presets": [{ "name": "t:xo.names.rich_text" }]
+}
+{% endschema %}

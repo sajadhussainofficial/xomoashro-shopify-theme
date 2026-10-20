@@ -1,0 +1,161 @@
+{%- doc -%}
+  Table of contents for an article, built by the article section from the
+  article's H2 headings and passed in as `toc`. Open on computers, folded on
+  phones. Hidden when the article has fewer than two headings.
+
+  @param {string} toc - List items (`<li><a href="#id">…</a></li>`) from `xo-article-headings`
+
+  @example
+  {% content_for 'block', type: 'xo-article-toc', id: 'toc', toc: xo_toc %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_count = toc | split: '<li>' | size | minus: 1
+-%}
+
+{%- if xo_count >= block.settings.min_headings -%}
+  <xo-toc
+    class="xo-toc"
+    {{ block.shopify_attributes }}
+  >
+    <details
+      class="xo-toc__details"
+      open
+    >
+      <summary class="xo-toc__summary">
+        <span>{{ block.settings.heading | escape }}</span>
+        {%- render 'xo-icon', name: 'chevron-down', size: 16, class: 'xo-toc__chevron' -%}
+      </summary>
+      <nav aria-label="{{ block.settings.heading | escape }}">
+        <ol class="xo-toc__list">
+          {{- toc -}}
+        </ol>
+      </nav>
+    </details>
+  </xo-toc>
+{%- elsif request.design_mode -%}
+  <p
+    class="xo-editor-note"
+    {{ block.shopify_attributes }}
+  >
+    {{ 'xo.journal.toc_note' | t }}
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-toc {
+    display: block;
+    font-family: var(--xo-font-body);
+  }
+
+  .xo-toc__details {
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  .xo-toc__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--xo-space-3);
+    min-block-size: var(--xo-tap-target);
+    padding: var(--xo-space-3) var(--xo-space-4);
+    font-size: var(--xo-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--xo-fg);
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .xo-toc__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .xo-toc__chevron {
+    transition: transform var(--xo-duration) var(--xo-ease);
+  }
+
+  .xo-toc__details[open] .xo-toc__chevron {
+    transform: rotate(180deg);
+  }
+
+  .xo-toc__list {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding: 0 var(--xo-space-2) var(--xo-space-3);
+    list-style: none;
+    counter-reset: xo-toc;
+  }
+
+  .xo-toc__list li {
+    counter-increment: xo-toc;
+  }
+
+  .xo-toc__list a {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: var(--xo-space-1);
+    padding: var(--xo-space-2);
+    border-radius: calc(var(--xo-radius-card) * 0.6);
+    font-size: var(--xo-text-sm);
+    line-height: 1.4;
+    color: var(--xo-muted);
+    text-decoration: none;
+  }
+
+  .xo-toc__list a::before {
+    content: counter(xo-toc, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--xo-muted);
+  }
+
+  .xo-toc__list a:hover,
+  .xo-toc__list a[aria-current='true'] {
+    background: var(--xo-bg);
+    color: var(--xo-fg);
+  }
+
+  .xo-toc__list a[aria-current='true'] {
+    font-weight: 600;
+  }
+
+  @media (min-width: 990px) {
+    .xo-toc__summary {
+      cursor: default;
+    }
+
+    .xo-toc__chevron {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-toc__chevron {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.article_toc",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.article_toc" },
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "default": "On this page" },
+    {
+      "type": "range",
+      "id": "min_headings",
+      "label": "t:xo.labels.min_headings",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    }
+  ]
+}
+{% endschema %}

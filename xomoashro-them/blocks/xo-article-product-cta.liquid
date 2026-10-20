@@ -1,0 +1,59 @@
+{%- comment -%}
+  Static block of the article section. The section captures this output and
+  splits it at the marker: the box before it goes after the chosen paragraph,
+  the box after it goes at the end of the article.
+{%- endcomment -%}
+{%- liquid
+  assign bs = block.settings
+-%}
+
+{%- if bs.after_paragraph > 0 -%}
+  <div
+    class="xo-acta-wrap"
+    {{ block.shopify_attributes }}
+  >
+    {% render 'xo-article-cta', settings: bs, placement: 'inline' %}
+  </div>
+{%- endif -%}
+<!--xo-acta-split:{{ bs.after_paragraph }}-->
+{%- if bs.show_at_end -%}
+  <div
+    class="xo-acta-wrap"
+    {{ block.shopify_attributes }}
+  >
+    {% render 'xo-article-cta', settings: bs, placement: 'end' %}
+  </div>
+{%- elsif bs.after_paragraph == 0 and request.design_mode -%}
+  <p
+    class="xo-editor-note"
+    {{ block.shopify_attributes }}
+  >
+    {{ 'xo.journal.cta_hidden' | t }}
+  </p>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:xo.names.article_cta",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.article_cta" },
+    { "type": "product", "id": "product", "label": "t:xo.labels.product", "info": "t:xo.info.article_cta_product" },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "From the Himalayas" },
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "default": "Try pure Himalayan shilajit" },
+    { "type": "text", "id": "text", "label": "t:xo.labels.text", "default": "100% resin from Chitral and Gilgit-Baltistan. Pay in cash when it arrives." },
+    { "type": "text", "id": "button_label", "label": "t:xo.labels.button_label", "default": "Shop Shilajit" },
+    {
+      "type": "range",
+      "id": "after_paragraph",
+      "label": "t:xo.labels.after_paragraph",
+      "info": "t:xo.info.after_paragraph",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    { "type": "checkbox", "id": "show_at_end", "label": "t:xo.labels.show_at_end", "default": true }
+  ]
+}
+{% endschema %}

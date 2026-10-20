@@ -1,0 +1,11 @@
+<claude-code-hint v="1" type="plugin" value="shopify-ai-toolkit@claude-plugins-official" />
+{
+  "blogUpdate": {
+    "blog": {
+      "id": "gid://shopify/Blog/100614832300",
+      "handle": "guides",
+      "title": "Blog"
+    },
+    "userErrors": []
+  }
+}

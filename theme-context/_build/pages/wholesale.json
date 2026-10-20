@@ -1,0 +1,13 @@
+{
+  "title": "Wholesale",
+  "handle": "wholesale",
+  "template_suffix": "wholesale",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Wholesale Shilajit | Xomoashro",
+    "description": "Stock Xomoashro Himalayan shilajit in your pharmacy, health store or online shop. Apply for wholesale prices."
+  },
+  "redirect_from": "/become-distributor/",
+  "note": "Page copy lives in templates/page.wholesale.json; the page body stays empty."
+}

@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Affiliate programme",
+        "heading": "Share <em>Xomoashro</em> and earn",
+        "lead": "<p>Recommend our shilajit to your audience and earn a reward on the orders you refer. Apply below and we will send you the details.</p>",
+        "button_label": "Apply now",
+        "button_link": "/pages/affiliate#apply",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": ""
+      }
+    },
+    "steps": {
+      "type": "xo-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Apply",
+            "text": "<p>Tell us about your website or social channels.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Get your link",
+            "text": "<p>Once approved, you receive your own referral link.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Share and earn",
+            "text": "<p>Orders placed through your link earn you a reward. We share the full details when you join.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "How it works",
+        "heading": "Three steps to <em>start</em>",
+        "lead": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "anchor": ""
+      }
+    },
+    "form": {
+      "type": "xo-lead-form",
+      "blocks": {
+        "field_1": {
+          "type": "field",
+          "settings": {
+            "label": "Full name",
+            "role": "name",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_2": {
+          "type": "field",
+          "settings": {
+            "label": "Email",
+            "role": "email",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_3": {
+          "type": "field",
+          "settings": {
+            "label": "Phone",
+            "role": "phone",
+            "type": "text",
+            "required": false,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_4": {
+          "type": "field",
+          "settings": {
+            "label": "Website or social links",
+            "role": "custom",
+            "type": "text",
+            "required": true,
+            "placeholder": "Links to where you would share us",
+            "options": "",
+            "hint": "",
+            "width": "full"
+          }
+        },
+        "field_5": {
+          "type": "field",
+          "settings": {
+            "label": "Audience size",
+            "role": "custom",
+            "type": "select",
+            "required": false,
+            "placeholder": "Choose one",
+            "options": "Under 1,000\n1,000 to 10,000\n10,000 to 100,000\nOver 100,000",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_6": {
+          "type": "field",
+          "settings": {
+            "label": "How will you promote Xomoashro?",
+            "role": "message",
+            "type": "text",
+            "required": false,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "field_1",
+        "field_2",
+        "field_3",
+        "field_4",
+        "field_5",
+        "field_6"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Apply",
+        "heading": "Affiliate <em>application</em>",
+        "lead": "<p>We review every application and reply by email or WhatsApp.</p>",
+        "note": "",
+        "form_name": "Affiliate application",
+        "button_label": "Send application",
+        "success_message": "Thank you. We will review your application and get back to you.",
+        "anchor": "apply"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "form"
+  ]
+}

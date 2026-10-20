@@ -763,3 +763,74 @@ svg.xo-img {
   min-inline-size: 0;
   border-radius: var(--xo-radius-pill);
 }
+
+/* Shared form layout: lead forms, contact and order enquiry */
+
+.xo-form-card {
+  padding: var(--xo-space-5);
+  border: 1px solid var(--xo-line);
+  border-radius: var(--xo-radius-card);
+  background: var(--xo-surface);
+}
+
+@media (min-width: 750px) {
+  .xo-form-card {
+    padding: var(--xo-space-6);
+  }
+}
+
+.xo-form {
+  display: grid;
+  gap: var(--xo-space-5);
+}
+
+.xo-form__legend {
+  margin: 0;
+}
+
+.xo-form__fields {
+  display: grid;
+  gap: var(--xo-space-4);
+}
+
+@media (min-width: 750px) {
+  .xo-form__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xo-form__fields > .xo-form-field,
+  .xo-form__field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.xo-form__submit {
+  justify-self: start;
+}
+
+.xo-form__message {
+  display: flex;
+  gap: var(--xo-space-2);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--xo-space-3) var(--xo-space-4);
+  border-radius: calc(var(--xo-radius-card) * 0.7);
+  font-family: var(--xo-font-body);
+  font-size: var(--xo-text-sm);
+  line-height: 1.5;
+}
+
+.xo-form__message--success {
+  background: var(--xo-ink);
+  color: var(--xo-on-ink);
+}
+
+.xo-form__message--error {
+  border: 1px solid var(--xo-error);
+  color: var(--xo-error);
+}
+
+.xo-form__message--error ul {
+  margin: 0;
+  padding-inline-start: var(--xo-space-4);
+}

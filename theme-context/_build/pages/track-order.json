@@ -1,0 +1,13 @@
+{
+  "title": "Track your order",
+  "handle": "track-order",
+  "template_suffix": "track-order",
+  "published": true,
+  "body_html": "",
+  "seo": {
+    "title": "Track Your Order | Xomoashro",
+    "description": "Check the status of your Xomoashro order online, or send us your order number for an update."
+  },
+  "redirect_from": null,
+  "note": "Page copy lives in templates/page.track-order.json; the page body stays empty."
+}

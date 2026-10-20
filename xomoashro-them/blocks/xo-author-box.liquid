@@ -1,0 +1,151 @@
+{%- liquid
+  assign bs = block.settings
+  assign xo_name = bs.name | default: article.author
+-%}
+
+{%- if xo_name != blank -%}
+  <section
+    class="xo-author"
+    aria-labelledby="XoAuthor-{{ block.id }}"
+    {{ block.shopify_attributes }}
+  >
+    <div class="xo-author__photo">
+      {%- if bs.image != blank -%}
+        {{- bs.image | image_url: width: 192 | image_tag: widths: '96, 144, 192', sizes: '96px', loading: 'lazy', alt: '' -}}
+      {%- else -%}
+        <img
+          src="{{ 'xo-logo-inverse.svg' | asset_url }}"
+          alt=""
+          width="96"
+          height="20"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+    <div class="xo-author__body">
+      <p class="xo-author__label">{{ 'xo.journal.written_by' | t }}</p>
+      <h2
+        class="xo-author__name"
+        id="XoAuthor-{{ block.id }}"
+      >
+        {{- xo_name | escape -}}
+      </h2>
+      {%- if bs.role != blank -%}
+        <p class="xo-author__role">{{ bs.role | escape }}</p>
+      {%- endif -%}
+      {%- if bs.bio != blank -%}
+        <div class="xo-author__bio xo-rte">{{ bs.bio }}</div>
+      {%- endif -%}
+      {%- if bs.link_label != blank and bs.link != blank -%}
+        <a
+          class="xo-link xo-author__link"
+          href="{{ bs.link }}"
+        >
+          {{- bs.link_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% stylesheet %}
+  .xo-author {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    align-items: start;
+    padding: var(--xo-space-5);
+    border: 1px solid var(--xo-line);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+    font-family: var(--xo-font-body);
+  }
+
+  .xo-author__photo {
+    display: grid;
+    place-items: center;
+    inline-size: 4rem;
+    block-size: 4rem;
+    border-radius: 50%;
+    background: var(--xo-ink);
+    overflow: hidden;
+  }
+
+  .xo-author__photo img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-author__photo img[src*='xo-logo'] {
+    inline-size: 70%;
+    block-size: auto;
+    object-fit: contain;
+  }
+
+  .xo-author__body {
+    display: grid;
+    gap: var(--xo-space-1);
+    justify-items: start;
+  }
+
+  .xo-author__label {
+    margin: 0;
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-author__name {
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    line-height: 1.25;
+  }
+
+  .xo-author__role {
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  .xo-author__bio {
+    margin-block-start: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    line-height: 1.6;
+  }
+
+  .xo-author__bio p {
+    margin: 0;
+  }
+
+  .xo-author__link {
+    margin-block-start: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.author_box",
+  "tag": null,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "t:xo.labels.image" },
+    { "type": "text", "id": "name", "label": "t:xo.labels.author_name", "info": "t:xo.info.author_name" },
+    { "type": "text", "id": "role", "label": "t:xo.labels.author_role", "default": "Xomoashro team" },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "t:xo.labels.text",
+      "default": "<p>We write these guides to help you choose and use shilajit with care. Our shilajit comes from Chitral and Gilgit-Baltistan.</p>"
+    },
+    { "type": "text", "id": "link_label", "label": "t:xo.labels.link_label", "default": "About us" },
+    { "type": "url", "id": "link", "label": "t:xo.labels.link" }
+  ],
+  "presets": [{ "name": "t:xo.names.author_box" }]
+}
+{% endschema %}

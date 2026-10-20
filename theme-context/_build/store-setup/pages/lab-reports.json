@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "Lab reports",
+    "handle": "lab-reports",
+    "templateSuffix": "lab-reports",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "Lab Reports | Xomoashro Shilajit"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Laboratory reports for each Xomoashro batch: fulvic acid and heavy metal results, searchable by batch number."
+      }
+    ]
+  }
+}

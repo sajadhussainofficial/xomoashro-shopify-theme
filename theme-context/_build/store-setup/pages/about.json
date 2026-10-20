@@ -1,0 +1,23 @@
+{
+  "page": {
+    "title": "About us",
+    "handle": "about",
+    "templateSuffix": "about",
+    "isPublished": true,
+    "body": "",
+    "metafields": [
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "single_line_text_field",
+        "value": "About Xomoashro | Pure Himalayan Shilajit"
+      },
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "multi_line_text_field",
+        "value": "Our story: pure shilajit from Chitral and Gilgit-Baltistan, sourced directly from local collectors and delivered across Pakistan."
+      }
+    ]
+  }
+}

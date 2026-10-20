@@ -87,7 +87,7 @@ One product is named in the source. Everything else is missing and is decision B
 
 ## 4. Journal posts
 
-Blog handle `journal`. Slugs unchanged. Author on the old site was "wp-support"; new author name is "Xomoashro" (CONFIRM if a named author is wanted).
+Blog handle `guides`, shown as "Blog" (owner, 2026-10-20; Shopify requires `/blogs/`, and `/blog` redirects there). Slugs unchanged. Author on the old site was "wp-support"; new author name is "Xomoashro" (CONFIRM if a named author is wanted).
 
 | # | Slug | Title (corrected) | Date | Featured image (new name) | Old tags or category | Review flag |
 |---|---|---|---|---|---|---|

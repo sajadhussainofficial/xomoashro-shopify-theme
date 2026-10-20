@@ -1,0 +1,157 @@
+{%- liquid
+  assign bs = block.settings
+  assign xo_url = request.origin | append: article.url
+  assign xo_text = article.title | append: ' ' | append: xo_url
+  assign xo_text_enc = xo_text | url_encode
+  assign xo_url_enc = xo_url | url_encode
+  assign xo_title_enc = article.title | url_encode
+-%}
+
+<div
+  class="xo-share"
+  {{ block.shopify_attributes }}
+>
+  <p
+    class="xo-share__label"
+    id="XoShare-{{ block.id }}"
+  >
+    {{- bs.heading | escape -}}
+  </p>
+  <ul
+    class="xo-share__list"
+    role="list"
+    aria-labelledby="XoShare-{{ block.id }}"
+  >
+    {%- if bs.show_whatsapp -%}
+      <li>
+        <a
+          class="xo-share__link"
+          href="https://wa.me/?text={{ xo_text_enc }}"
+          target="_blank"
+          rel="noopener"
+        >
+          {%- render 'xo-icon', name: 'whatsapp', size: 18 -%}
+          <span>WhatsApp</span>
+          <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+        </a>
+      </li>
+    {%- endif -%}
+    {%- if bs.show_facebook -%}
+      <li>
+        <a
+          class="xo-share__link"
+          href="https://www.facebook.com/sharer/sharer.php?u={{ xo_url_enc }}"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>Facebook</span>
+          <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+        </a>
+      </li>
+    {%- endif -%}
+    {%- if bs.show_x -%}
+      <li>
+        <a
+          class="xo-share__link"
+          href="https://x.com/intent/post?text={{ xo_title_enc }}&url={{ xo_url_enc }}"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>X</span>
+          <span class="xo-visually-hidden">{{ 'xo.product.opens_new_tab' | t }}</span>
+        </a>
+      </li>
+    {%- endif -%}
+    {%- if bs.show_copy -%}
+      <li>
+        <xo-copy-link
+          data-url="{{ xo_url | escape }}"
+          data-done="{{ 'xo.journal.link_copied' | t | escape }}"
+        >
+          <button
+            class="xo-share__link"
+            type="button"
+          >
+            {%- render 'xo-icon', name: 'check', size: 16, class: 'xo-share__done-icon' -%}
+            <span data-xo-copy-label>{{ 'xo.journal.copy_link' | t }}</span>
+          </button>
+          <span
+            class="xo-visually-hidden"
+            role="status"
+            aria-live="polite"
+            data-xo-copy-status
+          ></span>
+        </xo-copy-link>
+      </li>
+    {%- endif -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .xo-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--xo-space-3);
+    font-family: var(--xo-font-body);
+  }
+
+  .xo-share__label {
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+  }
+
+  .xo-share__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-share__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--xo-space-2);
+    min-block-size: 2.5rem;
+    padding: 0 var(--xo-space-4);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    color: var(--xo-fg);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .xo-share__link:hover {
+    border-color: var(--xo-fg);
+  }
+
+  .xo-share__done-icon {
+    display: none;
+  }
+
+  xo-copy-link[data-copied] .xo-share__done-icon {
+    display: block;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.article_share",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "default": "Share this guide" },
+    { "type": "checkbox", "id": "show_whatsapp", "label": "t:xo.labels.share_whatsapp", "default": true },
+    { "type": "checkbox", "id": "show_facebook", "label": "t:xo.labels.share_facebook", "default": true },
+    { "type": "checkbox", "id": "show_x", "label": "t:xo.labels.share_x", "default": false },
+    { "type": "checkbox", "id": "show_copy", "label": "t:xo.labels.share_copy", "default": true }
+  ],
+  "presets": [{ "name": "t:xo.names.article_share" }]
+}
+{% endschema %}

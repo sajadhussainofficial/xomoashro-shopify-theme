@@ -1,0 +1,84 @@
+{%- doc -%}
+  Reads an article's content once and gives every H2 an id, so the table of
+  contents can link to it. Outputs either the content (with an optional block
+  of HTML inserted after a chosen paragraph) or the list of contents. Both
+  modes use the same ids. Heading levels are never changed.
+
+  @param {string} content - The article content (HTML)
+  @param {string} [mode] - `content` (default) or `toc`
+  @param {string} [insert] - HTML inserted after a paragraph, in `content` mode
+  @param {number} [insert_after] - Paragraph number after which `insert` goes. Not inserted when 0 or when the article is shorter
+
+  @example
+  {% render 'xo-article-headings', content: article.content, mode: 'toc' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_mode = mode | default: 'content'
+  assign xo_parts = content | split: '<h2'
+  assign xo_out = ''
+  assign xo_toc = ''
+  assign xo_used = ','
+
+  for xo_part in xo_parts
+    if forloop.first
+      assign xo_out = xo_part
+      continue
+    endif
+
+    assign xo_inner = xo_part | split: '</h2>' | first
+    assign xo_attrs = xo_inner | split: '>' | first
+    assign xo_label_html = xo_inner | remove_first: xo_attrs | remove_first: '>'
+    assign xo_label = xo_label_html | strip_html | strip
+
+    if xo_attrs contains 'id="'
+      assign xo_id = xo_attrs | split: 'id="' | last | split: '"' | first
+      assign xo_rest = xo_part
+    else
+      assign xo_id = xo_label | handleize
+      if xo_id == blank
+        assign xo_id = 'section-' | append: forloop.index
+      endif
+      assign xo_check = ',' | append: xo_id | append: ','
+      if xo_used contains xo_check
+        assign xo_id = xo_id | append: '-' | append: forloop.index
+      endif
+      assign xo_rest = ' id="' | append: xo_id | append: '"' | append: xo_part
+    endif
+
+    assign xo_used = xo_used | append: xo_id | append: ','
+    assign xo_out = xo_out | append: '<h2' | append: xo_rest
+
+    if xo_label != blank
+      assign xo_toc = xo_toc | append: '<li><a href="#' | append: xo_id | append: '">' | append: xo_label | append: '</a></li>'
+    endif
+  endfor
+
+  if xo_mode == 'content' and insert != blank and insert_after > 0
+    assign xo_tail = xo_out | slice: -4, 4
+    assign xo_pieces = xo_out | split: '</p>'
+    assign xo_new = ''
+    assign xo_count = 0
+    assign xo_done = false
+    for xo_piece in xo_pieces
+      assign xo_new = xo_new | append: xo_piece
+      if forloop.last == false or xo_tail == '</p>'
+        assign xo_new = xo_new | append: '</p>'
+        if xo_piece contains '<p'
+          assign xo_count = xo_count | plus: 1
+          if xo_count == insert_after and xo_done == false
+            assign xo_new = xo_new | append: insert
+            assign xo_done = true
+          endif
+        endif
+      endif
+    endfor
+    assign xo_out = xo_new
+  endif
+-%}
+
+{%- if xo_mode == 'toc' -%}
+  {{- xo_toc -}}
+{%- else -%}
+  {{- xo_out -}}
+{%- endif -%}

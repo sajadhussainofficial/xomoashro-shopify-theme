@@ -1,0 +1,260 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Wholesale",
+        "heading": "Stock <em>Xomoashro</em> in your business",
+        "lead": "<p>Pharmacies, health stores and online sellers: apply for wholesale prices and we will get in touch.</p>",
+        "button_label": "Apply now",
+        "button_link": "/pages/wholesale#apply",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp"
+      }
+    },
+    "steps": {
+      "type": "xo-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Apply",
+            "text": "<p>Send the form below with your business details.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "We contact you",
+            "text": "<p>Our team gets in touch with wholesale prices and minimum order quantities.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Place your first order",
+            "text": "<p>Order as agreed and we deliver across Pakistan.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "How it works",
+        "heading": "Three steps to <em>stock us</em>",
+        "lead": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "anchor": ""
+      }
+    },
+    "form": {
+      "type": "xo-lead-form",
+      "blocks": {
+        "field_1": {
+          "type": "field",
+          "settings": {
+            "label": "Business name",
+            "role": "custom",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_2": {
+          "type": "field",
+          "settings": {
+            "label": "Contact person",
+            "role": "name",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_3": {
+          "type": "field",
+          "settings": {
+            "label": "Email",
+            "role": "email",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_4": {
+          "type": "field",
+          "settings": {
+            "label": "Phone",
+            "role": "phone",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_5": {
+          "type": "field",
+          "settings": {
+            "label": "City",
+            "role": "custom",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_6": {
+          "type": "field",
+          "settings": {
+            "label": "Type of business",
+            "role": "custom",
+            "type": "select",
+            "required": true,
+            "placeholder": "Choose one",
+            "options": "Pharmacy\nHealth store\nRetail shop\nOnline store\nDistributor\nOther",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_7": {
+          "type": "field",
+          "settings": {
+            "label": "Expected monthly quantity",
+            "role": "custom",
+            "type": "text",
+            "required": false,
+            "placeholder": "For example, 50 jars",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_8": {
+          "type": "field",
+          "settings": {
+            "label": "Website or social page",
+            "role": "custom",
+            "type": "url",
+            "required": false,
+            "placeholder": "https://",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_9": {
+          "type": "field",
+          "settings": {
+            "label": "Anything else we should know?",
+            "role": "message",
+            "type": "text",
+            "required": false,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "field_1",
+        "field_2",
+        "field_3",
+        "field_4",
+        "field_5",
+        "field_6",
+        "field_7",
+        "field_8",
+        "field_9"
+      ],
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Apply",
+        "heading": "Wholesale <em>application</em>",
+        "lead": "<p>Tell us about your business. We reply within a few working days.</p>",
+        "note": "",
+        "form_name": "Wholesale enquiry",
+        "button_label": "Send application",
+        "success_message": "Thank you. We have your application and will contact you soon.",
+        "anchor": "apply"
+      }
+    },
+    "faq": {
+      "type": "xo-faq",
+      "blocks": {
+        "topic_2": {
+          "type": "topic",
+          "settings": {
+            "title": "Orders and delivery"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are delivered within [delivery] working days across Pakistan.</p>",
+            "requires": "delivery"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I pay cash on delivery?",
+            "answer": "<p>Yes. You can pay in cash when your order arrives, anywhere in Pakistan.</p>",
+            "requires": "none"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a money-back guarantee?",
+            "answer": "<p>Yes. Every order is covered by our [days]-day money-back guarantee. Message us on WhatsApp or email [email] and we will help.</p>",
+            "requires": "guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "topic_2",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "tone": "surface",
+        "heading": "Frequently asked <em>questions</em>",
+        "contact_heading": "Still have questions?",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hello, I have a question about Xomoashro shilajit.",
+        "structured_data": true,
+        "anchor": "faq"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "form",
+    "faq"
+  ]
+}

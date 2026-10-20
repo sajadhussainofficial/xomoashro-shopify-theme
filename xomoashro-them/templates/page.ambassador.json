@@ -1,0 +1,227 @@
+{
+  "sections": {
+    "hero": {
+      "type": "xo-page-hero",
+      "settings": {
+        "tone": "bone",
+        "eyebrow": "Ambassador programme",
+        "heading": "Become a Xomoashro <em>ambassador</em>",
+        "lead": "<p>Share pure Himalayan shilajit with your community and explore new opportunities with us.</p>",
+        "button_label": "Apply now",
+        "button_link": "/pages/ambassador#apply",
+        "button_style": "solid",
+        "button_2_label": "",
+        "button_2_link": "",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-mountain-rock-square.webp"
+      }
+    },
+    "steps": {
+      "type": "xo-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Fill out the form",
+            "text": "<p>Tell us about yourself and where you share content.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "We review it",
+            "text": "<p>Our team reads every application and gets back to you.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Get verified",
+            "text": "<p>Once approved, we set you up as a Xomoashro ambassador.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "How it works",
+        "heading": "How to become an <em>ambassador</em>",
+        "lead": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "anchor": ""
+      }
+    },
+    "perks": {
+      "type": "xo-media-text",
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "icon": "heart",
+            "title": "Opportunity",
+            "text": "Becoming a Xomoashro ambassador opens new opportunities for you."
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "icon": "users",
+            "title": "Guidance",
+            "text": "Get support from our team and connect with a community that shares your goals."
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "icon": "mountain",
+            "title": "Be a leader",
+            "text": "Lead your community towards a healthier lifestyle."
+          }
+        }
+      },
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3"
+      ],
+      "settings": {
+        "tone": "bone",
+        "image": "shopify://shop_images/xomoashro-shilajit-jar-on-black-stone.webp",
+        "image_position": "right",
+        "eyebrow": "Perks",
+        "heading": "Why join <em>us</em>",
+        "text": "<p>Ambassadors are people who already love our shilajit and want to share it with others.</p>",
+        "button_label": "",
+        "button_link": "",
+        "anchor": ""
+      }
+    },
+    "form": {
+      "type": "xo-lead-form",
+      "blocks": {
+        "field_1": {
+          "type": "field",
+          "settings": {
+            "label": "Full name",
+            "role": "name",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_2": {
+          "type": "field",
+          "settings": {
+            "label": "Email",
+            "role": "email",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_3": {
+          "type": "field",
+          "settings": {
+            "label": "Phone",
+            "role": "phone",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_4": {
+          "type": "field",
+          "settings": {
+            "label": "Social media profiles",
+            "role": "custom",
+            "type": "text",
+            "required": true,
+            "placeholder": "Instagram, TikTok, YouTube or Facebook links",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_5": {
+          "type": "field",
+          "settings": {
+            "label": "How did you hear about us?",
+            "role": "custom",
+            "type": "text",
+            "required": false,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "half"
+          }
+        },
+        "field_6": {
+          "type": "field",
+          "settings": {
+            "label": "Why do you want to become an ambassador?",
+            "role": "message",
+            "type": "text",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "full"
+          }
+        },
+        "field_7": {
+          "type": "field",
+          "settings": {
+            "label": "I agree to the terms and conditions",
+            "role": "custom",
+            "type": "checkbox",
+            "required": true,
+            "placeholder": "",
+            "options": "",
+            "hint": "",
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "field_1",
+        "field_2",
+        "field_3",
+        "field_4",
+        "field_5",
+        "field_6",
+        "field_7"
+      ],
+      "settings": {
+        "tone": "surface",
+        "eyebrow": "Apply",
+        "heading": "Ambassador <em>application</em>",
+        "lead": "<p>It takes about two minutes.</p>",
+        "note": "<p>Have a portfolio or media kit? Send it to us by email or on WhatsApp after you apply.</p>",
+        "form_name": "Ambassador application",
+        "button_label": "Send application",
+        "success_message": "Thank you. We will review your application and get back to you.",
+        "anchor": "apply"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "perks",
+    "form"
+  ]
+}
