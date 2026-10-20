@@ -6,91 +6,74 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "section": {
-      "type": "main-blog-post",
+    "main": {
+      "type": "xo-main-article",
       "blocks": {
-        "blog-post-title": {
-          "type": "text",
-          "name": "t:names.title",
+        "toc": {
+          "type": "xo-article-toc",
+          "static": true,
           "settings": {
-            "text": "<h1>{{ article.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "heading": "On this page",
+            "min_headings": 2
+          }
         },
-        "blog-post-details": {
-          "type": "_blog-post-info-text",
-          "name": "t:names.details",
+        "cta": {
+          "type": "xo-article-product-cta",
           "settings": {
-            "show_date": true,
-            "show_author": false,
-            "alignment": "center",
-            "show_alignment": true,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
+            "eyebrow": "From the Himalayas",
+            "heading": "Try pure Himalayan shilajit",
+            "text": "100% resin from Chitral and Gilgit-Baltistan. Pay in cash when it arrives.",
+            "button_label": "Shop Shilajit",
+            "after_paragraph": 4,
+            "show_at_end": true
+          }
         },
-        "blog-post-image": {
-          "type": "image",
-          "name": "t:names.featured_image",
+        "author": {
+          "type": "xo-author-box",
           "settings": {
-            "image": "{{ article.image }}",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "name": "",
+            "role": "Xomoashro team",
+            "bio": "<p>We write these guides to help you choose and use shilajit with care. Our shilajit comes from Chitral and Gilgit-Baltistan.</p>",
+            "link_label": "About us",
+            "link": "/pages/about"
+          }
         },
-        "blog-post-content": {
-          "type": "_blog-post-content",
-          "settings": {},
-          "blocks": {}
+        "share": {
+          "type": "xo-article-share",
+          "settings": {
+            "heading": "Share this guide",
+            "show_whatsapp": true,
+            "show_facebook": true,
+            "show_x": false,
+            "show_copy": true
+          }
         }
       },
       "block_order": [
-        "blog-post-title",
-        "blog-post-details",
-        "blog-post-image",
-        "blog-post-content"
+        "cta",
+        "author",
+        "share"
       ],
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "tone": "bone",
+        "show_breadcrumb": true,
+        "show_author": true,
+        "show_image": true,
+        "publisher": "Xomoashro",
+        "show_precautions": true,
+        "precautions_tag": "",
+        "precautions_heading": "Before you take shilajit",
+        "precautions_text": "<p>Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.</p><ul><li>Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</li><li>Start with a small amount and keep to the amount on the label.</li><li>Stop and speak to your doctor if you feel unwell.</li></ul>",
+        "show_related": true,
+        "related_heading": "Keep reading",
+        "show_comments": false
       }
     }
   },
   "order": [
-    "section"
+    "main"
   ]
 }

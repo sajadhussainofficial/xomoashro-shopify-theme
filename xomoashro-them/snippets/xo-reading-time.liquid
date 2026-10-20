@@ -1,0 +1,15 @@
+{%- doc -%}
+  Reading time of an article in minutes (200 words a minute, at least 1),
+  as a sentence such as "8 min read".
+
+  @param {object} article - The article
+
+  @example
+  {% render 'xo-reading-time', article: article %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_words = article.content | strip_html | strip_newlines | split: ' ' | size
+  assign xo_minutes = xo_words | divided_by: 200 | at_least: 1
+-%}
+{{- 'xo.journal.reading_time' | t: count: xo_minutes -}}

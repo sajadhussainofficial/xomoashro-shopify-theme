@@ -1,0 +1,197 @@
+{%- doc -%}
+  A journal post card: picture, first topic, title, date and reading time.
+  The `feature` layout is a wide card with the excerpt, used for the newest post.
+
+  @param {object} article - The article
+  @param {string} [layout] - `grid` (default) or `feature`
+  @param {string} [heading_level] - `h2` or `h3` (default)
+  @param {boolean} [eager] - Load the picture straight away
+
+  @example
+  {% render 'xo-article-card', article: article, layout: 'feature', heading_level: 'h2', eager: true %}
+{%- enddoc -%}
+
+{%- liquid
+  assign xo_layout = layout | default: 'grid'
+  assign xo_heading = heading_level | default: 'h3'
+  if eager
+    assign xo_loading = 'eager'
+  else
+    assign xo_loading = 'lazy'
+  endif
+  if xo_layout == 'feature'
+    assign xo_sizes = '(min-width: 990px) 55vw, 100vw'
+  else
+    assign xo_sizes = '(min-width: 990px) 30vw, (min-width: 600px) 45vw, 92vw'
+  endif
+  assign xo_tag = article.tags.first
+-%}
+
+<article class="xo-acard xo-acard--{{ xo_layout }}">
+  <a
+    class="xo-acard__media"
+    href="{{ article.url }}"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    {%- if article.image -%}
+      {{-
+        article.image
+        | image_url: width: 1400
+        | image_tag: widths: '360, 540, 720, 900, 1200, 1400', sizes: xo_sizes, loading: xo_loading, alt: '', class: 'xo-acard__image'
+      -}}
+    {%- else -%}
+      <span class="xo-acard__placeholder">
+        <img
+          src="{{ 'xo-art-mountains.svg' | asset_url }}"
+          alt=""
+          width="320"
+          height="200"
+          loading="lazy"
+        >
+      </span>
+    {%- endif -%}
+  </a>
+  <div class="xo-acard__body">
+    {%- if xo_tag != blank -%}
+      <p class="xo-acard__tag">{{ xo_tag | escape }}</p>
+    {%- endif -%}
+    <{{ xo_heading }} class="xo-acard__title">
+      <a href="{{ article.url }}">{{ article.title | escape }}</a>
+    </{{ xo_heading }}>
+    {%- if xo_layout == 'feature' -%}
+      {%- assign xo_excerpt = article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 34 -%}
+      {%- if xo_excerpt != blank -%}
+        <p class="xo-acard__excerpt">{{ xo_excerpt }}</p>
+      {%- endif -%}
+    {%- endif -%}
+    <p class="xo-acard__meta">
+      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%-d %B %Y' }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{% render 'xo-reading-time', article: article %}</span>
+    </p>
+  </div>
+</article>
+
+{% stylesheet %}
+  .xo-acard {
+    position: relative;
+    display: grid;
+    gap: var(--xo-space-4);
+    align-content: start;
+    font-family: var(--xo-font-body);
+    color: var(--xo-fg);
+  }
+
+  .xo-acard__media {
+    display: block;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+    overflow: hidden;
+  }
+
+  .xo-acard__image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform var(--xo-duration-slow) var(--xo-ease);
+  }
+
+  .xo-acard:hover .xo-acard__image {
+    transform: scale(1.03);
+  }
+
+  .xo-acard__placeholder {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    padding: var(--xo-space-6);
+    color: var(--xo-muted);
+  }
+
+  .xo-acard__placeholder img {
+    inline-size: 60%;
+    opacity: 0.6;
+  }
+
+  .xo-acard__body {
+    display: grid;
+    gap: var(--xo-space-2);
+  }
+
+  .xo-acard__tag {
+    margin: 0;
+    font-size: var(--xo-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--xo-muted);
+  }
+
+  .xo-acard__title {
+    margin: 0;
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    font-size: var(--xo-text-h4);
+    line-height: 1.25;
+    letter-spacing: -0.012em;
+  }
+
+  .xo-acard__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .xo-acard__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .xo-acard__title a:focus-visible {
+    outline: none;
+  }
+
+  .xo-acard:has(.xo-acard__title a:focus-visible) {
+    outline: 2px solid var(--xo-fg);
+    outline-offset: 4px;
+    border-radius: var(--xo-radius-card);
+  }
+
+  .xo-acard__excerpt {
+    margin: 0;
+    font-size: var(--xo-text-base);
+    line-height: 1.6;
+    color: var(--xo-muted);
+  }
+
+  .xo-acard__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  @media (min-width: 990px) {
+    .xo-acard--feature {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: var(--xo-space-7);
+      align-items: center;
+    }
+
+    .xo-acard--feature .xo-acard__title {
+      font-size: var(--xo-text-h2);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .xo-acard__image {
+      transition: none;
+    }
+  }
+{% endstylesheet %}

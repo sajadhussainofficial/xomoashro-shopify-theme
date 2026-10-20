@@ -1,0 +1,649 @@
+{%- liquid
+  assign s = section.settings
+
+  assign xo_cta_inline = ''
+  assign xo_cta_after = 0
+  for block in section.blocks
+    if block.type == 'xo-article-product-cta'
+      if block.settings.after_paragraph > 0
+        capture xo_cta_inline
+          render 'xo-article-cta', settings: block.settings, placement: 'inline'
+        endcapture
+        assign xo_cta_after = block.settings.after_paragraph
+      endif
+      break
+    endif
+  endfor
+
+  capture xo_body
+    render 'xo-article-headings', content: article.content, insert: xo_cta_inline, insert_after: xo_cta_after
+  endcapture
+  assign xo_body = xo_body | replace: '<img ', '<img loading="lazy" decoding="async" '
+
+  capture xo_toc
+    render 'xo-article-headings', content: article.content, mode: 'toc'
+  endcapture
+
+  assign xo_show_precautions = false
+  if s.show_precautions
+    if s.precautions_tag == blank
+      assign xo_show_precautions = true
+    else
+      for tag in article.tags
+        assign xo_tag_handle = tag | handleize
+        assign xo_wanted = s.precautions_tag | handleize
+        if xo_tag_handle == xo_wanted
+          assign xo_show_precautions = true
+        endif
+      endfor
+    endif
+  endif
+
+  assign xo_first_tag = article.tags.first
+-%}
+
+<script
+  src="{{ 'xo-article-toc.js' | asset_url }}"
+  type="module"
+></script>
+
+<article class="xo-article xo-section xo-section--tight xo-tone-{{ s.tone }}">
+  <div class="xo-container">
+    {%- if s.show_breadcrumb -%}
+      <nav
+        class="xo-crumbs"
+        aria-label="{{ 'xo.journal.breadcrumb' | t }}"
+      >
+        <ol
+          class="xo-crumbs__list"
+          role="list"
+        >
+          <li><a href="{{ routes.root_url }}">{{ 'xo.journal.home' | t }}</a></li>
+          <li><a href="{{ blog.url }}">{{ blog.title | escape }}</a></li>
+          <li><span aria-current="page">{{ article.title | escape }}</span></li>
+        </ol>
+      </nav>
+    {%- endif -%}
+
+    <header class="xo-article__head">
+      {%- if xo_first_tag != blank -%}
+        <a
+          class="xo-eyebrow xo-article__tag"
+          href="{{ blog.url }}/tagged/{{ xo_first_tag | handleize }}"
+        >
+          {{- xo_first_tag | escape -}}
+        </a>
+      {%- endif -%}
+      <h1 class="xo-h1 xo-article__title">{{ article.title | escape }}</h1>
+      <p class="xo-article__meta">
+        {%- if s.show_author and article.author != blank -%}
+          <span>{{ 'xo.journal.by' | t: author: article.author }}</span>
+          <span aria-hidden="true">·</span>
+        {%- endif -%}
+        <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%-d %B %Y' }}</time>
+        <span aria-hidden="true">·</span>
+        <span>{% render 'xo-reading-time', article: article %}</span>
+      </p>
+    </header>
+
+    {%- if s.show_image and article.image -%}
+      <figure class="xo-article__hero">
+        {{-
+          article.image
+          | image_url: width: 2000
+          | image_tag: widths: '540, 750, 1000, 1400, 2000', sizes: '(min-width: 1260px) 1200px, 94vw', loading: 'eager', fetchpriority: 'high', class: 'xo-article__hero-image'
+        -}}
+      </figure>
+    {%- endif -%}
+
+    <div class="xo-article__layout">
+      <aside class="xo-article__aside">
+        {% content_for 'block', type: 'xo-article-toc', id: 'toc', toc: xo_toc %}
+      </aside>
+
+      <div class="xo-article__main">
+        <div class="xo-prose">{{ xo_body }}</div>
+
+        {%- if xo_show_precautions -%}
+          <aside
+            class="xo-article__precautions"
+            aria-labelledby="XoArticleCare-{{ section.id }}"
+          >
+            <span class="xo-article__precautions-icon">{%- render 'xo-icon', name: 'shield', size: 20 -%}</span>
+            <div>
+              <h2
+                class="xo-h4"
+                id="XoArticleCare-{{ section.id }}"
+              >
+                {{- s.precautions_heading | escape -}}
+              </h2>
+              <div class="xo-rte xo-article__precautions-text">{{ s.precautions_text }}</div>
+            </div>
+          </aside>
+        {%- endif -%}
+
+        <div class="xo-article__blocks">
+          {% content_for 'blocks' %}
+        </div>
+
+        {%- if s.show_comments and blog.comments_enabled? -%}
+          <section
+            class="xo-comments"
+            aria-labelledby="XoComments-{{ section.id }}"
+          >
+            <h2
+              class="xo-h3"
+              id="XoComments-{{ section.id }}"
+            >
+              {{- 'xo.journal.comments' | t: count: article.comments_count -}}
+            </h2>
+            {%- paginate article.comments by 10 -%}
+              {%- if article.comments.size > 0 -%}
+                <ol
+                  class="xo-comments__list"
+                  role="list"
+                >
+                  {%- for comment in article.comments -%}
+                    <li class="xo-comments__item">
+                      <div class="xo-rte">{{ comment.content }}</div>
+                      <p class="xo-small xo-muted">
+                        {{ comment.author | escape }} ·
+                        <time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at | date: '%-d %B %Y' }}</time>
+                      </p>
+                    </li>
+                  {%- endfor -%}
+                </ol>
+                {% render 'xo-pagination', paginate: paginate %}
+              {%- endif -%}
+            {%- endpaginate -%}
+            {%- form 'new_comment', article, class: 'xo-form xo-form-card xo-comments__form' -%}
+              {%- if form.posted_successfully? -%}
+                <p
+                  class="xo-form__message xo-form__message--success"
+                  role="status"
+                >
+                  {%- if blog.moderated? -%}
+                    {{ 'xo.journal.comment_moderated' | t }}
+                  {%- else -%}
+                    {{ 'xo.journal.comment_posted' | t }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+              {%- if form.errors -%}
+                <div
+                  class="xo-form__message xo-form__message--error"
+                  role="alert"
+                >
+                  {{ form.errors | default_errors }}
+                </div>
+              {%- endif -%}
+              <div class="xo-form__fields">
+                <div class="xo-field">
+                  <label
+                    class="xo-field__label"
+                    for="XoCommentName-{{ section.id }}"
+                    >{{ 'xo.forms.name' | t }}</label
+                  >
+                  <input
+                    class="xo-field__control"
+                    id="XoCommentName-{{ section.id }}"
+                    type="text"
+                    name="comment[author]"
+                    value="{{ form.author }}"
+                    autocomplete="name"
+                    required
+                  >
+                </div>
+                <div class="xo-field">
+                  <label
+                    class="xo-field__label"
+                    for="XoCommentEmail-{{ section.id }}"
+                    >{{ 'xo.forms.email' | t }}</label
+                  >
+                  <input
+                    class="xo-field__control"
+                    id="XoCommentEmail-{{ section.id }}"
+                    type="email"
+                    name="comment[email]"
+                    value="{{ form.email }}"
+                    autocomplete="email"
+                    required
+                  >
+                </div>
+                <div class="xo-field xo-form__field--full">
+                  <label
+                    class="xo-field__label"
+                    for="XoCommentBody-{{ section.id }}"
+                    >{{ 'xo.journal.comment' | t }}</label
+                  >
+                  <textarea
+                    class="xo-field__control"
+                    id="XoCommentBody-{{ section.id }}"
+                    name="comment[body]"
+                    rows="5"
+                    required
+                  >{{ form.body }}</textarea>
+                </div>
+              </div>
+              <button
+                class="xo-btn xo-btn--solid xo-form__submit"
+                type="submit"
+              >
+                {{- 'xo.journal.post_comment' | t -}}
+              </button>
+            {%- endform -%}
+          </section>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if s.show_related -%}
+      {%- capture xo_related -%}
+        {%- assign xo_shown = 0 -%}
+        {%- for item in blog.articles -%}
+          {%- if item.id == article.id -%}{%- continue -%}{%- endif -%}
+          {%- if xo_first_tag != blank -%}
+            {%- unless item.tags contains xo_first_tag -%}{%- continue -%}{%- endunless -%}
+          {%- endif -%}
+          <li class="xo-card-grid__item">{% render 'xo-article-card', article: item, heading_level: 'h3' %}</li>
+          {%- assign xo_shown = xo_shown | plus: 1 -%}
+          {%- if xo_shown >= 3 -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if xo_shown == 0 and xo_first_tag != blank -%}
+          {%- for item in blog.articles -%}
+            {%- if item.id == article.id -%}{%- continue -%}{%- endif -%}
+            <li class="xo-card-grid__item">{% render 'xo-article-card', article: item, heading_level: 'h3' %}</li>
+            {%- assign xo_shown = xo_shown | plus: 1 -%}
+            {%- if xo_shown >= 3 -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- if xo_related != blank -%}
+        <section
+          class="xo-article__related"
+          aria-labelledby="XoRelated-{{ section.id }}"
+        >
+          <h2
+            class="xo-h3"
+            id="XoRelated-{{ section.id }}"
+          >
+            {{- s.related_heading | escape -}}
+          </h2>
+          <ul
+            class="xo-card-grid"
+            role="list"
+          >
+            {{ xo_related }}
+          </ul>
+        </section>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+
+  <script type="application/ld+json">
+    {% render 'xo-article-jsonld', article: article, blog: blog, publisher: s.publisher %}
+  </script>
+</article>
+
+{% stylesheet %}
+  .xo-crumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0 0 var(--xo-space-5);
+    padding: 0;
+    list-style: none;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  .xo-crumbs__list li + li::before {
+    content: '/';
+    margin-inline-end: var(--xo-space-2);
+    color: var(--xo-line-strong);
+  }
+
+  .xo-crumbs__list a {
+    color: var(--xo-muted);
+    text-decoration: none;
+  }
+
+  .xo-crumbs__list a:hover {
+    color: var(--xo-fg);
+    text-decoration: underline;
+  }
+
+  .xo-crumbs__list [aria-current='page'] {
+    display: inline-block;
+    max-inline-size: 28ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+    color: var(--xo-fg);
+  }
+
+  .xo-article__head {
+    display: grid;
+    gap: var(--xo-space-4);
+    justify-items: start;
+    max-inline-size: 52rem;
+  }
+
+  .xo-article__tag {
+    text-decoration: none;
+  }
+
+  .xo-article__title {
+    text-wrap: balance;
+  }
+
+  .xo-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: 0;
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  .xo-article__hero {
+    margin: var(--xo-space-6) 0 0;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--xo-radius-card);
+    overflow: hidden;
+    background: var(--xo-surface);
+  }
+
+  .xo-article__hero-image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .xo-article__layout {
+    display: grid;
+    gap: var(--xo-space-5);
+    margin-block-start: var(--xo-space-6);
+  }
+
+  @media (min-width: 990px) {
+    .xo-article__layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: var(--xo-space-8);
+      margin-block-start: var(--xo-space-7);
+    }
+
+    .xo-article__aside {
+      position: sticky;
+      top: calc(var(--header-height, 4.5rem) + var(--xo-space-5));
+      align-self: start;
+    }
+  }
+
+  .xo-article__aside:empty {
+    display: none;
+  }
+
+  .xo-article__main {
+    display: grid;
+    gap: var(--xo-space-6);
+    min-inline-size: 0;
+  }
+
+  .xo-prose {
+    max-inline-size: 68ch;
+    font-family: var(--xo-font-body);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--xo-fg);
+    overflow-wrap: break-word;
+  }
+
+  .xo-prose > * {
+    margin-block: 0;
+  }
+
+  .xo-prose > * + * {
+    margin-block-start: 1.25em;
+  }
+
+  .xo-prose :is(h2, h3, h4) {
+    font-family: var(--xo-font-display);
+    font-weight: var(--xo-font-display-weight);
+    line-height: 1.25;
+    color: var(--xo-fg);
+    text-wrap: balance;
+    scroll-margin-block-start: calc(var(--header-height, 4.5rem) + var(--xo-space-5));
+  }
+
+  .xo-prose h2 {
+    margin-block-start: 2em;
+    font-size: var(--xo-text-h3);
+    letter-spacing: -0.02em;
+  }
+
+  .xo-prose h3 {
+    margin-block-start: 1.75em;
+    font-size: var(--xo-text-h4);
+  }
+
+  .xo-prose h4 {
+    margin-block-start: 1.5em;
+    font-size: var(--xo-text-lead);
+  }
+
+  .xo-prose a {
+    color: var(--xo-link, var(--xo-fg));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .xo-prose :is(ul, ol) {
+    padding-inline-start: 1.25em;
+  }
+
+  .xo-prose li + li {
+    margin-block-start: 0.5em;
+  }
+
+  .xo-prose li::marker {
+    color: var(--xo-muted);
+  }
+
+  .xo-prose blockquote {
+    margin-inline: 0;
+    padding: var(--xo-space-2) 0 var(--xo-space-2) var(--xo-space-5);
+    border-inline-start: 3px solid var(--xo-fg);
+    font-family: var(--xo-font-display);
+    font-size: var(--xo-text-lead);
+    line-height: 1.5;
+  }
+
+  .xo-prose img {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+    border-radius: var(--xo-radius-card);
+  }
+
+  .xo-prose figure {
+    margin-inline: 0;
+  }
+
+  .xo-prose figcaption {
+    margin-block-start: var(--xo-space-2);
+    font-size: var(--xo-text-sm);
+    color: var(--xo-muted);
+  }
+
+  .xo-prose table {
+    display: block;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: var(--xo-text-sm);
+    line-height: 1.5;
+  }
+
+  .xo-prose :is(th, td) {
+    padding: var(--xo-space-3) var(--xo-space-4);
+    border-block-end: 1px solid var(--xo-line);
+    text-align: start;
+    vertical-align: top;
+    white-space: normal;
+    min-inline-size: 8rem;
+  }
+
+  .xo-prose th {
+    font-weight: 700;
+    border-block-end-color: var(--xo-line-strong);
+  }
+
+  .xo-prose hr {
+    border: 0;
+    border-block-start: 1px solid var(--xo-line);
+    margin-block: 2.5em;
+  }
+
+  .xo-prose .xo-acta {
+    margin-block: 2em;
+  }
+
+  .xo-article__precautions {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--xo-space-4);
+    max-inline-size: 68ch;
+    padding: var(--xo-space-5);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-card);
+    background: var(--xo-surface);
+  }
+
+  .xo-article__precautions-icon {
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: 50%;
+    background: var(--xo-ink);
+    color: var(--xo-on-ink);
+  }
+
+  .xo-article__precautions-text {
+    margin-block-start: var(--xo-space-2);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    line-height: 1.6;
+  }
+
+  .xo-article__precautions-text > * {
+    margin: 0;
+  }
+
+  .xo-article__precautions-text > * + * {
+    margin-block-start: var(--xo-space-2);
+  }
+
+  .xo-article__precautions-text ul {
+    padding-inline-start: 1.1em;
+  }
+
+  .xo-article__blocks {
+    display: grid;
+    gap: var(--xo-space-5);
+    max-inline-size: 68ch;
+  }
+
+  .xo-article__blocks:empty {
+    display: none;
+  }
+
+  .xo-article__blocks .xo-acta {
+    margin-block: 0;
+  }
+
+  .xo-comments {
+    display: grid;
+    gap: var(--xo-space-5);
+    max-inline-size: 68ch;
+  }
+
+  .xo-comments__list {
+    display: grid;
+    gap: var(--xo-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-comments__item {
+    padding-block-end: var(--xo-space-4);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-article__related {
+    display: grid;
+    gap: var(--xo-space-5);
+    margin-block-start: var(--xo-space-8);
+    padding-block-start: var(--xo-space-7);
+    border-block-start: 1px solid var(--xo-line);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.main_article",
+  "tag": "section",
+  "class": "xo-main-article-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "blocks": [
+    { "type": "xo-article-product-cta" },
+    { "type": "xo-author-box" },
+    { "type": "xo-article-share" },
+    { "type": "@app" }
+  ],
+  "settings": [
+    { "type": "paragraph", "content": "t:xo.info.main_article" },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "t:xo.labels.show_breadcrumb", "default": true },
+    { "type": "checkbox", "id": "show_author", "label": "t:xo.labels.show_author", "default": true },
+    { "type": "checkbox", "id": "show_image", "label": "t:xo.labels.show_image", "default": true },
+    { "type": "text", "id": "publisher", "label": "t:xo.labels.publisher", "info": "t:xo.info.publisher", "default": "Xomoashro" },
+    { "type": "header", "content": "t:xo.labels.precautions_header" },
+    { "type": "checkbox", "id": "show_precautions", "label": "t:xo.labels.show_precautions", "default": true },
+    { "type": "text", "id": "precautions_tag", "label": "t:xo.labels.precautions_tag", "info": "t:xo.info.precautions_tag" },
+    { "type": "text", "id": "precautions_heading", "label": "t:xo.labels.heading", "default": "Before you take shilajit" },
+    {
+      "type": "richtext",
+      "id": "precautions_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.</p><ul><li>Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</li><li>Start with a small amount and keep to the amount on the label.</li><li>Stop and speak to your doctor if you feel unwell.</li></ul>"
+    },
+    { "type": "header", "content": "t:xo.labels.related_header" },
+    { "type": "checkbox", "id": "show_related", "label": "t:xo.labels.show_related", "default": true },
+    { "type": "text", "id": "related_heading", "label": "t:xo.labels.heading", "default": "Keep reading" },
+    { "type": "header", "content": "t:xo.labels.comments_header" },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "t:xo.labels.show_comments",
+      "info": "t:xo.info.show_comments",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

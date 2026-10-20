@@ -225,6 +225,28 @@
       "vs": "vs"
     },
     "journal": {
+      "reading_time": {
+        "one": "{{ count }} min read",
+        "other": "{{ count }} min read"
+      },
+      "topics": "Topics",
+      "all_topics": "All",
+      "cta_inline_only": "This shop box shows inside the article only (after the paragraph set below). Tick \"Also show at the end\" to show it here too.",
+      "toc_note": "The table of contents appears when the article has at least two H2 headings.",
+      "written_by": "Written by",
+      "link_copied": "Link copied",
+      "copy_link": "Copy link",
+      "home": "Home",
+      "by": "By {{ author }}",
+      "breadcrumb": "Breadcrumb",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "comment_moderated": "Thank you. Your comment will appear once it has been approved.",
+      "comment_posted": "Thank you. Your comment has been posted.",
+      "comment": "Comment",
+      "post_comment": "Post comment",
       "empty": "This blog has no posts yet. Shoppers do not see this section until a post is published."
     },
     "editor": {

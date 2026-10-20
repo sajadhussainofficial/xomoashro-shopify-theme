@@ -1,0 +1,249 @@
+{%- liquid
+  assign s = section.settings
+  assign xo_title = s.heading
+  if xo_title == blank
+    assign xo_title = blog.title | escape
+  endif
+  assign xo_filtered = false
+  if current_tags.size > 0
+    assign xo_filtered = true
+  endif
+  assign xo_shop_url = routes.all_products_collection_url
+  if collections.all.products_count == 1
+    assign xo_shop_url = collections.all.products.first.url
+  endif
+-%}
+
+<div class="xo-journal xo-section xo-section--tight xo-tone-{{ s.tone }}">
+  <div class="xo-container">
+    <header class="xo-journal__head">
+      {%- if s.eyebrow != blank -%}
+        <p class="xo-eyebrow">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h1 class="xo-h1">
+        {{- xo_title -}}
+        {%- if xo_filtered -%}
+          <span class="xo-visually-hidden">: {{ current_tags | join: ', ' }}</span>
+        {%- endif -%}
+      </h1>
+      {%- if s.lead != blank -%}
+        <div class="xo-lead xo-muted xo-rte">{{ s.lead }}</div>
+      {%- endif -%}
+
+      {%- if s.show_tags and blog.all_tags.size > 0 -%}
+        <nav
+          class="xo-journal__tags"
+          aria-label="{{ 'xo.journal.topics' | t }}"
+        >
+          <ul
+            class="xo-journal__tag-list"
+            role="list"
+          >
+            <li>
+              <a
+                class="xo-journal__tag"
+                href="{{ blog.url }}"
+                {% unless xo_filtered %}
+                  aria-current="page"
+                {% endunless %}
+              >
+                {{- 'xo.journal.all_topics' | t -}}
+              </a>
+            </li>
+            {%- for tag in blog.all_tags limit: 12 -%}
+              <li>
+                <a
+                  class="xo-journal__tag"
+                  href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                  {% if current_tags contains tag %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{- tag | escape -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </header>
+
+    {%- paginate blog.articles by s.per_page -%}
+      {%- if blog.articles.size == 0 -%}
+        <div class="xo-journal__empty">
+          <span class="xo-journal__empty-icon">{%- render 'xo-icon', name: 'leaf', size: 26 -%}</span>
+          <h2 class="xo-h3">{{ s.empty_heading | escape }}</h2>
+          {%- if s.empty_text != blank -%}
+            <div class="xo-text xo-muted xo-rte">{{ s.empty_text }}</div>
+          {%- endif -%}
+          <a
+            class="xo-btn xo-btn--secondary"
+            href="{{ xo_shop_url }}"
+          >
+            {{- 'xo.cart.empty_button' | t -}}
+          </a>
+        </div>
+      {%- else -%}
+        {%- liquid
+          assign xo_feature = false
+          if s.feature_latest and paginate.current_page == 1 and xo_filtered == false
+            assign xo_feature = true
+          endif
+        -%}
+        {%- if xo_feature -%}
+          <div class="xo-journal__feature">
+            {% render 'xo-article-card', article: blog.articles.first, layout: 'feature', heading_level: 'h2', eager: true %}
+          </div>
+        {%- endif -%}
+        {%- capture xo_grid -%}
+          {%- for article in blog.articles -%}
+            {%- if xo_feature and forloop.first -%}
+              {%- continue -%}
+            {%- endif -%}
+            <li class="xo-card-grid__item">
+              {%- liquid
+                assign xo_eager = false
+                if forloop.index <= 3 and xo_feature == false
+                  assign xo_eager = true
+                endif
+              -%}
+              {% render 'xo-article-card', article: article, heading_level: 'h2', eager: xo_eager %}
+            </li>
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if xo_grid != blank -%}
+          <ul
+            class="xo-card-grid xo-journal__grid"
+            role="list"
+          >
+            {{ xo_grid }}
+          </ul>
+        {%- endif -%}
+        {% render 'xo-pagination', paginate: paginate %}
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .xo-journal__head {
+    display: grid;
+    gap: var(--xo-space-4);
+    max-inline-size: 48rem;
+    margin-block-end: var(--xo-space-7);
+  }
+
+  .xo-journal__head .xo-rte p {
+    margin: 0;
+  }
+
+  .xo-journal__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xo-space-2);
+    margin: var(--xo-space-2) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xo-journal__tag {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.5rem;
+    padding: 0 var(--xo-space-4);
+    border: 1px solid var(--xo-line-strong);
+    border-radius: var(--xo-radius-pill);
+    font-family: var(--xo-font-body);
+    font-size: var(--xo-text-sm);
+    font-weight: 600;
+    color: var(--xo-fg);
+    text-decoration: none;
+  }
+
+  .xo-journal__tag:hover,
+  .xo-journal__tag[aria-current='page'] {
+    background: var(--xo-fg);
+    border-color: var(--xo-fg);
+    color: var(--xo-bg);
+  }
+
+  .xo-journal__feature {
+    margin-block-end: var(--xo-space-8);
+    padding-block-end: var(--xo-space-7);
+    border-block-end: 1px solid var(--xo-line);
+  }
+
+  .xo-journal__empty {
+    display: grid;
+    justify-items: center;
+    gap: var(--xo-space-3);
+    max-inline-size: 34rem;
+    margin-inline: auto;
+    padding: var(--xo-space-7) var(--xo-space-5);
+    border: 1px dashed var(--xo-line-strong);
+    border-radius: var(--xo-radius-card);
+    text-align: center;
+  }
+
+  .xo-journal__empty .xo-rte > * {
+    margin: 0;
+  }
+
+  .xo-journal__empty-icon {
+    display: grid;
+    place-items: center;
+    inline-size: 4rem;
+    block-size: 4rem;
+    border-radius: 50%;
+    border: 1px solid var(--xo-line);
+    background: var(--xo-surface);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:xo.names.main_blog",
+  "tag": "section",
+  "class": "xo-main-blog-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "t:xo.labels.tone",
+      "options": [
+        { "value": "bone", "label": "t:xo.options.bone" },
+        { "value": "surface", "label": "t:xo.options.surface" }
+      ],
+      "default": "bone"
+    },
+    { "type": "text", "id": "eyebrow", "label": "t:xo.labels.eyebrow", "default": "The Xomoashro journal" },
+    { "type": "text", "id": "heading", "label": "t:xo.labels.heading", "info": "t:xo.info.blog_heading" },
+    {
+      "type": "richtext",
+      "id": "lead",
+      "label": "t:xo.labels.lead",
+      "default": "<p>Guides to shilajit: what it is, how to take it and how to tell the real thing from fakes.</p>"
+    },
+    { "type": "checkbox", "id": "show_tags", "label": "t:xo.labels.show_topics", "default": true },
+    { "type": "checkbox", "id": "feature_latest", "label": "t:xo.labels.feature_latest", "default": true },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:xo.labels.posts_per_page",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 10
+    },
+    { "type": "header", "content": "t:xo.labels.empty_header" },
+    { "type": "text", "id": "empty_heading", "label": "t:xo.labels.heading", "default": "New guides are on the way" },
+    {
+      "type": "richtext",
+      "id": "empty_text",
+      "label": "t:xo.labels.text",
+      "default": "<p>Our first articles will appear here soon.</p>"
+    }
+  ]
+}
+{% endschema %}
