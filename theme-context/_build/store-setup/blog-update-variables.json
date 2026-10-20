@@ -1,8 +1,8 @@
 {
   "id": "gid://shopify/Blog/100614832300",
   "blog": {
-    "title": "Journal",
-    "handle": "journal",
+    "title": "Blog",
+    "handle": "guides",
     "redirectNewHandle": true
   }
 }

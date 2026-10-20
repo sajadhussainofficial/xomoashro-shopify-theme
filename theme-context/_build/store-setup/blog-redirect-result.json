@@ -1,0 +1,11 @@
+<claude-code-hint v="1" type="plugin" value="shopify-ai-toolkit@claude-plugins-official" />
+{
+  "urlRedirectCreate": {
+    "urlRedirect": {
+      "id": "gid://shopify/UrlRedirect/600432509100",
+      "path": "/blog",
+      "target": "/blogs/guides"
+    },
+    "userErrors": []
+  }
+}

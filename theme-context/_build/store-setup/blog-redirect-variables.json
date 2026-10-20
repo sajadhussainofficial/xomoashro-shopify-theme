@@ -1,0 +1,3 @@
+{
+  "urlRedirect": { "path": "/blog", "target": "/blogs/guides" }
+}
