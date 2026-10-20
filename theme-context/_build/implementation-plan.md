@@ -70,6 +70,7 @@ Standing instruction from the owner (2026-10-06): every phase ends with commit, 
 3. **No write access from the command line:** commit, set the phase to `awaiting merge`, and hand the owner the pull request title and description. The owner pushes, opens and merges, then pulls `main`. (On 2026-10-06 the command-line GitHub account `zeshan-rx` was not a collaborator on the repository; the owner pushes through GitHub Desktop.)
 4. **Theme commands read `shopify.theme.toml`** (one in the repository root, one in `xomoashro-them/`). Their `default` environment sets the store, the theme path and `nodelete = true`, so `shopify theme dev` works from either folder. Without that file, a dev server started from the root saw no theme files and deleted the development theme's files (2026-10-06, twice). Do not remove or rename the file; real deletions happen deliberately at launch.
 5. **After any merge, pull or branch switch,** check the local preview. If pages return 404 or 502, re-upload the theme to the development theme (`shopify theme push --theme <development theme id>`) or restart `shopify theme dev`.
+6. **"fetch failed" or "Failed to render storefront … 502" now and then** is a network problem on the owner's machine, not the theme: IPv6 to Shopify never connects there, and Node gives up on IPv4 after 250 ms. Start Shopify CLI commands with `NODE_OPTIONS="--network-family-autoselection-attempt-timeout=2000"` (found 2026-10-20).
 
 ### Report format
 
