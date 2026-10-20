@@ -61,8 +61,8 @@ Live recheck on 2026-10-20 of `https://xomoashro.com/blogs/`:
 | # | Task | Files | Check | Status |
 |---|---|---|---|---|
 | 1 | Rewrite the nine posts from the captured text: honest wording, real sources, H2/H3 only, no sidebar text | `_build/blog-import/*.md` | 684 to 967 words each; links resolve; every Google title 60 characters or fewer; six studies checked against their abstracts | done |
-| 2 | Pictures: 19 of the 26 old post pictures kept; 7 left out (anaemia diagram, garbled "TESTOTTONE BOOSTER" jar, caviar stock photo, benefit-claims chart, immune and fertility organ diagrams, one pregnancy image beside pills) | `tools/import-blog.mjs upload` | 19 files read back with their addresses | needs approval |
-| 3 | Create the nine posts with original slugs, dates, tags, pictures and Google fields | `tools/import-blog.mjs create` | Each opens at `/blogs/guides/<slug>` | needs approval |
+| 2 | Pictures: 19 of the 26 old post pictures kept; 7 left out (anaemia diagram, garbled "TESTOTTONE BOOSTER" jar, caviar stock photo, benefit-claims chart, immune and fertility organ diagrams, one pregnancy image beside pills) | `tools/import-blog.mjs upload` | 19 files read back with their addresses | done 2026-10-20 (owner: "Yes, publish all 9") |
+| 3 | Create the nine posts with original slugs, dates, tags, pictures and Google fields | `tools/import-blog.mjs create` | Each opens at `/blogs/guides/<slug>` | done 2026-10-20: 9 created and published; all 10 posts return 200 |
 | 4 | Article design without the shop box, for the pregnancy post | `templates/article.safety.json` | `?view=safety`: 0 shop boxes; precautions, contents, author and share stay | done |
 | 5 | Policy drafts | `_build/policies/shipping-policy.md`, `refund-policy.md`, `privacy-and-terms.md` | No bracketed gaps; facts match B4 and B9 | done; owner to confirm the money-back terms |
 | 6 | Put the policies in the store | none | Policy pages open | owner pastes, or approves the extra login permission |
@@ -75,3 +75,17 @@ Live recheck on 2026-10-20 of `https://xomoashro.com/blogs/`:
 - Lab reports (B3).
 - Reviews.
 - Store name and time zone: owner settings in Settings > General.
+
+## Import result (2026-10-20)
+
+- **Files:** 19 pictures uploaded to Shopify Files; their addresses are in `import/blog-import-log.json`.
+- **Posts:** 9 posts created and published (IDs in the same log).
+- **Blog page:** the guide is featured, with 9 cards and 6 topic links.
+- **Homepage:** the blog section now shows 3 posts.
+- **Each article:**
+  - one H1 and a contents list
+  - two shop boxes, none on the pregnancy post (design `safety`)
+  - related posts by topic
+  - no sideways scroll at 360px
+  - every picture loads
+- **Dates:** they show one day early because the store time zone is US Eastern (America/New_York). Setting it to Asia/Karachi in Settings > General fixes them.
