@@ -260,8 +260,11 @@
     inset-block-start: -1px;
   }
 
+  /* The bar lays itself out by its own width, so it switches to the compact
+     layout when the cart drawer narrows the page, not only on small screens. */
   .xo-header {
     display: block;
+    container: xo-header / inline-size;
     border-block-end: 1px solid transparent;
     transition: border-color var(--xo-duration) var(--xo-ease);
   }
@@ -376,7 +379,7 @@
     }
   }
 
-  @media (min-width: 990px) {
+  @container xo-header (min-width: 960px) {
     .xo-header__bar {
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
       column-gap: var(--xo-space-5);
@@ -432,7 +435,7 @@
   .xo-header__nav-list {
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 2vw, 2rem);
+    gap: clamp(1rem, 2cqi, 2rem);
     margin: 0;
     padding: 0;
     list-style: none;

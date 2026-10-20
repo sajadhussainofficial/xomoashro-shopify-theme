@@ -63,12 +63,12 @@
             "link_1_url": "/pages/about",
             "link_2_label": "Our source",
             "link_2_url": "/pages/our-source",
-            "link_3_label": "Questions",
-            "link_3_url": "/pages/contact#faq",
-            "link_4_label": "Contact",
-            "link_4_url": "/pages/contact",
-            "link_5_label": "",
-            "link_5_url": ""
+            "link_3_label": "Journal",
+            "link_3_url": "/blogs/journal",
+            "link_4_label": "Questions",
+            "link_4_url": "/pages/contact#faq",
+            "link_5_label": "Contact",
+            "link_5_url": "/pages/contact"
           }
         },
         "partners": {
