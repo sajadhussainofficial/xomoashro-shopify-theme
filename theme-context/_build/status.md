@@ -14,9 +14,9 @@ The single record of progress. The runner updates this file at the start and end
 | 8 | [P07](phases/P07-homepage.md) | Homepage | P02, P03, P05 | - | done | 2026-10-07 | 2026-10-07 | [report](reports/P07-report.md) |
 | 9 | [P08](phases/P08-product-page.md) | Product page | P02, P06, P01, P07 | B7 | done | 2026-10-15 | 2026-10-16 | [report](reports/P08-report.md) |
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | P02, P08 | - | done | 2026-10-16 | 2026-10-16 | [report](reports/P09-report.md) |
-| 11 | [P10](phases/P10-content-pages.md) | Content pages | P02, P07, P01 | - | awaiting merge | 2026-10-16 | 2026-10-16 | [report](reports/P10-report.md) |
-| 12 | [P11](phases/P11-blog-and-article.md) | Journal: blog and article | P02 | - | awaiting merge | 2026-10-20 | 2026-10-20 | [report](reports/P11-report.md) |
-| 13 | [P12](phases/P12-content-import.md) | Content import | P00, P01 | B7, B1, B2 | not started | | | |
+| 11 | [P10](phases/P10-content-pages.md) | Content pages | P02, P07, P01 | - | done | 2026-10-16 | 2026-10-16 | [report](reports/P10-report.md) |
+| 12 | [P11](phases/P11-blog-and-article.md) | Journal: blog and article | P02 | - | done | 2026-10-20 | 2026-10-20 | [report](reports/P11-report.md) |
+| 13 | [P12](phases/P12-content-import.md) | Content import | P00, P01 | B7 | in progress | 2026-10-20 | | |
 | 14 | [P13](phases/P13-promotional-popup.md) | Promotional popup | P02 | - | not started | | | |
 | 15 | [P14](phases/P14-whatsapp-widget.md) | WhatsApp chat widget | P02, P01 | - | not started | | | |
 | 16 | [P15](phases/P15-cookie-consent.md) | Cookie consent | P02, P05 | - | not started | | | |
@@ -26,9 +26,10 @@ The single record of progress. The runner updates this file at the start and end
 | 20 | [P21](phases/P21-speed-optimization.md) | Speed optimization | P07, P08, P09, P10, P11, P13, P14, P15 | B7 | not started | | | |
 | 21 | [P22](phases/P22-accessibility.md) | Accessibility | P07, P08, P09, P10, P11, P13, P14, P15 | - | not started | | | |
 | 22 | [P23](phases/P23-responsiveness.md) | Responsiveness | P07, P08, P09, P10, P11, P13, P14, P15 | - | not started | | | |
-| 23 | [P24](phases/P24-launch.md) | Final QA and launch | P12, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | not started | | | |
-| 24 | [P18](phases/P18-google-search-console.md) | Google Search Console | P20 | B13 | not started | | | |
-| 25 | [P19](phases/P19-bing-webmaster-tools.md) | Bing Webmaster Tools | P18 | B13 | not started | | | |
+| 23 | [P25](phases/P25-product-data.md) | Real product data | P08, P12 | B1, B2 | not started | | | |
+| 24 | [P24](phases/P24-launch.md) | Final QA and launch | P12, P25, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | not started | | | |
+| 25 | [P18](phases/P18-google-search-console.md) | Google Search Console | P20 | B13 | not started | | | |
+| 26 | [P19](phases/P19-bing-webmaster-tools.md) | Bing Webmaster Tools | P18 | B13 | not started | | | |
 
 ## Done before the phases
 
@@ -79,3 +80,5 @@ Newest first. One line per event: date, phase, what happened.
 - 2026-10-16 Live theme updated at the owner's request ("Now i want you update the live theme"). Read-only check first: none of the 17 live JSON files had Theme Editor edits. Backup "Backup before P06-P10 (2026-10-16)" #158989385900 created, then branch `phase/P10-content-pages` pushed to the live theme #158632640684 with `--allow-live --nodelete` in two passes. Verified: 147 of 147 compared files identical on live; the live stylesheet contains the menu hover fix. Found: on a development-plan store Shopify shows its own password screen, so the branded coming-soon page appears only on a paid plan.
 - 2026-10-20 P11 started on branch `phase/P11-blog-and-article`, created from `phase/P10-content-pages` (P10 not merged yet; both edit the locale files). The owner did not answer whether to create the Journal blog and a test article, so no store writes for now; the listing is previewed on the existing empty "News" blog.
 - 2026-10-20 P11 built. At the owner's request the blog is called "Blog" and is linked from the header menu and the footer. With the owner's approval: the empty "News" blog renamed to "Blog" at `/blogs/guides` (Shopify requires `/blogs/`), the first post "What is shilajit?" published, "Blog" added to the Main menu (old menu in `store-setup/main-menu-before-p11.json`), and a `/blog` redirect created. Fixed the shop box inside articles (theme blocks do not expose their settings to the section) and the header squeezing the logo while the cart drawer is open. Rich Results Test (code): Article and Breadcrumbs valid. Found: the store's time zone is US Eastern.
+- 2026-10-20 P10 and P11 merged by the owner in one pull request (#13; P11 was built on P10). P12 started on branch `phase/P12-content-import`; analysis first, at the owner's request, before any store write.
+- 2026-10-20 Owner answers for P12: product facts later, in a new last phase before launch (P25 created; B1, B2 deferred); rewrite all nine remaining posts and keep "What is shilajit?" as it is (B24); shipping and returns on the recommended terms (B9); use all three jar designs (B18).

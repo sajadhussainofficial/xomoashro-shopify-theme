@@ -1,0 +1,14 @@
+query BlogArticles($id: ID!) {
+  blog(id: $id) {
+    handle
+    articles(first: 50) {
+      nodes {
+        id
+        handle
+        title
+        isPublished
+        templateSuffix
+      }
+    }
+  }
+}

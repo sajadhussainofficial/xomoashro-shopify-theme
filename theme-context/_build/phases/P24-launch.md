@@ -8,7 +8,7 @@ Final checks, clean-up of unused stock code, go-live on the domain, redirects, a
 
 ## Dependencies
 
-- **Needs finished first:** [P12](P12-content-import.md) Content import, [P20](P20-technical-seo.md) Technical SEO, [P21](P21-speed-optimization.md) Speed optimization, [P22](P22-accessibility.md) Accessibility, [P23](P23-responsiveness.md) Responsiveness, [P16](P16-google-tag-manager.md) Google Tag Manager, [P17](P17-google-analytics-4.md) Google Analytics 4.
+- **Needs finished first:** [P12](P12-content-import.md) Content import, [P25](P25-product-data.md) Real product data, [P20](P20-technical-seo.md) Technical SEO, [P21](P21-speed-optimization.md) Speed optimization, [P22](P22-accessibility.md) Accessibility, [P23](P23-responsiveness.md) Responsiveness, [P16](P16-google-tag-manager.md) Google Tag Manager, [P17](P17-google-analytics-4.md) Google Analytics 4.
 - **Unblocks:** nothing further.
 
 ## Decisions needed from the owner

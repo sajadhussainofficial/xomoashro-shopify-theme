@@ -70,6 +70,7 @@ Standing instruction from the owner (2026-10-06): every phase ends with commit, 
 3. **No write access from the command line:** commit, set the phase to `awaiting merge`, and hand the owner the pull request title and description. The owner pushes, opens and merges, then pulls `main`. (On 2026-10-06 the command-line GitHub account `zeshan-rx` was not a collaborator on the repository; the owner pushes through GitHub Desktop.)
 4. **Theme commands read `shopify.theme.toml`** (one in the repository root, one in `xomoashro-them/`). Their `default` environment sets the store, the theme path and `nodelete = true`, so `shopify theme dev` works from either folder. Without that file, a dev server started from the root saw no theme files and deleted the development theme's files (2026-10-06, twice). Do not remove or rename the file; real deletions happen deliberately at launch.
 5. **After any merge, pull or branch switch,** check the local preview. If pages return 404 or 502, re-upload the theme to the development theme (`shopify theme push --theme <development theme id>`) or restart `shopify theme dev`.
+6. **"fetch failed" or "Failed to render storefront … 502" now and then** is a network problem on the owner's machine, not the theme: IPv6 to Shopify never connects there, and Node gives up on IPv4 after 250 ms. Start Shopify CLI commands with `NODE_OPTIONS="--network-family-autoselection-attempt-timeout=2000"` (found 2026-10-20).
 
 ### Report format
 
@@ -180,7 +181,7 @@ Recommended order top to bottom. Each row links to the phase file.
 | 10 | [P09](phases/P09-collection-search-and-utility-pages.md) | Collection, search and utility pages | Storefront | P02, P08 | - | - |
 | 11 | [P10](phases/P10-content-pages.md) | Content pages | Storefront | P02, P07, P01 | - | B3, B4, B6 |
 | 12 | [P11](phases/P11-blog-and-article.md) | Journal: blog and article | Storefront | P02 | - | - |
-| 13 | [P12](phases/P12-content-import.md) | Content import | Storefront | P00, P01 | B7, B1, B2 | B9, B18 |
+| 13 | [P12](phases/P12-content-import.md) | Content import | Storefront | P00, P01 | B7 | B9, B18 |
 | 14 | [P13](phases/P13-promotional-popup.md) | Promotional popup | Interactive features | P02 | - | B11 |
 | 15 | [P14](phases/P14-whatsapp-widget.md) | WhatsApp chat widget | Interactive features | P02, P01 | - | B4 |
 | 16 | [P15](phases/P15-cookie-consent.md) | Cookie consent | Interactive features | P02, P05 | - | B14, B7 |
@@ -190,12 +191,14 @@ Recommended order top to bottom. Each row links to the phase file.
 | 20 | [P21](phases/P21-speed-optimization.md) | Speed optimization | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | B7 | - |
 | 21 | [P22](phases/P22-accessibility.md) | Accessibility | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | - | - |
 | 22 | [P23](phases/P23-responsiveness.md) | Responsiveness | Quality | P07, P08, P09, P10, P11, P13, P14, P15 | - | - |
-| 23 | [P24](phases/P24-launch.md) | Final QA and launch | Launch | P12, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | B3, B20 |
-| 24 | [P18](phases/P18-google-search-console.md) | Google Search Console | Marketing and measurement | P20 | B13 | - |
-| 25 | [P19](phases/P19-bing-webmaster-tools.md) | Bing Webmaster Tools | Marketing and measurement | P18 | B13 | - |
+| 23 | [P25](phases/P25-product-data.md) | Real product data | Storefront | P08, P12 | B1, B2 | B3, B4 |
+| 24 | [P24](phases/P24-launch.md) | Final QA and launch | Launch | P12, P25, P20, P21, P22, P23, P16, P17 | B13, B7, B1, B4, B9 | B3, B20 |
+| 25 | [P18](phases/P18-google-search-console.md) | Google Search Console | Marketing and measurement | P20 | B13 | - |
+| 26 | [P19](phases/P19-bing-webmaster-tools.md) | Bing Webmaster Tools | Marketing and measurement | P18 | B13 | - |
 
 Notes on the order:
 
+- **P25 was added on 2026-10-20** at the owner's request: the real product data arrives last, so it runs just before launch.
 - **Phase numbers are names, not the order.** P01 runs sixth because it needs the store; P18 and P19 run around launch because they need the live domain.
 - **P18 straddles launch.** Its "before launch" tasks (DNS verification, baseline export) run before P24; the rest run after the site is live.
 - **Phases that can run in any order once P02 is done:** P03, P04, P05, P11, P13. If the recommended one is blocked, these are the usual substitutes.

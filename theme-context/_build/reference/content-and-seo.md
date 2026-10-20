@@ -35,7 +35,7 @@ Reference for content, import and SEO phases.
 
 Sections in the prompt with **no source content**: results-timeline, lab-proof, purity-test, comparison-table, how-to-use steps. They are built with conservative draft copy marked `{{TODO: confirm}}` and listed in each phase report.
 
-**Redirect map** (becomes `redirects.csv`). Blog handle is `journal`; post slugs are kept unchanged.
+**Redirect map** (becomes `redirects.csv`). Blog handle is `guides` (shown as "Blog"; changed from `journal` in P11 at the owner's request); post slugs are kept unchanged.
 
 | Old path | New path |
 |---|---|
@@ -44,7 +44,7 @@ Sections in the prompt with **no source content**: results-timeline, lab-proof, 
 | `/about-us/` | `/pages/about` |
 | `/benefits/` | `/products/pure-himalayan-aftabi-shilajit` |
 | `/contact-us/` | `/pages/contact` |
-| `/blogs/` | `/blogs/journal` |
+| `/blogs/` | `/blogs/guides` |
 | `/become-distributor/` | `/pages/wholesale` |
 | `/become-brand-ambassadar/` | `/pages/ambassador` |
 | `/affiliate-dashboard/`, `/affiliate-registration/`, `/affiliate-account/`, `/affiliate-reset-password/` | `/pages/affiliate` |
