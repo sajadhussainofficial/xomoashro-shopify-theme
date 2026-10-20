@@ -48,15 +48,26 @@ All nine also get:
 
 ## Tasks
 
+Owner answers on 2026-10-20:
+- **Product:** facts later, so the product moves to the new last phase, P25.
+- **Posts:** rewrite all nine and keep "What is shilajit?" as it is.
+- **Shipping and returns:** use the recommended terms.
+- **Jars:** use all three jar designs (in P25).
+
+Live recheck on 2026-10-20 of `https://xomoashro.com/blogs/`:
+- **Posts:** the same 10, and the text matches the capture. Nine were last edited on 2025-03-15 and the main guide on 2026-06-19.
+- **Found:** the live site's SSL certificate expired on 7 October 2026, so browsers show a warning.
+
 | # | Task | Files | Check | Status |
 |---|---|---|---|---|
-| 1 | Clean the nine posts into import files | `_build/blog-import/*.md` | Fixes applied; headings H2/H3 only; no sidebar text; word count close to the source | to do |
-| 2 | Upload the post images to Shopify Files | `_build/import/import-log.md` | 25 files read back with their addresses | needs approval |
-| 3 | Create the posts with original slugs, dates, tags, images and Google fields: 1 published, 8 hidden | `_build/import/article-*.json` | Each opens at `/blogs/guides/<slug>`; hidden ones only after approval | needs approval |
-| 4 | Real product: build the import from the owner's answers, show it, then create it; point the homepage bundles and the cart suggestion at it; then retire the TEST product | `_build/products-import.csv` or `_build/import/product-set.json` | Product page shows real data and adds to cart | waits for B1, B2 |
-| 5 | Write the four policies with no bracketed gaps | `_build/policies/*.md` | No "[ ]" left; facts match B4 and B9 | waits for B9 (returns, fee) |
-| 6 | Put the policies in the store: the owner pastes them, or a new login with the policy permission | none | Policy pages open | needs approval |
-| 7 | Read everything back and record it | `_build/import/import-log.md` | Every item ticked | to do |
+| 1 | Rewrite the nine posts from the captured text: honest wording, real sources, H2/H3 only, no sidebar text | `_build/blog-import/*.md` | 684 to 967 words each; links resolve; every Google title 60 characters or fewer; six studies checked against their abstracts | done |
+| 2 | Pictures: 19 of the 26 old post pictures kept; 7 left out (anaemia diagram, garbled "TESTOTTONE BOOSTER" jar, caviar stock photo, benefit-claims chart, immune and fertility organ diagrams, one pregnancy image beside pills) | `tools/import-blog.mjs upload` | 19 files read back with their addresses | needs approval |
+| 3 | Create the nine posts with original slugs, dates, tags, pictures and Google fields | `tools/import-blog.mjs create` | Each opens at `/blogs/guides/<slug>` | needs approval |
+| 4 | Article design without the shop box, for the pregnancy post | `templates/article.safety.json` | `?view=safety`: 0 shop boxes; precautions, contents, author and share stay | done |
+| 5 | Policy drafts | `_build/policies/shipping-policy.md`, `refund-policy.md`, `privacy-and-terms.md` | No bracketed gaps; facts match B4 and B9 | done; owner to confirm the money-back terms |
+| 6 | Put the policies in the store | none | Policy pages open | owner pastes, or approves the extra login permission |
+| 7 | Read everything back and record it | `_build/import/blog-import-log.json`, report | Every item ticked | to do |
+| - | Real product | moved to P25 | | moved |
 
 ## Not in this phase
 

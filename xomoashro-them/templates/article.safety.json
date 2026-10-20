@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "xo-main-article",
+      "blocks": {
+        "toc": {
+          "type": "xo-article-toc",
+          "static": true,
+          "settings": {
+            "heading": "On this page",
+            "min_headings": 2
+          }
+        },
+        "cta": {
+          "type": "xo-article-product-cta",
+          "static": true,
+          "settings": {
+            "eyebrow": "From the Himalayas",
+            "heading": "Try pure Himalayan shilajit",
+            "text": "100% resin from Chitral and Gilgit-Baltistan. Pay in cash when it arrives.",
+            "button_label": "Shop Shilajit",
+            "after_paragraph": 0,
+            "show_at_end": false
+          }
+        },
+        "author": {
+          "type": "xo-author-box",
+          "settings": {
+            "name": "",
+            "role": "Xomoashro team",
+            "bio": "<p>We write these guides to help you choose and use shilajit with care. Our shilajit comes from Chitral and Gilgit-Baltistan.</p>",
+            "link_label": "About us",
+            "link": "/pages/about"
+          }
+        },
+        "share": {
+          "type": "xo-article-share",
+          "settings": {
+            "heading": "Share this guide",
+            "show_whatsapp": true,
+            "show_facebook": true,
+            "show_x": false,
+            "show_copy": true
+          }
+        }
+      },
+      "block_order": [
+        "author",
+        "share"
+      ],
+      "settings": {
+        "tone": "bone",
+        "show_breadcrumb": true,
+        "show_author": true,
+        "show_image": true,
+        "publisher": "Xomoashro",
+        "show_precautions": true,
+        "precautions_tag": "",
+        "precautions_heading": "Before you take shilajit",
+        "precautions_text": "<p>Shilajit is a food supplement, not a medicine, and is not intended to diagnose, treat, cure or prevent any disease.</p><ul><li>Speak to your doctor before use if you are pregnant, breastfeeding, taking medication or have a health condition.</li><li>Start with a small amount and keep to the amount on the label.</li><li>Stop and speak to your doctor if you feel unwell.</li></ul>",
+        "show_related": true,
+        "related_heading": "Keep reading",
+        "show_comments": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

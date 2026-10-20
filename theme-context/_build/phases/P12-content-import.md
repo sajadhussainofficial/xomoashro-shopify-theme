@@ -18,8 +18,6 @@ Ask the open ones before creating tasks. A **hard** decision stops the phase (or
 | ID | Question | Type | If unanswered |
 |---|---|---|---|
 | B7 | Shopify store domain (`*.myshopify.com`) and Shopify CLI login on this machine. | hard | Phase waits. |
-| B1 | Product price(s) in PKR, SKU, net weight, real compare-at price if any, and the full product description. | hard | Phase waits. |
-| B2 | Which sizes are sold: (a) 30g only, offered as 1, 2 or 3 jar packs; (b) 10g, 20g, 60g; (c) another set. | hard | Phase waits. |
 | B9 | Shipping facts: delivery time in days, shipping fee, free-delivery threshold, return terms. | soft | Progress bar and delivery estimate hidden; policies keep marked placeholders (blocks launch). |
 | B18 | Which jar is the current packaging: black lid with copper logo, gold lid, or the green jar? | soft | Black-lid jar, because it is the one on the old live site. |
 
@@ -48,7 +46,7 @@ Expand these into `tasks/P12-tasks.md` at phase start (one task per file or per 
 
 1. Images and posts can start before B1 and B2 are answered; only the product import waits for them.
 2. Upload section and brand images from `images-optimized/` to Shopify Files; record each returned file reference in `import-log.md`; then replace placeholders in `templates/*.json` with `shopify://shop_images/<name>`.
-3. Build `products-import.csv` from the owner's answers (title, description, variants, prices, SKU, weight, images, SEO title and description, metafields). Handle: `pure-himalayan-aftabi-shilajit`. Show it for approval, then import.
+3. Moved to [P25](P25-product-data.md) on 2026-10-20 (owner). Was: build `products-import.csv` from the owner's answers (title, description, variants, prices, SKU, weight, images, SEO title and description, metafields). Handle: `pure-himalayan-aftabi-shilajit`. Show it for approval, then import.
 4. Create the `journal` blog and import the ten posts with their original slugs, dates, tags, featured images, excerpts and SEO fields, bodies corrected per `content-fixes.md`. Flag the pregnancy and testosterone posts for owner review before publishing.
 5. Create pages with their template suffixes (about, our-source, how-to-use, lab-reports, wholesale, ambassador, affiliate, track-order, contact).
 6. Write the three policies without template placeholders and paste them into Settings > Policies after owner approval.
@@ -66,7 +64,6 @@ Expand these into `tasks/P12-tasks.md` at phase start (one task per file or per 
 
 The phase is done only when every line is verified and the evidence (command output, screenshot path, URL) is in the report.
 
-- [ ] Product page shows real data and can be added to cart.
 - [ ] All ten posts open at `/blogs/guides/<old-slug>` (blog renamed in P11 at the owner's request).
 - [ ] No template still references a placeholder image.
 - [ ] Policies contain no bracketed placeholders.
