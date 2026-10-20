@@ -67,7 +67,7 @@ Expand these into `tasks/P12-tasks.md` at phase start (one task per file or per 
 The phase is done only when every line is verified and the evidence (command output, screenshot path, URL) is in the report.
 
 - [ ] Product page shows real data and can be added to cart.
-- [ ] All ten posts open at `/blogs/journal/<old-slug>`.
+- [ ] All ten posts open at `/blogs/guides/<old-slug>` (blog renamed in P11 at the owner's request).
 - [ ] No template still references a placeholder image.
 - [ ] Policies contain no bracketed placeholders.
 
