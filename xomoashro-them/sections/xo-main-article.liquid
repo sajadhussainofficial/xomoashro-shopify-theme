@@ -1,19 +1,25 @@
+{%- comment -%}
+  The shop box is a static block. Its output is split at a marker that carries the
+  paragraph number: the first part goes inside the article, the rest at the end.
+  (Theme blocks in section.blocks expose neither their type nor their settings.)
+{%- endcomment -%}
 {%- liquid
   assign s = section.settings
 
+  capture xo_cta
+    content_for 'block', type: 'xo-article-product-cta', id: 'cta'
+  endcapture
+  assign xo_cta_parts = xo_cta | split: '<!--xo-acta-split:'
   assign xo_cta_inline = ''
   assign xo_cta_after = 0
-  for block in section.blocks
-    if block.type == 'xo-article-product-cta'
-      if block.settings.after_paragraph > 0
-        capture xo_cta_inline
-          render 'xo-article-cta', settings: block.settings, placement: 'inline'
-        endcapture
-        assign xo_cta_after = block.settings.after_paragraph
-      endif
-      break
-    endif
-  endfor
+  assign xo_cta_end = xo_cta
+  if xo_cta_parts.size == 2
+    assign xo_cta_inline = xo_cta_parts | first
+    assign xo_cta_tail = xo_cta_parts | last
+    assign xo_cta_after_text = xo_cta_tail | split: '-->' | first
+    assign xo_cta_after = xo_cta_after_text | plus: 0
+    assign xo_cta_end = xo_cta_tail | remove_first: xo_cta_after_text | remove_first: '-->'
+  endif
 
   capture xo_body
     render 'xo-article-headings', content: article.content, insert: xo_cta_inline, insert_after: xo_cta_after
@@ -123,6 +129,7 @@
         {%- endif -%}
 
         <div class="xo-article__blocks">
+          {{- xo_cta_end -}}
           {% content_for 'blocks' %}
         </div>
 
@@ -602,7 +609,6 @@
   "class": "xo-main-article-section",
   "disabled_on": { "groups": ["header", "footer"] },
   "blocks": [
-    { "type": "xo-article-product-cta" },
     { "type": "xo-author-box" },
     { "type": "xo-article-share" },
     { "type": "@app" }

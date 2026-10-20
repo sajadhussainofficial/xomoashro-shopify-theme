@@ -5,7 +5,7 @@
   if collections.all.products_count == 1
     assign xo_shop_url = collections.all.products.first.url
   endif
-  assign xo_journal_url = blogs.journal.url | default: blogs.news.url
+  assign xo_journal_url = blogs.guides.url | default: blogs.news.url
 -%}
 
 <div class="xo-search xo-section xo-section--tight xo-tone-{{ s.tone }}">
@@ -267,7 +267,7 @@
       "type": "text",
       "id": "empty_text",
       "label": "t:xo.labels.empty_text",
-      "default": "Try another word, or start with our shilajit and the journal."
+      "default": "Try another word, or start with our shilajit and the blog."
     },
     {
       "type": "range",

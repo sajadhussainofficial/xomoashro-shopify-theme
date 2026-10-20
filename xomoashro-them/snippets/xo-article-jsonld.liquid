@@ -15,8 +15,8 @@
   assign xo_url = xo_origin | append: article.url
   assign xo_publisher = publisher | default: 'Xomoashro'
   assign xo_author = article.author | default: xo_publisher
-  assign xo_description = article.excerpt_or_content | strip_html | strip_newlines | strip | truncate: 300
-  assign xo_words = article.content | strip_html | strip_newlines | split: ' ' | size
+  assign xo_description = article.excerpt_or_content | strip_html | split: ' ' | join: ' ' | truncate: 300
+  assign xo_words = article.content | replace: '<', ' <' | strip_html | split: ' ' | size
   if settings.logo != blank
     assign xo_logo = settings.logo | image_url: width: 600 | prepend: 'https:'
   else

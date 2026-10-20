@@ -22,6 +22,7 @@
         },
         "cta": {
           "type": "xo-article-product-cta",
+          "static": true,
           "settings": {
             "eyebrow": "From the Himalayas",
             "heading": "Try pure Himalayan shilajit",
@@ -53,7 +54,6 @@
         }
       },
       "block_order": [
-        "cta",
         "author",
         "share"
       ],

@@ -73,11 +73,11 @@
         "other": "{{ count }} results"
       },
       "products": "Products",
-      "articles_pages": "Journal and pages",
-      "type_article": "Journal",
+      "articles_pages": "Blog and pages",
+      "type_article": "Blog",
       "type_page": "Page",
       "none": "Nothing matched “{{ terms }}”.",
-      "read_journal": "Read the journal"
+      "read_journal": "Read the blog"
     },
     "pagination": {
       "label": "Pages",
@@ -231,7 +231,7 @@
       },
       "topics": "Topics",
       "all_topics": "All",
-      "cta_inline_only": "This shop box shows inside the article only (after the paragraph set below). Tick \"Also show at the end\" to show it here too.",
+      "cta_hidden": "The shop box is hidden. Choose a paragraph number or tick \"Also show at the end\".",
       "toc_note": "The table of contents appears when the article has at least two H2 headings.",
       "written_by": "Written by",
       "link_copied": "Link copied",

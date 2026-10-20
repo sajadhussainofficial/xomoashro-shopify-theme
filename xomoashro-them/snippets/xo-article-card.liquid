@@ -60,7 +60,7 @@
       <a href="{{ article.url }}">{{ article.title | escape }}</a>
     </{{ xo_heading }}>
     {%- if xo_layout == 'feature' -%}
-      {%- assign xo_excerpt = article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 34 -%}
+      {%- assign xo_excerpt = article.excerpt_or_content | strip_html | split: ' ' | join: ' ' | truncatewords: 34 -%}
       {%- if xo_excerpt != blank -%}
         <p class="xo-acard__excerpt">{{ xo_excerpt }}</p>
       {%- endif -%}
